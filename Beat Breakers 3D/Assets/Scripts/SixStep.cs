@@ -12,21 +12,21 @@ public class SixStep : MonoBehaviour
     public GameObject grid;
     public GameObject enemy;
     private bool onCoolDown = false;
-	public GameObject attackSprite;
+	public GameObject attackHitbox;
 	public int player;
 	private string leftBumper;
 
 	private Text cooldownText;
-	public GameObject playerHUD;
+	public GameObject CooldownTimer;
 	private int cooldownCount;
 	private float bpm;
-	public GameObject moveButton;
+	public GameObject SixstepIcon;
 
     // Use this for initialization
     void Start()
     {
 		bpm = grid.GetComponent<BeatKeeper> ().getBPM ();
-		attackSprite.GetComponent<SpriteRenderer> ().enabled = false;
+		attackHitbox.GetComponent<MeshRenderer> ().enabled = false;
         damage = 1;
         cooldown = 4;
 		if (player == 1) {
@@ -34,7 +34,7 @@ public class SixStep : MonoBehaviour
 		} else if (player == 2) {
 			leftBumper = "LeftBumper2";
 		}
-		cooldownText = playerHUD.GetComponent<Text> ();
+		cooldownText = CooldownTimer.GetComponent<Text> ();
 		cooldownCount = cooldown * 2;
     }
 
@@ -72,23 +72,23 @@ public class SixStep : MonoBehaviour
 
     IEnumerator CoolDown()
     {
-		attackSprite.GetComponent<SpriteRenderer> ().enabled = true;
+		attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
         onCoolDown = true;
 		yield return new WaitForSeconds (.2f);
-		attackSprite.GetComponent<SpriteRenderer> ().enabled = false;
+		attackHitbox.GetComponent<MeshRenderer> ().enabled = false;
         yield return new WaitForSeconds(cooldown - .2f);
         onCoolDown = false;
     }
 
 	IEnumerator CoolDownDisplay()
 	{
-		moveButton.GetComponent<Image> ().color = Color.grey;
+		SixstepIcon.GetComponent<Image> ().color = Color.grey;
 		while (cooldownCount > 0) {
 			cooldownText.text = cooldownCount.ToString();
 			yield return new WaitForSeconds (60f / bpm);
 			cooldownCount -= 1;
 		}
-		moveButton.GetComponent<Image> ().color = Color.white;
+		SixstepIcon.GetComponent<Image> ().color = Color.white;
 		cooldownText.text = "";
 		cooldownCount = cooldown * 2;
 	}

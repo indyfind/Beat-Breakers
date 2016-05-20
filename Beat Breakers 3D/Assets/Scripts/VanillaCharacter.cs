@@ -24,13 +24,14 @@ public class VanillaCharacter : MonoBehaviour {
 	void Update () {
 		//update HUD to reflect current health
 		healthSlider.value = health;
+		Debug.Log (health);
 		if (health <= 0) {
 			if (color == "red") {
 				playerWins.text = "Player 2 Wins!";
 			} else {
 				playerWins.text = "Player 1 Wins!";
 			}
-			this.GetComponent<SpriteRenderer>().enabled = false;
+			this.GetComponent<MeshRenderer>().enabled = false;
 			StartCoroutine(End());
 		}
     }
@@ -46,7 +47,7 @@ public class VanillaCharacter : MonoBehaviour {
 	{
 		tripped = true;
 		//change color to black to show player is tripped
-		gameObject.GetComponent<SpriteRenderer> ().color = Color.black;
+		//gameObject.GetComponent<MeshRenderer> ().color = Color.black;
 		//use Coroutine to count down the time tripped
 		StartCoroutine (TimeTripped (time));
 	}
@@ -56,11 +57,11 @@ public class VanillaCharacter : MonoBehaviour {
 		yield return new WaitForSeconds (time);
 		tripped = false;
 		//change color back to original
-		if (color == "red") {
-			gameObject.GetComponent<SpriteRenderer> ().color = Color.red;
-		} else if (color == "white") {
-			gameObject.GetComponent<SpriteRenderer> ().color = Color.white;
-		}
+//		if (color == "red") {
+//			gameObject.GetComponent<MeshRenderer> ().color = Color.red;
+//		} else if (color == "white") {
+//			gameObject.GetComponent<MeshRenderer> ().color = Color.white;
+//		}
 	}
 
 	//Checks if player can move based on current effects (tripped, already moved, etc.)

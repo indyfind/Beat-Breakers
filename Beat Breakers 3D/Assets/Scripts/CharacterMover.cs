@@ -32,7 +32,7 @@ public class CharacterMover : MonoBehaviour {
 			joystickX = "JoystickX2";
 			joystickY = "JoystickY2";
 		}
-}
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -97,6 +97,7 @@ public class CharacterMover : MonoBehaviour {
              
             t += Time.deltaTime / timeToMove;
             transform.position = Vector3.Lerp(currentPos, destination, t);
+			//this.transform.localEulerAngles = new Vector3 (0, 30, 0);
             yield return null;
         }
     }
