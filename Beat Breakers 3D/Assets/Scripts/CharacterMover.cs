@@ -42,6 +42,7 @@ public class CharacterMover : MonoBehaviour {
 		if ((Input.GetKeyDown(up) || Input.GetAxisRaw (joystickY) < 0f) && yposition > 0 && onb && canMove)
         {
             yposition -= 1;
+			this.transform.localEulerAngles = (new Vector3 (0, -90, 0));
 			destination = new Vector3 (grid.GetComponent<GridMaster>().getPosition(xposition, yposition).x, 1f, grid.GetComponent<GridMaster>().getPosition(xposition, yposition).y);
             StartCoroutine(MoveToPosition(.2f));
 			GetComponent<VanillaCharacter>().actionTaken = true; //action has been taken, so no more moves/attacks for this beat
@@ -50,6 +51,7 @@ public class CharacterMover : MonoBehaviour {
 		else if ((Input.GetKeyDown(down) || Input.GetAxisRaw (joystickY) > 0f) && yposition < 6 && onb && canMove) 
         {
             yposition += 1;
+			this.transform.localEulerAngles = (new Vector3 (0, 90, 0));
 			destination = new Vector3 (grid.GetComponent<GridMaster>().getPosition(xposition, yposition).x, 1f, grid.GetComponent<GridMaster>().getPosition(xposition, yposition).y);
             StartCoroutine(MoveToPosition(.2f));
 			GetComponent<VanillaCharacter>().actionTaken = true;
@@ -58,6 +60,7 @@ public class CharacterMover : MonoBehaviour {
 		else if ((Input.GetKeyDown(right) || Input.GetAxisRaw (joystickX) > 0f) && xposition < 6 && onb && canMove)
         {
             xposition += 1;
+			this.transform.localEulerAngles = (new Vector3 (0, 0, 0));
 			destination = new Vector3 (grid.GetComponent<GridMaster>().getPosition(xposition, yposition).x, 1f, grid.GetComponent<GridMaster>().getPosition(xposition, yposition).y);
             StartCoroutine(MoveToPosition(.2f));
 			GetComponent<VanillaCharacter>().actionTaken = true;
@@ -66,6 +69,7 @@ public class CharacterMover : MonoBehaviour {
 		else if ((Input.GetKeyDown(left) || Input.GetAxisRaw (joystickX) < 0f) && xposition > 0 && onb && canMove)
         {
             xposition -= 1;
+			this.transform.localEulerAngles = (new Vector3 (0, 180, 0));
 			destination = new Vector3 (grid.GetComponent<GridMaster>().getPosition(xposition, yposition).x, 1f, grid.GetComponent<GridMaster>().getPosition(xposition, yposition).y);
             StartCoroutine(MoveToPosition(.2f));
 			GetComponent<VanillaCharacter>().actionTaken = true;

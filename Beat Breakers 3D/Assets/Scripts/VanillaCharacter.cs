@@ -24,7 +24,6 @@ public class VanillaCharacter : MonoBehaviour {
 	void Update () {
 		//update HUD to reflect current health
 		healthSlider.value = health;
-		Debug.Log (health);
 		if (health <= 0) {
 			if (color == "red") {
 				playerWins.text = "Player 2 Wins!";
