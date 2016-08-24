@@ -8,7 +8,6 @@ public class SixStep : MonoBehaviour
 	private int cooldown;
 	private int damage;
     public KeyCode key;
-    public string attacktype { get; set; }
     public GameObject grid;
     public GameObject enemy;
     private bool onCoolDown = false;
@@ -20,7 +19,7 @@ public class SixStep : MonoBehaviour
 	public GameObject CooldownTimer;
 	private int cooldownCount;
 	private float bpm;
-	public GameObject SixstepIcon;
+	public GameObject HUDIcon;
 
     // Use this for initialization
     void Start()
@@ -57,7 +56,7 @@ public class SixStep : MonoBehaviour
     {
         Vector2 currentpos = GetComponent<CharacterMover>().getposition();
         Vector2 enemypos = enemy.GetComponent<CharacterMover>().getposition();
-
+		attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
         if (enemypos.x == currentpos.x || enemypos.x == currentpos.x + 1 || enemypos.x == currentpos.x - 1)
         {
 
@@ -72,7 +71,6 @@ public class SixStep : MonoBehaviour
 
     IEnumerator CoolDown()
     {
-		attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
         onCoolDown = true;
 		yield return new WaitForSeconds (.2f);
 		attackHitbox.GetComponent<MeshRenderer> ().enabled = false;
@@ -82,13 +80,13 @@ public class SixStep : MonoBehaviour
 
 	IEnumerator CoolDownDisplay()
 	{
-		SixstepIcon.GetComponent<Image> ().color = Color.grey;
+		HUDIcon.GetComponent<Image> ().color = Color.grey;
 		while (cooldownCount > 0) {
 			cooldownText.text = cooldownCount.ToString();
 			yield return new WaitForSeconds (60f / bpm);
 			cooldownCount -= 1;
 		}
-		SixstepIcon.GetComponent<Image> ().color = Color.white;
+		HUDIcon.GetComponent<Image> ().color = Color.white;
 		cooldownText.text = "";
 		cooldownCount = cooldown * 2;
 	}
