@@ -4,33 +4,27 @@ using UnityEngine.UI;
 
 public class HeadSlide : MonoBehaviour
 {
-	
-	public int cooldown { get; set; }
-	public int damage { get; set; }
-	//public KeyCode key;
-	public string attacktype { get; set; }
 	public GameObject grid;
 	public GameObject enemy;
+	public GameObject attackHitbox;
+	private int cooldown;
+	private int damage;
+	//public KeyCode key;
 	private bool onCoolDown = false;
-	//public GameObject attackSprite;
-	private Vector3 dest;
 	public int player;
+	private string rightBumper;
+
+	//public string attacktype { get; set; }
+	private Vector3 dest;
 	private string direction;
-	private string aButton;
-	private string bButton;
-	private string xButton;
-	private string yButton;
+	private string joystickX;
+	private string joystickY;
 
 	private int cooldownCount;
 	private Text cooldownText;
-	public GameObject playerHUD;
+	public GameObject cooldownTimer;
 	private float bpm;
-	public GameObject moveButton;
-
-	public GameObject attackSpriteUp;
-	public GameObject attackSpriteDown;
-	public GameObject attackSpriteLeft;
-	public GameObject attackSpriteRight;
+	public GameObject HUDIcon;
 
 	// Use this for initialization
 	void Start()
@@ -38,18 +32,15 @@ public class HeadSlide : MonoBehaviour
 		bpm = grid.GetComponent<BeatKeeper> ().getBPM ();
 		this.damage = 1;
 		this.cooldown = 8;
+		//Assign correct controller inputs based on which player it is
 		if (player == 1) {
-			aButton = "A1";
-			bButton = "B1";
-			xButton = "X1";
-			yButton = "Y1";
-		} else if (player == 2) {
-			aButton = "A2";
-			bButton = "B2";
-			xButton = "X2";
-			yButton = "Y2";
+			joystickX = "RightJoystickX1";
+			joystickY = "RightJoystickY1";
+		} else {
+			joystickX = "RightJoystickX2";
+			joystickY = "RightJoystickY2";
 		}
-		cooldownText = playerHUD.GetComponent<Text> ();
+		cooldownText = cooldownTimer.GetComponent<Text> ();
 		cooldownCount = cooldown * 2;
 	}
 	
@@ -58,31 +49,31 @@ public class HeadSlide : MonoBehaviour
 	{
 		bool onb = grid.GetComponent<BeatKeeper>().checkifonbeat();
 		bool canMove = GetComponent<VanillaCharacter> ().canMove ();
-		if (Input.GetButtonDown(bButton) && onb && canMove && onCoolDown == false) {
+		if ((Input.GetAxisRaw (joystickX) > 0f) && onb && canMove && onCoolDown == false) {
 			direction = "right";
 			onCoolDown = true;
-			attackSpriteRight.GetComponent<SpriteRenderer> ().enabled = true;
+			attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
 			Attack (direction);
 			StartCoroutine (CoolDown ());
 		} 
-		if (Input.GetButtonDown(xButton) && onb && canMove && onCoolDown == false) {
+		if ((Input.GetAxisRaw (joystickX) < 0f) && onb && canMove && onCoolDown == false) {
 			direction = "left";
 			onCoolDown = true;
-			attackSpriteLeft.GetComponent<SpriteRenderer> ().enabled = true;
+			attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
 			Attack (direction);
 			StartCoroutine (CoolDown ());
 		}
-		if (Input.GetButtonDown(yButton) && onb && canMove && onCoolDown == false) {
+		if ((Input.GetAxisRaw (joystickY) < 0f) && onb && canMove && onCoolDown == false) {
 			direction = "up";
 			onCoolDown = true;
-			attackSpriteUp.GetComponent<SpriteRenderer> ().enabled = true;
+			attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
 			Attack (direction);
 			StartCoroutine (CoolDown ());
 		}
-		if (Input.GetButtonDown(aButton) && onb && canMove && onCoolDown == false) {
+		if ((Input.GetAxisRaw (joystickY) > 0f) && onb && canMove && onCoolDown == false) {
 			direction = "down";
 			onCoolDown = true;
-			attackSpriteDown.GetComponent<SpriteRenderer> ().enabled = true;
+			attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
 			Attack (direction);
 			StartCoroutine (CoolDown ());
 		}
@@ -282,17 +273,14 @@ public class HeadSlide : MonoBehaviour
 	IEnumerator CoolDown()
 	{
 		yield return new WaitForSeconds (.2f);
-		attackSpriteUp.GetComponent<SpriteRenderer> ().enabled = false;
-		attackSpriteDown.GetComponent<SpriteRenderer> ().enabled = false;
-		attackSpriteLeft.GetComponent<SpriteRenderer> ().enabled = false;
-		attackSpriteRight.GetComponent<SpriteRenderer> ().enabled = false;
+		attackHitbox.GetComponent<MeshRenderer> ().enabled = false;
 		yield return new WaitForSeconds(cooldown - .2f);
 		onCoolDown = false;
 	}
 
 	IEnumerator CoolDownDisplay()
 	{
-		moveButton.GetComponent<Image> ().color = Color.grey;
+		HUDIcon.GetComponent<Image> ().color = Color.grey;
 		while (cooldownCount > 0) {
 			cooldownText.text = cooldownCount.ToString();
 			yield return new WaitForSeconds (60f / bpm);
@@ -300,7 +288,7 @@ public class HeadSlide : MonoBehaviour
 		}
 		cooldownText.text = "";
 		cooldownCount = cooldown * 2;
-		moveButton.GetComponent<Image> ().color = Color.white;
+		HUDIcon.GetComponent<Image> ().color = Color.white;
 	}
 	
 	public IEnumerator MoveToPosition(float timeToMove , Vector3 destination )
