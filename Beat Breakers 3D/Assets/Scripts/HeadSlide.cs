@@ -52,6 +52,7 @@ public class HeadSlide : MonoBehaviour
 		if ((Input.GetAxisRaw (joystickX) > 0f) && onb && canMove && onCoolDown == false) {
 			direction = "right";
 			onCoolDown = true;
+			this.transform.localEulerAngles = (new Vector3 (0, 0, 0));
 			attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
 			Attack (direction);
 			StartCoroutine (CoolDown ());
@@ -59,6 +60,7 @@ public class HeadSlide : MonoBehaviour
 		if ((Input.GetAxisRaw (joystickX) < 0f) && onb && canMove && onCoolDown == false) {
 			direction = "left";
 			onCoolDown = true;
+			this.transform.localEulerAngles = (new Vector3 (0, 180, 0));
 			attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
 			Attack (direction);
 			StartCoroutine (CoolDown ());
@@ -66,6 +68,7 @@ public class HeadSlide : MonoBehaviour
 		if ((Input.GetAxisRaw (joystickY) < 0f) && onb && canMove && onCoolDown == false) {
 			direction = "up";
 			onCoolDown = true;
+			this.transform.localEulerAngles = (new Vector3 (0, -90, 0));
 			attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
 			Attack (direction);
 			StartCoroutine (CoolDown ());
@@ -73,13 +76,14 @@ public class HeadSlide : MonoBehaviour
 		if ((Input.GetAxisRaw (joystickY) > 0f) && onb && canMove && onCoolDown == false) {
 			direction = "down";
 			onCoolDown = true;
+			this.transform.localEulerAngles = (new Vector3 (0, 90, 0));
 			attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
 			Attack (direction);
 			StartCoroutine (CoolDown ());
 		}
 	}
 	
-	Vector3 Slide(Vector2 current, string dir)
+	void Slide(Vector2 current, string dir)
 	{
 		Vector2 dest = new Vector2(current.x, current.y);
 		if (dir == "up")
@@ -126,8 +130,8 @@ public class HeadSlide : MonoBehaviour
 				dest.y = 6;
 			}
 		}
-		GetComponent<CharacterMover>().setposition((int)dest.x, (int)dest.y);
-		return grid.GetComponent<GridMaster>().getPosition((int)dest.x, (int)dest.y);
+		GetComponent<CharacterMover>().setposition((int)dest.x, (int)dest.y, .5f);
+		//return grid.GetComponent<GridMaster>().getPosition((int)dest.x, (int)dest.y);
 	}
 	
 
@@ -243,9 +247,9 @@ public class HeadSlide : MonoBehaviour
 				enemy.GetComponent<VanillaCharacter>().TakeDamage(1000);
 			}
 			else{
-			Vector3 finaldestination = grid.GetComponent<GridMaster>().getPosition((int)destination.x, (int)destination.y);
-			enemy.GetComponent<CharacterMover>().setposition((int)destination.x, (int)destination.y);
-			enemy.GetComponent<CharacterMover>().moveenemy(.5f, finaldestination);
+			
+			enemy.GetComponent<CharacterMover>().setposition((int)destination.x, (int)destination.y, .5f);
+			
 			}
 			//Push(key);
 		}
@@ -258,14 +262,15 @@ public class HeadSlide : MonoBehaviour
 		Vector2 currentpos = GetComponent<CharacterMover>().getposition();
 		Vector2 enemypos = enemy.GetComponent<CharacterMover>().getposition();
 		Vector2 temp = new Vector2(currentpos.x, currentpos.y);
-		Vector3 destination = Slide(temp, direction);
+		Slide(temp, direction);
 		HitEnemy (direction, currentpos, enemypos);
 		
 		
 		
 		StartCoroutine(CoolDown());
 		StartCoroutine (CoolDownDisplay ());
-		StartCoroutine(MoveToPosition(.5f, destination));
+		//StartCoroutine(MoveToPosition(.5f, destination));
+
 		onCoolDown = true;
 		
 	}
@@ -291,7 +296,7 @@ public class HeadSlide : MonoBehaviour
 		HUDIcon.GetComponent<Image> ().color = Color.white;
 	}
 	
-	public IEnumerator MoveToPosition(float timeToMove , Vector3 destination )
+	/*public IEnumerator MoveToPosition(float timeToMove , Vector3 destination )
 	{
 		Vector3 start = gameObject.transform.position;
 		float t = 0f;
@@ -302,4 +307,5 @@ public class HeadSlide : MonoBehaviour
 			yield return null;
 		}
 	}
+    */
 }
