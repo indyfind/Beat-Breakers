@@ -80,17 +80,22 @@ public class CharacterMover : MonoBehaviour {
         return new Vector2((float)xposition, (float)yposition);
     }
 
-    public void setposition(int x, int y)
+    public void setposition(int x, int y, float timetomove)
     {
         xposition = x;
         yposition = y;
+        destination = new Vector3(grid.GetComponent<GridMaster>().getPosition(xposition, yposition).x, 1f, grid.GetComponent<GridMaster>().getPosition(xposition, yposition).y);
+        StartCoroutine(MoveToPosition(timetomove));
     }
-    
-    public void moveenemy(float t ,Vector3 pos)
-    {
-        destination = pos;
-        StartCoroutine(MoveToPosition(t));
-    }
+    //public void startMovement(float timetomove)
+    //{
+       // StartCoroutine(MoveToPosition(timetomove));
+    //} 
+    //public void moveenemy(float t ,Vector3 pos)
+    //{
+      //  destination = pos;
+        //StartCoroutine(MoveToPosition(t));
+    //}
     
     public IEnumerator MoveToPosition(float timeToMove)
     {
