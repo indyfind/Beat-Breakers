@@ -53,7 +53,7 @@ public class HeadSlide : MonoBehaviour
 			direction = "right";
 			onCoolDown = true;
 			this.transform.localEulerAngles = (new Vector3 (0, 0, 0));
-			attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
+			attackHitbox.SetActive (true);
 			Attack (direction);
 			StartCoroutine (CoolDown ());
 		} 
@@ -61,7 +61,8 @@ public class HeadSlide : MonoBehaviour
 			direction = "left";
 			onCoolDown = true;
 			this.transform.localEulerAngles = (new Vector3 (0, 180, 0));
-			attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
+			attackHitbox.SetActive (true);
+			//attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
 			Attack (direction);
 			StartCoroutine (CoolDown ());
 		}
@@ -69,7 +70,8 @@ public class HeadSlide : MonoBehaviour
 			direction = "up";
 			onCoolDown = true;
 			this.transform.localEulerAngles = (new Vector3 (0, -90, 0));
-			attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
+			attackHitbox.SetActive (true);
+			//attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
 			Attack (direction);
 			StartCoroutine (CoolDown ());
 		}
@@ -77,7 +79,8 @@ public class HeadSlide : MonoBehaviour
 			direction = "down";
 			onCoolDown = true;
 			this.transform.localEulerAngles = (new Vector3 (0, 90, 0));
-			attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
+			attackHitbox.SetActive (true);
+			//attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
 			Attack (direction);
 			StartCoroutine (CoolDown ());
 		}
@@ -278,7 +281,8 @@ public class HeadSlide : MonoBehaviour
 	IEnumerator CoolDown()
 	{
 		yield return new WaitForSeconds (.2f);
-		attackHitbox.GetComponent<MeshRenderer> ().enabled = false;
+		attackHitbox.SetActive (false);
+		//attackHitbox.GetComponent<MeshRenderer> ().enabled = false;
 		yield return new WaitForSeconds(cooldown - .2f);
 		onCoolDown = false;
 	}
