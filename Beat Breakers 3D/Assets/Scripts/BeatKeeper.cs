@@ -16,14 +16,15 @@ public class BeatKeeper : MonoBehaviour {
 	public GameObject boombox;
 	private float bpm = 120f;
     
-    private bool started = false;
+    private bool battleStarted = false;
+	private int countdown;
     void Awake()
     {
         testAudio = Resources.Load<AudioClip>("cryptofthebeatbreakesFinal");
         score = 0;
         onBeat = false;
         audio = GetComponent<AudioSource>();
-
+		countdown = 3;
     }
 	// Use this for initialization
 	void Start () {
@@ -62,7 +63,7 @@ public class BeatKeeper : MonoBehaviour {
 
 	IEnumerator FirstClick()
     {
-        while (!started)
+        while (!battleStarted)
         {
             if(Input.GetKeyDown("space") || Input.GetMouseButtonDown(0) || Input.GetButtonDown("StartButton"))
             {
@@ -84,21 +85,32 @@ public class BeatKeeper : MonoBehaviour {
 //			Debug.Log(nextBeatSample + "nextBeat");
 			if (currentSample >= nextBeatSample ) {
 				//GetComponent<Renderer>().material.color = Color.green;
-				greenSquare = true;
+				greenSquare = true; //greenSquare is directly when beat happens
 
+				if (countdown > 0) {
+					//start battle countdown
+					this.GetComponent<StartCountdown> ().setText (countdown.ToString ());
+				} else if (countdown == 0) {
+					this.GetComponent<StartCountdown> ().setText ("Dance!");
+				} else if (countdown == -1) {
+					this.GetComponent<StartCountdown> ().setText ("");
+				}
+				countdown--;
+
+				//make boombox pulse to beat
 				boombox.GetComponent<BeatAnimation>().Pulse ();
 //				player1.GetComponent<VanillaCharacter>().beatAnimation();
 //				player2.GetComponent<VanillaCharacter>().beatAnimation();
                 
 				nextBeatSample += samplePeriod;
-               
+                
 				nextBeatLog = nextBeatSample / testAudio.frequency;
 				//yield return new WaitForSeconds(.05f);
 				yield return new WaitForSeconds(.1f);
 			}
 			//if (currentSample >= nextBeatSample - (.05f * testAudio.frequency) ) {
 			if (currentSample >= nextBeatSample - (.1f * testAudio.frequency) ) {
-				onBeat = true;
+				onBeat = true; //onBeat is the timing window for player actions (slightly before + after when beat actually happens)
 			}
 			//GetComponent<Renderer>().material.color = Color.red;
 			if (greenSquare == true){
