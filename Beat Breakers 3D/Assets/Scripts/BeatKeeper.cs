@@ -16,7 +16,7 @@ public class BeatKeeper : MonoBehaviour {
 	public GameObject boombox;
 	private float bpm = 120f;
     
-    private bool screentapped = false;
+    private bool started = false;
     void Awake()
     {
         testAudio = Resources.Load<AudioClip>("cryptofthebeatbreakesFinal");
@@ -62,9 +62,9 @@ public class BeatKeeper : MonoBehaviour {
 
 	IEnumerator FirstClick()
     {
-        while (!screentapped)
+        while (!started)
         {
-            if(Input.GetKeyDown("space") || Input.GetMouseButtonDown(0) || Input.GetButtonDown("StartButton1"))
+            if(Input.GetKeyDown("space") || Input.GetMouseButtonDown(0) || Input.GetButtonDown("StartButton"))
             {
                 startgame();
                 break;
