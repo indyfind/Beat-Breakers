@@ -14,6 +14,7 @@ public class VanillaCharacter : MonoBehaviour {
 	public bool actionTaken = false;
 	private Vector3 scale;
 	public Text playerWins;
+    public string currentAction;
 
     // Use this for initialization
     void Start () {
@@ -41,7 +42,27 @@ public class VanillaCharacter : MonoBehaviour {
         //Debug.Log(character + "Took this much damage");
         //Debug.Log(character + " Has " + health + " health remaining");
     }
+    public void DoCurrentAction()
+    {
+        // Move direction / HeadSlide  different directions/  sixstep /  PopLock
 
+        switch (currentAction)
+        {
+            case "moveUp":
+                this.GetComponent<CharacterMover>().MoveUp();
+                break;
+            case "moveDown":
+                this.GetComponent<CharacterMover>().MoveDown();
+                break;
+            case "moveLeft":
+                this.GetComponent<CharacterMover>().MoveLeft();
+                break;
+            case "moveRight":
+                this.GetComponent<CharacterMover>().MoveRight();
+                break;
+        }
+        currentAction = "";
+    }
 	public void Tripped(float time) 
 	{
 		tripped = true;

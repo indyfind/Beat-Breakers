@@ -7,7 +7,7 @@ public class BeatKeeper : MonoBehaviour {
 	private float loopTime;
 	private AudioSource audio;
 	private bool onBeat;
-	private bool greenSquare;
+	private bool beatHappened;
 	//public GUIText scoreText;
 	public int score;
 	private float nextBeatLog;
@@ -85,7 +85,7 @@ public class BeatKeeper : MonoBehaviour {
 //			Debug.Log(nextBeatSample + "nextBeat");
 			if (currentSample >= nextBeatSample ) {
 				//GetComponent<Renderer>().material.color = Color.green;
-				greenSquare = true; //greenSquare is directly when beat happens
+				beatHappened = true; //beatHappened is directly when beat happens
 
 				if (countdown > 0) {
 					//start battle countdown
@@ -106,19 +106,23 @@ public class BeatKeeper : MonoBehaviour {
                 
 				nextBeatLog = nextBeatSample / testAudio.frequency;
 				//yield return new WaitForSeconds(.05f);
-				yield return new WaitForSeconds(.1f);
+				yield return new WaitForSeconds(.1f); ///This makes beat .1 after beat
 			}
+
 			//if (currentSample >= nextBeatSample - (.05f * testAudio.frequency) ) {
 			if (currentSample >= nextBeatSample - (.1f * testAudio.frequency) ) {
 				onBeat = true; //onBeat is the timing window for player actions (slightly before + after when beat actually happens)
 			}
+
 			//GetComponent<Renderer>().material.color = Color.red;
-			if (greenSquare == true){
-				greenSquare = false;
+			if (beatHappened == true){
+				beatHappened = false;
 				onBeat = false;
-				//Reset both players actions once the actionable period is over
-				//(so they can move next beat)
-				player1.GetComponent<VanillaCharacter>().actionTaken = false;
+                player1.GetComponent<VanillaCharacter>().DoCurrentAction();
+                player2.GetComponent<VanillaCharacter>().DoCurrentAction();
+                //Reset both players actions once the actionable period is over
+                //(so they can move next beat)
+                player1.GetComponent<VanillaCharacter>().actionTaken = false;
 				player2.GetComponent<VanillaCharacter>().actionTaken = false;
 			}
 			yield return new WaitForSeconds(loopTime);
