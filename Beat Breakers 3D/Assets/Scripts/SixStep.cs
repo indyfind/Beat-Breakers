@@ -43,20 +43,23 @@ public class SixStep : MonoBehaviour
         bool onb = grid.GetComponent<BeatKeeper>().checkifonbeat();
 		bool canMove = GetComponent<VanillaCharacter> ().canMove ();
 
-        if ((Input.GetKeyDown(key) || Input.GetButtonDown(leftBumper)) && onb && !onCoolDown && canMove)
+        if ((Input.GetKeyDown(key) || Input.GetButtonDown(leftBumper)) && !onCoolDown && canMove) // && onb
         {
-            Attack();
-            StartCoroutine(CoolDown());
-			StartCoroutine(CoolDownDisplay());
-			GetComponent<VanillaCharacter>().actionTaken = true;
+            this.GetComponent<VanillaCharacter>().currentAction = "sixStep";
+            //Attack();
+            //StartCoroutine(CoolDown());
+			//StartCoroutine(CoolDownDisplay());
+			//GetComponent<VanillaCharacter>().actionTaken = true;
         }
     }
 
-    void Attack()
+    public void Attack()
     {
+
         Vector2 currentpos = GetComponent<CharacterMover>().getposition();
         Vector2 enemypos = enemy.GetComponent<CharacterMover>().getposition();
-		attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
+        
+        attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
         if (enemypos.x == currentpos.x || enemypos.x == currentpos.x + 1 || enemypos.x == currentpos.x - 1)
         {
 
@@ -67,6 +70,9 @@ public class SixStep : MonoBehaviour
             }
 
         }
+        StartCoroutine(CoolDown());
+        StartCoroutine(CoolDownDisplay());
+        GetComponent<VanillaCharacter>().actionTaken = true;
     }
 
     IEnumerator CoolDown()

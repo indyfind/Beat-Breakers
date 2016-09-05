@@ -39,24 +39,30 @@ public class PopNLock : MonoBehaviour {
 	void Update () {
 		bool onb = grid.GetComponent<BeatKeeper> ().checkifonbeat ();
 		bool canMove = GetComponent<VanillaCharacter> ().canMove ();
-		if ((Input.GetKeyDown (key) || Input.GetButtonDown (rightBumper)) && onb && !onCoolDown && canMove) {
-			//Debug.Log(this.transform.localEulerAngles.y);
-			if (((Mathf.Round(this.transform.localEulerAngles.y)) == 90) || (Mathf.Round(this.transform.localEulerAngles.y) == 270)) {
-				//Debug.Log ("horizontal");
-				HorizontalAttack ();
-				StartCoroutine (CoolDown ());
-				StartCoroutine (CoolDownDisplay ());
-				GetComponent<VanillaCharacter> ().actionTaken = true;
-			} else {
-				//Debug.Log ("vertical");
-				VerticalAttack ();
-				StartCoroutine (CoolDown ());
-				StartCoroutine (CoolDownDisplay ());
-				GetComponent<VanillaCharacter> ().actionTaken = true;
-			}
+		if ((Input.GetKeyDown (key) || Input.GetButtonDown (rightBumper)) && !onCoolDown && canMove) {
+            this.GetComponent<VanillaCharacter>().currentAction = "popNLock";
 		}
 	}
-
+    public void Attack()
+    {
+        //Debug.Log(this.transform.localEulerAngles.y);
+        if (((Mathf.Round(this.transform.localEulerAngles.y)) == 90) || (Mathf.Round(this.transform.localEulerAngles.y) == 270))
+        {
+            //Debug.Log ("horizontal");
+            HorizontalAttack();
+            StartCoroutine(CoolDown());
+            StartCoroutine(CoolDownDisplay());
+            GetComponent<VanillaCharacter>().actionTaken = true;
+        }
+        else
+        {
+            //Debug.Log ("vertical");
+            VerticalAttack();
+            StartCoroutine(CoolDown());
+            StartCoroutine(CoolDownDisplay());
+            GetComponent<VanillaCharacter>().actionTaken = true;
+        }
+    }
 	void HorizontalAttack()
 	{
 		attackHitbox.GetComponent<MeshRenderer> ().enabled = true;

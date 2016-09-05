@@ -14,6 +14,7 @@ public class VanillaCharacter : MonoBehaviour {
 	public bool actionTaken = false;
 	private Vector3 scale;
 	public Text playerWins;
+    public string currentAction;
 
     // Use this for initialization
     void Start () {
@@ -41,7 +42,46 @@ public class VanillaCharacter : MonoBehaviour {
         //Debug.Log(character + "Took this much damage");
         //Debug.Log(character + " Has " + health + " health remaining");
     }
+    public void DoCurrentAction()
+    {
+        // HeadSlide  different directions/  PopLock
 
+        switch (currentAction)
+        {
+            case "moveUp":
+                this.GetComponent<CharacterMover>().MoveUp();
+                break;
+            case "moveDown":
+                this.GetComponent<CharacterMover>().MoveDown();
+                break;
+            case "moveLeft":
+                this.GetComponent<CharacterMover>().MoveLeft();
+                break;
+            case "moveRight":
+                this.GetComponent<CharacterMover>().MoveRight();
+                break;
+            case "sixStep":
+                this.GetComponent<SixStep>().Attack();
+                break;
+            case "popNLock":
+                this.GetComponent<PopNLock>().Attack();
+                break;
+            case "headSlideUp":
+                this.GetComponent<HeadSlide>().Attack("up");
+                break;
+            case "headSlideDown":
+                this.GetComponent<HeadSlide>().Attack("down");
+                break;
+            case "headSlideLeft":
+                this.GetComponent<HeadSlide>().Attack("left");
+                break;
+            case "headSlideRight":
+                this.GetComponent<HeadSlide>().Attack("right");
+                break;
+            default:
+                break;
+        }
+    }
 	public void Tripped(float time) 
 	{
 		tripped = true;
@@ -66,7 +106,7 @@ public class VanillaCharacter : MonoBehaviour {
 	//Checks if player can move based on current effects (tripped, already moved, etc.)
 	public bool canMove()
 	{
-		if (!tripped && !actionTaken) {
+		if (!tripped) { //  && !actionTaken
 			return true;
 		} else {
 			return false;
