@@ -39,22 +39,22 @@ public class CharacterMover : MonoBehaviour {
         bool onb = grid.GetComponent<BeatKeeper>().checkifonbeat();
 		bool canMove = GetComponent<VanillaCharacter> ().canMove (); //check if player is tripped/already moved
 		//move up
-		if ((Input.GetKeyDown(up) || Input.GetAxisRaw (joystickY) < 0f) && yposition > 0 && onb && canMove)
+		if ((Input.GetKeyDown(up) || Input.GetAxisRaw (joystickY) < 0f) && onb && yposition > 0 && canMove)
         {
             this.GetComponent<VanillaCharacter>().currentAction = "moveUp";
         }
         //move down
-		else if ((Input.GetKeyDown(down) || Input.GetAxisRaw (joystickY) > 0f) && yposition < 6 && onb && canMove) 
+		else if ((Input.GetKeyDown(down) || Input.GetAxisRaw (joystickY) > 0f) && onb && yposition < 6 && canMove) 
         {
             this.GetComponent<VanillaCharacter>().currentAction = "moveDown";
         }
         //move right
-		else if ((Input.GetKeyDown(right) || Input.GetAxisRaw (joystickX) > 0f) && xposition < 6 && onb && canMove)
+		else if ((Input.GetKeyDown(right) || Input.GetAxisRaw (joystickX) > 0f) && onb && xposition < 6 && canMove)
         {
             this.GetComponent<VanillaCharacter>().currentAction = "moveRight";
         }
         //move left
-		else if ((Input.GetKeyDown(left) || Input.GetAxisRaw (joystickX) < 0f) && xposition > 0 && onb && canMove)
+		else if ((Input.GetKeyDown(left) || Input.GetAxisRaw (joystickX) < 0f) && onb &&xposition > 0 && canMove)
         {
             this.GetComponent<VanillaCharacter>().currentAction = "moveLeft";
         }

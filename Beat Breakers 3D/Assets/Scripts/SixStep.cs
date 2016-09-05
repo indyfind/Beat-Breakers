@@ -43,8 +43,9 @@ public class SixStep : MonoBehaviour
         bool onb = grid.GetComponent<BeatKeeper>().checkifonbeat();
 		bool canMove = GetComponent<VanillaCharacter> ().canMove ();
 
-        if ((Input.GetKeyDown(key) || Input.GetButtonDown(leftBumper)) && onb && !onCoolDown && canMove)
+        if ((Input.GetKeyDown(key) || Input.GetButtonDown(leftBumper)) && !onCoolDown && canMove) // && onb
         {
+            this.GetComponent<VanillaCharacter>().currentAction = "sixStep";
             //Attack();
             //StartCoroutine(CoolDown());
 			//StartCoroutine(CoolDownDisplay());

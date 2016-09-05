@@ -44,7 +44,7 @@ public class VanillaCharacter : MonoBehaviour {
     }
     public void DoCurrentAction()
     {
-        // Move direction / HeadSlide  different directions/  sixstep /  PopLock
+        // HeadSlide  different directions/  PopLock
 
         switch (currentAction)
         {
@@ -60,8 +60,27 @@ public class VanillaCharacter : MonoBehaviour {
             case "moveRight":
                 this.GetComponent<CharacterMover>().MoveRight();
                 break;
+            case "sixStep":
+                this.GetComponent<SixStep>().Attack();
+                break;
+            case "popNLock":
+                this.GetComponent<PopNLock>().Attack();
+                break;
+            case "headSlideUp":
+                this.GetComponent<HeadSlide>().Attack("up");
+                break;
+            case "headSlideDown":
+                this.GetComponent<HeadSlide>().Attack("down");
+                break;
+            case "headSlideLeft":
+                this.GetComponent<HeadSlide>().Attack("left");
+                break;
+            case "headSlideRight":
+                this.GetComponent<HeadSlide>().Attack("right");
+                break;
+            default:
+                break;
         }
-        currentAction = "";
     }
 	public void Tripped(float time) 
 	{
@@ -87,7 +106,7 @@ public class VanillaCharacter : MonoBehaviour {
 	//Checks if player can move based on current effects (tripped, already moved, etc.)
 	public bool canMove()
 	{
-		if (!tripped && !actionTaken) {
+		if (!tripped) { //  && !actionTaken
 			return true;
 		} else {
 			return false;

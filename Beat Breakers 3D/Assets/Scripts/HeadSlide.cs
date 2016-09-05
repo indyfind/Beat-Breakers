@@ -16,7 +16,6 @@ public class HeadSlide : MonoBehaviour
 
 	//public string attacktype { get; set; }
 	private Vector3 dest;
-	private string direction;
 	private string joystickX;
 	private string joystickY;
 
@@ -49,41 +48,18 @@ public class HeadSlide : MonoBehaviour
 	{
 		bool onb = grid.GetComponent<BeatKeeper>().checkifonbeat();
 		bool canMove = GetComponent<VanillaCharacter> ().canMove ();
-		if ((Input.GetAxisRaw (joystickX) > 0f) && onb && canMove && onCoolDown == false) {
-			direction = "right";
-			onCoolDown = true;
-			this.transform.localEulerAngles = (new Vector3 (0, 0, 0));
-			attackHitbox.SetActive (true);
-			Attack (direction);
-			StartCoroutine (CoolDown ());
+		if ((Input.GetAxisRaw (joystickX) > 0f) && canMove && onCoolDown == false) {
+            this.GetComponent<VanillaCharacter>().currentAction = "headSlideRight";
 		} 
-		if ((Input.GetAxisRaw (joystickX) < 0f) && onb && canMove && onCoolDown == false) {
-			direction = "left";
-			onCoolDown = true;
-			this.transform.localEulerAngles = (new Vector3 (0, 180, 0));
-			attackHitbox.SetActive (true);
-			//attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
-			Attack (direction);
-			StartCoroutine (CoolDown ());
-		}
-		if ((Input.GetAxisRaw (joystickY) < 0f) && onb && canMove && onCoolDown == false) {
-			direction = "up";
-			onCoolDown = true;
-			this.transform.localEulerAngles = (new Vector3 (0, -90, 0));
-			attackHitbox.SetActive (true);
-			//attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
-			Attack (direction);
-			StartCoroutine (CoolDown ());
-		}
-		if ((Input.GetAxisRaw (joystickY) > 0f) && onb && canMove && onCoolDown == false) {
-			direction = "down";
-			onCoolDown = true;
-			this.transform.localEulerAngles = (new Vector3 (0, 90, 0));
-			attackHitbox.SetActive (true);
-			//attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
-			Attack (direction);
-			StartCoroutine (CoolDown ());
-		}
+		if ((Input.GetAxisRaw (joystickX) < 0f) && canMove && onCoolDown == false) {
+            this.GetComponent<VanillaCharacter>().currentAction = "headSlideLeft";
+        }
+		if ((Input.GetAxisRaw (joystickY) < 0f) && canMove && onCoolDown == false) {
+            this.GetComponent<VanillaCharacter>().currentAction = "headSlideUp";
+        }
+		if ((Input.GetAxisRaw (joystickY) > 0f) && canMove && onCoolDown == false) {
+            this.GetComponent<VanillaCharacter>().currentAction = "headSlideDown";
+        }
 	}
 	
 	void Slide(Vector2 current, string dir)
@@ -260,8 +236,28 @@ public class HeadSlide : MonoBehaviour
 	} 
 	
 	
-	void Attack(string direction)
+	public void Attack(string direction)
 	{
+        onCoolDown = true;
+        attackHitbox.SetActive(true);
+        StartCoroutine(CoolDown());
+        if (direction == "up")
+        {
+            this.transform.localEulerAngles = (new Vector3(0, -90, 0));
+        }
+        else if (direction == "down")
+        {
+            this.transform.localEulerAngles = (new Vector3(0, 90, 0));
+        }
+        else if (direction == "right")
+        {
+            this.transform.localEulerAngles = (new Vector3(0, 0, 0));
+        }
+        else if(direction == "left")
+        {
+            this.transform.localEulerAngles = (new Vector3(0, 180, 0));
+        }
+
 		Vector2 currentpos = GetComponent<CharacterMover>().getposition();
 		Vector2 enemypos = enemy.GetComponent<CharacterMover>().getposition();
 		Vector2 temp = new Vector2(currentpos.x, currentpos.y);

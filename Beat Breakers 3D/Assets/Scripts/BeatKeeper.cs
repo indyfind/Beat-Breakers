@@ -120,6 +120,8 @@ public class BeatKeeper : MonoBehaviour {
 				onBeat = false;
                 player1.GetComponent<VanillaCharacter>().DoCurrentAction();
                 player2.GetComponent<VanillaCharacter>().DoCurrentAction();
+                player1.GetComponent<VanillaCharacter>().currentAction = "";
+                player2.GetComponent<VanillaCharacter>().currentAction = "";
                 //Reset both players actions once the actionable period is over
                 //(so they can move next beat)
                 player1.GetComponent<VanillaCharacter>().actionTaken = false;
