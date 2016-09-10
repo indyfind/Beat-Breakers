@@ -72,7 +72,7 @@ public class SixStep : MonoBehaviour
         }
         StartCoroutine(CoolDown());
         StartCoroutine(CoolDownDisplay());
-        GetComponent<VanillaCharacter>().actionTaken = true;
+        //GetComponent<VanillaCharacter>().actionTaken = true;
     }
 
     IEnumerator CoolDown()

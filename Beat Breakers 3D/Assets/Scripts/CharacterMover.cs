@@ -65,7 +65,7 @@ public class CharacterMover : MonoBehaviour {
         this.transform.localEulerAngles = (new Vector3(0, -90, 0));
         destination = new Vector3(grid.GetComponent<GridMaster>().getPosition(xposition, yposition).x, 1f, grid.GetComponent<GridMaster>().getPosition(xposition, yposition).y);
         StartCoroutine(MoveToPosition(.2f));
-        GetComponent<VanillaCharacter>().actionTaken = true; //action has been taken, so no more moves/attacks for this beat
+        //GetComponent<VanillaCharacter>().actionTaken = true; //action has been taken, so no more moves/attacks for this beat
     }
     public void MoveDown()
     {
@@ -73,7 +73,7 @@ public class CharacterMover : MonoBehaviour {
         this.transform.localEulerAngles = (new Vector3(0, 90, 0));
         destination = new Vector3(grid.GetComponent<GridMaster>().getPosition(xposition, yposition).x, 1f, grid.GetComponent<GridMaster>().getPosition(xposition, yposition).y);
         StartCoroutine(MoveToPosition(.2f));
-        GetComponent<VanillaCharacter>().actionTaken = true;
+        //GetComponent<VanillaCharacter>().actionTaken = true;
     }
     public void MoveLeft()
     {
@@ -81,7 +81,7 @@ public class CharacterMover : MonoBehaviour {
         this.transform.localEulerAngles = (new Vector3(0, 180, 0));
         destination = new Vector3(grid.GetComponent<GridMaster>().getPosition(xposition, yposition).x, 1f, grid.GetComponent<GridMaster>().getPosition(xposition, yposition).y);
         StartCoroutine(MoveToPosition(.2f));
-        GetComponent<VanillaCharacter>().actionTaken = true;
+        //GetComponent<VanillaCharacter>().actionTaken = true;
     }
     public void MoveRight()
     {
@@ -89,7 +89,7 @@ public class CharacterMover : MonoBehaviour {
         this.transform.localEulerAngles = (new Vector3(0, 0, 0));
         destination = new Vector3(grid.GetComponent<GridMaster>().getPosition(xposition, yposition).x, 1f, grid.GetComponent<GridMaster>().getPosition(xposition, yposition).y);
         StartCoroutine(MoveToPosition(.2f));
-        GetComponent<VanillaCharacter>().actionTaken = true;
+        //GetComponent<VanillaCharacter>().actionTaken = true;
     }
 
     public Vector2 getposition()

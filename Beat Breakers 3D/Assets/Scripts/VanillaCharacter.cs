@@ -11,7 +11,7 @@ public class VanillaCharacter : MonoBehaviour {
 	private bool tripped = false;
 	public string color;
 	public Slider healthSlider;
-	public bool actionTaken = false;
+	//public bool actionTaken = false;
 	private Vector3 scale;
 	public Text playerWins;
     public string currentAction;
