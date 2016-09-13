@@ -29,8 +29,8 @@ public class HeadSlide : MonoBehaviour
 	void Start()
 	{
 		bpm = grid.GetComponent<BeatKeeper> ().getBPM ();
-		this.damage = 1;
-		this.cooldown = 8;
+		damage = 3;
+		cooldown = 8;
 		//Assign correct controller inputs based on which player it is
 		if (player == 1) {
 			joystickX = "RightJoystickX1";
@@ -221,7 +221,7 @@ public class HeadSlide : MonoBehaviour
 		}
 		if (dam)
 		{
-			enemy.GetComponent<VanillaCharacter>().TakeDamage(1);
+			enemy.GetComponent<VanillaCharacter>().TakeDamage(damage);
 			if(destination.x < 0 || destination.x > 6|| destination.y > 6 || destination.y < 0){
 				enemy.GetComponent<VanillaCharacter>().TakeDamage(1000);
 			}

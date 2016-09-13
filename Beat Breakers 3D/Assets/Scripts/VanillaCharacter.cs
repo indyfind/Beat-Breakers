@@ -4,7 +4,7 @@ using System.Collections;
 
 public class VanillaCharacter : MonoBehaviour {
 
-    private int health = 5;
+    private int health = 10;
     public string character;
     public GameObject grid;
     public GameObject enemy;
