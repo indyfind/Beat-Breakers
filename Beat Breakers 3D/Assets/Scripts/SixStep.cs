@@ -26,7 +26,7 @@ public class SixStep : MonoBehaviour
     {
 		bpm = grid.GetComponent<BeatKeeper> ().getBPM ();
 		attackHitbox.GetComponent<MeshRenderer> ().enabled = false;
-        damage = 1;
+        damage = 2;
         cooldown = 4;
 		if (player == 1) {
 			leftBumper = "LeftBumper1";
@@ -72,7 +72,7 @@ public class SixStep : MonoBehaviour
         }
         StartCoroutine(CoolDown());
         StartCoroutine(CoolDownDisplay());
-        GetComponent<VanillaCharacter>().actionTaken = true;
+        //GetComponent<VanillaCharacter>().actionTaken = true;
     }
 
     IEnumerator CoolDown()

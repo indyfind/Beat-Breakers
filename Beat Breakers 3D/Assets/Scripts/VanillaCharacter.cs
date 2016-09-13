@@ -4,14 +4,14 @@ using System.Collections;
 
 public class VanillaCharacter : MonoBehaviour {
 
-    private int health = 5;
+    private int health = 10;
     public string character;
     public GameObject grid;
     public GameObject enemy;
 	private bool tripped = false;
 	public string color;
 	public Slider healthSlider;
-	public bool actionTaken = false;
+	//public bool actionTaken = false;
 	private Vector3 scale;
 	public Text playerWins;
     public string currentAction;

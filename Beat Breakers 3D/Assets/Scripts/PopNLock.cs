@@ -52,7 +52,7 @@ public class PopNLock : MonoBehaviour {
             HorizontalAttack();
             StartCoroutine(CoolDown());
             StartCoroutine(CoolDownDisplay());
-            GetComponent<VanillaCharacter>().actionTaken = true;
+            //GetComponent<VanillaCharacter>().actionTaken = true;
         }
         else
         {
@@ -60,7 +60,7 @@ public class PopNLock : MonoBehaviour {
             VerticalAttack();
             StartCoroutine(CoolDown());
             StartCoroutine(CoolDownDisplay());
-            GetComponent<VanillaCharacter>().actionTaken = true;
+            //GetComponent<VanillaCharacter>().actionTaken = true;
         }
     }
 	void HorizontalAttack()

@@ -70,7 +70,6 @@ public class BeatKeeper : MonoBehaviour {
                 startgame();
                 break;
             }
-            //print("Awaiting initial tap");
             yield return 0;
         }
 
@@ -91,7 +90,9 @@ public class BeatKeeper : MonoBehaviour {
 					//start battle countdown
 					this.GetComponent<StartCountdown> ().setText (countdown.ToString ());
 				} else if (countdown == 0) {
-					this.GetComponent<StartCountdown> ().setText ("Dance!");
+                    player1.GetComponent<VanillaCharacter>().currentAction = "";
+                    player2.GetComponent<VanillaCharacter>().currentAction = "";
+                    this.GetComponent<StartCountdown> ().setText ("Dance!");
 				} else if (countdown == -1) {
 					this.GetComponent<StartCountdown> ().setText ("");
 				}
@@ -106,26 +107,32 @@ public class BeatKeeper : MonoBehaviour {
                 
 				nextBeatLog = nextBeatSample / testAudio.frequency;
 				//yield return new WaitForSeconds(.05f);
-				yield return new WaitForSeconds(.1f); ///This makes beat .1 after beat
+				yield return new WaitForSeconds(.05f); ///This makes beat .1 after beat
 			}
 
 			//if (currentSample >= nextBeatSample - (.05f * testAudio.frequency) ) {
 			if (currentSample >= nextBeatSample - (.1f * testAudio.frequency) ) {
-				onBeat = true; //onBeat is the timing window for player actions (slightly before + after when beat actually happens)
+                if (countdown < 0)
+                {
+                    onBeat = true; //onBeat is the timing window for player actions (slightly before + after when beat actually happens)
+                }
 			}
 
 			//GetComponent<Renderer>().material.color = Color.red;
 			if (beatHappened == true){
 				beatHappened = false;
 				onBeat = false;
-                player1.GetComponent<VanillaCharacter>().DoCurrentAction();
-                player2.GetComponent<VanillaCharacter>().DoCurrentAction();
-                player1.GetComponent<VanillaCharacter>().currentAction = "";
-                player2.GetComponent<VanillaCharacter>().currentAction = "";
+                if (countdown < 0)
+                {
+                    player1.GetComponent<VanillaCharacter>().DoCurrentAction();
+                    player2.GetComponent<VanillaCharacter>().DoCurrentAction();
+                    player1.GetComponent<VanillaCharacter>().currentAction = "";
+                    player2.GetComponent<VanillaCharacter>().currentAction = "";
+                }
                 //Reset both players actions once the actionable period is over
                 //(so they can move next beat)
-                player1.GetComponent<VanillaCharacter>().actionTaken = false;
-				player2.GetComponent<VanillaCharacter>().actionTaken = false;
+                //player1.GetComponent<VanillaCharacter>().actionTaken = false;
+				//player2.GetComponent<VanillaCharacter>().actionTaken = false;
 			}
 			yield return new WaitForSeconds(loopTime);
 		}
