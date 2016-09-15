@@ -78,6 +78,18 @@ public class VanillaCharacter : MonoBehaviour {
             case "headSlideRight":
                 this.GetComponent<HeadSlide>().Attack("right");
                 break;
+            case "basicAttackLeft":
+                this.GetComponent<BasicAttack>().Attack("left");
+                break;
+            case "basicAttackRight":
+                this.GetComponent<BasicAttack>().Attack("right");
+                break;
+            case "basicAttackUp":
+                this.GetComponent<BasicAttack>().Attack("up");
+                break;
+            case "basicAttackDown":
+                this.GetComponent<BasicAttack>().Attack("down");
+                break;
             default:
                 break;
         }

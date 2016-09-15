@@ -46,10 +46,18 @@ public class BasicAttack : MonoBehaviour
         if ((Input.GetButtonDown(leftButton)) && canMove) // && onb
         {
             this.GetComponent<VanillaCharacter>().currentAction = "basicAttackLeft";
-            //Attack();
-            //StartCoroutine(CoolDown());
-            //StartCoroutine(CoolDownDisplay());
-            //GetComponent<VanillaCharacter>().actionTaken = true;
+        }
+        if ((Input.GetButtonDown(rightButton)) && canMove) // && onb
+        {
+            this.GetComponent<VanillaCharacter>().currentAction = "basicAttackRight";
+        }
+        if ((Input.GetButtonDown(upButton)) && canMove) // && onb
+        {
+            this.GetComponent<VanillaCharacter>().currentAction = "basicAttackUp";
+        }
+        if ((Input.GetButtonDown(downButton)) && canMove) // && onb
+        {
+            this.GetComponent<VanillaCharacter>().currentAction = "basicAttackDown";
         }
     }
 
@@ -60,16 +68,60 @@ public class BasicAttack : MonoBehaviour
         Vector2 enemypos = enemy.GetComponent<CharacterMover>().getposition();
 
         attackHitbox.GetComponent<MeshRenderer>().enabled = true;
-        if (enemypos.x == currentpos.x || enemypos.x == currentpos.x + 1 || enemypos.x == currentpos.x - 1)
+        if (direction == "left")
         {
-
-            if (enemypos.y == currentpos.y || enemypos.y == currentpos.y + 1 || enemypos.y == currentpos.y - 1)
+            this.transform.localEulerAngles = (new Vector3(0, 180, 0));
+            if (enemypos.x == currentpos.x - 1)
             {
-                enemy.GetComponent<VanillaCharacter>().TakeDamage(damage);
-                enemy.GetComponent<VanillaCharacter>().Tripped(.5f);
-            }
 
+                if (enemypos.y == currentpos.y || enemypos.y == currentpos.y + 1 || enemypos.y == currentpos.y - 1)
+
+                    enemy.GetComponent<VanillaCharacter>().TakeDamage(damage);
+            }
         }
-        //GetComponent<VanillaCharacter>().actionTaken = true;
+        if (direction == "right")
+        {
+            this.transform.localEulerAngles = (new Vector3(0, 0, 0));
+            if (enemypos.x == currentpos.x + 1)
+            {
+
+                if (enemypos.y == currentpos.y || enemypos.y == currentpos.y + 1 || enemypos.y == currentpos.y - 1)
+
+                    enemy.GetComponent<VanillaCharacter>().TakeDamage(damage);
+            }
+        }
+        if (direction == "up")
+        {
+            this.transform.localEulerAngles = (new Vector3(0, -90, 0));
+            if (enemypos.y == currentpos.y - 1)
+            {
+
+                if (enemypos.x == currentpos.x || enemypos.x == currentpos.x + 1 || enemypos.x == currentpos.x - 1)
+
+                    enemy.GetComponent<VanillaCharacter>().TakeDamage(damage);
+                    
+                    
+                    
+            }
+        }
+        if (direction == "down")
+        {
+            this.transform.localEulerAngles = (new Vector3(0, 90, 0));
+            if (enemypos.y == currentpos.y + 1)
+            {
+
+                if (enemypos.x == currentpos.x || enemypos.x == currentpos.x + 1 || enemypos.x == currentpos.x - 1)
+
+                    enemy.GetComponent<VanillaCharacter>().TakeDamage(damage);
+            }
+        }
+        attackHitbox.SetActive(true);
+        StartCoroutine(CoolDown());
+    }
+    IEnumerator CoolDown()
+    {
+        yield return new WaitForSeconds(.2f);
+        attackHitbox.SetActive(false);
+       
     }
 }
