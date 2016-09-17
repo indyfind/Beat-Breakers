@@ -7,31 +7,33 @@ public class PopNLock : MonoBehaviour {
 	public GameObject grid;
 	public GameObject enemy;
 	public GameObject attackHitbox;
-	private int cooldown;
+	//private int cooldown;
 	private int damage;
 	public KeyCode key;
-	private bool onCoolDown = false;
+	//private bool onCoolDown = false;
 	public int player;
 	private string rightBumper;
 
-	private int cooldownCount;
-	private Text cooldownText;
-	public GameObject cooldownTimer;
+	//private int cooldownCount;
+	//private Text cooldownText;
+	//public GameObject cooldownTimer;
 	private float bpm;
 	public GameObject HUDIcon;
+
+    private int meterCost = 25;
 
 	// Use this for initialization
 	void Start () {
 		bpm = grid.GetComponent<BeatKeeper> ().getBPM ();
 		damage = 2;
-		cooldown = 4;
+		//cooldown = 4;
 		if (player == 1) {
 			rightBumper = "RightBumper1";
 		} else if (player == 2) {
 			rightBumper = "RightBumper2";
 		}
-		cooldownText = cooldownTimer.GetComponent<Text> ();
-		cooldownCount = cooldown * 2;
+		//cooldownText = cooldownTimer.GetComponent<Text> ();
+		//cooldownCount = cooldown * 2;
 		attackHitbox.GetComponent<MeshRenderer> ().enabled = false;
 	}
 	
@@ -39,31 +41,27 @@ public class PopNLock : MonoBehaviour {
 	void Update () {
 		bool onb = grid.GetComponent<BeatKeeper> ().checkifonbeat ();
 		bool canMove = GetComponent<VanillaCharacter> ().canMove ();
-		if ((Input.GetKeyDown (key) || Input.GetButtonDown (rightBumper)) && !onCoolDown && canMove) {
+		if ((Input.GetKeyDown (key) || Input.GetButtonDown (rightBumper)) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) { // && !onCoolDown
             this.GetComponent<VanillaCharacter>().currentAction = "popNLock";
 		}
 	}
     public void Attack()
     {
+        //subtract meter cost
+        this.GetComponent<VanillaCharacter>().meter -= meterCost;
         //Debug.Log(this.transform.localEulerAngles.y);
-        if (((Mathf.Round(this.transform.localEulerAngles.y)) == 90) || (Mathf.Round(this.transform.localEulerAngles.y) == 270))
-        {
+        if (((Mathf.Round(this.transform.localEulerAngles.y)) == 90) || (Mathf.Round(this.transform.localEulerAngles.y) == 270)) {
             //Debug.Log ("horizontal");
             HorizontalAttack();
-            StartCoroutine(CoolDown());
-            StartCoroutine(CoolDownDisplay());
-            //GetComponent<VanillaCharacter>().actionTaken = true;
-        }
-        else
-        {
+        } else {
             //Debug.Log ("vertical");
             VerticalAttack();
-            StartCoroutine(CoolDown());
-            StartCoroutine(CoolDownDisplay());
-            //GetComponent<VanillaCharacter>().actionTaken = true;
         }
+        StartCoroutine(CoolDown());
+        //StartCoroutine(CoolDownDisplay());
+        //GetComponent<VanillaCharacter>().actionTaken = true;
     }
-	void HorizontalAttack()
+    void HorizontalAttack()
 	{
 		attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
 		Vector2 currentpos = GetComponent<CharacterMover>().getposition();
@@ -88,13 +86,14 @@ public class PopNLock : MonoBehaviour {
 
 	IEnumerator CoolDown()
 	{
-		onCoolDown = true;
+		//onCoolDown = true;
 		yield return new WaitForSeconds (.2f);
 		attackHitbox.GetComponent<MeshRenderer> ().enabled = false;
-		yield return new WaitForSeconds(cooldown - .2f);
-		onCoolDown = false;
+		//yield return new WaitForSeconds(cooldown - .2f);
+		//onCoolDown = false;
 	}
 
+    /*
 	IEnumerator CoolDownDisplay()
 	{
 		HUDIcon.GetComponent<Image> ().color = Color.grey;
@@ -107,4 +106,5 @@ public class PopNLock : MonoBehaviour {
 		cooldownText.text = "";
 		cooldownCount = cooldown * 2;
 	}
+    */
 }
