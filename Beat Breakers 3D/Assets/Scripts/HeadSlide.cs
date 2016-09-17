@@ -7,10 +7,10 @@ public class HeadSlide : MonoBehaviour
 	public GameObject grid;
 	public GameObject enemy;
 	public GameObject attackHitbox;
-	private int cooldown;
+	//private int cooldown;
 	private int damage;
 	//public KeyCode key;
-	private bool onCoolDown = false;
+	//private bool onCoolDown = false;
 	public int player;
 	private string rightBumper;
 
@@ -19,18 +19,20 @@ public class HeadSlide : MonoBehaviour
 	private string joystickX;
 	private string joystickY;
 
-	private int cooldownCount;
-	private Text cooldownText;
-	public GameObject cooldownTimer;
+	//private int cooldownCount;
+	//private Text cooldownText;
+	//public GameObject cooldownTimer;
 	private float bpm;
 	public GameObject HUDIcon;
+
+    private int meterCost = 50;
 
 	// Use this for initialization
 	void Start()
 	{
 		bpm = grid.GetComponent<BeatKeeper> ().getBPM ();
 		damage = 3;
-		cooldown = 8;
+		//cooldown = 8;
 		//Assign correct controller inputs based on which player it is
 		if (player == 1) {
 			joystickX = "RightJoystickX1";
@@ -39,8 +41,8 @@ public class HeadSlide : MonoBehaviour
 			joystickX = "RightJoystickX2";
 			joystickY = "RightJoystickY2";
 		}
-		cooldownText = cooldownTimer.GetComponent<Text> ();
-		cooldownCount = cooldown * 2;
+		//cooldownText = cooldownTimer.GetComponent<Text> ();
+		//cooldownCount = cooldown * 2;
 	}
 	
 	// Update is called once per frame
@@ -48,16 +50,16 @@ public class HeadSlide : MonoBehaviour
 	{
 		bool onb = grid.GetComponent<BeatKeeper>().checkifonbeat();
 		bool canMove = GetComponent<VanillaCharacter> ().canMove ();
-		if ((Input.GetAxisRaw (joystickX) > 0f) && canMove && onCoolDown == false) {
+		if ((Input.GetAxisRaw (joystickX) > 0f) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) { //&& !onCoolDown
             this.GetComponent<VanillaCharacter>().currentAction = "headSlideRight";
 		} 
-		if ((Input.GetAxisRaw (joystickX) < 0f) && canMove && onCoolDown == false) {
+		if ((Input.GetAxisRaw (joystickX) < 0f) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) {
             this.GetComponent<VanillaCharacter>().currentAction = "headSlideLeft";
         }
-		if ((Input.GetAxisRaw (joystickY) < 0f) && canMove && onCoolDown == false) {
+		if ((Input.GetAxisRaw (joystickY) < 0f) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) {
             this.GetComponent<VanillaCharacter>().currentAction = "headSlideUp";
         }
-		if ((Input.GetAxisRaw (joystickY) > 0f) && canMove && onCoolDown == false) {
+		if ((Input.GetAxisRaw (joystickY) > 0f) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) {
             this.GetComponent<VanillaCharacter>().currentAction = "headSlideDown";
         }
 	}
@@ -238,23 +240,17 @@ public class HeadSlide : MonoBehaviour
 	
 	public void Attack(string direction)
 	{
-        onCoolDown = true;
+        //subtract meter cost
+        this.GetComponent<VanillaCharacter>().meter -= meterCost;
+        //show hitbox
         attackHitbox.SetActive(true);
-        StartCoroutine(CoolDown());
-        if (direction == "up")
-        {
+        if (direction == "up") {
             this.transform.localEulerAngles = (new Vector3(0, -90, 0));
-        }
-        else if (direction == "down")
-        {
+        } else if (direction == "down") {
             this.transform.localEulerAngles = (new Vector3(0, 90, 0));
-        }
-        else if (direction == "right")
-        {
+        } else if (direction == "right") {
             this.transform.localEulerAngles = (new Vector3(0, 0, 0));
-        }
-        else if(direction == "left")
-        {
+        } else if(direction == "left") {
             this.transform.localEulerAngles = (new Vector3(0, 180, 0));
         }
 
@@ -264,25 +260,25 @@ public class HeadSlide : MonoBehaviour
 		Slide(temp, direction);
 		HitEnemy (direction, currentpos, enemypos);
 		
-		
-		
 		StartCoroutine(CoolDown());
-		StartCoroutine (CoolDownDisplay ());
+		//StartCoroutine (CoolDownDisplay ());
 		//StartCoroutine(MoveToPosition(.5f, destination));
-
-		onCoolDown = true;
 		
 	}
 	
 	IEnumerator CoolDown()
 	{
-		yield return new WaitForSeconds (.2f);
+        //onCoolDown = true;
+        yield return new WaitForSeconds (.2f);
 		attackHitbox.SetActive (false);
+        //reset current action to nothing to prevent accidental double headSlide
+        this.GetComponent<VanillaCharacter>().currentAction = "";
 		//attackHitbox.GetComponent<MeshRenderer> ().enabled = false;
-		yield return new WaitForSeconds(cooldown - .2f);
-		onCoolDown = false;
+		//yield return new WaitForSeconds(cooldown - .2f);
+		//onCoolDown = false;
 	}
 
+    /*
 	IEnumerator CoolDownDisplay()
 	{
 		HUDIcon.GetComponent<Image> ().color = Color.grey;
@@ -295,6 +291,7 @@ public class HeadSlide : MonoBehaviour
 		cooldownCount = cooldown * 2;
 		HUDIcon.GetComponent<Image> ().color = Color.white;
 	}
+    */
 	
 	/*public IEnumerator MoveToPosition(float timeToMove , Vector3 destination )
 	{

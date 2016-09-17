@@ -15,6 +15,8 @@ public class BeatKeeper : MonoBehaviour {
 	public GameObject player2;
 	public GameObject boombox;
 	private float bpm = 120f;
+
+    private int everyOtherBeat = 1;
     
     private bool battleStarted = false;
 	private int countdown;
@@ -98,8 +100,16 @@ public class BeatKeeper : MonoBehaviour {
 				}
 				countdown--;
 
-				//make boombox pulse to beat
-				boombox.GetComponent<BeatAnimation>().Pulse ();
+                //recharge each player's meter by 1 every other beat
+                if (everyOtherBeat == 0) {
+                    everyOtherBeat++;
+                } else {
+                    player1.GetComponent<VanillaCharacter>().meter++;
+                    player2.GetComponent<VanillaCharacter>().meter++;
+                    everyOtherBeat--;
+                }
+                //make boombox pulse to beat
+                boombox.GetComponent<BeatAnimation>().Pulse ();
 //				player1.GetComponent<VanillaCharacter>().beatAnimation();
 //				player2.GetComponent<VanillaCharacter>().beatAnimation();
                 
@@ -122,6 +132,7 @@ public class BeatKeeper : MonoBehaviour {
 			if (beatHappened == true){
 				beatHappened = false;
 				onBeat = false;
+                //if game has started, do current action for each player
                 if (countdown < 0)
                 {
                     player1.GetComponent<VanillaCharacter>().DoCurrentAction();

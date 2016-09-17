@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class VanillaCharacter : MonoBehaviour {
 
     private int health = 10;
+    public int meter = 100;
     public string character;
     public GameObject grid;
     public GameObject enemy;
 	private bool tripped = false;
-	public string color;
+    public int player;
 	public Slider healthSlider;
+    public Slider meterSlider;
 	//public bool actionTaken = false;
 	private Vector3 scale;
 	public Text playerWins;
@@ -18,20 +21,23 @@ public class VanillaCharacter : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		scale = gameObject.GetComponent<Transform>().localScale;
+		//scale = gameObject.GetComponent<Transform>().localScale;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//update HUD to reflect current health
 		healthSlider.value = health;
+        if (meter > 100) {
+            meter = 100;
+        }
+        meterSlider.value = meter;
 		if (health <= 0) {
-			if (color == "red") {
+			if (player == 1) {
 				playerWins.text = "Player 2 Wins!";
 			} else {
 				playerWins.text = "Player 1 Wins!";
 			}
-			this.GetComponent<MeshRenderer>().enabled = false;
 			StartCoroutine(End());
 		}
     }
@@ -39,13 +45,18 @@ public class VanillaCharacter : MonoBehaviour {
     public void TakeDamage(int dam)
     {
         health -= dam;
+        meter += 4;
+        enemy.GetComponent<VanillaCharacter>().meter += 6;
         //Debug.Log(character + "Took this much damage");
         //Debug.Log(character + " Has " + health + " health remaining");
     }
+
+    //called each beat to execute the action taken by the player
     public void DoCurrentAction()
     {
-        // HeadSlide  different directions/  PopLock
-
+        if (currentAction != "") {
+            meter += 2;
+        }
         switch (currentAction)
         {
             case "moveUp":
@@ -128,7 +139,7 @@ public class VanillaCharacter : MonoBehaviour {
 	IEnumerator End()
 	{
 		yield return new WaitForSeconds (3f);
-		Application.LoadLevel (0);
+		SceneManager.LoadScene (0);
 	}
 
 //	public void beatAnimation()
