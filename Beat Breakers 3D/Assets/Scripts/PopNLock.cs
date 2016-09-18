@@ -43,7 +43,8 @@ public class PopNLock : MonoBehaviour {
 		bool canMove = GetComponent<VanillaCharacter> ().canMove ();
 		if ((Input.GetKeyDown (key) || Input.GetButtonDown (rightBumper)) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) { // && !onCoolDown
             this.GetComponent<VanillaCharacter>().currentAction = "popNLock";
-		}
+            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+        }
 	}
     public void Attack()
     {

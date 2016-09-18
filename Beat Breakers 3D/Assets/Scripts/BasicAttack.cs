@@ -46,18 +46,22 @@ public class BasicAttack : MonoBehaviour
         if ((Input.GetButtonDown(leftButton)) && canMove) // && onb
         {
             this.GetComponent<VanillaCharacter>().currentAction = "basicAttackLeft";
+            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
         }
         if ((Input.GetButtonDown(rightButton)) && canMove) // && onb
         {
             this.GetComponent<VanillaCharacter>().currentAction = "basicAttackRight";
+            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
         }
         if ((Input.GetButtonDown(upButton)) && canMove) // && onb
         {
             this.GetComponent<VanillaCharacter>().currentAction = "basicAttackUp";
+            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
         }
         if ((Input.GetButtonDown(downButton)) && canMove) // && onb
         {
             this.GetComponent<VanillaCharacter>().currentAction = "basicAttackDown";
+            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
         }
     }
 

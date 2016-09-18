@@ -42,21 +42,25 @@ public class CharacterMover : MonoBehaviour {
 		if ((Input.GetKeyDown(up) || Input.GetAxisRaw (joystickY) < 0f) && onb && yposition > 0 && canMove)
         {
             this.GetComponent<VanillaCharacter>().currentAction = "moveUp";
+            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
         }
         //move down
 		else if ((Input.GetKeyDown(down) || Input.GetAxisRaw (joystickY) > 0f) && onb && yposition < 6 && canMove) 
         {
             this.GetComponent<VanillaCharacter>().currentAction = "moveDown";
+            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
         }
         //move right
 		else if ((Input.GetKeyDown(right) || Input.GetAxisRaw (joystickX) > 0f) && onb && xposition < 6 && canMove)
         {
             this.GetComponent<VanillaCharacter>().currentAction = "moveRight";
+            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
         }
         //move left
 		else if ((Input.GetKeyDown(left) || Input.GetAxisRaw (joystickX) < 0f) && onb &&xposition > 0 && canMove)
         {
             this.GetComponent<VanillaCharacter>().currentAction = "moveLeft";
+            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
         }
     }
     public void MoveUp()
