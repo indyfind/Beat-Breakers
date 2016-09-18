@@ -47,6 +47,7 @@ public class SixStep : MonoBehaviour
         if ((Input.GetKeyDown(key) || Input.GetButtonDown(leftBumper)) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) // && onb && !onCoolDown
         {
             this.GetComponent<VanillaCharacter>().currentAction = "sixStep";
+            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
             //Attack();
             //StartCoroutine(CoolDown());
             //StartCoroutine(CoolDownDisplay());

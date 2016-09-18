@@ -52,15 +52,19 @@ public class HeadSlide : MonoBehaviour
 		bool canMove = GetComponent<VanillaCharacter> ().canMove ();
 		if ((Input.GetAxisRaw (joystickX) > 0f) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) { //&& !onCoolDown
             this.GetComponent<VanillaCharacter>().currentAction = "headSlideRight";
-		} 
+            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+        } 
 		if ((Input.GetAxisRaw (joystickX) < 0f) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) {
             this.GetComponent<VanillaCharacter>().currentAction = "headSlideLeft";
+            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
         }
 		if ((Input.GetAxisRaw (joystickY) < 0f) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) {
             this.GetComponent<VanillaCharacter>().currentAction = "headSlideUp";
+            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
         }
 		if ((Input.GetAxisRaw (joystickY) > 0f) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) {
             this.GetComponent<VanillaCharacter>().currentAction = "headSlideDown";
+            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
         }
 	}
 	

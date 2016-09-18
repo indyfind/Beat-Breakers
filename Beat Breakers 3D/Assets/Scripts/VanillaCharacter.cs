@@ -6,8 +6,9 @@ using System.Collections;
 public class VanillaCharacter : MonoBehaviour {
 
     private int health = 10;
-    public int meter = 100;
+    public int meter;
     public string character;
+    public string rhythmRating;
     public GameObject grid;
     public GameObject enemy;
 	private bool tripped = false;
@@ -17,10 +18,12 @@ public class VanillaCharacter : MonoBehaviour {
 	//public bool actionTaken = false;
 	private Vector3 scale;
 	public Text playerWins;
+    public Text rhythmRatingUI;
     public string currentAction;
 
     // Use this for initialization
     void Start () {
+        meter = 0;
 		//scale = gameObject.GetComponent<Transform>().localScale;
 	}
 	
@@ -45,8 +48,8 @@ public class VanillaCharacter : MonoBehaviour {
     public void TakeDamage(int dam)
     {
         health -= dam;
-        meter += 4;
-        enemy.GetComponent<VanillaCharacter>().meter += 6;
+        meter += 2;
+        enemy.GetComponent<VanillaCharacter>().meter += 3;
         //Debug.Log(character + "Took this much damage");
         //Debug.Log(character + " Has " + health + " health remaining");
     }
@@ -54,9 +57,27 @@ public class VanillaCharacter : MonoBehaviour {
     //called each beat to execute the action taken by the player
     public void DoCurrentAction()
     {
-        if (currentAction != "") {
+        if (currentAction == "") {
+            rhythmRating = "";
+        }
+
+        //display rhythm rating
+        rhythmRatingUI.text = rhythmRating;
+
+        if (rhythmRating == "Good!")
+        {
+            meter += 1;
+        }
+
+        if (rhythmRating == "Great!")
+        {
             meter += 2;
         }
+        if (rhythmRating == "Perfect!")
+        {
+            meter += 4;
+        }
+
         switch (currentAction)
         {
             case "moveUp":
@@ -104,6 +125,7 @@ public class VanillaCharacter : MonoBehaviour {
             default:
                 break;
         }
+        StartCoroutine(rhythmRatingDisplayOff());
     }
 	public void Tripped(float time) 
 	{
@@ -141,6 +163,12 @@ public class VanillaCharacter : MonoBehaviour {
 		yield return new WaitForSeconds (3f);
 		SceneManager.LoadScene (0);
 	}
+
+    IEnumerator rhythmRatingDisplayOff()
+    {
+        yield return new WaitForSeconds(.2f);
+        rhythmRatingUI.text = "";
+    }
 
 //	public void beatAnimation()
 //	{

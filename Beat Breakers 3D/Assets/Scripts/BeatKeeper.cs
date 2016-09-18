@@ -11,6 +11,7 @@ public class BeatKeeper : MonoBehaviour {
 	//public GUIText scoreText;
 	public int score;
 	private float nextBeatLog;
+    public string rhythmRating;
 	public GameObject player1;
 	public GameObject player2;
 	public GameObject boombox;
@@ -25,6 +26,7 @@ public class BeatKeeper : MonoBehaviour {
         testAudio = Resources.Load<AudioClip>("cryptofthebeatbreakesFinal");
         score = 0;
         onBeat = false;
+        rhythmRating = "Good!";
         audio = GetComponent<AudioSource>();
 		countdown = 3;
     }
@@ -84,6 +86,8 @@ public class BeatKeeper : MonoBehaviour {
 			float currentSample = (float)AudioSettings.dspTime * testAudio.frequency;
 //			Debug.Log(currentSample + "current");
 //			Debug.Log(nextBeatSample + "nextBeat");
+
+            //Beat happends
 			if (currentSample >= nextBeatSample ) {
 				//GetComponent<Renderer>().material.color = Color.green;
 				beatHappened = true; //beatHappened is directly when beat happens
@@ -116,22 +120,44 @@ public class BeatKeeper : MonoBehaviour {
 				nextBeatSample += samplePeriod;
                 
 				nextBeatLog = nextBeatSample / testAudio.frequency;
-				//yield return new WaitForSeconds(.05f);
-				yield return new WaitForSeconds(.05f); ///This makes beat .1 after beat
+                //yield return new WaitForSeconds(.05f); .15
+                //Good  .025 <
+                //Great .025 - .075  //great 0.125 - .15
+                //Perfect .075 - .125 
+                yield return new WaitForSeconds(.025f);
+                rhythmRating = "Great!";
+                yield return new WaitForSeconds(.024f);
+                rhythmRating = "Good!";
+                yield return new WaitForSeconds(.001f);
+                ///This makes beat .05 after beat
 			}
 
-			//if (currentSample >= nextBeatSample - (.05f * testAudio.frequency) ) {
+			//start of timing window
 			if (currentSample >= nextBeatSample - (.1f * testAudio.frequency) ) {
                 if (countdown < 0)
                 {
-                    onBeat = true; //onBeat is the timing window for player actions (slightly before + after when beat actually happens)
+                    onBeat = true;
+                    rhythmRating = "Good!";
+                    //onBeat is the timing window for player actions (slightly before + after when beat actually happens)
                 }
 			}
 
-			//GetComponent<Renderer>().material.color = Color.red;
-			if (beatHappened == true){
+            if (currentSample >= nextBeatSample - (.075f * testAudio.frequency))
+            {
+
+                rhythmRating = "Great!";
+            }
+            if (currentSample >= nextBeatSample - (.025f * testAudio.frequency))
+            {
+
+                rhythmRating = "Perfect!";
+            }
+
+            //GetComponent<Renderer>().material.color = Color.red;
+            if (beatHappened == true){
 				beatHappened = false;
 				onBeat = false;
+
                 //if game has started, do current action for each player
                 if (countdown < 0)
                 {
