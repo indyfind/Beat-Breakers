@@ -8,8 +8,6 @@ public class BeatKeeper : MonoBehaviour {
 	private AudioSource audio;
 	private bool onBeat;
 	private bool beatHappened;
-	//public GUIText scoreText;
-	public int score;
 	private float nextBeatLog;
     public string rhythmRating;
 	public GameObject player1;
@@ -18,13 +16,11 @@ public class BeatKeeper : MonoBehaviour {
 	private float bpm = 120f;
 
     private int everyOtherBeat = 1;
-    
     private bool battleStarted = false;
 	private int countdown;
     void Awake()
     {
         testAudio = Resources.Load<AudioClip>("cryptofthebeatbreakesFinal");
-        score = 0;
         onBeat = false;
         rhythmRating = "Good!";
         audio = GetComponent<AudioSource>();
@@ -37,15 +33,6 @@ public class BeatKeeper : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ((Input.GetKeyDown("space") || Input.GetMouseButtonDown(0)) && onBeat == true) {
-			score += 1;
-		//	Debug.Log (((float)AudioSettings.dspTime - nextBeatLog) + " ON");
-		} else if ((Input.GetKeyDown("space") || Input.GetMouseButtonDown(0)) && onBeat == false) {
-			score -= 1;
-		//	Debug.Log (((float)AudioSettings.dspTime - nextBeatLog) + " OFF");
-			//Debug.Log ( + "NEXT");
-		}
-		UpdateScore ();
 	}
 
     void startgame()
@@ -56,7 +43,6 @@ public class BeatKeeper : MonoBehaviour {
         float samplePeriod = (60f / bpm) * testAudio.frequency;
         //float nextBeatLog;
         StartCoroutine(ToBeat(samplePeriod, nextBeatSample));
-        UpdateScore();
 
     }
 
@@ -173,10 +159,6 @@ public class BeatKeeper : MonoBehaviour {
 			}
 			yield return new WaitForSeconds(loopTime);
 		}
-	}
-
-	void UpdateScore () {
-		//scoreText.text = "Score: " + score;
 	}
 
 	public float getBPM () {

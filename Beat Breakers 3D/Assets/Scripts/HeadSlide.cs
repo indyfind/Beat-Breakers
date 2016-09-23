@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using InControl;
 
 public class HeadSlide : MonoBehaviour
 {
@@ -12,17 +13,19 @@ public class HeadSlide : MonoBehaviour
 	//public KeyCode key;
 	//private bool onCoolDown = false;
 	public int player;
-	private string rightBumper;
 
-	//public string attacktype { get; set; }
-	private Vector3 dest;
+    //InControl device
+    private InputDevice device;
+
+    //public string attacktype { get; set; }
+    private Vector3 dest;
 	private string joystickX;
 	private string joystickY;
 
 	//private int cooldownCount;
 	//private Text cooldownText;
 	//public GameObject cooldownTimer;
-	private float bpm;
+	//private float bpm;
 	public GameObject HUDIcon;
 
     private int meterCost = 50;
@@ -30,17 +33,15 @@ public class HeadSlide : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		bpm = grid.GetComponent<BeatKeeper> ().getBPM ();
+		//bpm = grid.GetComponent<BeatKeeper> ().getBPM ();
 		damage = 3;
 		//cooldown = 8;
 		//Assign correct controller inputs based on which player it is
 		if (player == 1) {
-			joystickX = "RightJoystickX1";
-			joystickY = "RightJoystickY1";
-		} else {
-			joystickX = "RightJoystickX2";
-			joystickY = "RightJoystickY2";
-		}
+            device = InputManager.Devices[0];
+        } else if (player == 2) {
+            device = InputManager.Devices[1];
+        }
 		//cooldownText = cooldownTimer.GetComponent<Text> ();
 		//cooldownCount = cooldown * 2;
 	}
@@ -50,21 +51,36 @@ public class HeadSlide : MonoBehaviour
 	{
 		bool onb = grid.GetComponent<BeatKeeper>().checkifonbeat();
 		bool canMove = GetComponent<VanillaCharacter> ().canMove ();
-		if ((Input.GetAxisRaw (joystickX) > 0f) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) { //&& !onCoolDown
-            this.GetComponent<VanillaCharacter>().currentAction = "headSlideRight";
-            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
-        } 
-		if ((Input.GetAxisRaw (joystickX) < 0f) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) {
-            this.GetComponent<VanillaCharacter>().currentAction = "headSlideLeft";
-            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
-        }
-		if ((Input.GetAxisRaw (joystickY) < 0f) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) {
-            this.GetComponent<VanillaCharacter>().currentAction = "headSlideUp";
-            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
-        }
-		if ((Input.GetAxisRaw (joystickY) > 0f) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) {
-            this.GetComponent<VanillaCharacter>().currentAction = "headSlideDown";
-            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+        if (device.RightStick.WasPressed && canMove && this.GetComponent<VanillaCharacter>().meter >= meterCost) //&& !onCoolDown
+        {
+            //if right stick x value is greater than y value: check horizontal
+            if (Mathf.Abs(device.RightStickX.Value) >= Mathf.Abs(device.RightStickY.Value))
+            {
+                if (device.RightStickRight.WasPressed)
+                {
+                    this.GetComponent<VanillaCharacter>().currentAction = "headSlideRight";
+                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+                }
+                else if (device.RightStickLeft.WasPressed)
+                {
+                    this.GetComponent<VanillaCharacter>().currentAction = "headSlideLeft";
+                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+                }
+            }
+            //if not check vertical
+            else
+            {
+                if (device.RightStickUp.WasPressed)
+                {
+                    this.GetComponent<VanillaCharacter>().currentAction = "headSlideUp";
+                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+                }
+                else if (device.RightStickDown.WasPressed)
+                {
+                    this.GetComponent<VanillaCharacter>().currentAction = "headSlideDown";
+                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+                }
+            }
         }
 	}
 	

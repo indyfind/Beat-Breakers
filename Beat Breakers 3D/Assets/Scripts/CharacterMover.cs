@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using InControl;
 
 public class CharacterMover : MonoBehaviour {
     public int startingxPosition;
@@ -9,58 +10,60 @@ public class CharacterMover : MonoBehaviour {
     private float moverange = 1;
     public GameObject grid;
     private Vector3 destination;
-    public KeyCode up;
-    public KeyCode left;
-    public KeyCode right;
-    public KeyCode down;
     private bool pushed;
 	public int player; // player 1 or player 2
-	//move buttons
-	private string joystickX;
-	private string joystickY;
+
+    //InControl device
+    private InputDevice device;
 
     // Use this for initialization
     void Start () {
         xposition = startingxPosition;
         yposition = startingyPosition;
-
-		//Assign correct controller inputs based on which player it is
 		if (player == 1) {
-			joystickX = "JoystickX1";
-			joystickY = "JoystickY1";
-		} else {
-			joystickX = "JoystickX2";
-			joystickY = "JoystickY2";
-		}
+            device = InputManager.Devices[0];
+        } else if (player == 2) {
+            device = InputManager.Devices[1];
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
         bool onb = grid.GetComponent<BeatKeeper>().checkifonbeat();
 		bool canMove = GetComponent<VanillaCharacter> ().canMove (); //check if player is tripped/already moved
-		//move up
-		if ((Input.GetKeyDown(up) || Input.GetAxisRaw (joystickY) < 0f) && onb && yposition > 0 && canMove)
-        {
-            this.GetComponent<VanillaCharacter>().currentAction = "moveUp";
-            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
-        }
-        //move down
-		else if ((Input.GetKeyDown(down) || Input.GetAxisRaw (joystickY) > 0f) && onb && yposition < 6 && canMove) 
-        {
-            this.GetComponent<VanillaCharacter>().currentAction = "moveDown";
-            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
-        }
-        //move right
-		else if ((Input.GetKeyDown(right) || Input.GetAxisRaw (joystickX) > 0f) && onb && xposition < 6 && canMove)
-        {
-            this.GetComponent<VanillaCharacter>().currentAction = "moveRight";
-            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
-        }
-        //move left
-		else if ((Input.GetKeyDown(left) || Input.GetAxisRaw (joystickX) < 0f) && onb &&xposition > 0 && canMove)
-        {
-            this.GetComponent<VanillaCharacter>().currentAction = "moveLeft";
-            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+        if ((device.DPad.WasPressed || device.LeftStick.WasPressed) && canMove) { //  && onb
+            //if using left stick: is y value greater than x?
+            if (Mathf.Abs(device.LeftStickY.Value) >= Mathf.Abs(device.LeftStickX.Value))
+            {
+                //move up
+                if ((device.DPadUp.WasPressed || device.LeftStickUp.WasPressed) && yposition > 0)
+                {
+                    this.GetComponent<VanillaCharacter>().currentAction = "moveUp";
+                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+                }
+                //move down
+                else if ((device.DPadDown.WasPressed || device.LeftStickDown.WasPressed) && yposition < 6)
+                {
+                    this.GetComponent<VanillaCharacter>().currentAction = "moveDown";
+                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+                }
+            }
+            //if using left stick: is x value greater than y?
+            if (Mathf.Abs(device.LeftStickY.Value) <= Mathf.Abs(device.LeftStickX.Value))
+            {
+                //move right
+                if ((device.DPadRight.WasPressed || device.LeftStickRight.WasPressed) && xposition < 6)
+                {
+                    this.GetComponent<VanillaCharacter>().currentAction = "moveRight";
+                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+                }
+                //move left
+                else if ((device.DPadLeft.WasPressed || device.LeftStickLeft.WasPressed) && xposition > 0)
+                {
+                    this.GetComponent<VanillaCharacter>().currentAction = "moveLeft";
+                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+                }
+            }
         }
     }
     public void MoveUp()
