@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using InControl;
 
 public class PopNLock : MonoBehaviour {
 	
@@ -12,36 +13,35 @@ public class PopNLock : MonoBehaviour {
 	public KeyCode key;
 	//private bool onCoolDown = false;
 	public int player;
-	private string rightBumper;
 
-	//private int cooldownCount;
-	//private Text cooldownText;
-	//public GameObject cooldownTimer;
-	private float bpm;
+    //InControl device
+    private InputDevice device;
+
+    //private int cooldownCount;
+    //private Text cooldownText;
+    //public GameObject cooldownTimer;
 	public GameObject HUDIcon;
 
     private int meterCost = 25;
 
 	// Use this for initialization
 	void Start () {
-		bpm = grid.GetComponent<BeatKeeper> ().getBPM ();
 		damage = 2;
 		//cooldown = 4;
 		if (player == 1) {
-			rightBumper = "RightBumper1";
-		} else if (player == 2) {
-			rightBumper = "RightBumper2";
-		}
+            device = InputManager.Devices[0];
+        } else if (player == 2) {
+            device = InputManager.Devices[1];
+        }
 		//cooldownText = cooldownTimer.GetComponent<Text> ();
 		//cooldownCount = cooldown * 2;
-		attackHitbox.GetComponent<MeshRenderer> ().enabled = false;
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		bool onb = grid.GetComponent<BeatKeeper> ().checkifonbeat ();
 		bool canMove = GetComponent<VanillaCharacter> ().canMove ();
-		if ((Input.GetKeyDown (key) || Input.GetButtonDown (rightBumper)) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) { // && !onCoolDown
+		if (device.RightBumper.WasPressed && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) { // && !onCoolDown
             this.GetComponent<VanillaCharacter>().currentAction = "popNLock";
             this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
         }
@@ -64,7 +64,7 @@ public class PopNLock : MonoBehaviour {
     }
     void HorizontalAttack()
 	{
-		attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
+		attackHitbox.SetActive(true);
 		Vector2 currentpos = GetComponent<CharacterMover>().getposition();
 		Vector2 enemypos = enemy.GetComponent<CharacterMover>().getposition();	
 		if ((enemypos.x <= currentpos.x + 2 && enemypos.x >= currentpos.x - 2) && enemypos.y == currentpos.y)
@@ -76,8 +76,8 @@ public class PopNLock : MonoBehaviour {
 
 	void VerticalAttack()
 	{
-		attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
-		Vector2 currentpos = GetComponent<CharacterMover>().getposition();
+        attackHitbox.SetActive(true);
+        Vector2 currentpos = GetComponent<CharacterMover>().getposition();
 		Vector2 enemypos = enemy.GetComponent<CharacterMover>().getposition();
 		if ((enemypos.y <= currentpos.y + 2 && enemypos.y >= currentpos.y - 2) && enemypos.x == currentpos.x)
 		{	
@@ -89,10 +89,10 @@ public class PopNLock : MonoBehaviour {
 	{
 		//onCoolDown = true;
 		yield return new WaitForSeconds (.2f);
-		attackHitbox.GetComponent<MeshRenderer> ().enabled = false;
-		//yield return new WaitForSeconds(cooldown - .2f);
-		//onCoolDown = false;
-	}
+        attackHitbox.SetActive(false);
+        //yield return new WaitForSeconds(cooldown - .2f);
+        //onCoolDown = false;
+    }
 
     /*
 	IEnumerator CoolDownDisplay()

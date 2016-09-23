@@ -1,39 +1,40 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using InControl;
 
 public class SixStep : MonoBehaviour
 {
-	//private int cooldown;
 	private int damage;
-    public KeyCode key;
     public GameObject grid;
     public GameObject enemy;
-    //private bool onCoolDown = false;
 	public GameObject attackHitbox;
 	public int player;
-	private string leftBumper;
 
-	//private Text cooldownText;
-	//public GameObject CooldownTimer;
-	//private int cooldownCount;
-	private float bpm;
-	public GameObject HUDIcon;
+    //InControl input device
+    private InputDevice device;
+
+    //private int cooldown;
+    //private bool onCoolDown = false;
+    //private Text cooldownText;
+    //public GameObject CooldownTimer;
+    //private int cooldownCount;
+    //private float bpm;
+    public GameObject HUDIcon;
 
     private int meterCost = 25;
 
     // Use this for initialization
     void Start()
     {
-		bpm = grid.GetComponent<BeatKeeper> ().getBPM ();
-		attackHitbox.GetComponent<MeshRenderer> ().enabled = false;
+		//bpm = grid.GetComponent<BeatKeeper> ().getBPM ();
         damage = 2;
         //cooldown = 4;
 		if (player == 1) {
-			leftBumper = "LeftBumper1";
-		} else if (player == 2) {
-			leftBumper = "LeftBumper2";
-		}
+            device = InputManager.Devices[0];
+        } else if (player == 2) {
+            device = InputManager.Devices[1];
+        }
 		//cooldownText = CooldownTimer.GetComponent<Text> ();
 		//cooldownCount = cooldown * 2;
     }
@@ -44,7 +45,7 @@ public class SixStep : MonoBehaviour
         bool onb = grid.GetComponent<BeatKeeper>().checkifonbeat();
 		bool canMove = GetComponent<VanillaCharacter> ().canMove ();
 
-        if ((Input.GetKeyDown(key) || Input.GetButtonDown(leftBumper)) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) // && onb && !onCoolDown
+        if (device.LeftBumper.WasPressed && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) // && onb && !onCoolDown
         {
             this.GetComponent<VanillaCharacter>().currentAction = "sixStep";
             this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
@@ -63,7 +64,7 @@ public class SixStep : MonoBehaviour
         Vector2 currentpos = GetComponent<CharacterMover>().getposition();
         Vector2 enemypos = enemy.GetComponent<CharacterMover>().getposition();
         //turn attack hitbox on
-        attackHitbox.GetComponent<MeshRenderer> ().enabled = true;
+        attackHitbox.SetActive(true);
         //check for hit
         if (enemypos.x == currentpos.x || enemypos.x == currentpos.x + 1 || enemypos.x == currentpos.x - 1)
         {
@@ -84,7 +85,7 @@ public class SixStep : MonoBehaviour
     {
         //onCoolDown = true;
 		yield return new WaitForSeconds (.2f);
-		attackHitbox.GetComponent<MeshRenderer> ().enabled = false;
+        attackHitbox.SetActive(false);
         //yield return new WaitForSeconds(cooldown - .2f);
         //onCoolDown = false;
     }
