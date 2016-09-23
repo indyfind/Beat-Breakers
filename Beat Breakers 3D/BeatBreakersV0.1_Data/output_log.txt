@@ -1,0 +1,39 @@
+Initialize engine version: 5.4.0f3 (a6d8d714de6f)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon R9 200 / HD 7900 Series (ID=0x6798)
+    Vendor:   ATI
+    VRAM:     3051 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\BeatBreakersV0.1_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\BeatBreakersV0.1_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\BeatBreakersV0.1_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\BeatBreakersV0.1_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\BeatBreakersV0.1_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\BeatBreakersV0.1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\BeatBreakersV0.1_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\BeatBreakersV0.1_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.124 seconds
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\BeatBreakersV0.1_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\BeatBreakersV0.1_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.736964 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 3b854 -> priority: 1 
+  Thread -> id: 3ba58 -> priority: 1 
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.652875 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 511.
+Total: 0.318490 ms (FindLiveObjects: 0.027147 ms CreateObjectMapping: 0.024830 ms MarkObjects: 0.234398 ms  DeleteObjects: 0.031782 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.865751 ms
+
+Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 204.
+Total: 5.374610 ms (FindLiveObjects: 0.031782 ms CreateObjectMapping: 0.022843 ms MarkObjects: 0.285052 ms  DeleteObjects: 5.033938 ms)
+
