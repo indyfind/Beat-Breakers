@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using InControl;
 
 public class BeatKeeper : MonoBehaviour {
 
@@ -55,7 +56,7 @@ public class BeatKeeper : MonoBehaviour {
     {
         while (!battleStarted)
         {
-            if(Input.GetKeyDown("space") || Input.GetMouseButtonDown(0) || Input.GetButtonDown("StartButton"))
+            if(Input.GetKeyDown("space") || Input.GetMouseButtonDown(0) || InputManager.ActiveDevice.AnyButtonWasPressed)
             {
                 startgame();
                 break;
