@@ -20,7 +20,7 @@ public class SixStep : MonoBehaviour
     //public GameObject CooldownTimer;
     //private int cooldownCount;
     //private float bpm;
-    public GameObject HUDIcon;
+    //public GameObject HUDIcon;
 
     private int meterCost = 25;
 

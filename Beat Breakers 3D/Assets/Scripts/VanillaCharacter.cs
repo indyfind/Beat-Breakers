@@ -14,12 +14,13 @@ public class VanillaCharacter : MonoBehaviour {
 	private bool tripped = false;
     public int player;
 	public Slider healthSlider;
-    public Slider meterSlider;
+    //public Slider meterSlider;
 	//public bool actionTaken = false;
 	private Vector3 scale;
 	public Text playerWins;
     public Text rhythmRatingUI;
     public string currentAction;
+    public Transform meterRadialSlider;
 
     // Use this for initialization
     void Start () {
@@ -34,7 +35,7 @@ public class VanillaCharacter : MonoBehaviour {
         if (meter > 100) {
             meter = 100;
         }
-        meterSlider.value = meter;
+        //meterSlider.value = meter;
 		if (health <= 0) {
 			if (player == 1) {
 				playerWins.text = "Player 2 Wins!";
@@ -43,6 +44,7 @@ public class VanillaCharacter : MonoBehaviour {
 			}
 			StartCoroutine(End());
 		}
+        meterRadialSlider.GetComponent<Image>().fillAmount = (float)meter / 100f;
     }
 	
     public void TakeDamage(int dam)

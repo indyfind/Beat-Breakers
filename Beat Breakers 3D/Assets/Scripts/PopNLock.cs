@@ -20,7 +20,7 @@ public class PopNLock : MonoBehaviour {
     //private int cooldownCount;
     //private Text cooldownText;
     //public GameObject cooldownTimer;
-	public GameObject HUDIcon;
+	//public GameObject HUDIcon;
 
     private int meterCost = 25;
 
