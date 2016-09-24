@@ -26,7 +26,7 @@ public class HeadSlide : MonoBehaviour
 	//private Text cooldownText;
 	//public GameObject cooldownTimer;
 	//private float bpm;
-	public GameObject HUDIcon;
+	//public GameObject HUDIcon;
 
     private int meterCost = 50;
 
