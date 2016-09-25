@@ -15,6 +15,7 @@ public class BeatKeeper : MonoBehaviour {
 	public GameObject player2;
 	public GameObject boombox;
 	private float bpm = 120f;
+    private GameObject[] blocks;
 
     private int everyOtherBeat = 1;
     private bool battleStarted = false;
@@ -30,7 +31,9 @@ public class BeatKeeper : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         StartCoroutine(FirstClick());
-	}
+        blocks = GameObject.FindGameObjectsWithTag("BeatBlocks");
+        
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -38,6 +41,11 @@ public class BeatKeeper : MonoBehaviour {
 
     void startgame()
     {
+        
+        foreach (GameObject block in blocks)
+        {
+            block.GetComponent<BlockMover>().BattleStart();
+        }
         audio.Play();
         float nextBeatSample = (float)AudioSettings.dspTime * testAudio.frequency;
         float loopTime = (30f / 1000f);
@@ -78,6 +86,7 @@ public class BeatKeeper : MonoBehaviour {
 			if (currentSample >= nextBeatSample ) {
 				//GetComponent<Renderer>().material.color = Color.green;
 				beatHappened = true; //beatHappened is directly when beat happens
+                gameObject.GetComponent<Renderer>().material.color = new Color(.8f, .8f, .8f, 1f);
 
 				if (countdown > 0) {
 					//start battle countdown
@@ -115,6 +124,7 @@ public class BeatKeeper : MonoBehaviour {
                 rhythmRating = "Great!";
                 yield return new WaitForSeconds(.024f);
                 rhythmRating = "Good!";
+                gameObject.GetComponent<Renderer>().material.color = Color.white;
                 yield return new WaitForSeconds(.001f);
                 ///This makes beat .05 after beat
 			}
