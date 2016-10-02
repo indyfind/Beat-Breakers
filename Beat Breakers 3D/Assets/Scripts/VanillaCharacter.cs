@@ -12,6 +12,8 @@ public class VanillaCharacter : MonoBehaviour {
     public GameObject grid;
     public GameObject enemy;
 	private bool tripped = false;
+   
+
     public int player;
 	public Slider healthSlider;
     //public Slider meterSlider;

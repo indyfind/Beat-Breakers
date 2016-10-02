@@ -8,11 +8,15 @@ public class HeadSlide : MonoBehaviour
 	public GameObject grid;
 	public GameObject enemy;
 	public GameObject attackHitbox;
+    public GameObject playermodel;
+    public GameObject enemymodel;
 	//private int cooldown;
 	private int damage;
 	//public KeyCode key;
 	//private bool onCoolDown = false;
 	public int player;
+    private bool enemyfell = false;
+    private bool playerfell = false;
 
     //InControl device
     private InputDevice device;
@@ -34,7 +38,7 @@ public class HeadSlide : MonoBehaviour
 	void Start()
 	{
 		//bpm = grid.GetComponent<BeatKeeper> ().getBPM ();
-		damage = 3;
+		damage = 1;
 		//cooldown = 8;
 		//Assign correct controller inputs based on which player it is
 		if (player == 1) {
@@ -95,7 +99,16 @@ public class HeadSlide : MonoBehaviour
 			}
 			else
 			{
-				dest.y = 0;
+                playerfell = true;
+                if (enemyfell)
+                {
+                    dest.y = 0;
+                }
+                else
+                {
+                    dest.y = 6;
+                }
+				
 			}
 		}
 		else if (dir == "right")
@@ -106,8 +119,17 @@ public class HeadSlide : MonoBehaviour
 			}
 			else
 			{
-				dest.x = 6;
-			}
+				
+                playerfell = true;
+                if (enemyfell)
+                {
+                    dest.x = 6;
+                }
+                else
+                {
+                    dest.x = 0;
+                }
+            }
 		}
 		else if (dir == "left")
 		{
@@ -117,8 +139,16 @@ public class HeadSlide : MonoBehaviour
 			}
 			else
 			{
-				dest.x = 0;
-			}
+                playerfell = true;
+                if (enemyfell)
+                {
+                    dest.x = 0;
+                }
+                else
+                {
+                    dest.x = 6;
+                }
+            }
 		}
 		else
 		{
@@ -128,11 +158,29 @@ public class HeadSlide : MonoBehaviour
 			}
 			else
 			{
-				dest.y = 6;
-			}
+                playerfell = true;
+                if (enemyfell)
+                {
+                    dest.y = 6;
+                }
+                else
+                {
+                    dest.y = 0;
+                }
+            }
 		}
-		GetComponent<CharacterMover>().setposition((int)dest.x, (int)dest.y, .5f);
-		//return grid.GetComponent<GridMaster>().getPosition((int)dest.x, (int)dest.y);
+        if (playerfell)
+        {
+            GetComponent<CharacterMover>().setposition((int)dest.x, (int)dest.y, 1f);
+            this.GetComponent<VanillaCharacter>().TakeDamage(3);
+            StartCoroutine(MakePlayerDisapear(playermodel));
+
+        }
+        else
+        {
+            GetComponent<CharacterMover>().setposition((int)dest.x, (int)dest.y, .5f);
+            //return grid.GetComponent<GridMaster>().getPosition((int)dest.x, (int)dest.y);
+        }
 	}
 	
 
@@ -245,8 +293,28 @@ public class HeadSlide : MonoBehaviour
 		{
 			enemy.GetComponent<VanillaCharacter>().TakeDamage(damage);
 			if(destination.x < 0 || destination.x > 6|| destination.y > 6 || destination.y < 0){
-				enemy.GetComponent<VanillaCharacter>().TakeDamage(1000);
-			}
+
+                if(destination.x < 0)
+                {
+                    destination.x = 6;
+                }
+                else if(destination.x > 6)
+                {
+                    destination.x = 0;
+                }
+                else if(destination.y > 6)
+                {
+                    destination.y = 0;
+                }
+                else
+                {
+                    destination.y = 6;
+                }
+                enemy.GetComponent<CharacterMover>().setposition((int)destination.x, (int)destination.y, 1f);
+                enemy.GetComponent<VanillaCharacter>().TakeDamage(3);
+                enemyfell = true;
+                StartCoroutine(MakePlayerDisapear(enemymodel));
+            }
 			else{
 			
 			enemy.GetComponent<CharacterMover>().setposition((int)destination.x, (int)destination.y, .5f);
@@ -260,6 +328,8 @@ public class HeadSlide : MonoBehaviour
 	
 	public void Attack(string direction)
 	{
+        enemyfell = false;
+        playerfell = false;
         //subtract meter cost
         this.GetComponent<VanillaCharacter>().meter -= meterCost;
         //show hitbox
@@ -277,16 +347,24 @@ public class HeadSlide : MonoBehaviour
 		Vector2 currentpos = GetComponent<CharacterMover>().getposition();
 		Vector2 enemypos = enemy.GetComponent<CharacterMover>().getposition();
 		Vector2 temp = new Vector2(currentpos.x, currentpos.y);
-		Slide(temp, direction);
-		HitEnemy (direction, currentpos, enemypos);
-		
-		StartCoroutine(CoolDown());
+        HitEnemy(direction, currentpos, enemypos);
+        Slide(temp, direction);
+        
+
+
+        StartCoroutine(CoolDown());
 		//StartCoroutine (CoolDownDisplay ());
 		//StartCoroutine(MoveToPosition(.5f, destination));
 		
 	}
-	
-	IEnumerator CoolDown()
+    IEnumerator MakePlayerDisapear(GameObject model )
+    {
+        model.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        model.SetActive(true);
+    }
+
+    IEnumerator CoolDown()
 	{
         //onCoolDown = true;
         yield return new WaitForSeconds (.2f);
