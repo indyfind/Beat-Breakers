@@ -13,7 +13,7 @@ public class BeatKeeper : MonoBehaviour {
     public string rhythmRating;
 	public GameObject player1;
 	public GameObject player2;
-	public GameObject boombox;
+	//public GameObject boombox;
 	private float bpm = 120f;
     private GameObject[] blocks;
 
@@ -94,7 +94,7 @@ public class BeatKeeper : MonoBehaviour {
 				} else if (countdown == 0) {
                     player1.GetComponent<VanillaCharacter>().currentAction = "";
                     player2.GetComponent<VanillaCharacter>().currentAction = "";
-                    this.GetComponent<StartCountdown> ().setText ("Dance!");
+                    this.GetComponent<StartCountdown> ().setText ("dance!");
 				} else if (countdown == -1) {
 					this.GetComponent<StartCountdown> ().setText ("");
 				}
@@ -109,7 +109,7 @@ public class BeatKeeper : MonoBehaviour {
                     everyOtherBeat--;
                 }
                 //make boombox pulse to beat
-                boombox.GetComponent<BeatAnimation>().Pulse ();
+                //boombox.GetComponent<BeatAnimation>().Pulse ();
 //				player1.GetComponent<VanillaCharacter>().beatAnimation();
 //				player2.GetComponent<VanillaCharacter>().beatAnimation();
                 
