@@ -40,9 +40,9 @@ public class VanillaCharacter : MonoBehaviour {
         //meterSlider.value = meter;
 		if (health <= 0) {
 			if (player == 1) {
-				playerWins.text = "Player 2 Wins!";
+				playerWins.text = "player 2 wins!";
 			} else {
-				playerWins.text = "Player 1 Wins!";
+				playerWins.text = "player 1 wins!";
 			}
 			StartCoroutine(End());
 		}
