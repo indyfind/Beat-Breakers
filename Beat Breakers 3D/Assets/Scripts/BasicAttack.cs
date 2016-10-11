@@ -10,6 +10,7 @@ public class BasicAttack : MonoBehaviour
     public GameObject enemy;
     public GameObject attackHitbox;
     public int player;
+    private GameObject[] enemies;
 
     //InControl device
     private InputDevice device;
@@ -107,7 +108,66 @@ public class BasicAttack : MonoBehaviour
                     enemy.GetComponent<VanillaCharacter>().TakeDamage(damage);
             }
         }
+        AttackHordeEnemies(direction);
         StartCoroutine(CoolDown());
+    }
+
+    private void AttackHordeEnemies(string direction)
+    {
+        Vector2 currentpos = GetComponent<CharacterMover>().getposition();
+        enemies = GameObject.FindGameObjectsWithTag("enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            Vector2 enemypos = enemy.GetComponent<BasicHordeEnemy>().GetPosition();
+
+            if (direction == "left")
+            {
+                this.transform.localEulerAngles = (new Vector3(0, 180, 0));
+                if (enemypos.x == currentpos.x - 1)
+                {
+
+                    if (enemypos.y == currentpos.y || enemypos.y == currentpos.y + 1 || enemypos.y == currentpos.y - 1)
+
+                        enemy.GetComponent<BasicHordeEnemy>().TakeDamage(damage);
+                }
+            }
+            if (direction == "right")
+            {
+                this.transform.localEulerAngles = (new Vector3(0, 0, 0));
+                if (enemypos.x == currentpos.x + 1)
+                {
+
+                    if (enemypos.y == currentpos.y || enemypos.y == currentpos.y + 1 || enemypos.y == currentpos.y - 1)
+
+                        enemy.GetComponent<BasicHordeEnemy>().TakeDamage(damage);
+                }
+            }
+            if (direction == "up")
+            {
+                this.transform.localEulerAngles = (new Vector3(0, -90, 0));
+                if (enemypos.y == currentpos.y - 1)
+                {
+
+                    if (enemypos.x == currentpos.x || enemypos.x == currentpos.x + 1 || enemypos.x == currentpos.x - 1)
+
+                        enemy.GetComponent<BasicHordeEnemy>().TakeDamage(damage);
+
+
+
+                }
+            }
+            if (direction == "down")
+            {
+                this.transform.localEulerAngles = (new Vector3(0, 90, 0));
+                if (enemypos.y == currentpos.y + 1)
+                {
+
+                    if (enemypos.x == currentpos.x || enemypos.x == currentpos.x + 1 || enemypos.x == currentpos.x - 1)
+
+                        enemy.GetComponent<BasicHordeEnemy>().TakeDamage(damage);
+                }
+            }
+        }
     }
     IEnumerator CoolDown()
     {

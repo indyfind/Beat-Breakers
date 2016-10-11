@@ -16,6 +16,7 @@ public class BeatKeeper : MonoBehaviour {
 	//public GameObject boombox;
 	private float bpm = 120f;
     private GameObject[] blocks;
+    private GameObject[] enemies;
 
     private int everyOtherBeat = 1;
     private bool battleStarted = false;
@@ -32,6 +33,7 @@ public class BeatKeeper : MonoBehaviour {
 	void Start () {
         StartCoroutine(FirstClick());
         blocks = GameObject.FindGameObjectsWithTag("BeatBlocks");
+        enemies = GameObject.FindGameObjectsWithTag("enemy");
         
     }
 	
@@ -41,7 +43,7 @@ public class BeatKeeper : MonoBehaviour {
 
     void startgame()
     {
-        
+       
         foreach (GameObject block in blocks)
         {
             block.GetComponent<BlockMover>().BattleStart();
@@ -86,6 +88,8 @@ public class BeatKeeper : MonoBehaviour {
 			if (currentSample >= nextBeatSample ) {
 				//GetComponent<Renderer>().material.color = Color.green;
 				beatHappened = true; //beatHappened is directly when beat happens
+               
+
                 gameObject.GetComponent<Renderer>().material.color = new Color(.8f, .8f, .8f, 1f);
 
 				if (countdown > 0) {
@@ -121,6 +125,7 @@ public class BeatKeeper : MonoBehaviour {
                 //Great .025 - .075  //great 0.125 - .15
                 //Perfect .075 - .125 
                 yield return new WaitForSeconds(.025f);
+               
                 rhythmRating = "Great!";
                 yield return new WaitForSeconds(.024f);
                 rhythmRating = "Good!";
@@ -160,6 +165,14 @@ public class BeatKeeper : MonoBehaviour {
                 {
                     player1.GetComponent<VanillaCharacter>().DoCurrentAction();
                     player2.GetComponent<VanillaCharacter>().DoCurrentAction();
+                    
+                        Vector2 player1position = player1.GetComponent<CharacterMover>().getposition();
+                        enemies = GameObject.FindGameObjectsWithTag("enemy");
+                        foreach (GameObject enemy in enemies)
+                        {
+                            enemy.GetComponent<BasicHordeEnemy>().EnemiesAct(player1position);
+                        }
+                    
                     player1.GetComponent<VanillaCharacter>().currentAction = "";
                     player2.GetComponent<VanillaCharacter>().currentAction = "";
                 }

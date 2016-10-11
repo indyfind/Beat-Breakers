@@ -29,6 +29,7 @@ public class CharacterMover : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
         bool onb = grid.GetComponent<BeatKeeper>().checkifonbeat();
 		bool canMove = GetComponent<VanillaCharacter> ().canMove (); //check if player is tripped/already moved
         if ((device.DPad.WasPressed || device.LeftStick.WasPressed) && canMove) { //  && onb
