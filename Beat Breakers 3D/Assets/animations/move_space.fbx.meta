@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 729c92d5f0a5ea748a744e59f86cbb09
-timeCreated: 1476287030
+guid: 17ff8619e4a0b0143aed74c1b852bb1c
+timeCreated: 1476309273
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -8,14 +8,14 @@ ModelImporter:
     100000: Chin
     100002: eva_maya:Mesh
     100004: Head
-    100006: //RootNode
-    100008: Left_shoulder
-    100010: LeftKnee
-    100012: LeftToe
-    100014: LElbow
-    100016: LFoot
-    100018: LHand
-    100020: LHip
+    100006: Left_shoulder
+    100008: LeftKnee
+    100010: LeftToe
+    100012: LElbow
+    100014: LFoot
+    100016: LHand
+    100018: LHip
+    100020: //RootNode
     100022: Neck
     100024: R_hip
     100026: R_Knee
@@ -29,14 +29,14 @@ ModelImporter:
     400000: Chin
     400002: eva_maya:Mesh
     400004: Head
-    400006: //RootNode
-    400008: Left_shoulder
-    400010: LeftKnee
-    400012: LeftToe
-    400014: LElbow
-    400016: LFoot
-    400018: LHand
-    400020: LHip
+    400006: Left_shoulder
+    400008: LeftKnee
+    400010: LeftToe
+    400012: LElbow
+    400014: LFoot
+    400016: LHand
+    400018: LHip
+    400020: //RootNode
     400022: Neck
     400024: R_hip
     400026: R_Knee
@@ -48,7 +48,7 @@ ModelImporter:
     400038: Spine
     400040: waist
     4300000: eva_maya:Mesh
-    7400000: IDLE
+    7400000: block_move
     9500000: //RootNode
     13700000: eva_maya:Mesh
   materials:
@@ -73,7 +73,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: IDLE
+      name: block_move
       takeName: Take 001
       firstFrame: 1
       lastFrame: 120
