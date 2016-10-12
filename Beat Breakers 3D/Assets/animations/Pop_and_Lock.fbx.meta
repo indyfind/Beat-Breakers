@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: a0a968f79e2faba41aea6d64382e7034
+timeCreated: 1476281837
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Chin
+    100002: eva_maya:Mesh
+    100004: Head
+    100006: Left_shoulder
+    100008: LeftKnee
+    100010: LeftToe
+    100012: LElbow
+    100014: LFoot
+    100016: LHand
+    100018: LHip
+    100020: Neck
+    100022: //RootNode
+    100024: R_hip
+    100026: R_Knee
+    100028: Relbow
+    100030: Rfoot
+    100032: Righthand
+    100034: RShoulder
+    100036: RToe
+    100038: Spine
+    100040: waist
+    400000: Chin
+    400002: eva_maya:Mesh
+    400004: Head
+    400006: Left_shoulder
+    400008: LeftKnee
+    400010: LeftToe
+    400012: LElbow
+    400014: LFoot
+    400016: LHand
+    400018: LHip
+    400020: Neck
+    400022: //RootNode
+    400024: R_hip
+    400026: R_Knee
+    400028: Relbow
+    400030: Rfoot
+    400032: Righthand
+    400034: RShoulder
+    400036: RToe
+    400038: Spine
+    400040: waist
+    4300000: eva_maya:Mesh
+    7400000: Eva_Pop_in_lock
+    9500000: //RootNode
+    13700000: eva_maya:Mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Eva_Pop_in_lock
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: eva_maya:Mesh
+        weight: 1
+      - path: waist
+        weight: 1
+      - path: waist/LHip
+        weight: 1
+      - path: waist/LHip/LeftKnee
+        weight: 1
+      - path: waist/LHip/LeftKnee/LFoot
+        weight: 1
+      - path: waist/LHip/LeftKnee/LFoot/LeftToe
+        weight: 1
+      - path: waist/R_hip
+        weight: 1
+      - path: waist/R_hip/R_Knee
+        weight: 1
+      - path: waist/R_hip/R_Knee/Rfoot
+        weight: 1
+      - path: waist/R_hip/R_Knee/Rfoot/RToe
+        weight: 1
+      - path: waist/Spine
+        weight: 1
+      - path: waist/Spine/Neck
+        weight: 1
+      - path: waist/Spine/Neck/Chin
+        weight: 1
+      - path: waist/Spine/Neck/Chin/Head
+        weight: 1
+      - path: waist/Spine/Neck/Left_shoulder
+        weight: 1
+      - path: waist/Spine/Neck/Left_shoulder/LElbow
+        weight: 1
+      - path: waist/Spine/Neck/Left_shoulder/LElbow/LHand
+        weight: 1
+      - path: waist/Spine/Neck/RShoulder
+        weight: 1
+      - path: waist/Spine/Neck/RShoulder/Relbow
+        weight: 1
+      - path: waist/Spine/Neck/RShoulder/Relbow/Righthand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 3.5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
