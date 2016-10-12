@@ -13,6 +13,7 @@ public class BeatKeeper : MonoBehaviour {
     public string rhythmRating;
 	public GameObject player1;
 	public GameObject player2;
+	public GameObject gridModel;
 	//public GameObject boombox;
 	private float bpm = 120f;
     private GameObject[] blocks;
@@ -41,11 +42,6 @@ public class BeatKeeper : MonoBehaviour {
 
     void startgame()
     {
-        
-        foreach (GameObject block in blocks)
-        {
-            block.GetComponent<BlockMover>().BattleStart();
-        }
         audio.Play();
         float nextBeatSample = (float)AudioSettings.dspTime * testAudio.frequency;
         float loopTime = (30f / 1000f);
@@ -86,19 +82,28 @@ public class BeatKeeper : MonoBehaviour {
 			if (currentSample >= nextBeatSample ) {
 				//GetComponent<Renderer>().material.color = Color.green;
 				beatHappened = true; //beatHappened is directly when beat happens
-                gameObject.GetComponent<Renderer>().material.color = new Color(.8f, .8f, .8f, 1f);
+				gridModel.GetComponent<Renderer>().material.color = new Color(.85f, .85f, .85f, 1f);
 
 				if (countdown > 0) {
 					//start battle countdown
 					this.GetComponent<StartCountdown> ().setText (countdown.ToString ());
+					foreach (GameObject block in blocks)
+					{
+						block.GetComponent<BlockMover>().BattleStart(4-countdown);
+					}
+					countdown--;
 				} else if (countdown == 0) {
                     player1.GetComponent<VanillaCharacter>().currentAction = "";
                     player2.GetComponent<VanillaCharacter>().currentAction = "";
                     this.GetComponent<StartCountdown> ().setText ("dance!");
+					foreach (GameObject block in blocks)
+					{
+						block.GetComponent<BlockMover>().BattleStart(4-countdown);
+					}
+					countdown--;
 				} else if (countdown == -1) {
 					this.GetComponent<StartCountdown> ().setText ("");
 				}
-				countdown--;
 
                 //recharge each player's meter by 1 every other beat
                 if (everyOtherBeat == 0) {
@@ -124,7 +129,7 @@ public class BeatKeeper : MonoBehaviour {
                 rhythmRating = "Great!";
                 yield return new WaitForSeconds(.024f);
                 rhythmRating = "Good!";
-                gameObject.GetComponent<Renderer>().material.color = Color.white;
+				gridModel.GetComponent<Renderer>().material.color = Color.white;
                 yield return new WaitForSeconds(.001f);
                 ///This makes beat .05 after beat
 			}
