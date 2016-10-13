@@ -12,7 +12,8 @@ public class VanillaCharacter : MonoBehaviour {
     public GameObject grid;
     public GameObject enemy;
 	private bool tripped = false;
-   
+    
+	public ParticleSystem blood;
 
     public int player;
 	public Slider healthSlider;
@@ -54,6 +55,7 @@ public class VanillaCharacter : MonoBehaviour {
         health -= dam;
         meter += 2;
         enemy.GetComponent<VanillaCharacter>().meter += 3;
+		blood.Play();
         //Debug.Log(character + "Took this much damage");
         //Debug.Log(character + " Has " + health + " health remaining");
     }

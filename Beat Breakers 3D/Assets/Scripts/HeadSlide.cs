@@ -313,7 +313,7 @@ public class HeadSlide : MonoBehaviour
                 enemy.GetComponent<CharacterMover>().setposition((int)destination.x, (int)destination.y, 1f);
                 enemy.GetComponent<VanillaCharacter>().TakeDamage(3);
                 enemyfell = true;
-                StartCoroutine(MakePlayerDisapear(enemymodel));
+				StartCoroutine(MakePlayerDisapear(enemymodel));
             }
 			else{
 			
