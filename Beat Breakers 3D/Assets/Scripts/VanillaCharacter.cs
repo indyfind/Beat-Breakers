@@ -27,7 +27,7 @@ public class VanillaCharacter : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        meter = 0;
+        meter = 50;
 		//scale = gameObject.GetComponent<Transform>().localScale;
 	}
 	
