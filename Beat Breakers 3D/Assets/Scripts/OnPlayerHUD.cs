@@ -5,10 +5,12 @@ public class OnPlayerHUD : MonoBehaviour {
 	public string player;
 	public Vector3 screenPosition;
 	public Font font;
-	GUIStyle style = new GUIStyle();
-	Texture2D texture = new Texture2D(128, 128);
+	private GUIStyle style;
+	private Texture2D texture;
 	// Use this for initialization
 	void Start () {
+		style = new GUIStyle();
+		texture = new Texture2D(128, 128);
 		style.font = font; 
 		style.alignment = TextAnchor.MiddleCenter;
 		for (int y = 0; y < texture.height; ++y)
