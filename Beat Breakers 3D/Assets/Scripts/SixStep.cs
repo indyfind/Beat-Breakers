@@ -84,7 +84,7 @@ public class SixStep : MonoBehaviour
     IEnumerator CoolDown()
     {
         //onCoolDown = true;
-		yield return new WaitForSeconds (.2f);
+		yield return new WaitForSeconds (.4f);
         attackHitbox.SetActive(false);
         //yield return new WaitForSeconds(cooldown - .2f);
         //onCoolDown = false;

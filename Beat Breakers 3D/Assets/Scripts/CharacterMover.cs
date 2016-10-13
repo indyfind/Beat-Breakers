@@ -76,28 +76,28 @@ public class CharacterMover : MonoBehaviour {
     {
         //yposition -= 1;
         this.transform.localEulerAngles = (new Vector3(0, -90, 0));
-        StartCoroutine(MoveToPosition(.2f, "up"));
+        StartCoroutine(MoveDirection(.2f, "up"));
         //GetComponent<VanillaCharacter>().actionTaken = true; //action has been taken, so no more moves/attacks for this beat
     }
     public void MoveDown()
     {
         //yposition += 1;
         this.transform.localEulerAngles = (new Vector3(0, 90, 0));
-        StartCoroutine(MoveToPosition(.2f, "down"));
+        StartCoroutine(MoveDirection(.2f, "down"));
         //GetComponent<VanillaCharacter>().actionTaken = true;
     }
     public void MoveLeft()
     {
         //xposition -= 1;
         this.transform.localEulerAngles = (new Vector3(0, 180, 0));
-        StartCoroutine(MoveToPosition(.2f, "left"));
+        StartCoroutine(MoveDirection(.2f, "left"));
         //GetComponent<VanillaCharacter>().actionTaken = true;
     }
     public void MoveRight()
     {
         //xposition += 1;
         this.transform.localEulerAngles = (new Vector3(0, 0, 0));
-        StartCoroutine(MoveToPosition(.2f, "right"));
+        StartCoroutine(MoveDirection(.2f, "right"));
         //GetComponent<VanillaCharacter>().actionTaken = true;
     }
 
@@ -110,7 +110,8 @@ public class CharacterMover : MonoBehaviour {
     {
         xposition = x;
         yposition = y;
-        StartCoroutine(MoveToPosition(timetomove, ""));
+		destination = new Vector3(grid.GetComponent<GridMaster>().getPosition(xposition, yposition).x, 1f, grid.GetComponent<GridMaster>().getPosition(xposition, yposition).y);
+        StartCoroutine(MoveToPosition(timetomove));
     }
     //public void startMovement(float timetomove)
     //{
@@ -121,8 +122,24 @@ public class CharacterMover : MonoBehaviour {
       //  destination = pos;
         //StartCoroutine(MoveToPosition(t));
     //}
+
+	public IEnumerator MoveToPosition(float timeToMove)
+	{
+		Vector3 currentPos = gameObject.transform.position;
+		float t = 0f;
+		while (t < 1)
+		{
+
+			t += Time.deltaTime / timeToMove;
+			transform.position = Vector3.Lerp(currentPos, destination, t);
+			//this.transform.localEulerAngles = new Vector3 (0, 30, 0);
+			yield return null;
+		}
+		destinationx = xposition;
+		destinationy = yposition;
+	}
     
-	public IEnumerator MoveToPosition(float timeToMove, string direction)
+	public IEnumerator MoveDirection(float timeToMove, string direction)
 	{
 		switch (direction)
 		{
