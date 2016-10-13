@@ -10,6 +10,8 @@ public class HeadSlide : MonoBehaviour
 	public GameObject attackHitbox;
     public GameObject playermodel;
     public GameObject enemymodel;
+    public ParticleSystem playerFallOffParticle;
+    public ParticleSystem enemyFallOffParticle;
 	//private int cooldown;
 	private int damage;
 	//public KeyCode key;
@@ -357,8 +359,16 @@ public class HeadSlide : MonoBehaviour
 		//StartCoroutine(MoveToPosition(.5f, destination));
 		
 	}
-    IEnumerator MakePlayerDisapear(GameObject model )
+    IEnumerator MakePlayerDisapear(GameObject model)
     {
+        if (enemyfell == true)
+        {
+            enemyFallOffParticle.Play();
+        }
+        if (playerfell = true)
+        {
+            playerFallOffParticle.Play();
+        }
         model.SetActive(false);
         yield return new WaitForSeconds(1f);
         model.SetActive(true);
