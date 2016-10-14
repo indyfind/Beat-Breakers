@@ -17,6 +17,8 @@ public class BeatKeeper : MonoBehaviour {
 	//public GameObject boombox;
 	private float bpm = 120f;
     private GameObject[] blocks;
+	private GameObject[] evenSpaces;
+	private GameObject[] oddSpaces;
 
     private int everyOtherBeat = 1;
     private bool battleStarted = false;
@@ -33,7 +35,8 @@ public class BeatKeeper : MonoBehaviour {
 	void Start () {
         StartCoroutine(FirstClick());
         blocks = GameObject.FindGameObjectsWithTag("BeatBlocks");
-        
+		evenSpaces = GameObject.FindGameObjectsWithTag ("GridSpace2");
+		oddSpaces = GameObject.FindGameObjectsWithTag ("GridSpace1");
     }
 	
 	// Update is called once per frame
@@ -107,8 +110,24 @@ public class BeatKeeper : MonoBehaviour {
 
                 //recharge each player's meter by 1 every other beat
                 if (everyOtherBeat == 0) {
+					foreach (GameObject space in evenSpaces)
+					{
+						space.GetComponent<SpriteRenderer> ().color = Color.black;
+					}
+					foreach (GameObject space in oddSpaces)
+					{
+						space.GetComponent<SpriteRenderer> ().color = Color.white;
+					}
                     everyOtherBeat++;
                 } else {
+					foreach (GameObject space in evenSpaces)
+					{
+						space.GetComponent<SpriteRenderer> ().color = Color.white;
+					}
+					foreach (GameObject space in oddSpaces)
+					{
+						space.GetComponent<SpriteRenderer> ().color = Color.black;
+					}
                     player1.GetComponent<VanillaCharacter>().meter++;
                     player2.GetComponent<VanillaCharacter>().meter++;
                     everyOtherBeat--;
