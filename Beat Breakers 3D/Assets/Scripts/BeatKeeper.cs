@@ -19,10 +19,15 @@ public class BeatKeeper : MonoBehaviour {
     private GameObject[] blocks;
 	private GameObject[] evenSpaces;
 	private GameObject[] oddSpaces;
+	private Color gridColor1;
+	private Color gridColor2;
 
     private int everyOtherBeat = 1;
     private bool battleStarted = false;
 	private int countdown;
+
+	private int beatsLeft = 332;
+
     void Awake()
     {
         testAudio = Resources.Load<AudioClip>("cryptofthebeatbreakesFinal");
@@ -37,7 +42,18 @@ public class BeatKeeper : MonoBehaviour {
         blocks = GameObject.FindGameObjectsWithTag("BeatBlocks");
 		evenSpaces = GameObject.FindGameObjectsWithTag ("GridSpace2");
 		oddSpaces = GameObject.FindGameObjectsWithTag ("GridSpace1");
-    }
+		gridColor1 = new Color (154f/255f, 149f/255f, 135f/255f,  1f); //new Color (0f, .6f, .6f, 1f); // new Color (0f, .90f, .90f, 1f);
+		gridColor2 = new Color (196f/255f, 189f/255f, 172f/255f, 1f); //new Color (0f, .4f, .4f, 1f); //new Color (.196f, .189f, .172f, 1f);
+		foreach (GameObject space in evenSpaces)
+		{
+			space.GetComponent<MeshRenderer> ().material.color = gridColor2;
+		}
+		foreach (GameObject space in oddSpaces)
+		{
+			space.GetComponent<MeshRenderer> ().material.color = gridColor1;
+		}
+		this.GetComponent<Timer> ().setText (beatsLeft.ToString ());
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -81,52 +97,54 @@ public class BeatKeeper : MonoBehaviour {
 //			Debug.Log(currentSample + "current");
 //			Debug.Log(nextBeatSample + "nextBeat");
 
-            //Beat happends
+            //Beat happens
 			if (currentSample >= nextBeatSample ) {
 				//GetComponent<Renderer>().material.color = Color.green;
 				beatHappened = true; //beatHappened is directly when beat happens
-				gridModel.GetComponent<Renderer>().material.color = new Color(.85f, .85f, .85f, 1f);
+				//gridModel.GetComponent<Renderer>().material.color = new Color(.85f, .85f, .85f, 1f);
 
 				if (countdown > 0) {
 					//start battle countdown
 					this.GetComponent<StartCountdown> ().setText (countdown.ToString ());
-					foreach (GameObject block in blocks)
-					{
-						block.GetComponent<BlockMover>().BattleStart(4-countdown);
+					foreach (GameObject block in blocks) {
+						block.GetComponent<BlockMover> ().BattleStart (4 - countdown);
 					}
 					countdown--;
 				} else if (countdown == 0) {
-                    player1.GetComponent<VanillaCharacter>().currentAction = "";
-                    player2.GetComponent<VanillaCharacter>().currentAction = "";
-                    this.GetComponent<StartCountdown> ().setText ("dance!");
-					foreach (GameObject block in blocks)
-					{
-						block.GetComponent<BlockMover>().BattleStart(4-countdown);
+					player1.GetComponent<VanillaCharacter> ().currentAction = "";
+					player2.GetComponent<VanillaCharacter> ().currentAction = "";
+					this.GetComponent<StartCountdown> ().setText ("dance!");
+					foreach (GameObject block in blocks) {
+						block.GetComponent<BlockMover> ().BattleStart (4 - countdown);
 					}
+					this.GetComponent<Timer> ().setText (beatsLeft.ToString ());
+					beatsLeft--;
 					countdown--;
 				} else if (countdown == -1) {
 					this.GetComponent<StartCountdown> ().setText ("");
+					this.GetComponent<Timer> ().setText (beatsLeft.ToString ());
+					beatsLeft--;
 				}
 
                 //recharge each player's meter by 1 every other beat
                 if (everyOtherBeat == 0) {
 					foreach (GameObject space in evenSpaces)
 					{
-						space.GetComponent<SpriteRenderer> ().color = Color.black;
+						space.GetComponent<MeshRenderer> ().material.color = gridColor1;
 					}
 					foreach (GameObject space in oddSpaces)
 					{
-						space.GetComponent<SpriteRenderer> ().color = Color.white;
+						space.GetComponent<MeshRenderer> ().material.color = gridColor2;
 					}
                     everyOtherBeat++;
                 } else {
 					foreach (GameObject space in evenSpaces)
 					{
-						space.GetComponent<SpriteRenderer> ().color = Color.white;
+						space.GetComponent<MeshRenderer> ().material.color = gridColor2;
 					}
 					foreach (GameObject space in oddSpaces)
 					{
-						space.GetComponent<SpriteRenderer> ().color = Color.black;
+						space.GetComponent<MeshRenderer> ().material.color = gridColor1;
 					}
                     player1.GetComponent<VanillaCharacter>().meter++;
                     player2.GetComponent<VanillaCharacter>().meter++;
