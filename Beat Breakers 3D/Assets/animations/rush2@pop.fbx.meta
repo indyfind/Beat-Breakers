@@ -1,56 +1,52 @@
 fileFormatVersion: 2
-guid: fe02836e936edf54cbcc77803435b17e
-timeCreated: 1476311531
+guid: 412955af2e716f1439bd2a9c10a71d6e
+timeCreated: 1476547671
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: Chin
-    100002: eva_maya:Mesh
-    100004: Head
-    100006: //RootNode
-    100008: Left_shoulder
-    100010: LeftKnee
-    100012: LeftToe
-    100014: LElbow
-    100016: LFoot
-    100018: LHand
-    100020: LHip
-    100022: Neck
-    100024: R_hip
-    100026: R_Knee
-    100028: Relbow
-    100030: Rfoot
-    100032: Righthand
-    100034: RShoulder
-    100036: RToe
-    100038: Spine
-    100040: waist
+    100002: Head
+    100004: Left_shoulder
+    100006: LeftKnee
+    100008: LeftToe
+    100010: LElbow
+    100012: LFoot
+    100014: LHand
+    100016: LHip
+    100018: Neck
+    100020: R_hip
+    100022: R_Knee
+    100024: Relbow
+    100026: Rfoot
+    100028: Righthand
+    100030: RShoulder
+    100032: RToe
+    100034: //RootNode
+    100036: Spine
+    100038: waist
     400000: Chin
-    400002: eva_maya:Mesh
-    400004: Head
-    400006: //RootNode
-    400008: Left_shoulder
-    400010: LeftKnee
-    400012: LeftToe
-    400014: LElbow
-    400016: LFoot
-    400018: LHand
-    400020: LHip
-    400022: Neck
-    400024: R_hip
-    400026: R_Knee
-    400028: Relbow
-    400030: Rfoot
-    400032: Righthand
-    400034: RShoulder
-    400036: RToe
-    400038: Spine
-    400040: waist
-    4300000: eva_maya:Mesh
+    400002: Head
+    400004: Left_shoulder
+    400006: LeftKnee
+    400008: LeftToe
+    400010: LElbow
+    400012: LFoot
+    400014: LHand
+    400016: LHip
+    400018: Neck
+    400020: R_hip
+    400022: R_Knee
+    400024: Relbow
+    400026: Rfoot
+    400028: Righthand
+    400030: RShoulder
+    400032: RToe
+    400034: //RootNode
+    400036: Spine
+    400038: waist
     7400000: Take 001
     9500000: //RootNode
-    13700000: eva_maya:Mesh
   materials:
     importMaterials: 1
     materialName: 0
@@ -75,7 +71,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 3
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
