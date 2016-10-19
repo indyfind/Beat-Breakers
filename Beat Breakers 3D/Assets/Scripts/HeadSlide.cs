@@ -365,7 +365,7 @@ public class HeadSlide : MonoBehaviour
         {
             enemyFallOffParticle.Play();
         }
-        if (playerfell = true)
+        if (playerfell == true)
         {
             playerFallOffParticle.Play();
         }
