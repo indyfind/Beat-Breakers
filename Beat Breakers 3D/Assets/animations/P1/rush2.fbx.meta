@@ -1,0 +1,116 @@
+fileFormatVersion: 2
+guid: 863bf2ea0a4fba5448fc485e40734a79
+timeCreated: 1476926302
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Chin
+    100002: eva_maya:Mesh
+    100004: Head
+    100006: Left_shoulder
+    100008: LeftKnee
+    100010: LeftToe
+    100012: LElbow
+    100014: LFoot
+    100016: LHand
+    100018: LHip
+    100020: Neck
+    100022: R_hip
+    100024: R_Knee
+    100026: Relbow
+    100028: Rfoot
+    100030: Righthand
+    100032: RShoulder
+    100034: RToe
+    100036: //RootNode
+    100038: Spine
+    100040: waist
+    400000: Chin
+    400002: eva_maya:Mesh
+    400004: Head
+    400006: Left_shoulder
+    400008: LeftKnee
+    400010: LeftToe
+    400012: LElbow
+    400014: LFoot
+    400016: LHand
+    400018: LHip
+    400020: Neck
+    400022: R_hip
+    400024: R_Knee
+    400026: Relbow
+    400028: Rfoot
+    400030: Righthand
+    400032: RShoulder
+    400034: RToe
+    400036: //RootNode
+    400038: Spine
+    400040: waist
+    4300000: eva_maya:Mesh
+    9500000: //RootNode
+    13700000: eva_maya:Mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 3.7
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
