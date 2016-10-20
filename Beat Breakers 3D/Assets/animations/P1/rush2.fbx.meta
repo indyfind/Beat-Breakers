@@ -1,52 +1,55 @@
 fileFormatVersion: 2
-guid: c373cdbcae6f9b448abcff3d92ecb150
-timeCreated: 1476567222
+guid: 863bf2ea0a4fba5448fc485e40734a79
+timeCreated: 1476926302
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: Chin
-    100002: Head
-    100004: Left_shoulder
-    100006: LeftKnee
-    100008: LeftToe
-    100010: LElbow
-    100012: LFoot
-    100014: LHand
-    100016: LHip
-    100018: Neck
-    100020: R_hip
-    100022: R_Knee
-    100024: Relbow
-    100026: Rfoot
-    100028: Righthand
-    100030: RShoulder
-    100032: RToe
-    100034: //RootNode
-    100036: Spine
-    100038: waist
+    100002: eva_maya:Mesh
+    100004: Head
+    100006: Left_shoulder
+    100008: LeftKnee
+    100010: LeftToe
+    100012: LElbow
+    100014: LFoot
+    100016: LHand
+    100018: LHip
+    100020: Neck
+    100022: R_hip
+    100024: R_Knee
+    100026: Relbow
+    100028: Rfoot
+    100030: Righthand
+    100032: RShoulder
+    100034: RToe
+    100036: //RootNode
+    100038: Spine
+    100040: waist
     400000: Chin
-    400002: Head
-    400004: Left_shoulder
-    400006: LeftKnee
-    400008: LeftToe
-    400010: LElbow
-    400012: LFoot
-    400014: LHand
-    400016: LHip
-    400018: Neck
-    400020: R_hip
-    400022: R_Knee
-    400024: Relbow
-    400026: Rfoot
-    400028: Righthand
-    400030: RShoulder
-    400032: RToe
-    400034: //RootNode
-    400036: Spine
-    400038: waist
-    7400000: Take 001
+    400002: eva_maya:Mesh
+    400004: Head
+    400006: Left_shoulder
+    400008: LeftKnee
+    400010: LeftToe
+    400012: LElbow
+    400014: LFoot
+    400016: LHand
+    400018: LHip
+    400020: Neck
+    400022: R_hip
+    400024: R_Knee
+    400026: Relbow
+    400028: Rfoot
+    400030: Righthand
+    400032: RShoulder
+    400034: RToe
+    400036: //RootNode
+    400038: Spine
+    400040: waist
+    4300000: eva_maya:Mesh
     9500000: //RootNode
+    13700000: eva_maya:Mesh
   materials:
     importMaterials: 1
     materialName: 0
@@ -74,7 +77,7 @@ ModelImporter:
     globalScale: 3.7
     meshCompression: 0
     addColliders: 0
-    importBlendShapes: 1
+    importBlendShapes: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
