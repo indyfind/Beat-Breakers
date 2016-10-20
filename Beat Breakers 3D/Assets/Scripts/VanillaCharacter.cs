@@ -24,6 +24,7 @@ public class VanillaCharacter : MonoBehaviour {
     public Text rhythmRatingUI;
     public string currentAction;
     public Transform meterRadialSlider;
+    public Text meterCharges;
 
     // Use this for initialization
     void Start () {
@@ -48,6 +49,7 @@ public class VanillaCharacter : MonoBehaviour {
 			StartCoroutine(End());
 		}
         meterRadialSlider.GetComponent<Image>().fillAmount = (float)meter / 100f;
+        meterCharges.text = (meter / 25).ToString();
     }
 	
     public void TakeDamage(int dam)
