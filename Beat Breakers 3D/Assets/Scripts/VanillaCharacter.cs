@@ -14,6 +14,9 @@ public class VanillaCharacter : MonoBehaviour {
 	private bool tripped = false;
     
 	public ParticleSystem blood;
+    public ParticleSystem rhythmParticlePerfect;
+    public ParticleSystem rhythmParticleGreat;
+    public ParticleSystem rhythmParticleGood;
 
     public int player;
 	public Slider healthSlider;
@@ -24,6 +27,7 @@ public class VanillaCharacter : MonoBehaviour {
     public Text rhythmRatingUI;
     public string currentAction;
     public Transform meterRadialSlider;
+    //public Text meterCharges;
 
     // Use this for initialization
     void Start () {
@@ -48,6 +52,7 @@ public class VanillaCharacter : MonoBehaviour {
 			StartCoroutine(End());
 		}
         meterRadialSlider.GetComponent<Image>().fillAmount = (float)meter / 100f;
+        //meterCharges.text = (meter / 25).ToString();
     }
 	
     public void TakeDamage(int dam)
@@ -72,15 +77,18 @@ public class VanillaCharacter : MonoBehaviour {
 
         if (rhythmRating == "Good!")
         {
+            rhythmParticleGood.Play();
             meter += 1;
         }
 
         if (rhythmRating == "Great!")
         {
+            rhythmParticleGreat.Play();
             meter += 2;
         }
         if (rhythmRating == "Perfect!")
         {
+            rhythmParticlePerfect.Play();
             meter += 4;
         }
 
