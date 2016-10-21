@@ -45,7 +45,7 @@ ModelImporter:
     400034: //RootNode
     400036: Spine
     400038: waist
-    7400000: Take 001
+    7400000: idle
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -67,7 +67,75 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: waist
+        weight: 1
+      - path: waist/LHip
+        weight: 1
+      - path: waist/LHip/LeftKnee
+        weight: 1
+      - path: waist/LHip/LeftKnee/LFoot
+        weight: 1
+      - path: waist/LHip/LeftKnee/LFoot/LeftToe
+        weight: 1
+      - path: waist/R_hip
+        weight: 1
+      - path: waist/R_hip/R_Knee
+        weight: 1
+      - path: waist/R_hip/R_Knee/Rfoot
+        weight: 1
+      - path: waist/R_hip/R_Knee/Rfoot/RToe
+        weight: 1
+      - path: waist/Spine
+        weight: 1
+      - path: waist/Spine/Neck
+        weight: 1
+      - path: waist/Spine/Neck/Chin
+        weight: 1
+      - path: waist/Spine/Neck/Chin/Head
+        weight: 1
+      - path: waist/Spine/Neck/Left_shoulder
+        weight: 1
+      - path: waist/Spine/Neck/Left_shoulder/LElbow
+        weight: 1
+      - path: waist/Spine/Neck/Left_shoulder/LElbow/LHand
+        weight: 1
+      - path: waist/Spine/Neck/RShoulder
+        weight: 1
+      - path: waist/Spine/Neck/RShoulder/Relbow
+        weight: 1
+      - path: waist/Spine/Neck/RShoulder/Relbow/Righthand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []
