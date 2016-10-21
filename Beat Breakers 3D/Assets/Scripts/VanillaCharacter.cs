@@ -93,7 +93,7 @@ public class VanillaCharacter : MonoBehaviour {
             rhythmParticlePerfect.Play();
             meter += 4;
         }
-        animator.SetBool("idleAnim", false);
+        //animator.SetBool("idleAnim", false);
         switch (currentAction)
         {
             case "moveUp":
@@ -155,7 +155,7 @@ public class VanillaCharacter : MonoBehaviour {
             default:
                 break;
         }
-        StartCoroutine(backToIdleAnimation());
+        //StartCoroutine(backToIdleAnimation());
         StartCoroutine(rhythmRatingDisplayOff());
     }
 	public void Tripped(float time) 
