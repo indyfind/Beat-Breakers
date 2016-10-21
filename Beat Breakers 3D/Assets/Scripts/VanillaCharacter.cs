@@ -5,7 +5,7 @@ using System.Collections;
 
 public class VanillaCharacter : MonoBehaviour {
 
-    private int health = 10;
+    public int health = 10;
     public int meter;
     public string character;
     public string rhythmRating;
@@ -25,7 +25,6 @@ public class VanillaCharacter : MonoBehaviour {
     //public Slider meterSlider;
 	//public bool actionTaken = false;
 	private Vector3 scale;
-	public Text playerWins;
     public Text rhythmRatingUI;
     public string currentAction;
     public Transform meterRadialSlider;
@@ -47,12 +46,7 @@ public class VanillaCharacter : MonoBehaviour {
         }
         //meterSlider.value = meter;
 		if (health <= 0) {
-			if (player == 1) {
-				playerWins.text = "player 2 wins!";
-			} else {
-				playerWins.text = "player 1 wins!";
-			}
-			StartCoroutine(End());
+            grid.GetComponent<EndBattle>().playerLoses(player);
 		}
         meterRadialSlider.GetComponent<Image>().fillAmount = (float)meter / 100f;
         //meterCharges.text = (meter / 25).ToString();
@@ -82,13 +76,12 @@ public class VanillaCharacter : MonoBehaviour {
             rhythmParticleGood.Play();
             meter += 1;
         }
-
-        if (rhythmRating == "Great!")
+        else if (rhythmRating == "Great!")
         {
             rhythmParticleGreat.Play();
             meter += 2;
         }
-        if (rhythmRating == "Perfect!")
+        else if (rhythmRating == "Perfect!")
         {
             rhythmParticlePerfect.Play();
             meter += 4;
@@ -187,12 +180,6 @@ public class VanillaCharacter : MonoBehaviour {
 		} else {
 			return false;
 		}
-	}
-
-	IEnumerator End()
-	{
-		yield return new WaitForSeconds (3f);
-		SceneManager.LoadScene (0);
 	}
 
     IEnumerator rhythmRatingDisplayOff()

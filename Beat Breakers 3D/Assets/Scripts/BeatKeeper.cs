@@ -57,6 +57,22 @@ public class BeatKeeper : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (beatsLeft <= -1)
+        {
+            if (player1.GetComponent<VanillaCharacter>().health > player2.GetComponent<VanillaCharacter>().health)
+            {
+                this.GetComponent<EndBattle>().playerLoses(2);
+            }
+            else if (player2.GetComponent<VanillaCharacter>().health > player1.GetComponent<VanillaCharacter>().health)
+            {
+                this.GetComponent<EndBattle>().playerLoses(1);
+            }
+            else
+            {
+                this.GetComponent<EndBattle>().Tie();
+            }
+            
+        }
 	}
 
     void startgame()
