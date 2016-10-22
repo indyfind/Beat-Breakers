@@ -17,8 +17,6 @@ public class VanillaCharacter : MonoBehaviour {
     public ParticleSystem rhythmParticlePerfect;
     public ParticleSystem rhythmParticleGreat;
     public ParticleSystem rhythmParticleGood;
-    public GameObject model;
-    private Animator animator;
 
     public int player;
 	public Slider healthSlider;
@@ -29,10 +27,8 @@ public class VanillaCharacter : MonoBehaviour {
     public string currentAction;
     public Transform meterRadialSlider;
     //public Text meterCharges;
-	private bool gameStarted = false;
     // Use this for initialization
     void Start () {
-        animator = model.GetComponent<Animator>();
         meter = 50;
 		//scale = gameObject.GetComponent<Transform>().localScale;
 	}
@@ -50,12 +46,6 @@ public class VanillaCharacter : MonoBehaviour {
 		}
         meterRadialSlider.GetComponent<Image>().fillAmount = (float)meter / 100f;
         //meterCharges.text = (meter / 25).ToString();
-		if (gameStarted == false) {
-			if (grid.GetComponent<BeatKeeper>().battleStarted == true) {
-				gameStarted = true;
-				animator.SetTrigger("gameStart");
-			}
-		}
     }
 	
     public void TakeDamage(int dam)
@@ -68,95 +58,126 @@ public class VanillaCharacter : MonoBehaviour {
         //Debug.Log(character + " Has " + health + " health remaining");
     }
 
-    //called each beat to execute the action taken by the player
-    public void DoCurrentAction()
-    {
-        if (currentAction == "") {
-            rhythmRating = "";
-        }
-        //display rhythm rating
-        rhythmRatingUI.text = rhythmRating;
+	public void DoRhythmRating()
+	{
+		if (currentAction == "")
+		{
+			rhythmRating = "";
+		}
 
-        if (rhythmRating == "Good!")
-        {
-            rhythmParticleGood.Play();
-            meter += 1;
-        }
-        else if (rhythmRating == "Great!")
-        {
-            rhythmParticleGreat.Play();
-            meter += 2;
-        }
-        else if (rhythmRating == "Perfect!")
-        {
-            rhythmParticlePerfect.Play();
-            meter += 4;
-        }
-        //animator.SetBool("idleAnim", false);
-        switch (currentAction)
-        {
-            case "moveUp":
-                animator.SetTrigger("moveAnim");
-                this.GetComponent<CharacterMover>().MoveUp();
-                break;
-            case "moveDown":
-                animator.SetTrigger("moveAnim");
-                this.GetComponent<CharacterMover>().MoveDown();
-                break;
-            case "moveLeft":
-                animator.SetTrigger("moveAnim");
-                this.GetComponent<CharacterMover>().MoveLeft();
-                break;
-            case "moveRight":
-                animator.SetTrigger("moveAnim");
-                this.GetComponent<CharacterMover>().MoveRight();
-                break;
-            case "sixStep":
-                animator.SetTrigger("sixStepAnim");
-                this.GetComponent<SixStep>().Attack();
-                break;
-            case "popNLock":
-                animator.SetTrigger("popNLockAnim");
-                this.GetComponent<PopNLock>().Attack();
-                break;
-            case "headSlideUp":
-                animator.SetTrigger("headSlideAnim");
-                this.GetComponent<HeadSlide>().Attack("up");
-                break;
-            case "headSlideDown":
-                animator.SetTrigger("headSlideAnim");
-                this.GetComponent<HeadSlide>().Attack("down");
-                break;
-            case "headSlideLeft":
-                animator.SetTrigger("headSlideAnim");
-                this.GetComponent<HeadSlide>().Attack("left");
-                break;
-            case "headSlideRight":
-                animator.SetTrigger("headSlideAnim");
-                this.GetComponent<HeadSlide>().Attack("right");
-                break;
-            case "basicAttackLeft":
-                animator.SetTrigger("basicAttackAnim");
-                this.GetComponent<BasicAttack>().Attack("left");
-                break;
-            case "basicAttackRight":
-                animator.SetTrigger("basicAttackAnim");
-                this.GetComponent<BasicAttack>().Attack("right");
-                break;
-            case "basicAttackUp":
-                animator.SetTrigger("basicAttackAnim");
-                this.GetComponent<BasicAttack>().Attack("up");
-                break;
-            case "basicAttackDown":
-                animator.SetTrigger("basicAttackAnim");
-                this.GetComponent<BasicAttack>().Attack("down");
-                break;
-            default:
-                break;
-        }
-        //StartCoroutine(backToIdleAnimation());
-        StartCoroutine(rhythmRatingDisplayOff());
-    }
+		//display rhythm rating
+		rhythmRatingUI.text = rhythmRating;
+
+		if (rhythmRating == "Good!")
+		{
+			rhythmParticleGood.Play();
+			meter += 1;
+		}
+
+		if (rhythmRating == "Great!")
+		{
+			rhythmParticleGreat.Play();
+			meter += 2;
+		}
+		if (rhythmRating == "Perfect!")
+		{
+			rhythmParticlePerfect.Play();
+			meter += 4;
+		}
+		StartCoroutine(rhythmRatingDisplayOff());
+	}
+
+
+
+    //called each beat to execute the action taken by the player
+//    public void DoCurrentAction()
+//    {
+//        if (currentAction == "") {
+//            rhythmRating = "";
+//        }
+//        //display rhythm rating
+//        rhythmRatingUI.text = rhythmRating;
+//
+//        if (rhythmRating == "Good!")
+//        {
+//            rhythmParticleGood.Play();
+//            meter += 1;
+//        }
+//        else if (rhythmRating == "Great!")
+//        {
+//            rhythmParticleGreat.Play();
+//            meter += 2;
+//        }
+//        else if (rhythmRating == "Perfect!")
+//        {
+//            rhythmParticlePerfect.Play();
+//            meter += 4;
+//        }
+//        //animator.SetBool("idleAnim", false);
+//        switch (currentAction)
+//        {
+//            case "moveUp":
+//                animator.SetTrigger("moveAnim");
+//                this.GetComponent<CharacterMover>().MoveUp();
+//                break;
+//            case "moveDown":
+//                animator.SetTrigger("moveAnim");
+//                this.GetComponent<CharacterMover>().MoveDown();
+//                break;
+//            case "moveLeft":
+//                animator.SetTrigger("moveAnim");
+//                this.GetComponent<CharacterMover>().MoveLeft();
+//                break;
+//            case "moveRight":
+//                animator.SetTrigger("moveAnim");
+//                this.GetComponent<CharacterMover>().MoveRight();
+//                break;
+//            case "sixStep":
+//                animator.SetTrigger("sixStepAnim");
+//                this.GetComponent<SixStep>().Attack();
+//                break;
+//            case "popNLock":
+//                animator.SetTrigger("popNLockAnim");
+//                this.GetComponent<PopNLock>().Attack();
+//                break;
+//            case "headSlideUp":
+//                animator.SetTrigger("headSlideAnim");
+//                this.GetComponent<HeadSlide>().Attack("up");
+//                break;
+//            case "headSlideDown":
+//                animator.SetTrigger("headSlideAnim");
+//                this.GetComponent<HeadSlide>().Attack("down");
+//                break;
+//            case "headSlideLeft":
+//                animator.SetTrigger("headSlideAnim");
+//                this.GetComponent<HeadSlide>().Attack("left");
+//                break;
+//            case "headSlideRight":
+//                animator.SetTrigger("headSlideAnim");
+//                this.GetComponent<HeadSlide>().Attack("right");
+//                break;
+//            case "basicAttackLeft":
+//                animator.SetTrigger("basicAttackAnim");
+//                this.GetComponent<BasicAttack>().Attack("left");
+//                break;
+//            case "basicAttackRight":
+//                animator.SetTrigger("basicAttackAnim");
+//                this.GetComponent<BasicAttack>().Attack("right");
+//                break;
+//            case "basicAttackUp":
+//                animator.SetTrigger("basicAttackAnim");
+//                this.GetComponent<BasicAttack>().Attack("up");
+//                break;
+//            case "basicAttackDown":
+//                animator.SetTrigger("basicAttackAnim");
+//                this.GetComponent<BasicAttack>().Attack("down");
+//                break;
+//            default:
+//                break;
+//        }
+//        //StartCoroutine(backToIdleAnimation());
+//        StartCoroutine(rhythmRatingDisplayOff());
+//    }
 	public void Tripped(float time) 
 	{
 		tripped = true;
@@ -192,12 +213,7 @@ public class VanillaCharacter : MonoBehaviour {
     {
         yield return new WaitForSeconds(.2f);
         rhythmRatingUI.text = "";
-    }
-    IEnumerator backToIdleAnimation()
-    {
-        yield return new WaitForSeconds(.5f);
-        animator.SetBool("idleAnim", true);
-    }
+	}
 
     //	public void beatAnimation()
     //	{
