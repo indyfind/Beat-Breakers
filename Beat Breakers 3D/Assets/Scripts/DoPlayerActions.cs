@@ -21,8 +21,8 @@ public class DoPlayerActions : MonoBehaviour {
 		if (gameStarted == false) {
 			if (this.GetComponent<BeatKeeper>().battleStarted == true) {
 				gameStarted = true;
-				animator1.SetTrigger("gameStart");
-				animator2.SetTrigger("gameStart");
+				animator1.SetBool("gameStart", true);
+				animator2.SetBool("gameStart", true);
 			}
 		}
 	}
