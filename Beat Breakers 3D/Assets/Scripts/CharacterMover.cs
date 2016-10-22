@@ -103,7 +103,7 @@ public class CharacterMover : MonoBehaviour {
 
     public Vector2 getposition()
     {
-        return new Vector2((float)xposition, (float)yposition);
+		return new Vector2((float)destinationx, (float)destinationy);
     }
 
     public void setposition(int x, int y, float timetomove)
@@ -125,6 +125,7 @@ public class CharacterMover : MonoBehaviour {
 
 	public IEnumerator MoveToPosition(float timeToMove)
 	{
+		pushed = true;
 		Vector3 currentPos = gameObject.transform.position;
 		float t = 0f;
 		while (t < 1)
@@ -137,6 +138,7 @@ public class CharacterMover : MonoBehaviour {
 		}
 		destinationx = xposition;
 		destinationy = yposition;
+		pushed = false;
 	}
     
 	public IEnumerator MoveDirection(float timeToMove, string direction)
@@ -188,8 +190,10 @@ public class CharacterMover : MonoBehaviour {
 			yield return null;
 		}
 		if (sameSpace == false) {
-			xposition = destinationx;
-			yposition = destinationy;
+			if (pushed != true) {
+				xposition = destinationx;
+				yposition = destinationy;
+			}
 		} else {
 			destinationx = xposition;
 			destinationy = yposition;

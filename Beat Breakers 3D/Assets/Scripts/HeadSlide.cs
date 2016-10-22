@@ -173,6 +173,7 @@ public class HeadSlide : MonoBehaviour
 		}
         if (playerfell)
         {
+			//this.GetComponent<VanillaCharacter>().Tripped(1f);
             GetComponent<CharacterMover>().setposition((int)dest.x, (int)dest.y, 1f);
             this.GetComponent<VanillaCharacter>().TakeDamage(3);
             StartCoroutine(MakePlayerDisapear(playermodel));
@@ -363,10 +364,12 @@ public class HeadSlide : MonoBehaviour
     {
         if (enemyfell == true)
         {
+			enemy.GetComponent<VanillaCharacter>().Tripped(1f);
             enemyFallOffParticle.Play();
         }
         if (playerfell == true)
         {
+			this.GetComponent<VanillaCharacter>().Tripped(1f);
             playerFallOffParticle.Play();
         }
         model.SetActive(false);

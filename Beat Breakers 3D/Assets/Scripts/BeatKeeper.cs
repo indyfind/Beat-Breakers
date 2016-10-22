@@ -23,7 +23,7 @@ public class BeatKeeper : MonoBehaviour {
 	private Color gridColor2;
 
     private int everyOtherBeat = 1;
-    private bool battleStarted = false;
+    public bool battleStarted = false;
 	private int countdown;
 
 	private int beatsLeft = 332;
@@ -77,6 +77,7 @@ public class BeatKeeper : MonoBehaviour {
 
     void startgame()
     {
+		battleStarted = true;
         audio.Play();
         float nextBeatSample = (float)AudioSettings.dspTime * testAudio.frequency;
         float loopTime = (30f / 1000f);
@@ -216,10 +217,15 @@ public class BeatKeeper : MonoBehaviour {
                 //if game has started, do current action for each player
                 if (countdown < 0)
                 {
-                    player1.GetComponent<VanillaCharacter>().DoCurrentAction();
-                    player2.GetComponent<VanillaCharacter>().DoCurrentAction();
-                    player1.GetComponent<VanillaCharacter>().currentAction = "";
-                    player2.GetComponent<VanillaCharacter>().currentAction = "";
+					this.GetComponent<DoPlayerActions>().DoCurrentAction();
+					player1.GetComponent<VanillaCharacter>().DoRhythmRating();
+					player2.GetComponent<VanillaCharacter>().DoRhythmRating();
+					player1.GetComponent<VanillaCharacter>().currentAction = "";
+					player2.GetComponent<VanillaCharacter>().currentAction = "";
+//                    player1.GetComponent<VanillaCharacter>().DoCurrentAction();
+//                    player2.GetComponent<VanillaCharacter>().DoCurrentAction();
+//                    player1.GetComponent<VanillaCharacter>().currentAction = "";
+//                    player2.GetComponent<VanillaCharacter>().currentAction = "";
                 }
                 //Reset both players actions once the actionable period is over
                 //(so they can move next beat)
