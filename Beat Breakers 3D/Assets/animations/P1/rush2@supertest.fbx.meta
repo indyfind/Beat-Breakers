@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 4a2725aa586e36043a6944508ce8a211
-timeCreated: 1476546353
+guid: 77a31aeef944a704ba2df960477d2fcb
+timeCreated: 1477090551
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -45,7 +45,7 @@ ModelImporter:
     400034: //RootNode
     400036: Spine
     400038: waist
-    7400000: idle
+    7400000: supertest
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -69,10 +69,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: idle
+      name: supertest
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 120
+      lastFrame: 13
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
