@@ -23,7 +23,7 @@ public class BeatKeeper : MonoBehaviour {
 	private Color gridColor2;
 
     private int everyOtherBeat = 1;
-    private bool battleStarted = false;
+    public bool battleStarted = false;
 	private int countdown;
 
 	private int beatsLeft = 332;
@@ -77,6 +77,7 @@ public class BeatKeeper : MonoBehaviour {
 
     void startgame()
     {
+		battleStarted = true;
         audio.Play();
         float nextBeatSample = (float)AudioSettings.dspTime * testAudio.frequency;
         float loopTime = (30f / 1000f);

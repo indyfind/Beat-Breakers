@@ -14,6 +14,8 @@ public class SixStep : MonoBehaviour
     //InControl input device
     private InputDevice device;
 
+	public AudioSource soundEffect;
+
     //private int cooldown;
     //private bool onCoolDown = false;
     //private Text cooldownText;
@@ -58,6 +60,7 @@ public class SixStep : MonoBehaviour
 
     public void Attack()
     {
+		soundEffect.Play();
         // subtract meter cost
         this.GetComponent<VanillaCharacter>().meter -= meterCost;
         //get character positions

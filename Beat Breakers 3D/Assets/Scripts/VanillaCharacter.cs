@@ -29,7 +29,7 @@ public class VanillaCharacter : MonoBehaviour {
     public string currentAction;
     public Transform meterRadialSlider;
     //public Text meterCharges;
-
+	private bool gameStarted = false;
     // Use this for initialization
     void Start () {
         animator = model.GetComponent<Animator>();
@@ -50,6 +50,12 @@ public class VanillaCharacter : MonoBehaviour {
 		}
         meterRadialSlider.GetComponent<Image>().fillAmount = (float)meter / 100f;
         //meterCharges.text = (meter / 25).ToString();
+		if (gameStarted == false) {
+			if (grid.GetComponent<BeatKeeper>().battleStarted == true) {
+				gameStarted = true;
+				animator.SetTrigger("gameStart");
+			}
+		}
     }
 	
     public void TakeDamage(int dam)

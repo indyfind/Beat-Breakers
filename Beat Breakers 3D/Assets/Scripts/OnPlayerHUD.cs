@@ -12,6 +12,7 @@ public class OnPlayerHUD : MonoBehaviour {
 		style = new GUIStyle();
 		texture = new Texture2D(128, 128);
 		style.font = font; 
+		style.fontSize = 22;
 		style.alignment = TextAnchor.MiddleCenter;
 		for (int y = 0; y < texture.height; ++y)
 		{
@@ -37,6 +38,6 @@ public class OnPlayerHUD : MonoBehaviour {
 
 		screenPosition = Camera.main.WorldToScreenPoint(transform.position);
 		screenPosition.y = Screen.height - screenPosition.y;
-		GUI.Box(new Rect(screenPosition.x-10, screenPosition.y-20, 20, 20), player, style);
+		GUI.Box(new Rect(screenPosition.x-10, screenPosition.y-30, 20, 20), player, style);
 	}
 }
