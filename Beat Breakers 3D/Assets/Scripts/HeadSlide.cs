@@ -28,6 +28,8 @@ public class HeadSlide : MonoBehaviour
 	private string joystickX;
 	private string joystickY;
 
+	public AudioSource soundEffect;
+
 	//private int cooldownCount;
 	//private Text cooldownText;
 	//public GameObject cooldownTimer;
@@ -331,6 +333,7 @@ public class HeadSlide : MonoBehaviour
 	
 	public void Attack(string direction)
 	{
+		soundEffect.Play();
         enemyfell = false;
         playerfell = false;
         //subtract meter cost
