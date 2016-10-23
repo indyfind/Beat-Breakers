@@ -383,7 +383,7 @@ public class HeadSlide : MonoBehaviour
     IEnumerator CoolDown()
 	{
         //onCoolDown = true;
-        yield return new WaitForSeconds (.2f);
+        yield return new WaitForSeconds (.4f);
 		attackHitbox.SetActive (false);
         //reset current action to nothing to prevent accidental double headSlide
         this.GetComponent<VanillaCharacter>().currentAction = "";
