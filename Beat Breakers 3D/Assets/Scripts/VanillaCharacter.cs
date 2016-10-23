@@ -86,7 +86,7 @@ public class VanillaCharacter : MonoBehaviour {
 
 		if (rhythmRating == "Good!")
 		{
-
+			rhythmParticleGood.Play();
             if (player == 1)
             {
                 statMaster.GetComponent<BattleStats>().GoodP1 += 1;
