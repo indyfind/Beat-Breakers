@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+
 using System.Collections;
 
 public class VanillaCharacter : MonoBehaviour {
@@ -11,7 +11,8 @@ public class VanillaCharacter : MonoBehaviour {
     public string rhythmRating;
     public GameObject grid;
     public GameObject enemy;
-	private bool tripped = false;
+    public GameObject statMaster;
+    private bool tripped = false;
     
 	public ParticleSystem blood;
     public ParticleSystem rhythmParticlePerfect;
@@ -26,12 +27,18 @@ public class VanillaCharacter : MonoBehaviour {
     public Text rhythmRatingUI;
     public string currentAction;
     public Transform meterRadialSlider;
+    private int currentcombo;
     //public Text meterCharges;
     // Use this for initialization
     void Start () {
         meter = 50;
+        statMaster.GetComponent<BattleStats>().ResetStats();
 		//scale = gameObject.GetComponent<Transform>().localScale;
 	}
+    void Awake()
+    {
+        statMaster.GetComponent<BattleStats>().ResetStats();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -63,14 +70,42 @@ public class VanillaCharacter : MonoBehaviour {
 		if (currentAction == "")
 		{
 			rhythmRating = "";
-		}
+            if (currentcombo >= statMaster.GetComponent<BattleStats>().MaxComboP1 && player == 1)
+            {
+                statMaster.GetComponent<BattleStats>().MaxComboP1 = currentcombo;
+            }
+            if (currentcombo >= statMaster.GetComponent<BattleStats>().MaxComboP2 && player == 2)
+            {
+                statMaster.GetComponent<BattleStats>().MaxComboP2 = currentcombo;
+            }
+            currentcombo = 0;
+        }
 
 		//display rhythm rating
 		rhythmRatingUI.text = rhythmRating;
 
 		if (rhythmRating == "Good!")
 		{
-			rhythmParticleGood.Play();
+
+            if (player == 1)
+            {
+                statMaster.GetComponent<BattleStats>().GoodP1 += 1;
+                if (currentcombo >= statMaster.GetComponent<BattleStats>().MaxComboP1)
+                {
+                    statMaster.GetComponent<BattleStats>().MaxComboP1 = currentcombo;
+                }
+            }
+            if (player == 2)
+            {
+                statMaster.GetComponent<BattleStats>().GoodP2 += 1;
+                if (currentcombo >= statMaster.GetComponent<BattleStats>().MaxComboP2)
+                {
+                    statMaster.GetComponent<BattleStats>().MaxComboP2 = currentcombo;
+                }
+            }
+            currentcombo = 0;
+
+            rhythmParticleGood.Play();
 			meter += 1;
 		}
 
@@ -78,12 +113,46 @@ public class VanillaCharacter : MonoBehaviour {
 		{
 			rhythmParticleGreat.Play();
 			meter += 2;
-		}
+            currentcombo += 1;
+            if (player == 1)
+            {
+                statMaster.GetComponent<BattleStats>().GreatsP1 += 1;
+                if (currentcombo >= statMaster.GetComponent<BattleStats>().MaxComboP1)
+                {
+                    statMaster.GetComponent<BattleStats>().MaxComboP1 = currentcombo;
+                }
+            }
+            if (player == 2)
+            {
+                statMaster.GetComponent<BattleStats>().GreatsP2 += 1;
+                if (currentcombo >= statMaster.GetComponent<BattleStats>().MaxComboP2)
+                {
+                    statMaster.GetComponent<BattleStats>().MaxComboP2 = currentcombo;
+                }
+            }
+        }
 		if (rhythmRating == "Perfect!")
 		{
 			rhythmParticlePerfect.Play();
 			meter += 4;
-		}
+            currentcombo += 1;
+            if(player == 1)
+            {
+                statMaster.GetComponent<BattleStats>().PerfectsP1 += 1;
+                if (currentcombo >= statMaster.GetComponent<BattleStats>().MaxComboP1)
+                {
+                    statMaster.GetComponent<BattleStats>().MaxComboP1 = currentcombo;
+                }
+            }
+            if (player == 2)
+            {
+                statMaster.GetComponent<BattleStats>().PerfectsP2 += 1;
+                if (currentcombo >= statMaster.GetComponent<BattleStats>().MaxComboP2)
+                {
+                    statMaster.GetComponent<BattleStats>().MaxComboP2 = currentcombo;
+                }
+            }
+        }
 		StartCoroutine(rhythmRatingDisplayOff());
 	}
 
