@@ -42,6 +42,7 @@ public class EndBattle : MonoBehaviour {
     IEnumerator End()
     {
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
+        //SceneManager.LoadScene(0);
     }
 }
