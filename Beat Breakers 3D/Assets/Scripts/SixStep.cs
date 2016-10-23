@@ -47,7 +47,7 @@ public class SixStep : MonoBehaviour
         bool onb = grid.GetComponent<BeatKeeper>().checkifonbeat();
 		bool canMove = GetComponent<VanillaCharacter> ().canMove ();
 
-        if (device.LeftBumper.WasPressed && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) // && onb && !onCoolDown
+        if ((device.LeftBumper.WasPressed || device.LeftTrigger.WasPressed) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) // && onb && !onCoolDown
         {
             this.GetComponent<VanillaCharacter>().currentAction = "sixStep";
             this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;

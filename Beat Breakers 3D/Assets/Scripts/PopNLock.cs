@@ -4,46 +4,46 @@ using UnityEngine.UI;
 using InControl;
 
 public class PopNLock : MonoBehaviour {
-	
-	public GameObject grid;
-	public GameObject enemy;
-	public GameObject attackHitbox;
-	//private int cooldown;
-	private int damage;
-	public KeyCode key;
-	//private bool onCoolDown = false;
-	public int player;
+
+    public GameObject grid;
+    public GameObject enemy;
+    public GameObject attackHitbox;
+    //private int cooldown;
+    private int damage;
+    public KeyCode key;
+    //private bool onCoolDown = false;
+    public int player;
 
     //InControl device
     private InputDevice device;
 
-	public AudioSource soundEffect;
+    public AudioSource soundEffect;
 
     //private int cooldownCount;
     //private Text cooldownText;
     //public GameObject cooldownTimer;
-	//public GameObject HUDIcon;
+    //public GameObject HUDIcon;
 
     private int meterCost = 25;
 
-	// Use this for initialization
-	void Start () {
-		damage = 2;
-		//cooldown = 4;
-		if (player == 1) {
+    // Use this for initialization
+    void Start() {
+        damage = 2;
+        //cooldown = 4;
+        if (player == 1) {
             device = InputManager.Devices[0];
         } else if (player == 2) {
             device = InputManager.Devices[1];
         }
-		//cooldownText = cooldownTimer.GetComponent<Text> ();
-		//cooldownCount = cooldown * 2;
+        //cooldownText = cooldownTimer.GetComponent<Text> ();
+        //cooldownCount = cooldown * 2;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		bool onb = grid.GetComponent<BeatKeeper> ().checkifonbeat ();
-		bool canMove = GetComponent<VanillaCharacter> ().canMove ();
-		if (device.RightBumper.WasPressed && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) { // && !onCoolDown
+
+    // Update is called once per frame
+    void Update() {
+        bool onb = grid.GetComponent<BeatKeeper>().checkifonbeat();
+        bool canMove = GetComponent<VanillaCharacter>().canMove();
+        if ((device.RightBumper.WasPressed || device.RightTrigger.WasPressed) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) { // && !onCoolDown
             this.GetComponent<VanillaCharacter>().currentAction = "popNLock";
             this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
         }

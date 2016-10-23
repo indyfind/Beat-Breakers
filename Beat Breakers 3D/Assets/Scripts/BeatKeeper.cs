@@ -45,18 +45,18 @@ public class BeatKeeper : MonoBehaviour {
 		oddSpaces = GameObject.FindGameObjectsWithTag ("GridSpace1");
 		//gridColor1 = new Color (154f/255f, 149f/255f, 135f/255f,  1f); //new Color (0f, .6f, .6f, 1f); // new Color (0f, .90f, .90f, 1f);
 		gridColor2 = new Color (196f/255f, 189f/255f, 172f/255f, 1f); //new Color (0f, .4f, .4f, 1f); //new Color (.196f, .189f, .172f, 1f);
-		gridColor3 = new Color (88f/255f, 153f/255f, 105f/255f, 1f);
-		gridColor1 = new Color (32f/255f, 99f/255f, 188f/255f, 1f) * Color.white;// Color.blue * Color.white; //- gridColor3;
-		foreach (GameObject space in evenSpaces)
+		gridColor3 = new Color(64f/255f, 124f/255f, 183f/255f, 1f); //new Color (88f/255f, 153f/255f, 105f/255f, 1f);
+        gridColor1 = new Color(88f / 255f, 153f / 255f, 105f / 255f, 1f);// Color.blue * Color.white; //- gridColor3;
+        foreach (GameObject space in evenSpaces)
 		{
 			space.GetComponent<MeshRenderer> ().material.color = gridColor2;
 		}
 		foreach (GameObject space in oddSpaces)
 		{
-			space.GetComponent<MeshRenderer> ().material.color = gridColor2;
+			space.GetComponent<MeshRenderer> ().material.color = gridColor3;
 		}
 		this.GetComponent<Timer> ().setText (beatsLeft.ToString ());
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
