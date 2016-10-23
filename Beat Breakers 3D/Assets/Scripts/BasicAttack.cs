@@ -111,7 +111,7 @@ public class BasicAttack : MonoBehaviour
     }
     IEnumerator CoolDown()
     {
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.4f);
         attackHitbox.SetActive(false);
     }
 }
