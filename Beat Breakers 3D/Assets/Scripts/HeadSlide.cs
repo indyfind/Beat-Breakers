@@ -14,6 +14,7 @@ public class HeadSlide : MonoBehaviour
     public ParticleSystem enemyFallOffParticle;
 	//private int cooldown;
 	private int damage;
+    private int fallOffDamage = 20;
 	//public KeyCode key;
 	//private bool onCoolDown = false;
 	public int player;
@@ -42,7 +43,7 @@ public class HeadSlide : MonoBehaviour
 	void Start()
 	{
 		//bpm = grid.GetComponent<BeatKeeper> ().getBPM ();
-		damage = 1;
+		damage = 10;
 		//cooldown = 8;
 		//Assign correct controller inputs based on which player it is
 		if (player == 1) {
@@ -177,7 +178,7 @@ public class HeadSlide : MonoBehaviour
         {
 			//this.GetComponent<VanillaCharacter>().Tripped(1f);
             GetComponent<CharacterMover>().setposition((int)dest.x, (int)dest.y, 1f);
-            this.GetComponent<VanillaCharacter>().TakeDamage(3);
+            this.GetComponent<VanillaCharacter>().TakeDamage(fallOffDamage);
             StartCoroutine(MakePlayerDisapear(playermodel));
 
         }
@@ -316,7 +317,7 @@ public class HeadSlide : MonoBehaviour
                     destination.y = 6;
                 }
                 enemy.GetComponent<CharacterMover>().setposition((int)destination.x, (int)destination.y, 1f);
-                enemy.GetComponent<VanillaCharacter>().TakeDamage(3);
+                enemy.GetComponent<VanillaCharacter>().TakeDamage(fallOffDamage);
                 enemyfell = true;
 				StartCoroutine(MakePlayerDisapear(enemymodel));
             }

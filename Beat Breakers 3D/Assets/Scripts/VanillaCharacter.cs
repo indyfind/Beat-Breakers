@@ -5,7 +5,7 @@ using System.Collections;
 
 public class VanillaCharacter : MonoBehaviour {
 
-    public int health = 10;
+    public int health = 100;
     public int meter;
     public string character;
     public string rhythmRating;
@@ -28,16 +28,18 @@ public class VanillaCharacter : MonoBehaviour {
     public string currentAction;
     public Transform meterRadialSlider;
     private int currentcombo;
+
+    public AudioSource getHitSound;
     //public Text meterCharges;
     // Use this for initialization
     void Start () {
-        meter = 50;
-        statMaster.GetComponent<BattleStats>().ResetStats();
+        meter = 25;
+       // statMaster.GetComponent<BattleStats>().ResetStats();
 		//scale = gameObject.GetComponent<Transform>().localScale;
 	}
     void Awake()
     {
-        statMaster.GetComponent<BattleStats>().ResetStats();
+       // statMaster.GetComponent<BattleStats>().ResetStats();
     }
 	
 	// Update is called once per frame
@@ -57,6 +59,11 @@ public class VanillaCharacter : MonoBehaviour {
 	
     public void TakeDamage(int dam)
     {
+        int chance = (int)Random.Range(1f, 3f);
+        if (chance == 1)
+        {
+            getHitSound.Play();
+        }
         health -= dam;
         meter += 2;
         enemy.GetComponent<VanillaCharacter>().meter += 3;

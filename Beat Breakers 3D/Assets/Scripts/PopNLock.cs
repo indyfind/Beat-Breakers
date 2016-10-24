@@ -28,7 +28,7 @@ public class PopNLock : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        damage = 2;
+        damage = 20;
         //cooldown = 4;
         if (player == 1) {
             device = InputManager.Devices[0];
