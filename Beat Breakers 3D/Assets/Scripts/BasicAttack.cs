@@ -17,7 +17,7 @@ public class BasicAttack : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        damage = 1;
+        damage = 5;
         if (player == 1) {
             device = InputManager.Devices[0];
         } else if (player == 2) {

@@ -7,10 +7,12 @@ using InControl;
 public class StatWriter : MonoBehaviour {
 
     private GameObject statMaster;
-    public Text PerfectP1UI, PerfectP2UI, GreatP1UI, GreatP2UI, GoodP1UI, GoodP2UI, MaxComboP1UI, MaxComboP2UI;
+    public Text WinnerText, PerfectP1UI, PerfectP2UI, GreatP1UI, GreatP2UI, GoodP1UI, GoodP2UI, MaxComboP1UI, MaxComboP2UI;
     public Text ScoreP1UI, ScoreP2UI, FavoriteAttackP1UI, FavoriteAttackP2UI;
     private int tempScoreP1, tempScoreP2;
     private bool buttonpressed;
+    public GameObject StyleMaster1, StyleMaster2;
+    private int winner;
 
 	// Use this for initialization
 	void Start () {
@@ -24,38 +26,55 @@ public class StatWriter : MonoBehaviour {
         GoodP2UI.text = statMaster.GetComponent<BattleStats>().GoodP2.ToString();
         MaxComboP1UI.text = statMaster.GetComponent<BattleStats>().MaxComboP1.ToString();
         MaxComboP2UI.text = statMaster.GetComponent<BattleStats>().MaxComboP2.ToString();
-        DoScore("p1");
-        DoScore("p2");
+        winner = statMaster.GetComponent<BattleStats>().winner;
+        if (winner == 1)
+        {
+            WinnerText.text = "Player 1 Wins!";
+        } else
+        {
+            WinnerText.text = "Player 2 Wins!";
+        }
+
+        DoScore();
         FavoriteAttack("p1");
         FavoriteAttack("p2");
-        StartCoroutine(FirstClick());
+        //StartCoroutine(FirstClick());
+        statMaster.GetComponent<BattleStats>().ResetStats();
+        Destroy(statMaster);
 
 
     }
 	
-    private void DoScore(string player)
+    private void DoScore()
     {
-        if (player == "p1")
+        double score1 = 0;
+        double score2 = 0;
+        double good = statMaster.GetComponent<BattleStats>().GoodP1 * 60;
+        double great = statMaster.GetComponent<BattleStats>().GreatsP1 * 80;
+        double perfect = statMaster.GetComponent<BattleStats>().PerfectsP1 * 100;
+        double multiplier = (1 + (statMaster.GetComponent<BattleStats>().MaxComboP1 * .01));
+        score1 = (good + great + perfect) * multiplier;
+        ScoreP1UI.text = score1.ToString();
+        
+        good = statMaster.GetComponent<BattleStats>().GoodP2 * 60;
+        great = statMaster.GetComponent<BattleStats>().GreatsP2 * 80;
+        perfect = statMaster.GetComponent<BattleStats>().PerfectsP2 * 100;
+        multiplier = (1 + (statMaster.GetComponent<BattleStats>().MaxComboP2 * .01));
+        score2 = (good + great + perfect) * multiplier;
+        ScoreP2UI.text = score2.ToString();
+        
+        if (score1 > score2)
         {
-            double good = statMaster.GetComponent<BattleStats>().GoodP1 * 60;
-            double great = statMaster.GetComponent<BattleStats>().GreatsP1 * 80;
-            double perfect = statMaster.GetComponent<BattleStats>().PerfectsP1 * 100;
-            double multiplier = (1 + (statMaster.GetComponent<BattleStats>().MaxComboP1 * .01));
-            double score = (good + great + perfect) * multiplier;
-            ScoreP1UI.text = score.ToString();
-        }
-        if (player == "p2")
+            StyleMaster1.SetActive(true);
+        } else if (score1 < score2)
         {
-            double good = statMaster.GetComponent<BattleStats>().GoodP2 * 60;
-            double great = statMaster.GetComponent<BattleStats>().GreatsP2 * 80;
-            double perfect = statMaster.GetComponent<BattleStats>().PerfectsP2 * 100;
-            double multiplier = (1 + (statMaster.GetComponent<BattleStats>().MaxComboP2 * .01));
-            double score = (good + great + perfect) * multiplier;
-            ScoreP2UI.text = score.ToString();
+            StyleMaster2.SetActive(true);
+        } else
+        {
+            StyleMaster1.SetActive(true);
+            StyleMaster2.SetActive(true);
         }
     }
-
-    
 
     private void FavoriteAttack(string player)
     {
@@ -64,13 +83,18 @@ public class StatWriter : MonoBehaviour {
             int popandlock = statMaster.GetComponent<BattleStats>().PopLockP1;
             int headslide = statMaster.GetComponent<BattleStats>().HeadSlideP1;
             int sixstep = statMaster.GetComponent<BattleStats>().SixStepP1;
+            Debug.Log(popandlock);
+            Debug.Log(headslide);
+            Debug.Log(sixstep);
             string fav = "GlowString Swipes";
             if (headslide >= popandlock)
             {
+                Debug.Log("First if fired");
                 fav = "JumpStyle Slam";
             }
-            if (sixstep >= popandlock && sixstep >= popandlock)
+            if (sixstep >= popandlock && sixstep >= headslide)
             {
+                Debug.Log("Second if Fired");
                 fav = "Circle Shufflin' ";
             }
             FavoriteAttackP1UI.text = fav;

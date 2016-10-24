@@ -30,7 +30,7 @@ public class SixStep : MonoBehaviour
     void Start()
     {
 		//bpm = grid.GetComponent<BeatKeeper> ().getBPM ();
-        damage = 2;
+        damage = 10;
         //cooldown = 4;
 		if (player == 1) {
             device = InputManager.Devices[0];

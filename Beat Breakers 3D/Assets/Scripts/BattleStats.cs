@@ -7,6 +7,7 @@ public class BattleStats : MonoBehaviour
     public int PerfectsP1, PerfectsP2, GreatsP1, GreatsP2, GoodP1, GoodP2, MaxComboP1, MaxComboP2, ScoreP1, ScoreP2;
     public int PopLockP1, PopLockP2, SixStepP1, SixStepP2, HeadSlideP1, HeadSlideP2;
     public string FavAttackP1, FavAttackP2;
+    public int winner;
 
     // Use this for initialization
     void Start()
@@ -44,7 +45,7 @@ public class BattleStats : MonoBehaviour
         HeadSlideP2 = 0;
         FavAttackP1 = "None";
         FavAttackP2 = "None";
-
+        winner = 0;
     }
 }
    

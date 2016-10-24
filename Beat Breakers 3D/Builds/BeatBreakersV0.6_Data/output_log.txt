@@ -1,0 +1,243 @@
+Initialize engine version: 5.4.0f3 (a6d8d714de6f)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GPU (ID=0x1392)
+    Vendor:   NVIDIA
+    VRAM:     1993 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\ijreed\Documents\Beat-Breakers\Beat Breakers 3D\Builds\BeatBreakersV0.6_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\ijreed\Documents\Beat-Breakers\Beat Breakers 3D\Builds\BeatBreakersV0.6_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\ijreed\Documents\Beat-Breakers\Beat Breakers 3D\Builds\BeatBreakersV0.6_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\ijreed\Documents\Beat-Breakers\Beat Breakers 3D\Builds\BeatBreakersV0.6_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\ijreed\Documents\Beat-Breakers\Beat Breakers 3D\Builds\BeatBreakersV0.6_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\ijreed\Documents\Beat-Breakers\Beat Breakers 3D\Builds\BeatBreakersV0.6_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\ijreed\Documents\Beat-Breakers\Beat Breakers 3D\Builds\BeatBreakersV0.6_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\ijreed\Documents\Beat-Breakers\Beat Breakers 3D\Builds\BeatBreakersV0.6_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\ijreed\Documents\Beat-Breakers\Beat Breakers 3D\Builds\BeatBreakersV0.6_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\ijreed\Documents\Beat-Breakers\Beat Breakers 3D\Builds\BeatBreakersV0.6_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.051 seconds
+Platform assembly: C:\Users\ijreed\Documents\Beat-Breakers\Beat Breakers 3D\Builds\BeatBreakersV0.6_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\ijreed\Documents\Beat-Breakers\Beat Breakers 3D\Builds\BeatBreakersV0.6_Data\Managed\System.dll (this message is harmless)
+desktop: 2560x1440 60Hz; virtual: 4160x1440 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.940993 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 1a60 -> priority: 1 
+  Thread -> id: 384c -> priority: 1 
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.602104 ms
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1663.
+Total: 3.554966 ms (FindLiveObjects: 0.060182 ms CreateObjectMapping: 0.071379 ms MarkObjects: 1.101013 ms  DeleteObjects: 2.321458 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Timer.setText (System.String text) [0x00000] in <filename unknown>:0 
+  at BeatKeeper.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Coroutine couldn't be started because the the game object 'Player2' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player2' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player2' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player2' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player2' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player2' is inactive!
+ 
+(Filename:  Line: 738)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.217422 ms
+
+Unloading 147 unused Assets to reduce memory usage. Loaded Objects now: 749.
+Total: 4.525817 ms (FindLiveObjects: 0.062981 ms CreateObjectMapping: 0.041054 ms MarkObjects: 0.464198 ms  DeleteObjects: 3.956649 ms)
+
+0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+First if fired
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Second if Fired
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.690932 ms
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1693.
+Total: 1.997686 ms (FindLiveObjects: 0.061582 ms CreateObjectMapping: 0.062048 ms MarkObjects: 1.154664 ms  DeleteObjects: 0.718457 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Timer.setText (System.String text) [0x00000] in <filename unknown>:0 
+  at BeatKeeper.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Coroutine couldn't be started because the the game object 'Player1' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player1' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player1' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player1' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player1' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player1' is inactive!
+ 
+(Filename:  Line: 738)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.228842 ms
+
+Unloading 147 unused Assets to reduce memory usage. Loaded Objects now: 749.
+Total: 4.259428 ms (FindLiveObjects: 0.034523 ms CreateObjectMapping: 0.041054 ms MarkObjects: 0.468397 ms  DeleteObjects: 3.714520 ms)
+
+5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.726388 ms
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1693.
+Total: 2.081661 ms (FindLiveObjects: 0.071845 ms CreateObjectMapping: 0.062981 ms MarkObjects: 1.247970 ms  DeleteObjects: 0.698396 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Timer.setText (System.String text) [0x00000] in <filename unknown>:0 
+  at BeatKeeper.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Coroutine couldn't be started because the the game object 'Player1' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player2' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player1' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player2' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player1' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player2' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player1' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player2' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player1' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player2' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player1' is inactive!
+ 
+(Filename:  Line: 738)
+
+Coroutine couldn't be started because the the game object 'Player2' is inactive!
+ 
+(Filename:  Line: 738)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.204116 ms
+
+Unloading 147 unused Assets to reduce memory usage. Loaded Objects now: 749.
+Total: 4.286020 ms (FindLiveObjects: 0.048985 ms CreateObjectMapping: 0.052251 ms MarkObjects: 0.474928 ms  DeleteObjects: 3.709388 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.423852 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 749.
+Total: 0.529512 ms (FindLiveObjects: 0.030791 ms CreateObjectMapping: 0.036855 ms MarkObjects: 0.452535 ms  DeleteObjects: 0.008864 ms)
+
+0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+First if fired
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Second if Fired
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.650810 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 669.
+Total: 1.319816 ms (FindLiveObjects: 0.048985 ms CreateObjectMapping: 0.037322 ms MarkObjects: 0.509918 ms  DeleteObjects: 0.722656 ms)
+

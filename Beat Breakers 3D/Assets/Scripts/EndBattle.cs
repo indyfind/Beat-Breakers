@@ -7,6 +7,7 @@ public class EndBattle : MonoBehaviour {
     public GameObject player1;
     public GameObject player2;
     public Text playerWinsText;
+    public GameObject battleMaster;
 
     // Use this for initialization
     void Start () {
@@ -22,13 +23,15 @@ public class EndBattle : MonoBehaviour {
     {
         if (player == 1)
         {
-            playerWinsText.text = "player 2 wins!";
+            playerWinsText.text = "Battle Over!";
             player1.gameObject.SetActive(false);
+            battleMaster.GetComponent<BattleStats>().winner = 2;
         }
         else
         {
-            playerWinsText.text = "player 1 wins!";
+            playerWinsText.text = "Battle Over!";
             player2.gameObject.SetActive(false);
+            battleMaster.GetComponent<BattleStats>().winner = 1;
         }
         StartCoroutine(End());
     }
