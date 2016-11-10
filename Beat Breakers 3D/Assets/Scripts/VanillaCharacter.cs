@@ -29,7 +29,7 @@ public class VanillaCharacter : MonoBehaviour {
     public Transform meterRadialSlider;
     private int currentcombo;
 
-    public AudioSource getHitSound;
+    //public AudioSource getHitSound;
     //public Text meterCharges;
     // Use this for initialization
     void Start () {
@@ -62,7 +62,8 @@ public class VanillaCharacter : MonoBehaviour {
         int chance = (int)Random.Range(1f, 3f);
         if (chance == 1)
         {
-            getHitSound.Play();
+            //getHitSound.Play();
+            this.GetComponent<SoundMaster>().PlaySound("getHitSound");
         }
         health -= dam;
         meter += 2;

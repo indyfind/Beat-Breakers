@@ -17,7 +17,7 @@ public class PopNLock : MonoBehaviour {
     //InControl device
     private InputDevice device;
 
-    public AudioSource soundEffect;
+    //public AudioSource soundEffect;
 
     //private int cooldownCount;
     //private Text cooldownText;
@@ -50,7 +50,8 @@ public class PopNLock : MonoBehaviour {
 	}
     public void Attack()
     {
-		soundEffect.Play();
+        this.GetComponent<SoundMaster>().PlaySound("popNLockSound");
+		//soundEffect.Play();
         //subtract meter cost
         this.GetComponent<VanillaCharacter>().meter -= meterCost;
         //Debug.Log(this.transform.localEulerAngles.y);
