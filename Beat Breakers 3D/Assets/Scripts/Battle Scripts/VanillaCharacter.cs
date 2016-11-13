@@ -19,6 +19,11 @@ public class VanillaCharacter : MonoBehaviour {
     public ParticleSystem rhythmParticleGreat;
     public ParticleSystem rhythmParticleGood;
 
+	public GameObject ring1;
+	public GameObject ring2;
+	public GameObject ring3;
+	public GameObject ring4;
+
     public int player;
 	public Slider healthSlider;
     //public Slider meterSlider;
@@ -49,6 +54,26 @@ public class VanillaCharacter : MonoBehaviour {
         if (meter > 100) {
             meter = 100;
         }
+		if (meter >= 25) {
+			ring1.SetActive(true);
+		} else {
+			ring1.SetActive(false);
+		}
+		if (meter >= 50) {
+			ring2.SetActive(true);
+		} else {
+			ring2.SetActive(false);
+		}
+		if (meter >= 75) {
+			ring3.SetActive(true);
+		} else {
+			ring3.SetActive(false);
+		}
+		if (meter >= 100) {
+			ring4.SetActive(true);
+		} else {
+			ring4.SetActive(false);
+		}
         //meterSlider.value = meter;
 		if (health <= 0) {
             grid.GetComponent<EndBattle>().playerLoses(player);
