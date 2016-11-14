@@ -14,6 +14,7 @@ public class BeatKeeper : MonoBehaviour {
 	public GameObject player1;
 	public GameObject player2;
 	public GameObject gridModel;
+	private GameObject battleMaster;
 	//public GameObject boombox;
 	private float bpm = 120f;
     private GameObject[] blocks;
@@ -26,7 +27,6 @@ public class BeatKeeper : MonoBehaviour {
     private int everyOtherBeat = 1;
     public bool battleStarted = false;
 	private int countdown;
-
 	private int beatsLeft = 332;
 
     void Awake()
@@ -39,6 +39,7 @@ public class BeatKeeper : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
+		battleMaster = GameObject.FindGameObjectWithTag ("BattleMaster");
         StartCoroutine(FirstClick());
         blocks = GameObject.FindGameObjectsWithTag("BeatBlocks");
 		evenSpaces = GameObject.FindGameObjectsWithTag ("GridSpace2");
@@ -64,15 +65,15 @@ public class BeatKeeper : MonoBehaviour {
         {
             if (player1.GetComponent<VanillaCharacter>().health > player2.GetComponent<VanillaCharacter>().health)
             {
-                this.GetComponent<EndBattle>().playerLoses(2);
+				battleMaster.GetComponent<EndBattle>().playerLoses(2);
             }
             else if (player2.GetComponent<VanillaCharacter>().health > player1.GetComponent<VanillaCharacter>().health)
             {
-                this.GetComponent<EndBattle>().playerLoses(1);
+				battleMaster.GetComponent<EndBattle>().playerLoses(1);
             }
             else
             {
-                this.GetComponent<EndBattle>().Tie();
+				battleMaster.GetComponent<EndBattle>().Tie();
             }
             
         }

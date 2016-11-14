@@ -6,13 +6,14 @@ public class DoPlayerActions : MonoBehaviour {
 	public GameObject player1;
 	public GameObject player2;
 	public GameObject model1;
-    public GameObject statMaster;
+    public GameObject battleMaster;
 	private Animator animator1;
 	public GameObject model2;
 	private Animator animator2;
 	private bool gameStarted = false;
 	// Use this for initialization
 	void Start () {
+		battleMaster = GameObject.FindGameObjectWithTag ("BattleMaster");
 		animator1 = model1.GetComponent<Animator>();
 		animator2 = model2.GetComponent<Animator>();
 	}
@@ -81,22 +82,22 @@ public class DoPlayerActions : MonoBehaviour {
 		case "headSlideUp":
 			animator1.SetTrigger("headSlideAnim");
 			player1.GetComponent<HeadSlide>().Attack("up");
-                statMaster.GetComponent<BattleStats>().HeadSlideP1 += 1;
+                battleMaster.GetComponent<BattleStats>().HeadSlideP1 += 1;
 			break;
 		case "headSlideDown":
 			animator1.SetTrigger("headSlideAnim");
 			player1.GetComponent<HeadSlide>().Attack("down");
-                statMaster.GetComponent<BattleStats>().HeadSlideP1 += 1;
+                battleMaster.GetComponent<BattleStats>().HeadSlideP1 += 1;
 			break;
 		case "headSlideLeft":
 			animator1.SetTrigger("headSlideAnim");
 			player1.GetComponent<HeadSlide>().Attack("left");
-            statMaster.GetComponent<BattleStats>().HeadSlideP1 += 1;
+            battleMaster.GetComponent<BattleStats>().HeadSlideP1 += 1;
 			break;
 		case "headSlideRight":
 			animator1.SetTrigger("headSlideAnim");
 			player1.GetComponent<HeadSlide>().Attack("right");
-            statMaster.GetComponent<BattleStats>().HeadSlideP1 += 1;
+            battleMaster.GetComponent<BattleStats>().HeadSlideP1 += 1;
 			break;
 		default:
 			break;
@@ -106,22 +107,22 @@ public class DoPlayerActions : MonoBehaviour {
 		case "headSlideUp":
 			animator2.SetTrigger("headSlideAnim");
 			player2.GetComponent<HeadSlide>().Attack("up");
-            statMaster.GetComponent<BattleStats>().HeadSlideP2 += 1;
+            battleMaster.GetComponent<BattleStats>().HeadSlideP2 += 1;
 			break;
 		case "headSlideDown":
 			animator2.SetTrigger("headSlideAnim");
 			player2.GetComponent<HeadSlide>().Attack("down");
-			statMaster.GetComponent<BattleStats>().HeadSlideP2 += 1;
+			battleMaster.GetComponent<BattleStats>().HeadSlideP2 += 1;
 			break;
 		case "headSlideLeft":
 			animator2.SetTrigger("headSlideAnim");
 			player2.GetComponent<HeadSlide>().Attack("left");
-			statMaster.GetComponent<BattleStats>().HeadSlideP2 += 1;
+			battleMaster.GetComponent<BattleStats>().HeadSlideP2 += 1;
 			break;
 		case "headSlideRight":
 			animator2.SetTrigger("headSlideAnim");
 			player2.GetComponent<HeadSlide>().Attack("right");
-			statMaster.GetComponent<BattleStats>().HeadSlideP2 += 1;
+			battleMaster.GetComponent<BattleStats>().HeadSlideP2 += 1;
 			break;
 		default:
 			break;
@@ -132,12 +133,12 @@ public class DoPlayerActions : MonoBehaviour {
 		case "sixStep":
 			animator1.SetTrigger("sixStepAnim");
 			player1.GetComponent<SixStep>().Attack();
-            statMaster.GetComponent<BattleStats>().SixStepP1 += 1;
+            battleMaster.GetComponent<BattleStats>().SixStepP1 += 1;
 			break;
 		case "popNLock":
 			animator1.SetTrigger("popNLockAnim");
 			player1.GetComponent<PopNLock>().Attack();
-            statMaster.GetComponent<BattleStats>().PopLockP1 += 1;
+            battleMaster.GetComponent<BattleStats>().PopLockP1 += 1;
 			break;
 		case "basicAttackLeft":
 			animator1.SetTrigger("basicAttackAnim");
@@ -163,12 +164,12 @@ public class DoPlayerActions : MonoBehaviour {
 		case "sixStep":
 			animator2.SetTrigger("sixStepAnim");
 			player2.GetComponent<SixStep>().Attack();
-            statMaster.GetComponent<BattleStats>().SixStepP2 += 1;
+            battleMaster.GetComponent<BattleStats>().SixStepP2 += 1;
 			break;
 		case "popNLock":
 			animator2.SetTrigger("popNLockAnim");
 			player2.GetComponent<PopNLock>().Attack();
-            statMaster.GetComponent<BattleStats>().PopLockP2 += 1;
+            battleMaster.GetComponent<BattleStats>().PopLockP2 += 1;
 			break;
 		case "basicAttackLeft":
 			animator2.SetTrigger("basicAttackAnim");
