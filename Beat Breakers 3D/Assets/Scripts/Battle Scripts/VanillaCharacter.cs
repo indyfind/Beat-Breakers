@@ -11,8 +11,8 @@ public class VanillaCharacter : MonoBehaviour {
     public string rhythmRating;
     public GameObject grid;
     public GameObject enemy;
-    public GameObject statMaster;
-    private bool tripped = false;
+	private GameObject battleMaster;
+	private bool tripped = false;
     
 	public ParticleSystem blood;
     public ParticleSystem rhythmParticlePerfect;
@@ -34,17 +34,20 @@ public class VanillaCharacter : MonoBehaviour {
     public Transform meterRadialSlider;
     private int currentcombo;
 
+	private bool roundOver = false;
+
     //public AudioSource getHitSound;
     //public Text meterCharges;
     // Use this for initialization
     void Start () {
+		battleMaster = GameObject.FindGameObjectWithTag ("BattleMaster");
         meter = 25;
-       // statMaster.GetComponent<BattleStats>().ResetStats();
+       // battleMaster.GetComponent<BattleStats>().ResetStats();
 		//scale = gameObject.GetComponent<Transform>().localScale;
 	}
     void Awake()
     {
-       // statMaster.GetComponent<BattleStats>().ResetStats();
+       // battleMaster.GetComponent<BattleStats>().ResetStats();
     }
 	
 	// Update is called once per frame
@@ -75,8 +78,10 @@ public class VanillaCharacter : MonoBehaviour {
 			ring4.SetActive(false);
 		}
         //meterSlider.value = meter;
-		if (health <= 0) {
-            grid.GetComponent<EndBattle>().playerLoses(player);
+		if (health <= 0 && !roundOver) {
+			battleMaster.GetComponent<EndBattle>().playerLoses(player);
+			roundOver = true;
+			this.gameObject.SetActive (false);
 		}
         meterRadialSlider.GetComponent<Image>().fillAmount = (float)meter / 100f;
         //meterCharges.text = (meter / 25).ToString();
@@ -103,13 +108,13 @@ public class VanillaCharacter : MonoBehaviour {
 		if (currentAction == "")
 		{
 			rhythmRating = "";
-            if (currentcombo >= statMaster.GetComponent<BattleStats>().MaxComboP1 && player == 1)
+            if (currentcombo >= battleMaster.GetComponent<BattleStats>().MaxComboP1 && player == 1)
             {
-                statMaster.GetComponent<BattleStats>().MaxComboP1 = currentcombo;
+                battleMaster.GetComponent<BattleStats>().MaxComboP1 = currentcombo;
             }
-            if (currentcombo >= statMaster.GetComponent<BattleStats>().MaxComboP2 && player == 2)
+            if (currentcombo >= battleMaster.GetComponent<BattleStats>().MaxComboP2 && player == 2)
             {
-                statMaster.GetComponent<BattleStats>().MaxComboP2 = currentcombo;
+                battleMaster.GetComponent<BattleStats>().MaxComboP2 = currentcombo;
             }
             currentcombo = 0;
         }
@@ -122,18 +127,18 @@ public class VanillaCharacter : MonoBehaviour {
 			rhythmParticleGood.Play();
             if (player == 1)
             {
-                statMaster.GetComponent<BattleStats>().GoodP1 += 1;
-                if (currentcombo >= statMaster.GetComponent<BattleStats>().MaxComboP1)
+                battleMaster.GetComponent<BattleStats>().GoodP1 += 1;
+                if (currentcombo >= battleMaster.GetComponent<BattleStats>().MaxComboP1)
                 {
-                    statMaster.GetComponent<BattleStats>().MaxComboP1 = currentcombo;
+                    battleMaster.GetComponent<BattleStats>().MaxComboP1 = currentcombo;
                 }
             }
             if (player == 2)
             {
-                statMaster.GetComponent<BattleStats>().GoodP2 += 1;
-                if (currentcombo >= statMaster.GetComponent<BattleStats>().MaxComboP2)
+                battleMaster.GetComponent<BattleStats>().GoodP2 += 1;
+                if (currentcombo >= battleMaster.GetComponent<BattleStats>().MaxComboP2)
                 {
-                    statMaster.GetComponent<BattleStats>().MaxComboP2 = currentcombo;
+                    battleMaster.GetComponent<BattleStats>().MaxComboP2 = currentcombo;
                 }
             }
             currentcombo = 0;
@@ -149,18 +154,18 @@ public class VanillaCharacter : MonoBehaviour {
             currentcombo += 1;
             if (player == 1)
             {
-                statMaster.GetComponent<BattleStats>().GreatsP1 += 1;
-                if (currentcombo >= statMaster.GetComponent<BattleStats>().MaxComboP1)
+                battleMaster.GetComponent<BattleStats>().GreatsP1 += 1;
+                if (currentcombo >= battleMaster.GetComponent<BattleStats>().MaxComboP1)
                 {
-                    statMaster.GetComponent<BattleStats>().MaxComboP1 = currentcombo;
+                    battleMaster.GetComponent<BattleStats>().MaxComboP1 = currentcombo;
                 }
             }
             if (player == 2)
             {
-                statMaster.GetComponent<BattleStats>().GreatsP2 += 1;
-                if (currentcombo >= statMaster.GetComponent<BattleStats>().MaxComboP2)
+                battleMaster.GetComponent<BattleStats>().GreatsP2 += 1;
+                if (currentcombo >= battleMaster.GetComponent<BattleStats>().MaxComboP2)
                 {
-                    statMaster.GetComponent<BattleStats>().MaxComboP2 = currentcombo;
+                    battleMaster.GetComponent<BattleStats>().MaxComboP2 = currentcombo;
                 }
             }
         }
@@ -171,22 +176,25 @@ public class VanillaCharacter : MonoBehaviour {
             currentcombo += 1;
             if(player == 1)
             {
-                statMaster.GetComponent<BattleStats>().PerfectsP1 += 1;
-                if (currentcombo >= statMaster.GetComponent<BattleStats>().MaxComboP1)
+                battleMaster.GetComponent<BattleStats>().PerfectsP1 += 1;
+                if (currentcombo >= battleMaster.GetComponent<BattleStats>().MaxComboP1)
                 {
-                    statMaster.GetComponent<BattleStats>().MaxComboP1 = currentcombo;
+                    battleMaster.GetComponent<BattleStats>().MaxComboP1 = currentcombo;
                 }
             }
             if (player == 2)
             {
-                statMaster.GetComponent<BattleStats>().PerfectsP2 += 1;
-                if (currentcombo >= statMaster.GetComponent<BattleStats>().MaxComboP2)
+                battleMaster.GetComponent<BattleStats>().PerfectsP2 += 1;
+                if (currentcombo >= battleMaster.GetComponent<BattleStats>().MaxComboP2)
                 {
-                    statMaster.GetComponent<BattleStats>().MaxComboP2 = currentcombo;
+                    battleMaster.GetComponent<BattleStats>().MaxComboP2 = currentcombo;
                 }
             }
         }
-		StartCoroutine(rhythmRatingDisplayOff());
+		if (!roundOver){
+			StartCoroutine(rhythmRatingDisplayOff());
+		}
+		
 	}
 
 
@@ -286,7 +294,9 @@ public class VanillaCharacter : MonoBehaviour {
 		//change color to black to show player is tripped
 		//gameObject.GetComponent<MeshRenderer> ().color = Color.black;
 		//use Coroutine to count down the time tripped
-		StartCoroutine (TimeTripped (time));
+		if (!roundOver) {
+			StartCoroutine (TimeTripped (time));
+		}
 	}
 
 	IEnumerator TimeTripped(float time)

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using InControl;
+using UnityEngine.UI;
 
 public class BeatKeeper : MonoBehaviour {
 
@@ -14,6 +15,7 @@ public class BeatKeeper : MonoBehaviour {
 	public GameObject player1;
 	public GameObject player2;
 	public GameObject gridModel;
+	private GameObject battleMaster;
 	//public GameObject boombox;
 	private float bpm = 120f;
     private GameObject[] blocks;
@@ -26,8 +28,9 @@ public class BeatKeeper : MonoBehaviour {
     private int everyOtherBeat = 1;
     public bool battleStarted = false;
 	private int countdown;
-
 	private int beatsLeft = 332;
+
+	private Text UIText;
 
     void Awake()
     {
@@ -39,7 +42,10 @@ public class BeatKeeper : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
-        StartCoroutine(FirstClick());
+		UIText = GameObject.FindGameObjectWithTag ("MainText").GetComponent<Text>();
+		battleMaster = GameObject.FindGameObjectWithTag ("BattleMaster");
+		UIText.text = "Round " + battleMaster.GetComponent<EndBattle>().round;
+        StartCoroutine(startgame());
         blocks = GameObject.FindGameObjectsWithTag("BeatBlocks");
 		evenSpaces = GameObject.FindGameObjectsWithTag ("GridSpace2");
 		oddSpaces = GameObject.FindGameObjectsWithTag ("GridSpace1");
@@ -57,29 +63,30 @@ public class BeatKeeper : MonoBehaviour {
 		}
 		this.GetComponent<Timer> ().setText (beatsLeft.ToString ());
     }
-	
+
 	// Update is called once per frame
 	void Update () {
         if (beatsLeft <= -1)
         {
             if (player1.GetComponent<VanillaCharacter>().health > player2.GetComponent<VanillaCharacter>().health)
             {
-                this.GetComponent<EndBattle>().playerLoses(2);
+				battleMaster.GetComponent<EndBattle>().playerLoses(2);
             }
             else if (player2.GetComponent<VanillaCharacter>().health > player1.GetComponent<VanillaCharacter>().health)
             {
-                this.GetComponent<EndBattle>().playerLoses(1);
+				battleMaster.GetComponent<EndBattle>().playerLoses(1);
             }
             else
             {
-                this.GetComponent<EndBattle>().Tie();
+				battleMaster.GetComponent<EndBattle>().Tie();
             }
             
         }
 	}
 
-    void startgame()
+    IEnumerator startgame()
     {
+		yield return new WaitForSeconds(1f);
 		battleStarted = true;
         audio.Play();
         float nextBeatSample = (float)AudioSettings.dspTime * testAudio.frequency;
@@ -124,7 +131,7 @@ public class BeatKeeper : MonoBehaviour {
 				//gridModel.GetComponent<Renderer>().material.color = new Color(.85f, .85f, .85f, 1f);
 				if (countdown > 0) {
 					//start battle countdown
-					this.GetComponent<StartCountdown> ().setText (countdown.ToString ());
+					UIText.text = countdown.ToString ();
 					foreach (GameObject block in blocks) {
 						block.GetComponent<BlockMover> ().BattleStart (4 - countdown);
 					}
@@ -132,17 +139,20 @@ public class BeatKeeper : MonoBehaviour {
 				} else if (countdown == 0) {
 					player1.GetComponent<VanillaCharacter> ().currentAction = "";
 					player2.GetComponent<VanillaCharacter> ().currentAction = "";
-					this.GetComponent<StartCountdown> ().setText ("dance!");
+					UIText.text = "Dance!";
 					foreach (GameObject block in blocks) {
 						block.GetComponent<BlockMover> ().BattleStart (4 - countdown);
 					}
 					this.GetComponent<Timer> ().setText (beatsLeft.ToString ());
-					beatsLeft--;
 					countdown--;
 				} else if (countdown == -1) {
-					this.GetComponent<StartCountdown> ().setText ("");
-					this.GetComponent<Timer> ().setText (beatsLeft.ToString ());
+					UIText.text = "";
+					countdown--;
+				}
+
+				if (countdown <= 0) {
 					beatsLeft--;
+					this.GetComponent<Timer> ().setText (beatsLeft.ToString ());
 				}
 
                 //recharge each player's meter by 1 every other beat
