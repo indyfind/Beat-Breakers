@@ -191,7 +191,10 @@ public class VanillaCharacter : MonoBehaviour {
                 }
             }
         }
-		StartCoroutine(rhythmRatingDisplayOff());
+		if (!roundOver){
+			StartCoroutine(rhythmRatingDisplayOff());
+		}
+		
 	}
 
 
@@ -291,7 +294,9 @@ public class VanillaCharacter : MonoBehaviour {
 		//change color to black to show player is tripped
 		//gameObject.GetComponent<MeshRenderer> ().color = Color.black;
 		//use Coroutine to count down the time tripped
-		StartCoroutine (TimeTripped (time));
+		if (!roundOver) {
+			StartCoroutine (TimeTripped (time));
+		}
 	}
 
 	IEnumerator TimeTripped(float time)

@@ -6,20 +6,19 @@ using UnityEngine.UI;
 public class EndBattle : MonoBehaviour {
     //public GameObject player1;
     //public GameObject player2;
-	private Text playerWinsText;
+	private Text UIText;
 	private int player1wins = 0;
 	private int player2wins = 0;
-	private int round = 1;
+	public int round = 1;
 
     // Use this for initialization
-    void Start () {
-		playerWinsText = GameObject.FindGameObjectWithTag ("PlayerWinsText").GetComponent<Text>();
-		playerWinsText.text = "Round " + round;
+    void Awake () {
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		
 	}
 
     public void playerLoses(int player)
@@ -51,14 +50,17 @@ public class EndBattle : MonoBehaviour {
 
     public void Tie()
     {
-        playerWinsText.text = "draw!";
-		this.GetComponent<BattleStats> ().winner = 3;
-        StartCoroutine(End(2));
+		UIText = GameObject.FindGameObjectWithTag ("MainText").GetComponent<Text>();
+		UIText.text = "Draw!";
+        StartCoroutine(End(1));
     }
 
 	IEnumerator End(int sceneToLoad)
     {
-		playerWinsText.text = "Battle Over!";
+		UIText = GameObject.FindGameObjectWithTag ("MainText").GetComponent<Text>();
+		round += 1;
+		Debug.Log(round);
+		UIText.text = "Round Over!";
         yield return new WaitForSeconds(3f);
 		SceneManager.LoadScene(sceneToLoad);
         //SceneManager.LoadScene(0);
