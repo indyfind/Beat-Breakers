@@ -35,6 +35,10 @@ public class CharacterMover : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        Debug.Log(player + "  destinationx = " + destinationx );
+        Debug.Log(player + "  destinationy = " + destinationy);
+        Debug.Log(player + " xposition =" + xposition);
+        Debug.Log(player + " yposition  =" + yposition);
         bool onb = grid.GetComponent<BeatKeeper>().checkifonbeat();
 		bool canMove = GetComponent<VanillaCharacter> ().canMove (); //check if player is tripped/already moved
         if ((device.DPad.WasPressed || device.LeftStick.WasPressed) && canMove) { //  && onb
@@ -147,19 +151,47 @@ public class CharacterMover : MonoBehaviour {
 		{
 			case "up":
 				destinationx = xposition;
-				destinationy = yposition - 1;
+                if (yposition - 1 < 0)
+                {
+                    destinationy = yposition;
+                }
+                else
+                {
+                    destinationy = yposition - 1;
+                }
 				break;
 			case "down":
 				destinationx = xposition;
-				destinationy = yposition + 1;
+                if (yposition + 1 > 6)
+                {
+                    destinationy = yposition;
+                }
+                else
+                {
+                    destinationy = yposition + 1;
+                }
 				break;
 			case "left":
 				destinationy = yposition;
-				destinationx = xposition - 1;
+                if (xposition - 1 < 0)
+                {
+                    destinationx = xposition;
+                }
+                else
+                {
+                    destinationx = xposition - 1;
+                }
 				break;
 			case "right":
 				destinationy = yposition;
-				destinationx = xposition + 1;
+                if (xposition + 1 > 6)
+                {
+                    destinationx = xposition;
+                }
+                else
+                {
+                    destinationx = xposition + 1;
+                }
 				break;
 			default:
 				break;

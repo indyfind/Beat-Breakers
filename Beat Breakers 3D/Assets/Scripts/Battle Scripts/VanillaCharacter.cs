@@ -52,7 +52,8 @@ public class VanillaCharacter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//update HUD to reflect current health
+        //update HUD to reflect current health
+        meter = 100;
 		healthSlider.value = health;
         if (meter > 100) {
             meter = 100;
