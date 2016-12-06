@@ -41,11 +41,11 @@ public class PopNLock : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        bool onb = grid.GetComponent<BeatKeeper>().checkifonbeat();
+        bool onb = grid.GetComponent<BeatKeeper2>().checkifonbeat();
         bool canMove = GetComponent<VanillaCharacter>().canMove();
         if ((device.RightBumper.WasPressed || device.RightTrigger.WasPressed) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) { // && !onCoolDown
             this.GetComponent<VanillaCharacter>().currentAction = "popNLock";
-            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
         }
 	}
     public void Attack()

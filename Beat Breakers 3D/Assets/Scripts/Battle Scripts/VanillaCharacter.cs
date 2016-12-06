@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
+using InControl;
 using System.Collections;
 
 public class VanillaCharacter : MonoBehaviour {
+
+	//InControl input device
+	private InputDevice device;
 
     public int health = 100;
     public int meter;
@@ -40,6 +43,11 @@ public class VanillaCharacter : MonoBehaviour {
     //public Text meterCharges;
     // Use this for initialization
     void Start () {
+		if (player == 1) {
+			device = InputManager.Devices[0];
+		} else if (player == 2) {
+			device = InputManager.Devices[1];
+		}
 		battleMaster = GameObject.FindGameObjectWithTag ("BattleMaster");
         meter = 25;
        // battleMaster.GetComponent<BattleStats>().ResetStats();
@@ -103,6 +111,14 @@ public class VanillaCharacter : MonoBehaviour {
         //Debug.Log(character + "Took this much damage");
         //Debug.Log(character + " Has " + health + " health remaining");
     }
+
+	public void ReadInput(string rating){
+		if ((device.LeftBumper.WasPressed || device.LeftTrigger.WasPressed) && !tripped && (meter >= this.GetComponent<SixStep>().meterCost)) // && onb && !onCoolDown
+		{
+			currentAction = "sixStep";
+			rhythmRating = rating;
+		}
+	}
 
 	public void DoRhythmRating()
 	{

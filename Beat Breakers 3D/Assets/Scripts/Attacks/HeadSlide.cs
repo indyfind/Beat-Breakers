@@ -58,7 +58,7 @@ public class HeadSlide : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		bool onb = grid.GetComponent<BeatKeeper>().checkifonbeat();
+		bool onb = grid.GetComponent<BeatKeeper2>().checkifonbeat();
 		bool canMove = GetComponent<VanillaCharacter> ().canMove ();
         if (device.RightStick.WasPressed && canMove && this.GetComponent<VanillaCharacter>().meter >= meterCost) //&& !onCoolDown
         {
@@ -68,12 +68,12 @@ public class HeadSlide : MonoBehaviour
                 if (device.RightStickRight.WasPressed)
                 {
                     this.GetComponent<VanillaCharacter>().currentAction = "headSlideRight";
-                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
                 }
                 else if (device.RightStickLeft.WasPressed)
                 {
                     this.GetComponent<VanillaCharacter>().currentAction = "headSlideLeft";
-                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
                 }
             }
             //if not check vertical
@@ -82,12 +82,12 @@ public class HeadSlide : MonoBehaviour
                 if (device.RightStickUp.WasPressed)
                 {
                     this.GetComponent<VanillaCharacter>().currentAction = "headSlideUp";
-                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
                 }
                 else if (device.RightStickDown.WasPressed)
                 {
                     this.GetComponent<VanillaCharacter>().currentAction = "headSlideDown";
-                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
                 }
             }
         }

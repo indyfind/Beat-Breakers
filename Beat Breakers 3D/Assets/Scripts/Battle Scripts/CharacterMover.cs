@@ -35,11 +35,11 @@ public class CharacterMover : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(player + "  destinationx = " + destinationx );
-        Debug.Log(player + "  destinationy = " + destinationy);
-        Debug.Log(player + " xposition =" + xposition);
-        Debug.Log(player + " yposition  =" + yposition);
-        bool onb = grid.GetComponent<BeatKeeper>().checkifonbeat();
+//        Debug.Log(player + "  destinationx = " + destinationx );
+//        Debug.Log(player + "  destinationy = " + destinationy);
+//        Debug.Log(player + " xposition =" + xposition);
+//        Debug.Log(player + " yposition  =" + yposition);
+        bool onb = grid.GetComponent<BeatKeeper2>().checkifonbeat();
 		bool canMove = GetComponent<VanillaCharacter> ().canMove (); //check if player is tripped/already moved
         if ((device.DPad.WasPressed || device.LeftStick.WasPressed) && canMove) { //  && onb
             //if using left stick: is y value greater than x?
@@ -49,13 +49,13 @@ public class CharacterMover : MonoBehaviour {
                 if ((device.DPadUp.WasPressed || device.LeftStickUp.WasPressed) && yposition > 0)
                 {
                     this.GetComponent<VanillaCharacter>().currentAction = "moveUp";
-                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
                 }
                 //move down
                 else if ((device.DPadDown.WasPressed || device.LeftStickDown.WasPressed) && yposition < 6)
                 {
                     this.GetComponent<VanillaCharacter>().currentAction = "moveDown";
-                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
                 }
             }
             //if using left stick: is x value greater than y?
@@ -65,13 +65,13 @@ public class CharacterMover : MonoBehaviour {
                 if ((device.DPadRight.WasPressed || device.LeftStickRight.WasPressed) && xposition < 6)
                 {
                     this.GetComponent<VanillaCharacter>().currentAction = "moveRight";
-                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
                 }
                 //move left
                 else if ((device.DPadLeft.WasPressed || device.LeftStickLeft.WasPressed) && xposition > 0)
                 {
                     this.GetComponent<VanillaCharacter>().currentAction = "moveLeft";
-                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
+                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
                 }
             }
         }

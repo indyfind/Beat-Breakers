@@ -61,7 +61,7 @@ public class BeatKeeper : MonoBehaviour {
 		{
 			space.GetComponent<MeshRenderer> ().material.color = gridColor3;
 		}
-		this.GetComponent<Timer> ().setText (beatsLeft.ToString ());
+		//this.GetComponent<Timer> ().setText (beatsLeft.ToString ());
     }
 
 	// Update is called once per frame
@@ -143,7 +143,7 @@ public class BeatKeeper : MonoBehaviour {
 					foreach (GameObject block in blocks) {
 						block.GetComponent<BlockMover> ().BattleStart (4 - countdown);
 					}
-					this.GetComponent<Timer> ().setText (beatsLeft.ToString ());
+					//this.GetComponent<Timer> ().setText (beatsLeft.ToString ());
 					countdown--;
 				} else if (countdown == -1) {
 					UIText.text = "";
@@ -152,7 +152,7 @@ public class BeatKeeper : MonoBehaviour {
 
 				if (countdown <= 0) {
 					beatsLeft--;
-					this.GetComponent<Timer> ().setText (beatsLeft.ToString ());
+					//this.GetComponent<Timer> ().setText (beatsLeft.ToString ());
 				}
 
                 //recharge each player's meter by 1 every other beat
