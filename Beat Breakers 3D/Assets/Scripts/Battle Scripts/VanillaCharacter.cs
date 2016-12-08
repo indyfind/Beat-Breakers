@@ -35,6 +35,7 @@ public class VanillaCharacter : MonoBehaviour {
     private int currentcombo;
 
 	private bool roundOver = false;
+	public ParticleSystem chargeParticle;
 
     //public AudioSource getHitSound;
     //public Text meterCharges;
@@ -42,6 +43,8 @@ public class VanillaCharacter : MonoBehaviour {
     void Start () {
 		battleMaster = GameObject.FindGameObjectWithTag ("BattleMaster");
         meter = 25;
+		var em = chargeParticle.emission.rate;
+		em.mode = ParticleSystemCurveMode.Constant;
        // battleMaster.GetComponent<BattleStats>().ResetStats();
 		//scale = gameObject.GetComponent<Transform>().localScale;
 	}
@@ -53,31 +56,33 @@ public class VanillaCharacter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //update HUD to reflect current health
-        meter = 100;
+		float temp = 1000f * (meter/100);
+		var em = chargeParticle.emission.rate;
+		em = temp;
 		healthSlider.value = health;
         if (meter > 100) {
             meter = 100;
         }
-		if (meter >= 25) {
-			ring1.SetActive(true);
-		} else {
-			ring1.SetActive(false);
-		}
-		if (meter >= 50) {
-			ring2.SetActive(true);
-		} else {
-			ring2.SetActive(false);
-		}
-		if (meter >= 75) {
-			ring3.SetActive(true);
-		} else {
-			ring3.SetActive(false);
-		}
-		if (meter >= 100) {
-			ring4.SetActive(true);
-		} else {
-			ring4.SetActive(false);
-		}
+//		if (meter >= 25) {
+//			ring1.SetActive(true);
+//		} else {
+//			ring1.SetActive(false);
+//		}
+//		if (meter >= 50) {
+//			ring2.SetActive(true);
+//		} else {
+//			ring2.SetActive(false);
+//		}
+//		if (meter >= 75) {
+//			ring3.SetActive(true);
+//		} else {
+//			ring3.SetActive(false);
+//		}
+//		if (meter >= 100) {
+//			ring4.SetActive(true);
+//		} else {
+//			ring4.SetActive(false);
+//		}
         //meterSlider.value = meter;
 		if (health <= 0 && !roundOver) {
 			battleMaster.GetComponent<EndBattle>().playerLoses(player);
