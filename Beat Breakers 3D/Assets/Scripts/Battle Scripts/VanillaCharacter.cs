@@ -113,10 +113,104 @@ public class VanillaCharacter : MonoBehaviour {
     }
 
 	public void ReadInput(string rating){
+		//Movement
+		if ((device.DPad.WasPressed || device.LeftStick.WasPressed) && !tripped) { //  && onb
+			//if using left stick: is y value greater than x?
+			if (Mathf.Abs(device.LeftStickY.Value) >= Mathf.Abs(device.LeftStickX.Value))
+			{
+				//move up
+				if ((device.DPadUp.WasPressed || device.LeftStickUp.WasPressed) && this.GetComponent<CharacterMover>().yposition > 0)
+				{
+					this.GetComponent<VanillaCharacter>().currentAction = "moveUp";
+					rhythmRating = rating;
+				}
+				//move down
+				else if ((device.DPadDown.WasPressed || device.LeftStickDown.WasPressed) && this.GetComponent<CharacterMover>().yposition < 6)
+				{
+					this.GetComponent<VanillaCharacter>().currentAction = "moveDown";
+					rhythmRating = rating;
+				}
+			}
+			//if using left stick: is x value greater than y?
+			if (Mathf.Abs(device.LeftStickY.Value) <= Mathf.Abs(device.LeftStickX.Value))
+			{
+				//move right
+				if ((device.DPadRight.WasPressed || device.LeftStickRight.WasPressed) && this.GetComponent<CharacterMover>().xposition < 6)
+				{
+					this.GetComponent<VanillaCharacter>().currentAction = "moveRight";
+					rhythmRating = rating;
+				}
+				//move left
+				else if ((device.DPadLeft.WasPressed || device.LeftStickLeft.WasPressed) && this.GetComponent<CharacterMover>().xposition > 0)
+				{
+					this.GetComponent<VanillaCharacter>().currentAction = "moveLeft";
+					rhythmRating = rating;
+				}
+			}
+		}
+		//Basic Attack
+		if (device.Action3.WasPressed && !tripped) // && onb // (Input.GetButtonDown(leftButton)) 
+		{
+			currentAction = "basicAttackLeft";
+			rhythmRating = rating;
+		}
+		if (device.Action2.WasPressed && !tripped) // && onb
+		{
+			currentAction = "basicAttackRight";
+			rhythmRating = rating;
+		}
+		if (device.Action4.WasPressed && !tripped) // && onb
+		{
+			currentAction = "basicAttackUp";
+			rhythmRating = rating;
+		}
+		if (device.Action1.WasPressed && !tripped) // && onb
+		{
+			currentAction = "basicAttackDown";
+			rhythmRating = rating;
+		}
+		//Six Step
 		if ((device.LeftBumper.WasPressed || device.LeftTrigger.WasPressed) && !tripped && (meter >= this.GetComponent<SixStep>().meterCost)) // && onb && !onCoolDown
 		{
 			currentAction = "sixStep";
 			rhythmRating = rating;
+		}
+		//Pop N Lock
+		if ((device.RightBumper.WasPressed || device.RightTrigger.WasPressed) && !tripped && (meter >= this.GetComponent<SixStep>().meterCost)) { // && !onCoolDown
+			currentAction = "popNLock";
+			rhythmRating = rating;
+		}
+		//Head Slide
+		if (device.RightStick.WasPressed && !tripped && (meter >= this.GetComponent<HeadSlide>().meterCost)) //&& !onCoolDown
+		{
+			//if right stick x value is greater than y value: check horizontal
+			if (Mathf.Abs(device.RightStickX.Value) >= Mathf.Abs(device.RightStickY.Value))
+			{
+				if (device.RightStickRight.WasPressed)
+				{
+					currentAction = "headSlideRight";
+					rhythmRating = rating;
+				}
+				else if (device.RightStickLeft.WasPressed)
+				{
+					currentAction = "headSlideLeft";
+					rhythmRating = rating;
+				}
+			}
+			//if not check vertical
+			else
+			{
+				if (device.RightStickUp.WasPressed)
+				{
+					currentAction = "headSlideUp";
+					rhythmRating = rating;
+				}
+				else if (device.RightStickDown.WasPressed)
+				{
+					currentAction = "headSlideDown";
+					rhythmRating = rating;
+				}
+			}
 		}
 	}
 

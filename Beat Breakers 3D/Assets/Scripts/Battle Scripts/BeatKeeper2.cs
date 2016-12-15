@@ -72,6 +72,8 @@ public class BeatKeeper2 : MonoBehaviour {
 		//koreographer listen for events
 		Koreographer.Instance.RegisterForEvents("beat", OnBeat);
 		Koreographer.Instance.RegisterForEvents("good", OnGoodSpan);
+		Koreographer.Instance.RegisterForEvents("great", OnGreatSpan);
+		Koreographer.Instance.RegisterForEvents("perfect", OnPerfectSpan);
 		//start battle
 		StartCoroutine(startgame());
 	}
@@ -143,6 +145,16 @@ public class BeatKeeper2 : MonoBehaviour {
 	void OnGoodSpan(KoreographyEvent evt) {
 		char1script.ReadInput("Good!");
 		char2script.ReadInput("Good!");
+	}
+
+	void OnGreatSpan(KoreographyEvent evt) {
+		char1script.ReadInput("Great!");
+		char2script.ReadInput("Great!");
+	}
+
+	void OnPerfectSpan(KoreographyEvent evt) {
+		char1script.ReadInput("Perfect!");
+		char2script.ReadInput("Perfect!");
 	}
 
 	IEnumerator startgame()

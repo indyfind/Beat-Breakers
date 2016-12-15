@@ -31,26 +31,26 @@ public class BasicAttack : MonoBehaviour
         bool onb = grid.GetComponent<BeatKeeper2>().checkifonbeat();
         bool canMove = GetComponent<VanillaCharacter>().canMove();
 
-        if (device.Action3.WasPressed && canMove) // && onb // (Input.GetButtonDown(leftButton)) 
-        {
-            this.GetComponent<VanillaCharacter>().currentAction = "basicAttackLeft";
-            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
-        }
-        if (device.Action2.WasPressed && canMove) // && onb
-        {
-            this.GetComponent<VanillaCharacter>().currentAction = "basicAttackRight";
-            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
-        }
-        if (device.Action4.WasPressed && canMove) // && onb
-        {
-            this.GetComponent<VanillaCharacter>().currentAction = "basicAttackUp";
-            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
-        }
-        if (device.Action1.WasPressed && canMove) // && onb
-        {
-            this.GetComponent<VanillaCharacter>().currentAction = "basicAttackDown";
-            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
-        }
+//        if (device.Action3.WasPressed && canMove) // && onb // (Input.GetButtonDown(leftButton)) 
+//        {
+//            this.GetComponent<VanillaCharacter>().currentAction = "basicAttackLeft";
+//            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
+//        }
+//        if (device.Action2.WasPressed && canMove) // && onb
+//        {
+//            this.GetComponent<VanillaCharacter>().currentAction = "basicAttackRight";
+//            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
+//        }
+//        if (device.Action4.WasPressed && canMove) // && onb
+//        {
+//            this.GetComponent<VanillaCharacter>().currentAction = "basicAttackUp";
+//            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
+//        }
+//        if (device.Action1.WasPressed && canMove) // && onb
+//        {
+//            this.GetComponent<VanillaCharacter>().currentAction = "basicAttackDown";
+//            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
+//        }
     }
 
     public void Attack(string direction)

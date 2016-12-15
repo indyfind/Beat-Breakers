@@ -24,7 +24,7 @@ public class PopNLock : MonoBehaviour {
     //public GameObject cooldownTimer;
     //public GameObject HUDIcon;
 
-    private int meterCost = 25;
+    public int meterCost = 25;
 
     // Use this for initialization
     void Start() {
@@ -43,10 +43,10 @@ public class PopNLock : MonoBehaviour {
     void Update() {
         bool onb = grid.GetComponent<BeatKeeper2>().checkifonbeat();
         bool canMove = GetComponent<VanillaCharacter>().canMove();
-        if ((device.RightBumper.WasPressed || device.RightTrigger.WasPressed) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) { // && !onCoolDown
-            this.GetComponent<VanillaCharacter>().currentAction = "popNLock";
-            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
-        }
+//        if ((device.RightBumper.WasPressed || device.RightTrigger.WasPressed) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) { // && !onCoolDown
+//            this.GetComponent<VanillaCharacter>().currentAction = "popNLock";
+//            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
+//        }
 	}
     public void Attack()
     {
