@@ -21,7 +21,7 @@ public class DoPlayerActions : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (gameStarted == false) {
-			if (this.GetComponent<BeatKeeper>().battleStarted == true) {
+			if (this.GetComponent<BeatKeeper2>().battleStarted == true) {
 				gameStarted = true;
 				animator1.SetBool("gameStart", true);
 				animator2.SetBool("gameStart", true);

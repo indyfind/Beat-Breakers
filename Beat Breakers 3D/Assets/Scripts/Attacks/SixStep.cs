@@ -24,7 +24,7 @@ public class SixStep : MonoBehaviour
     //private float bpm;
     //public GameObject HUDIcon;
 
-    private int meterCost = 25;
+    public int meterCost = 25;
 
     // Use this for initialization
     void Start()
@@ -44,18 +44,18 @@ public class SixStep : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool onb = grid.GetComponent<BeatKeeper>().checkifonbeat();
+        bool onb = grid.GetComponent<BeatKeeper2>().checkifonbeat();
 		bool canMove = GetComponent<VanillaCharacter> ().canMove ();
 
-        if ((device.LeftBumper.WasPressed || device.LeftTrigger.WasPressed) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) // && onb && !onCoolDown
-        {
-            this.GetComponent<VanillaCharacter>().currentAction = "sixStep";
-            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
-            //Attack();
-            //StartCoroutine(CoolDown());
-            //StartCoroutine(CoolDownDisplay());
-            //GetComponent<VanillaCharacter>().actionTaken = true;
-        }
+//        if ((device.LeftBumper.WasPressed || device.LeftTrigger.WasPressed) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) // && onb && !onCoolDown
+//        {
+//            this.GetComponent<VanillaCharacter>().currentAction = "sixStep";
+//            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
+//            //Attack();
+//            //StartCoroutine(CoolDown());
+//            //StartCoroutine(CoolDownDisplay());
+//            //GetComponent<VanillaCharacter>().actionTaken = true;
+//        }
     }
 
     public void Attack()

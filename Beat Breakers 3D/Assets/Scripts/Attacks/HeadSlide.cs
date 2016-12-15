@@ -37,7 +37,7 @@ public class HeadSlide : MonoBehaviour
 	//private float bpm;
 	//public GameObject HUDIcon;
 
-    private int meterCost = 50;
+    public int meterCost = 50;
 
 	// Use this for initialization
 	void Start()
@@ -58,39 +58,39 @@ public class HeadSlide : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		bool onb = grid.GetComponent<BeatKeeper>().checkifonbeat();
+		bool onb = grid.GetComponent<BeatKeeper2>().checkifonbeat();
 		bool canMove = GetComponent<VanillaCharacter> ().canMove ();
-        if (device.RightStick.WasPressed && canMove && this.GetComponent<VanillaCharacter>().meter >= meterCost) //&& !onCoolDown
-        {
-            //if right stick x value is greater than y value: check horizontal
-            if (Mathf.Abs(device.RightStickX.Value) >= Mathf.Abs(device.RightStickY.Value))
-            {
-                if (device.RightStickRight.WasPressed)
-                {
-                    this.GetComponent<VanillaCharacter>().currentAction = "headSlideRight";
-                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
-                }
-                else if (device.RightStickLeft.WasPressed)
-                {
-                    this.GetComponent<VanillaCharacter>().currentAction = "headSlideLeft";
-                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
-                }
-            }
-            //if not check vertical
-            else
-            {
-                if (device.RightStickUp.WasPressed)
-                {
-                    this.GetComponent<VanillaCharacter>().currentAction = "headSlideUp";
-                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
-                }
-                else if (device.RightStickDown.WasPressed)
-                {
-                    this.GetComponent<VanillaCharacter>().currentAction = "headSlideDown";
-                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper>().rhythmRating;
-                }
-            }
-        }
+//        if (device.RightStick.WasPressed && canMove && this.GetComponent<VanillaCharacter>().meter >= meterCost) //&& !onCoolDown
+//        {
+//            //if right stick x value is greater than y value: check horizontal
+//            if (Mathf.Abs(device.RightStickX.Value) >= Mathf.Abs(device.RightStickY.Value))
+//            {
+//                if (device.RightStickRight.WasPressed)
+//                {
+//                    this.GetComponent<VanillaCharacter>().currentAction = "headSlideRight";
+//                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
+//                }
+//                else if (device.RightStickLeft.WasPressed)
+//                {
+//                    this.GetComponent<VanillaCharacter>().currentAction = "headSlideLeft";
+//                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
+//                }
+//            }
+//            //if not check vertical
+//            else
+//            {
+//                if (device.RightStickUp.WasPressed)
+//                {
+//                    this.GetComponent<VanillaCharacter>().currentAction = "headSlideUp";
+//                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
+//                }
+//                else if (device.RightStickDown.WasPressed)
+//                {
+//                    this.GetComponent<VanillaCharacter>().currentAction = "headSlideDown";
+//                    this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
+//                }
+//            }
+//        }
 	}
 	
 	void Slide(Vector2 current, string dir)
