@@ -14,6 +14,7 @@ public class VanillaCharacter : MonoBehaviour {
     public string rhythmRating;
     public GameObject grid;
     public GameObject enemy;
+    public string playerForm;
 	private GameObject battleMaster;
 	private bool tripped = false;
     
@@ -31,6 +32,7 @@ public class VanillaCharacter : MonoBehaviour {
     private bool blocking;
     private int blockMeter;
     private int blockTimer;
+    public int formTimer;
     public GameObject blockVisual;
     
 
@@ -49,6 +51,8 @@ public class VanillaCharacter : MonoBehaviour {
     //public Text meterCharges;
     // Use this for initialization
     void Start () {
+        playerForm = "none";
+        formTimer = 0;
 		if (player == 1) {
 			device = InputManager.Devices[0];
 		} else if (player == 2) {
@@ -108,6 +112,8 @@ public class VanillaCharacter : MonoBehaviour {
     public void TakeDamage(int dam)
     {
         int chance = (int)Random.Range(1f, 3f);
+        Debug.Log("player " + player + " had this much health  " + health );
+        Debug.Log("player " + player + " " + playerForm);
         if (chance == 1)
         {
             //getHitSound.Play();
@@ -115,19 +121,95 @@ public class VanillaCharacter : MonoBehaviour {
         }
         if (blocking)
         {
+            if (formWeakness(playerForm, enemy.GetComponent<VanillaCharacter>().playerForm)) {
+                health -= (dam / 4);
+            }
             health -= 0;
             meter += 2;
         }
         else
         {
-            health -= dam;
+            if (formWeakness(playerForm, enemy.GetComponent<VanillaCharacter>().playerForm))
+            {
+                health -= (int)(dam * 1.3);
+            }
+            else if (formStrength(playerForm, enemy.GetComponent<VanillaCharacter>().playerForm))
+            {
+                health -= (int) (dam * .7);
+            }
+            else
+            {
+                health -= dam;
+            }
             meter += 2;
             enemy.GetComponent<VanillaCharacter>().meter += 3;
             blood.Play();
         }
         //Debug.Log(character + "Took this much damage");
-        //Debug.Log(character + " Has " + health + " health remaining");
+        Debug.Log("player "+ player + " Has " + health + " health remaining");
     }
+
+
+    private bool formWeakness(string playerf, string enemyf)
+    {
+        if (string.Equals(playerf, "flow") && string.Equals(enemyf, "foundation"))
+        {
+            return true;
+        }
+        else if (string.Equals(playerf, "foundation") && string.Equals(enemyf, "flare"))
+        {
+            return true;
+        }
+        else if (string.Equals(playerf, "flare") && string.Equals(enemyf, "flow"))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
+    private bool formStrength(string playerf, string enemyf)
+    {
+        if (string.Equals(playerf, "flow") && string.Equals(enemyf, "flare"))
+        {
+            return true;
+        }
+        else if (string.Equals(playerf, "foundation") && string.Equals(enemyf, "flow"))
+        {
+            return true;
+        }
+        else if (string.Equals(playerf, "flare") && string.Equals(enemyf, "foundation"))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
+    public void checkFormTimer()
+    {
+        if (!(string.Equals(playerForm, "none")))
+        {
+            if (formTimer >= 12)
+            {
+                Debug.Log("Form Has Been Reset");
+                playerForm = "none";
+                formTimer = 0;
+            }
+            else
+            {
+                formTimer += 1;
+            }
+        }
+    }
+
+
 
     public void block()
     {
@@ -190,26 +272,27 @@ public class VanillaCharacter : MonoBehaviour {
 			}
 		}
 		//Basic Attack
-		//if (device.Action3.WasPressed && !tripped) // && onb // (Input.GetButtonDown(leftButton)) 
-		//{
-		//	currentAction = "basicAttackLeft";
-		//	rhythmRating = rating;
-		//}
-		//if (device.Action2.WasPressed && !tripped) // && onb
-		//{
-		//	currentAction = "basicAttackRight";
-		//	rhythmRating = rating;
-		//}
-		//if (device.Action4.WasPressed && !tripped) // && onb
-		//{
-		//	currentAction = "basicAttackUp";
-		//	rhythmRating = rating;
-		//}
-		if (device.Action1.WasPressed && !tripped && blockMeter >= 1) // && onb
+		if (device.Action3.WasPressed && !tripped && meter >= 1) // && onb // (Input.GetButtonDown(leftButton)) 
 		{
-			currentAction = "block";
+			currentAction = "flow";
 			rhythmRating = rating;
 		}
+		if (device.Action2.WasPressed && !tripped && meter >= 1) // && onb
+		{
+			currentAction = "flare";
+			rhythmRating = rating;
+		}
+        if (device.Action1.WasPressed && !tripped && meter >= 1) // && onb
+        {
+            currentAction = "foundation";
+            rhythmRating = rating;
+        }
+        if (device.Action4.WasPressed && !tripped && blockMeter >= 1) // && onb
+        {
+            currentAction = "block";
+            rhythmRating = rating;
+        }
+          
 		//Six Step
 		if ((device.LeftBumper.WasPressed || device.LeftTrigger.WasPressed) && !tripped && (meter >= this.GetComponent<SixStep>().meterCost)) // && onb && !onCoolDown
 		{

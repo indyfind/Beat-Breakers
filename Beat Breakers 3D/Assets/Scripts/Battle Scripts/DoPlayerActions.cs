@@ -34,20 +34,62 @@ public class DoPlayerActions : MonoBehaviour {
 		string player1action = player1.GetComponent<VanillaCharacter>().currentAction;
 		string player2action = player2.GetComponent<VanillaCharacter>().currentAction;
 
+
         player1.GetComponent<VanillaCharacter>().resetblocking();
         player2.GetComponent<VanillaCharacter>().resetblocking();
+        player1.GetComponent<VanillaCharacter>().checkFormTimer();
+        player2.GetComponent<VanillaCharacter>().checkFormTimer();
 
-        if (player1action == "block")
+
+        switch (player1action)
         {
-            player1.GetComponent<VanillaCharacter>().block();
+            case "block":
+                player1.GetComponent<VanillaCharacter>().block();
+                break;
+            case "flare":
+                player1.GetComponent<VanillaCharacter>().playerForm = "flare";
+                player1.GetComponent<VanillaCharacter>().formTimer = 0;
+                Debug.Log("flare form happened for player 1");
+                break;
+            case "flow":
+                player1.GetComponent<VanillaCharacter>().playerForm = "flow";
+                player1.GetComponent<VanillaCharacter>().formTimer = 0;
+                Debug.Log("flow form happened for player 1");
+                break;
+            case "foundation":
+                player1.GetComponent<VanillaCharacter>().playerForm = "foundation";
+                player1.GetComponent<VanillaCharacter>().formTimer = 0;
+                Debug.Log("foundation form happened for player 1");
+                break;
+            default:
+                break;
         }
 
-        if (player2action == "block")
+        switch (player2action)
         {
-            player2.GetComponent<VanillaCharacter>().block();
+            case "block":
+                player2.GetComponent<VanillaCharacter>().block();
+                break;
+            case "flare":
+                player2.GetComponent<VanillaCharacter>().playerForm = "flare";
+                Debug.Log("flare form happened for player 2");
+                player2.GetComponent<VanillaCharacter>().formTimer = 0;
+                break;
+            case "flow":
+                player2.GetComponent<VanillaCharacter>().playerForm = "flow";
+                player2.GetComponent<VanillaCharacter>().formTimer = 0;
+                Debug.Log("flow happened for player 2");
+                break;
+            case "foundation":
+                player2.GetComponent<VanillaCharacter>().playerForm = "foundation";
+                player2.GetComponent<VanillaCharacter>().formTimer = 0;
+                Debug.Log("Foundation happened for player 2");
+                break;
+            default:
+                break;
         }
 
-		switch (player1action)
+        switch (player1action)
 		{
 		case "moveUp":
 			animator1.SetTrigger("moveAnim");
@@ -94,7 +136,7 @@ public class DoPlayerActions : MonoBehaviour {
 		case "headSlideUp":
 			animator1.SetTrigger("headSlideAnim");
 			player1.GetComponent<HeadSlide>().Attack("up");
-                battleMaster.GetComponent<BattleStats>().HeadSlideP1 += 1;
+            battleMaster.GetComponent<BattleStats>().HeadSlideP1 += 1;
 			break;
 		case "headSlideDown":
 			animator1.SetTrigger("headSlideAnim");
