@@ -28,6 +28,12 @@ public class VanillaCharacter : MonoBehaviour {
 	public GameObject ring4;
 
     public int player;
+    private bool blocking;
+    private int blockMeter;
+    private int blockTimer;
+    public GameObject blockVisual;
+    
+
 	public Slider healthSlider;
     //public Slider meterSlider;
 	//public bool actionTaken = false;
@@ -49,6 +55,9 @@ public class VanillaCharacter : MonoBehaviour {
 			device = InputManager.Devices[1];
 		}
 		battleMaster = GameObject.FindGameObjectWithTag ("BattleMaster");
+        blockMeter = 4;
+        blockTimer = 0;
+        blocking = false;
         meter = 25;
        // battleMaster.GetComponent<BattleStats>().ResetStats();
 		//scale = gameObject.GetComponent<Transform>().localScale;
@@ -104,13 +113,45 @@ public class VanillaCharacter : MonoBehaviour {
             //getHitSound.Play();
             this.GetComponent<SoundMaster>().PlaySound("getHitSound");
         }
-        health -= dam;
-        meter += 2;
-        enemy.GetComponent<VanillaCharacter>().meter += 3;
-		blood.Play();
+        if (blocking)
+        {
+            health -= 0;
+            meter += 2;
+        }
+        else
+        {
+            health -= dam;
+            meter += 2;
+            enemy.GetComponent<VanillaCharacter>().meter += 3;
+            blood.Play();
+        }
         //Debug.Log(character + "Took this much damage");
         //Debug.Log(character + " Has " + health + " health remaining");
     }
+
+    public void block()
+    {
+        
+            blocking = true;
+            blockMeter -= 1;
+            blockVisual.SetActive(true);
+        
+    }
+    public void resetblocking()
+    {
+        blockVisual.SetActive(false);
+        blocking = false;
+        if (blockTimer >= 4)
+        {
+            blockTimer = 0;
+            blockMeter += 1;
+        }
+        if (blockMeter < 4)
+        {
+            blockTimer += 1;
+        }
+    }
+  
 
 	public void ReadInput(string rating){
 		//Movement
@@ -149,24 +190,24 @@ public class VanillaCharacter : MonoBehaviour {
 			}
 		}
 		//Basic Attack
-		if (device.Action3.WasPressed && !tripped) // && onb // (Input.GetButtonDown(leftButton)) 
+		//if (device.Action3.WasPressed && !tripped) // && onb // (Input.GetButtonDown(leftButton)) 
+		//{
+		//	currentAction = "basicAttackLeft";
+		//	rhythmRating = rating;
+		//}
+		//if (device.Action2.WasPressed && !tripped) // && onb
+		//{
+		//	currentAction = "basicAttackRight";
+		//	rhythmRating = rating;
+		//}
+		//if (device.Action4.WasPressed && !tripped) // && onb
+		//{
+		//	currentAction = "basicAttackUp";
+		//	rhythmRating = rating;
+		//}
+		if (device.Action1.WasPressed && !tripped && blockMeter >= 1) // && onb
 		{
-			currentAction = "basicAttackLeft";
-			rhythmRating = rating;
-		}
-		if (device.Action2.WasPressed && !tripped) // && onb
-		{
-			currentAction = "basicAttackRight";
-			rhythmRating = rating;
-		}
-		if (device.Action4.WasPressed && !tripped) // && onb
-		{
-			currentAction = "basicAttackUp";
-			rhythmRating = rating;
-		}
-		if (device.Action1.WasPressed && !tripped) // && onb
-		{
-			currentAction = "basicAttackDown";
+			currentAction = "block";
 			rhythmRating = rating;
 		}
 		//Six Step
@@ -401,7 +442,10 @@ public class VanillaCharacter : MonoBehaviour {
 //    }
 	public void Tripped(float time) 
 	{
-		tripped = true;
+        if (!(blocking))
+        {
+            tripped = true;
+        }
 		//change color to black to show player is tripped
 		//gameObject.GetComponent<MeshRenderer> ().color = Color.black;
 		//use Coroutine to count down the time tripped

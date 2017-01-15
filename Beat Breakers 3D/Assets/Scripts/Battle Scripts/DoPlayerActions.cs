@@ -34,6 +34,18 @@ public class DoPlayerActions : MonoBehaviour {
 		string player1action = player1.GetComponent<VanillaCharacter>().currentAction;
 		string player2action = player2.GetComponent<VanillaCharacter>().currentAction;
 
+        player1.GetComponent<VanillaCharacter>().resetblocking();
+        player2.GetComponent<VanillaCharacter>().resetblocking();
+
+        if (player1action == "block")
+        {
+            player1.GetComponent<VanillaCharacter>().block();
+        }
+
+        if (player2action == "block")
+        {
+            player2.GetComponent<VanillaCharacter>().block();
+        }
 
 		switch (player1action)
 		{
