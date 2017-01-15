@@ -159,6 +159,14 @@ public class BeatKeeper2 : MonoBehaviour {
 
 	IEnumerator startgame()
 	{
+		if (battleMaster.GetComponent<EndBattle> ().round == 1) {
+			yield return new WaitForSeconds (1.5f);
+			this.GetComponent<CameraSwitch> ().ShowPlayer1Camera ();
+			yield return new WaitForSeconds (1f);
+			this.GetComponent<CameraSwitch> ().ShowPlayer2Camera ();
+			yield return new WaitForSeconds (1f);
+			this.GetComponent<CameraSwitch> ().ShowMainCamera ();
+		}
 		UIText.text = "Round " + battleMaster.GetComponent<EndBattle>().round;
 		yield return new WaitForSeconds(1f);
 		battleStarted = true;
