@@ -312,12 +312,12 @@ public class VanillaCharacter : MonoBehaviour {
 			{
 				if (device.RightStickRight.WasPressed)
 				{
-					currentAction = "headSlideRight";
+					currentAction = "basicAttackRight";
 					rhythmRating = rating;
 				}
 				else if (device.RightStickLeft.WasPressed)
 				{
-					currentAction = "headSlideLeft";
+					currentAction = "basicAttackLeft";
 					rhythmRating = rating;
 				}
 			}
@@ -326,12 +326,12 @@ public class VanillaCharacter : MonoBehaviour {
 			{
 				if (device.RightStickUp.WasPressed)
 				{
-					currentAction = "headSlideUp";
+					currentAction = "basicAttackUp";
 					rhythmRating = rating;
 				}
 				else if (device.RightStickDown.WasPressed)
 				{
-					currentAction = "headSlideDown";
+					currentAction = "basicAttackDown";
 					rhythmRating = rating;
 				}
 			}

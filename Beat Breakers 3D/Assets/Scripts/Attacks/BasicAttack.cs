@@ -66,7 +66,7 @@ public class BasicAttack : MonoBehaviour
             if (enemypos.x == currentpos.x - 1)
             {
 
-                if (enemypos.y == currentpos.y || enemypos.y == currentpos.y + 1 || enemypos.y == currentpos.y - 1)
+                if (enemypos.y == currentpos.y)
 
                     enemy.GetComponent<VanillaCharacter>().TakeDamage(damage);
             }
@@ -77,7 +77,7 @@ public class BasicAttack : MonoBehaviour
             if (enemypos.x == currentpos.x + 1)
             {
 
-                if (enemypos.y == currentpos.y || enemypos.y == currentpos.y + 1 || enemypos.y == currentpos.y - 1)
+                if (enemypos.y == currentpos.y)
 
                     enemy.GetComponent<VanillaCharacter>().TakeDamage(damage);
             }
@@ -88,7 +88,7 @@ public class BasicAttack : MonoBehaviour
             if (enemypos.y == currentpos.y - 1)
             {
 
-                if (enemypos.x == currentpos.x || enemypos.x == currentpos.x + 1 || enemypos.x == currentpos.x - 1)
+                if (enemypos.x == currentpos.x)
 
                     enemy.GetComponent<VanillaCharacter>().TakeDamage(damage);
                     
@@ -102,7 +102,7 @@ public class BasicAttack : MonoBehaviour
             if (enemypos.y == currentpos.y + 1)
             {
 
-                if (enemypos.x == currentpos.x || enemypos.x == currentpos.x + 1 || enemypos.x == currentpos.x - 1)
+                if (enemypos.x == currentpos.x)
 
                     enemy.GetComponent<VanillaCharacter>().TakeDamage(damage);
             }
