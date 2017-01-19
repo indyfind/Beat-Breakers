@@ -40,7 +40,8 @@ public class DoPlayerActions : MonoBehaviour {
         player1.GetComponent<VanillaCharacter>().checkFormTimer();
         player2.GetComponent<VanillaCharacter>().checkFormTimer();
 
-
+        player1.GetComponent<Flare>().FlareAttack();
+        player2.GetComponent<Flare>().FlareAttack();
         switch (player1action)
         {
             case "block":

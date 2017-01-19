@@ -8,7 +8,7 @@ public class VanillaCharacter : MonoBehaviour {
 	//InControl input device
 	private InputDevice device;
 
-    public int health = 100;
+    public int health = 1000;
     public int meter;
     public string character;
     public string rhythmRating;
@@ -108,9 +108,19 @@ public class VanillaCharacter : MonoBehaviour {
         meterRadialSlider.GetComponent<Image>().fillAmount = (float)meter / 100f;
         //meterCharges.text = (meter / 25).ToString();
     }
-	
-    public void TakeDamage(int dam)
+
+    public void TakeDamage(int dam, bool flare = false)
     {
+        
+        string enemyform = enemy.GetComponent<VanillaCharacter>().playerForm;
+        if (enemyform == "flare")
+        {
+            this.GetComponent<Flare>().StartFlareAttack();
+        }
+        if (flare)
+        {
+            enemyform = "flare";
+        }
         int chance = (int)Random.Range(1f, 3f);
         Debug.Log("player " + player + " had this much health  " + health );
         Debug.Log("player " + player + " " + playerForm);
@@ -121,7 +131,7 @@ public class VanillaCharacter : MonoBehaviour {
         }
         if (blocking)
         {
-            if (formWeakness(playerForm, enemy.GetComponent<VanillaCharacter>().playerForm)) {
+            if (formWeakness(playerForm, enemyform)) {
                 health -= (dam / 4);
             }
             health -= 0;
@@ -129,13 +139,16 @@ public class VanillaCharacter : MonoBehaviour {
         }
         else
         {
-            if (formWeakness(playerForm, enemy.GetComponent<VanillaCharacter>().playerForm))
+            if (formWeakness(playerForm, enemyform))
             {
-                health -= (int)(dam * 1.3);
+                health -= (int)(dam * 1.5);
             }
-            else if (formStrength(playerForm, enemy.GetComponent<VanillaCharacter>().playerForm))
+            else if (formStrength(playerForm, enemyform))
             {
-                health -= (int) (dam * .7);
+                health -= (int)(dam * .75);
+            }
+            else if (string.Equals(playerForm, "none") && !string.Equals(enemyform, "none")){
+                health -= (int)(dam * 1.5);
             }
             else
             {
