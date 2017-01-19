@@ -14,7 +14,7 @@ public class HeadSlide : MonoBehaviour
     public ParticleSystem enemyFallOffParticle;
 	//private int cooldown;
 	private int damage;
-    private int fallOffDamage = 20;
+    private int fallOffDamage = 200;
 	//public KeyCode key;
 	//private bool onCoolDown = false;
 	public int player;
@@ -43,7 +43,7 @@ public class HeadSlide : MonoBehaviour
 	void Start()
 	{
 		//bpm = grid.GetComponent<BeatKeeper> ().getBPM ();
-		damage = 10;
+		damage = 100;
 		//cooldown = 8;
 		//Assign correct controller inputs based on which player it is
 		if (player == 1) {
