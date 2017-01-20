@@ -50,6 +50,7 @@ public class DoPlayerActions : MonoBehaviour {
             case "flare":
                 player1.GetComponent<VanillaCharacter>().playerForm = "flare";
                 player1.GetComponent<VanillaCharacter>().formTimer = 0;
+                //player1.GetComponent<Flare>().StartFlareAttack();
                 Debug.Log("flare form happened for player 1");
                 break;
             case "flow":
@@ -75,6 +76,7 @@ public class DoPlayerActions : MonoBehaviour {
                 player2.GetComponent<VanillaCharacter>().playerForm = "flare";
                 Debug.Log("flare form happened for player 2");
                 player2.GetComponent<VanillaCharacter>().formTimer = 0;
+                //player1.GetComponent<Flare>().StartFlareAttack();
                 break;
             case "flow":
                 player2.GetComponent<VanillaCharacter>().playerForm = "flow";

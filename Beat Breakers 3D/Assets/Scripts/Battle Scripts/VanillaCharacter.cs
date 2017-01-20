@@ -109,17 +109,17 @@ public class VanillaCharacter : MonoBehaviour {
         //meterCharges.text = (meter / 25).ToString();
     }
 
-    public void TakeDamage(int dam, bool flare = false)
+    public void TakeDamage(int dam, bool DOT = false)
     {
         
         string enemyform = enemy.GetComponent<VanillaCharacter>().playerForm;
-        if (enemyform == "flare")
-        {
-            this.GetComponent<Flare>().StartFlareAttack();
-        }
-        if (flare)
+        if (DOT)
         {
             enemyform = "flare";
+        }
+        else if (enemyform == "flare")
+        {
+            this.GetComponent<Flare>().StartFlareAttack();
         }
         int chance = (int)Random.Range(1f, 3f);
         Debug.Log("player " + player + " had this much health  " + health );

@@ -19,17 +19,14 @@ public class Flare : MonoBehaviour {
     {
         if (flareCounter > 0)
         {
-           // this.GetComponent<VanillaCharacter>().TakeDamage(flaredamage, true);
+           this.GetComponent<VanillaCharacter>().TakeDamage(flaredamage, true);
             flareCounter -= 1;
         }
-
-        
     }
 
     public void StartFlareAttack()
     {
         flareCounter = 4;
-         
     }
 
 
