@@ -234,7 +234,7 @@ public class HeadSlide : MonoBehaviour
 					if (pos.y == enemypos.y){
 						//Debug.Log ("in front of me");
 						destination.x = pos.x + 4 ;
-						
+
 					}
 					else if(pos.y + 1 == enemypos.y){
 						destination.y = enemypos.y + 1;
@@ -369,12 +369,12 @@ public class HeadSlide : MonoBehaviour
     {
         if (enemyfell == true)
         {
-			enemy.GetComponent<VanillaCharacter>().Tripped(1f);
+			//enemy.GetComponent<VanillaCharacter>().Tripped(1f);
             enemyFallOffParticle.Play();
         }
         if (playerfell == true)
         {
-			this.GetComponent<VanillaCharacter>().Tripped(1f);
+			//this.GetComponent<VanillaCharacter>().Tripped(1f);
             playerFallOffParticle.Play();
         }
         model.SetActive(false);

@@ -76,7 +76,7 @@ public class SixStep : MonoBehaviour
             if (enemypos.y == currentpos.y || enemypos.y == currentpos.y + 1 || enemypos.y == currentpos.y - 1)
             {
                 enemy.GetComponent<VanillaCharacter>().TakeDamage(damage);
-				enemy.GetComponent<VanillaCharacter>().Tripped(.5f);
+				//enemy.GetComponent<VanillaCharacter>().Tripped(.5f);
             }
 
         }
