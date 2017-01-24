@@ -9,11 +9,6 @@ public class SixStep : MonoBehaviour
     public GameObject grid;
     public GameObject enemy;
 	public GameObject attackHitbox;
-	public int player;
-
-    //InControl input device
-    private InputDevice device;
-
 	//public AudioSource soundEffect;
 
     //private int cooldown;
@@ -32,11 +27,6 @@ public class SixStep : MonoBehaviour
 		//bpm = grid.GetComponent<BeatKeeper> ().getBPM ();
         damage = 100;
         //cooldown = 4;
-		if (player == 1) {
-            device = InputManager.Devices[0];
-        } else if (player == 2) {
-            device = InputManager.Devices[1];
-        }
 		//cooldownText = CooldownTimer.GetComponent<Text> ();
 		//cooldownCount = cooldown * 2;
     }
@@ -46,16 +36,6 @@ public class SixStep : MonoBehaviour
     {
         bool onb = grid.GetComponent<BeatKeeper2>().checkifonbeat();
 		bool canMove = GetComponent<VanillaCharacter> ().canMove ();
-
-//        if ((device.LeftBumper.WasPressed || device.LeftTrigger.WasPressed) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) // && onb && !onCoolDown
-//        {
-//            this.GetComponent<VanillaCharacter>().currentAction = "sixStep";
-//            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
-//            //Attack();
-//            //StartCoroutine(CoolDown());
-//            //StartCoroutine(CoolDownDisplay());
-//            //GetComponent<VanillaCharacter>().actionTaken = true;
-//        }
     }
 
     public void Attack()

@@ -12,7 +12,7 @@ public class CameraMovement : MonoBehaviour {
 			transform.localEulerAngles = new Vector3 (59.985f, 0f, 0f);
 		}
 	}
-	private float rotationAmount = 59.985f;
+	//private float rotationAmount = 59.985f;
 	private Vector3 rotateTo = new Vector3 (0f, .5f, 0f);
 	private Vector3 target = new Vector3 (0f, 6.63f, -3.61f);
 	private float speed = 6.0f;

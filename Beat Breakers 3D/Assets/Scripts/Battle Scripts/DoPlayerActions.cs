@@ -57,17 +57,23 @@ public class DoPlayerActions : MonoBehaviour {
                 case "flare":
                     player1.GetComponent<VanillaCharacter>().playerForm = "flare";
                     player1.GetComponent<VanillaCharacter>().formTimer = 0;
+					player1.GetComponent<VanillaCharacter>().meter -= 25;
+					player1.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.red;
                     //player1.GetComponent<Flare>().StartFlareAttack();
                     Debug.Log("flare form happened for player 1");
                     break;
                 case "flow":
                     player1.GetComponent<VanillaCharacter>().playerForm = "flow";
                     player1.GetComponent<VanillaCharacter>().formTimer = 0;
+					player1.GetComponent<VanillaCharacter>().meter -= 25;
+					player1.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.blue;
                     Debug.Log("flow form happened for player 1");
                     break;
                 case "foundation":
                     player1.GetComponent<VanillaCharacter>().playerForm = "foundation";
                     player1.GetComponent<VanillaCharacter>().formTimer = 0;
+					player1.GetComponent<VanillaCharacter>().meter -= 25;
+					player1.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.green;
                     Debug.Log("foundation form happened for player 1");
                     break;
                 default:
@@ -85,16 +91,22 @@ public class DoPlayerActions : MonoBehaviour {
                     player2.GetComponent<VanillaCharacter>().playerForm = "flare";
                     Debug.Log("flare form happened for player 2");
                     player2.GetComponent<VanillaCharacter>().formTimer = 0;
+					player2.GetComponent<VanillaCharacter>().meter -= 25;
+					player2.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.red;
                     //player1.GetComponent<Flare>().StartFlareAttack();
                     break;
                 case "flow":
                     player2.GetComponent<VanillaCharacter>().playerForm = "flow";
                     player2.GetComponent<VanillaCharacter>().formTimer = 0;
                     Debug.Log("flow happened for player 2");
+					player2.GetComponent<VanillaCharacter>().meter -= 25;
+					player2.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.blue;
                     break;
                 case "foundation":
                     player2.GetComponent<VanillaCharacter>().playerForm = "foundation";
                     player2.GetComponent<VanillaCharacter>().formTimer = 0;
+					player2.GetComponent<VanillaCharacter>().meter -= 25;
+					player2.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.green;
                     Debug.Log("Foundation happened for player 2");
                     break;
                 default:
@@ -153,26 +165,11 @@ public class DoPlayerActions : MonoBehaviour {
         {
             switch (player1action)
             {
-                case "headSlideUp":
-                    animator1.SetTrigger("headSlideAnim");
-                    player1.GetComponent<HeadSlide>().Attack("up");
-                    battleMaster.GetComponent<BattleStats>().HeadSlideP1 += 1;
-                    break;
-                case "headSlideDown":
-                    animator1.SetTrigger("headSlideAnim");
-                    player1.GetComponent<HeadSlide>().Attack("down");
-                    battleMaster.GetComponent<BattleStats>().HeadSlideP1 += 1;
-                    break;
-                case "headSlideLeft":
-                    animator1.SetTrigger("headSlideAnim");
-                    player1.GetComponent<HeadSlide>().Attack("left");
-                    battleMaster.GetComponent<BattleStats>().HeadSlideP1 += 1;
-                    break;
-                case "headSlideRight":
-                    animator1.SetTrigger("headSlideAnim");
-                    player1.GetComponent<HeadSlide>().Attack("right");
-                    battleMaster.GetComponent<BattleStats>().HeadSlideP1 += 1;
-                    break;
+				case "headSlide":
+					animator1.SetTrigger("headSlideAnim");
+					player1.GetComponent<HeadSlide>().Attack();
+					battleMaster.GetComponent<BattleStats>().HeadSlideP1 += 1;
+					break;
                 default:
                     break;
             }
@@ -181,26 +178,11 @@ public class DoPlayerActions : MonoBehaviour {
         {
             switch (player2action)
             {
-                case "headSlideUp":
-                    animator2.SetTrigger("headSlideAnim");
-                    player2.GetComponent<HeadSlide>().Attack("up");
-                    battleMaster.GetComponent<BattleStats>().HeadSlideP2 += 1;
-                    break;
-                case "headSlideDown":
-                    animator2.SetTrigger("headSlideAnim");
-                    player2.GetComponent<HeadSlide>().Attack("down");
-                    battleMaster.GetComponent<BattleStats>().HeadSlideP2 += 1;
-                    break;
-                case "headSlideLeft":
-                    animator2.SetTrigger("headSlideAnim");
-                    player2.GetComponent<HeadSlide>().Attack("left");
-                    battleMaster.GetComponent<BattleStats>().HeadSlideP2 += 1;
-                    break;
-                case "headSlideRight":
-                    animator2.SetTrigger("headSlideAnim");
-                    player2.GetComponent<HeadSlide>().Attack("right");
-                    battleMaster.GetComponent<BattleStats>().HeadSlideP2 += 1;
-                    break;
+				case "headSlide":
+					animator2.SetTrigger("headSlideAnim");
+					player2.GetComponent<HeadSlide>().Attack();
+					battleMaster.GetComponent<BattleStats>().HeadSlideP2 += 1;
+					break;	
                 default:
                     break;
             }

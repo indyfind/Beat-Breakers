@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using InControl;
 
 public class CharacterMover : MonoBehaviour {
     public int startingxPosition;
@@ -9,16 +8,15 @@ public class CharacterMover : MonoBehaviour {
     public int yposition = 0;
 	private int destinationx;
 	private int destinationy;
-    private float moverange = 1;
-    public GameObject grid;
-    private Vector3 destination;
-    private bool pushed;
-	public int player; // player 1 or player 2
-
+	private Vector3 destination;
+    //private float moverange = 1;
+	public GameObject playerModel;
+	public ParticleSystem fallOffParticle;
+	public GameObject grid;
 	public GameObject enemy;
-
-    //InControl device
-    private InputDevice device;
+    private bool pushed;
+	private bool fellOff = false;
+	private int fallOffDamage = 200;
 
     // Use this for initialization
     void Start () {
@@ -26,11 +24,6 @@ public class CharacterMover : MonoBehaviour {
         yposition = startingyPosition;
 		destinationx = startingxPosition;
 		destinationy = startingyPosition;
-		if (player == 1) {
-            device = InputManager.Devices[0];
-        } else if (player == 2) {
-            device = InputManager.Devices[1];
-        }
 	}
 	
 	// Update is called once per frame
@@ -42,31 +35,23 @@ public class CharacterMover : MonoBehaviour {
     }
     public void MoveUp()
     {
-        //yposition -= 1;
         this.transform.localEulerAngles = (new Vector3(0, -90, 0));
         StartCoroutine(MoveDirection(.2f, "up"));
-        //GetComponent<VanillaCharacter>().actionTaken = true; //action has been taken, so no more moves/attacks for this beat
     }
     public void MoveDown()
     {
-        //yposition += 1;
         this.transform.localEulerAngles = (new Vector3(0, 90, 0));
         StartCoroutine(MoveDirection(.2f, "down"));
-        //GetComponent<VanillaCharacter>().actionTaken = true;
     }
     public void MoveLeft()
     {
-        //xposition -= 1;
         this.transform.localEulerAngles = (new Vector3(0, 180, 0));
         StartCoroutine(MoveDirection(.2f, "left"));
-        //GetComponent<VanillaCharacter>().actionTaken = true;
     }
     public void MoveRight()
     {
-        //xposition += 1;
         this.transform.localEulerAngles = (new Vector3(0, 0, 0));
         StartCoroutine(MoveDirection(.2f, "right"));
-        //GetComponent<VanillaCharacter>().actionTaken = true;
     }
 
     public Vector2 getposition()
@@ -74,22 +59,41 @@ public class CharacterMover : MonoBehaviour {
 		return new Vector2((float)destinationx, (float)destinationy);
     }
 
-    public void setposition(int x, int y, float timetomove)
+    public void setposition(int x, int y)
     {
-        xposition = x;
-        yposition = y;
-		destination = new Vector3(grid.GetComponent<GridMaster>().getPosition(xposition, yposition).x, 1f, grid.GetComponent<GridMaster>().getPosition(xposition, yposition).y);
-        StartCoroutine(MoveToPosition(timetomove));
+		float timeToMove = .5f;
+		fellOff = false;
+		// If player knocked off, set them on opposite side
+		if (x > 6) {
+			fellOff = true;
+			xposition = 0;
+		} else if (x < 0) {
+			fellOff = true;
+			xposition = 6;
+		} else { 
+			xposition = x;
+		}
+		if (y > 6) {
+			fellOff = true;
+			yposition = 0;
+		} else if (y < 0) {
+			fellOff = true;
+			yposition = 6;
+		} else {
+			yposition = y;
+		}
+		if (fellOff) {
+			timeToMove = 1f;
+		}
+		destination = new Vector3(grid.GetComponent<GridMaster>().getPosition(xposition, yposition).x, 
+			1f, 
+			grid.GetComponent<GridMaster>().getPosition(xposition, yposition).y);
+		StartCoroutine(MoveToPosition(timeToMove));
+		if (fellOff) {
+			this.GetComponent<VanillaCharacter>().health -= fallOffDamage;
+			StartCoroutine(FallOff());
+		}
     }
-    //public void startMovement(float timetomove)
-    //{
-       // StartCoroutine(MoveToPosition(timetomove));
-    //} 
-    //public void moveenemy(float t ,Vector3 pos)
-    //{
-      //  destination = pos;
-        //StartCoroutine(MoveToPosition(t));
-    //}
 
 	public IEnumerator MoveToPosition(float timeToMove)
 	{
@@ -98,10 +102,8 @@ public class CharacterMover : MonoBehaviour {
 		float t = 0f;
 		while (t < 1)
 		{
-
 			t += Time.deltaTime / timeToMove;
 			transform.position = Vector3.Lerp(currentPos, destination, t);
-			//this.transform.localEulerAngles = new Vector3 (0, 30, 0);
 			yield return null;
 		}
 		destinationx = xposition;
@@ -196,4 +198,12 @@ public class CharacterMover : MonoBehaviour {
 		}
 
     }
+
+	IEnumerator FallOff()
+	{
+		fallOffParticle.Play();
+		playerModel.SetActive(false);
+		yield return new WaitForSeconds(1f);
+		playerModel.SetActive(true);
+	}
 }
