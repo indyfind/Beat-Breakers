@@ -20,30 +20,26 @@ Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.72
 Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.72_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.72_Data\Managed\SonicBloom.Koreo.dll (this message is harmless)
 Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.72_Data\Managed\SonicBloom.Koreo.dll into Unity Child Domain
-- Completed reload, in  0.169 seconds
+- Completed reload, in  0.195 seconds
 Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.72_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.72_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.658503 ms
+UnloadTime: 0.762460 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 409b4 -> priority: 1 
-  Thread -> id: 409b8 -> priority: 1 
+  Thread -> id: 43f1c -> priority: 1 
+  Thread -> id: 43e3c -> priority: 1 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 5.332254 ms
+UnloadTime: 5.181285 ms
 [InControl] Joystick 3: "vJoy - Virtual Joystick"
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
 
 
 Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1801.
-Total: 3.148168 ms (FindLiveObjects: 0.085747 ms CreateObjectMapping: 0.065883 ms MarkObjects: 0.944881 ms  DeleteObjects: 2.050332 ms)
-
-flow form happened for player 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+Total: 3.276293 ms (FindLiveObjects: 0.085747 ms CreateObjectMapping: 0.040721 ms MarkObjects: 1.070026 ms  DeleteObjects: 2.079466 ms)
 
 flare form happened for player 1
  
@@ -57,7 +53,19 @@ flare form happened for player 1
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
 
+Form Has Been Reset
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
 foundation form happened for player 1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Form Has Been Reset
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+flow form happened for player 1
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
 
