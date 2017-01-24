@@ -21,22 +21,24 @@ public class Flow : MonoBehaviour
     {
         this.GetComponent<VanillaCharacter>().tripped = true;
         this.GetComponent<VanillaCharacter>().justTripped = true;
+		this.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.black;
         counter = 4;
     }
 
     public void UnTripPlayer()
     {
-        Debug.Log("Tripped counter");
-        Debug.Log(counter);
+        //Debug.Log("Tripped counter");
+        //Debug.Log(counter);
         if (counter == 3)
         {
-            Debug.Log("justTripped = true");
+            //Debug.Log("justTripped = true");
             this.GetComponent<VanillaCharacter>().tripped = false;
             this.GetComponent<VanillaCharacter>().justTripped = true;
+			this.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.white;
         }
         if (counter == 1)
         {
-            Debug.Log("justTripped = false");
+            //Debug.Log("justTripped = false");
             this.GetComponent<VanillaCharacter>().justTripped = false;
         }
         if (counter > 0)

@@ -12,11 +12,6 @@ public class PopNLock : MonoBehaviour {
     private int damage;
     public KeyCode key;
     //private bool onCoolDown = false;
-    public int player;
-
-    //InControl device
-    private InputDevice device;
-
     //public AudioSource soundEffect;
 
     //private int cooldownCount;
@@ -30,11 +25,6 @@ public class PopNLock : MonoBehaviour {
     void Start() {
         damage = 20;
         //cooldown = 4;
-        if (player == 1) {
-            device = InputManager.Devices[0];
-        } else if (player == 2) {
-            device = InputManager.Devices[1];
-        }
         //cooldownText = cooldownTimer.GetComponent<Text> ();
         //cooldownCount = cooldown * 2;
     }
@@ -43,10 +33,6 @@ public class PopNLock : MonoBehaviour {
     void Update() {
         bool onb = grid.GetComponent<BeatKeeper2>().checkifonbeat();
         bool canMove = GetComponent<VanillaCharacter>().canMove();
-//        if ((device.RightBumper.WasPressed || device.RightTrigger.WasPressed) && canMove && (this.GetComponent<VanillaCharacter>().meter >= meterCost)) { // && !onCoolDown
-//            this.GetComponent<VanillaCharacter>().currentAction = "popNLock";
-//            this.GetComponent<VanillaCharacter>().rhythmRating = grid.GetComponent<BeatKeeper2>().rhythmRating;
-//        }
 	}
     public void Attack()
     {

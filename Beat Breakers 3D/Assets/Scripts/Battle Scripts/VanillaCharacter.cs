@@ -18,7 +18,7 @@ public class VanillaCharacter : MonoBehaviour {
 	private GameObject battleMaster;
     public bool tripped = false;
     public bool justTripped = false;
-
+	public GameObject orb;
     public ParticleSystem blood;
     public ParticleSystem rhythmParticlePerfect;
     public ParticleSystem rhythmParticleGreat;
@@ -75,11 +75,12 @@ public class VanillaCharacter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //update HUD to reflect current health
-        meter = 100;
+        //meter = 100; //GOD MODE
 		healthSlider.value = health;
         if (meter > 100) {
             meter = 100;
         }
+		/*
 		if (meter >= 25) {
 			ring1.SetActive(true);
 		} else {
@@ -100,6 +101,7 @@ public class VanillaCharacter : MonoBehaviour {
 		} else {
 			ring4.SetActive(false);
 		}
+		*/
         //meterSlider.value = meter;
 		if (health <= 0 && !roundOver) {
 			battleMaster.GetComponent<EndBattle>().playerLoses(player);
@@ -110,30 +112,32 @@ public class VanillaCharacter : MonoBehaviour {
         //meterCharges.text = (meter / 25).ToString();
     }
 
-    public void TakeDamage(int dam, bool DOT = false)
+	public void TakeDamage(int dam, bool DOT = false, int knockbackDistance = 0)
     {
-        
         string enemyform = enemy.GetComponent<VanillaCharacter>().playerForm;
         if (DOT)
         {
             enemyform = "flare";
         }
-        else if (enemyform == "flare")
+        else if (enemyform == "flare" && !blocking)
         {
             this.GetComponent<Flare>().StartFlareAttack();
         }
-        else if (enemyform == "flow" && !(justTripped))
+        else if (enemyform == "flow" && !(justTripped) && !blocking)
         {
             this.GetComponent<Flow>().TripPlayer();
         }
         if (enemyform == "foundation")
         {
-            this.GetComponent<Knockback>().GetKnockedBack();
+			knockbackDistance += 1;
         }
-        int chance = (int)Random.Range(1f, 3f);
-        Debug.Log("player " + player + " had this much health  " + health );
-        Debug.Log("player " + player + " " + playerForm);
-        if (chance == 1)
+		if (!blocking) {
+			this.GetComponent<Knockback>().GetKnockedBack(knockbackDistance);
+		}
+		//Debug.Log("player " + player + " had this much health  " + health );
+        //Debug.Log("player " + player + " " + playerForm);
+		int chance = (int)Random.Range(1f, 3f);
+        if (chance == 1 && !blocking)
         {
             //getHitSound.Play();
             this.GetComponent<SoundMaster>().PlaySound("getHitSound");
@@ -143,8 +147,6 @@ public class VanillaCharacter : MonoBehaviour {
             if (formWeakness(playerForm, enemyform)) {
                 health -= (dam / 4);
             }
-            health -= 0;
-            meter += 2;
         }
         else
         {
@@ -163,12 +165,11 @@ public class VanillaCharacter : MonoBehaviour {
             {
                 health -= dam;
             }
-            meter += 2;
             enemy.GetComponent<VanillaCharacter>().meter += 3;
             blood.Play();
         }
-        //Debug.Log(character + "Took this much damage");
-        Debug.Log("player "+ player + " Has " + health + " health remaining");
+		meter += 2;
+        //Debug.Log("player "+ player + " Has " + health + " health remaining");
     }
 
 
@@ -221,6 +222,7 @@ public class VanillaCharacter : MonoBehaviour {
             if (formTimer >= 12)
             {
                 Debug.Log("Form Has Been Reset");
+				orb.GetComponent<MeshRenderer>().material.color = Color.white;
                 playerForm = "none";
                 formTimer = 0;
             }
@@ -231,11 +233,8 @@ public class VanillaCharacter : MonoBehaviour {
         }
     }
 
-
-
     public void block()
     {
-        
             blocking = true;
             blockMeter -= 1;
             blockVisual.SetActive(true);
@@ -294,40 +293,40 @@ public class VanillaCharacter : MonoBehaviour {
 			}
 		}
 		//Forms
-		if (device.Action3.WasPressed && meter >= 1) // && onb // (Input.GetButtonDown(leftButton)) 
+		if (device.Action3.WasPressed && meter >= 25) // && onb // (Input.GetButtonDown(leftButton)) 
 		{
 			currentAction = "flow";
 			rhythmRating = rating;
 		}
-		if (device.Action2.WasPressed && meter >= 1) // && onb
+		if (device.Action2.WasPressed && meter >= 25) // && onb
 		{
 			currentAction = "flare";
 			rhythmRating = rating;
 		}
-        if (device.Action1.WasPressed && meter >= 1) // && onb
-        {
-            currentAction = "foundation";
-            rhythmRating = rating;
-        }
-        if (device.Action4.WasPressed && blockMeter >= 1) // && onb
+		if (device.Action4.WasPressed && meter >= 25) // && onb
+		{
+			currentAction = "foundation";
+			rhythmRating = rating;
+		}
+		//Blocking
+		if ((device.Action1.WasPressed || device.Action1.IsPressed) && blockMeter >= 1) // && onb
         {
             currentAction = "block";
             rhythmRating = rating;
         }
-          
 		//Six Step
 		if ((device.LeftBumper.WasPressed || device.LeftTrigger.WasPressed) && (meter >= this.GetComponent<SixStep>().meterCost)) // && onb && !onCoolDown
 		{
 			currentAction = "sixStep";
 			rhythmRating = rating;
 		}
-		//Pop N Lock
-		if ((device.RightBumper.WasPressed || device.RightTrigger.WasPressed) && (meter >= this.GetComponent<SixStep>().meterCost)) { // && !onCoolDown
-			currentAction = "popNLock";
+		//Head Slide
+		if ((device.RightBumper.WasPressed || device.RightTrigger.WasPressed) && (meter >= this.GetComponent<HeadSlide>().meterCost)) { // && !onCoolDown
+			currentAction = "headSlide";
 			rhythmRating = rating;
 		}
-		//Head Slide
-		if (device.RightStick.WasPressed && (meter >= this.GetComponent<HeadSlide>().meterCost)) //&& !onCoolDown
+		//Basic Attack
+		if (device.RightStick.WasPressed) //&& !onCoolDown
 		{
 			//if right stick x value is greater than y value: check horizontal
 			if (Mathf.Abs(device.RightStickX.Value) >= Mathf.Abs(device.RightStickY.Value))
@@ -454,32 +453,6 @@ public class VanillaCharacter : MonoBehaviour {
 		
 	}
 
-/*	public void Tripped(float time) 
-	{
-        if (!(blocking))
-        {
-            tripped = true;
-        }
-		//change color to black to show player is tripped
-		//gameObject.GetComponent<MeshRenderer> ().color = Color.black;
-		//use Coroutine to count down the time tripped
-		if (!roundOver) {
-			StartCoroutine (TimeTripped (time));
-		}
-	}*/
-
-//	IEnumerator TimeTripped(float time)
-//	{
-//		yield return new WaitForSeconds (time);
-//		tripped = false;
-//		//change color back to original
-//		if (color == "red") {
-//			gameObject.GetComponent<MeshRenderer> ().color = Color.red;
-//		} else if (color == "white") {
-//			gameObject.GetComponent<MeshRenderer> ().color = Color.white;
-//		}
-//	}
-
 	//Checks if player can move based on current effects (tripped, already moved, etc.)
 	public bool canMove()
 	{
@@ -491,10 +464,6 @@ public class VanillaCharacter : MonoBehaviour {
         yield return new WaitForSeconds(.2f);
         rhythmRatingUI.text = "";
 	}
-
-    //	public void beatAnimation()
-    //	{
-    //		this.transform.localScale = new Vector3 (scale.x / 2, scale.y / 2, scale.z / 2);
-    //	}
+		
 }
 
