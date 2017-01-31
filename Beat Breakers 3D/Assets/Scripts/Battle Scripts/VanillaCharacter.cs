@@ -37,7 +37,7 @@ public class VanillaCharacter : MonoBehaviour {
     public GameObject blockVisual;
     
 
-	public Slider healthSlider;
+	public Image healthFill;
     //public Slider meterSlider;
 	//public bool actionTaken = false;
 	private Vector3 scale;
@@ -76,7 +76,7 @@ public class VanillaCharacter : MonoBehaviour {
 	void Update () {
         //update HUD to reflect current health
         //meter = 100; //GOD MODE
-		healthSlider.value = health;
+		healthFill.fillAmount = health/1000f;
         if (meter > 100) {
             meter = 100;
         }
