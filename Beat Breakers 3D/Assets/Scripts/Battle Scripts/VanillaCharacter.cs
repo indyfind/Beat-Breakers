@@ -376,7 +376,8 @@ public class VanillaCharacter : MonoBehaviour {
         }
 
 		//display rhythm rating
-		rhythmRatingUI.text = rhythmRating;
+		//rhythmRatingUI.text = rhythmRating;
+		this.GetComponent<RhythmRating>().DisplayRating();
 
 		if (rhythmRating == "Good!")
 		{
@@ -448,7 +449,7 @@ public class VanillaCharacter : MonoBehaviour {
             }
         }
 		if (!roundOver){
-			StartCoroutine(rhythmRatingDisplayOff());
+			//StartCoroutine(rhythmRatingDisplayOff());
 		}
 		
 	}
