@@ -37,7 +37,8 @@ public class VanillaCharacter : MonoBehaviour {
     public GameObject blockVisual;
     
 
-	public Image healthFill;
+	public Image healthSlider;
+	public Image chargeSlider;
     //public Slider meterSlider;
 	//public bool actionTaken = false;
 	private Vector3 scale;
@@ -76,7 +77,7 @@ public class VanillaCharacter : MonoBehaviour {
 	void Update () {
         //update HUD to reflect current health
         //meter = 100; //GOD MODE
-		healthFill.fillAmount = health/1000f;
+		healthSlider.fillAmount = health/1000f;
         if (meter > 100) {
             meter = 100;
         }
@@ -108,7 +109,7 @@ public class VanillaCharacter : MonoBehaviour {
 			roundOver = true;
 			this.gameObject.SetActive (false);
 		}
-        meterRadialSlider.GetComponent<Image>().fillAmount = (float)meter / 100f;
+        chargeSlider.fillAmount = (float)meter / 100f;
         //meterCharges.text = (meter / 25).ToString();
     }
 
