@@ -37,7 +37,12 @@ public class VanillaCharacter : MonoBehaviour {
     public GameObject blockVisual;
     
 
-	public Slider healthSlider;
+	public Image healthSlider;
+	public Image chargeSlider;
+    public GameObject blockMeter1;
+    public GameObject blockMeter2;
+    public GameObject blockMeter3;
+    public GameObject blockMeter4;
     //public Slider meterSlider;
 	//public bool actionTaken = false;
 	private Vector3 scale;
@@ -76,7 +81,7 @@ public class VanillaCharacter : MonoBehaviour {
 	void Update () {
         //update HUD to reflect current health
         //meter = 100; //GOD MODE
-		healthSlider.value = health;
+		healthSlider.fillAmount = health/1000f;
         if (meter > 100) {
             meter = 100;
         }
@@ -108,8 +113,39 @@ public class VanillaCharacter : MonoBehaviour {
 			roundOver = true;
 			this.gameObject.SetActive (false);
 		}
-        meterRadialSlider.GetComponent<Image>().fillAmount = (float)meter / 100f;
+        chargeSlider.fillAmount = (float)meter / 100f;
         //meterCharges.text = (meter / 25).ToString();
+        if (blockMeter >= 1)
+        {
+            blockMeter1.SetActive(true);
+        } else
+        {
+            blockMeter1.SetActive(false);
+        }
+        if (blockMeter >= 2)
+        {
+            blockMeter2.SetActive(true);
+        }
+        else
+        {
+            blockMeter2.SetActive(false);
+        }
+        if (blockMeter >= 3)
+        {
+            blockMeter3.SetActive(true);
+        }
+        else
+        {
+            blockMeter3.SetActive(false);
+        }
+        if (blockMeter >= 4)
+        {
+            blockMeter4.SetActive(true);
+        }
+        else
+        {
+            blockMeter4.SetActive(false);
+        }
     }
 
 	public void TakeDamage(int dam, bool DOT = false, int knockbackDistance = 0)
