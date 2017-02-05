@@ -39,6 +39,10 @@ public class VanillaCharacter : MonoBehaviour {
 
 	public Image healthSlider;
 	public Image chargeSlider;
+    public GameObject blockMeter1;
+    public GameObject blockMeter2;
+    public GameObject blockMeter3;
+    public GameObject blockMeter4;
     //public Slider meterSlider;
 	//public bool actionTaken = false;
 	private Vector3 scale;
@@ -111,6 +115,37 @@ public class VanillaCharacter : MonoBehaviour {
 		}
         chargeSlider.fillAmount = (float)meter / 100f;
         //meterCharges.text = (meter / 25).ToString();
+        if (blockMeter >= 1)
+        {
+            blockMeter1.SetActive(true);
+        } else
+        {
+            blockMeter1.SetActive(false);
+        }
+        if (blockMeter >= 2)
+        {
+            blockMeter2.SetActive(true);
+        }
+        else
+        {
+            blockMeter2.SetActive(false);
+        }
+        if (blockMeter >= 3)
+        {
+            blockMeter3.SetActive(true);
+        }
+        else
+        {
+            blockMeter3.SetActive(false);
+        }
+        if (blockMeter >= 4)
+        {
+            blockMeter4.SetActive(true);
+        }
+        else
+        {
+            blockMeter4.SetActive(false);
+        }
     }
 
 	public void TakeDamage(int dam, bool DOT = false, int knockbackDistance = 0)
