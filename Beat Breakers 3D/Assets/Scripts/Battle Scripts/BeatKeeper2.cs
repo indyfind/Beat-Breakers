@@ -93,7 +93,7 @@ public class BeatKeeper2 : MonoBehaviour {
 		if (countdown > 0) {
             if (countdown == 3)
             {
-                battleMaster.GetComponent<SoundPlayer>().PlaySound("Countdown");
+                battleMaster.GetComponent<SoundPlayer>().PlaySound("Countdown", true);
                 //Debug.Log("play countdown sound");
             }
 			UIText.text = countdown.ToString ();
@@ -173,7 +173,7 @@ public class BeatKeeper2 : MonoBehaviour {
 			this.GetComponent<CameraSwitch> ().ShowMainCamera ();
 		}
 		UIText.text = "Round " + battleMaster.GetComponent<EndBattle>().round;
-        battleMaster.GetComponent<SoundPlayer>().PlaySound("Round" + battleMaster.GetComponent<EndBattle>().round);
+        battleMaster.GetComponent<SoundPlayer>().PlaySound("Round" + battleMaster.GetComponent<EndBattle>().round, true);
 		yield return new WaitForSeconds(1f);
 		battleStarted = true;
 		battleSong.Play();

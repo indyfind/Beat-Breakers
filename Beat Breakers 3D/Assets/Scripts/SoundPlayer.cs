@@ -10,6 +10,7 @@ public class SoundPlayer : MonoBehaviour
     public AudioClip[] RoundOver;
     public AudioClip[] AnnouncerRound2;
     public AudioClip[] AnnouncerRound3;
+	public AudioClip[] AnyRound;
     private AudioSource audioplayer;
     // Use this for initialization
     void Start()
@@ -21,7 +22,8 @@ public class SoundPlayer : MonoBehaviour
         RoundOver = Resources.LoadAll<AudioClip>("Sound/AnnouncerVoiceLines/UILines/RoundOver");
         AnnouncerRound2 = Resources.LoadAll<AudioClip>("Sound/AnnouncerVoiceLines/Round2");
         AnnouncerRound3 = Resources.LoadAll<AudioClip>("Sound/AnnouncerVoiceLines/Round3");
-        audioplayer = this.GetComponent<AudioSource>();
+		AnyRound = Resources.LoadAll<AudioClip>("Sound/AnnouncerVoiceLines/AnyRound");
+		audioplayer = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,40 +32,45 @@ public class SoundPlayer : MonoBehaviour
 
     }
 
-    public void PlaySound(string sound)
+	public void PlaySound(string sound, bool forcePlay=false)
     {
-        switch (sound)
-        {
-            case "Countdown":
-                audioplayer.clip = Countdown;
-                audioplayer.Play();
-                break;
-            case "Round1":
-                audioplayer.clip = Round1;
-                audioplayer.Play();
-                break;
-            case "Round2":
-                audioplayer.clip = Round2;
-                audioplayer.Play();
-                break;
-            case "Round3":
-                audioplayer.clip = Round3;
-                audioplayer.Play();
-                break;
-            case "RoundOver":
-                audioplayer.clip = RoundOver[Random.Range(0, RoundOver.Length - 1)];
-                audioplayer.Play();
-                break;
-            case "Round2Sound":
-                audioplayer.clip = AnnouncerRound2[Random.Range(0, AnnouncerRound2.Length - 1)];
-                audioplayer.Play();
-                break;
-            case "Round3Sound":
-                audioplayer.clip = AnnouncerRound3[Random.Range(0, AnnouncerRound3.Length - 1)];
-                audioplayer.Play();
-                break;
-            default:
-                break;
-        }
+		if (!audioplayer.isPlaying || forcePlay) {
+			switch (sound) {
+			case "Countdown":
+				audioplayer.clip = Countdown;
+				audioplayer.Play ();
+				break;
+			case "Round1":
+				audioplayer.clip = Round1;
+				audioplayer.Play ();
+				break;
+			case "Round2":
+				audioplayer.clip = Round2;
+				audioplayer.Play ();
+				break;
+			case "Round3":
+				audioplayer.clip = Round3;
+				audioplayer.Play ();
+				break;
+			case "RoundOver":
+				audioplayer.clip = RoundOver [Random.Range (0, RoundOver.Length - 1)];
+				audioplayer.Play ();
+				break;
+			case "Round2Sound":
+				audioplayer.clip = AnnouncerRound2 [Random.Range (0, AnnouncerRound2.Length - 1)];
+				audioplayer.Play ();
+				break;
+			case "Round3Sound":
+				audioplayer.clip = AnnouncerRound3 [Random.Range (0, AnnouncerRound3.Length - 1)];
+				audioplayer.Play ();
+				break;
+			case "AnyRound":
+				audioplayer.clip = AnyRound [Random.Range (0, AnyRound.Length - 1)];
+				audioplayer.Play ();
+				break;
+			default:
+				break;
+			}
+		}
     }
 }

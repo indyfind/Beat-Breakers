@@ -106,23 +106,20 @@ public class EndBattle : MonoBehaviour {
 		Debug.Log(round);
 		UIText.text = "Round Over!";
         this.GetComponent<SoundPlayer>().PlaySound("RoundOver");
-       
+		yield return new WaitForSeconds (2f);
+		if (sceneToLoad == 2) {
 
+		} else {
+			if (round == 2) {
+				this.GetComponent<SoundPlayer> ().PlaySound ("Round2Sound");
+			} else if (round == 3) {
+				this.GetComponent<SoundPlayer> ().PlaySound ("Round3Sound");
+			}
+		}
         
         yield return new WaitForSeconds(5f);
-
-        
         SceneManager.LoadScene(sceneToLoad);
         sceneloaded = true;
-        if (round == 2)
-        {
-            //Debug.Log("We got here");
-            this.GetComponent<SoundPlayer>().PlaySound("Round2Sound");
-        } else if (round == 3)
-        {
-            this.GetComponent<SoundPlayer>().PlaySound("Round3Sound");
-        }
-        
         //SceneManager.LoadScene(0);
     }
 }
