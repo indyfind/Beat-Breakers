@@ -8,8 +8,12 @@ public class SoundMaster : MonoBehaviour {
     public AudioSource popNLockSound;
     public AudioSource headSlideSound;
     public AudioSource sixStepSound;
+    
 
-
+    void Awake()
+    {
+        
+    }
 
     // Use this for initialization
     void Start () {
