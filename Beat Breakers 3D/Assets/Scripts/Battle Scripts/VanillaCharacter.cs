@@ -104,9 +104,11 @@ public class VanillaCharacter : MonoBehaviour {
 		*/
         //meterSlider.value = meter;
 		if (health <= 0 && !roundOver) {
-			battleMaster.GetComponent<EndBattle>().playerLoses(player);
+            battleMaster.GetComponent<EndBattle>().fadingsound = true; ;
+            battleMaster.GetComponent<EndBattle>().playerLoses(player);
 			roundOver = true;
 			this.gameObject.SetActive (false);
+
 		}
         meterRadialSlider.GetComponent<Image>().fillAmount = (float)meter / 100f;
         //meterCharges.text = (meter / 25).ToString();
@@ -375,9 +377,12 @@ public class VanillaCharacter : MonoBehaviour {
             currentcombo = 0;
         }
 
-		//display rhythm rating
-		//rhythmRatingUI.text = rhythmRating;
-		this.GetComponent<RhythmRating>().DisplayRating();
+        //display rhythm rating
+        //rhythmRatingUI.text = rhythmRating;
+        if (health > 0)
+        {
+            this.GetComponent<RhythmRating>().DisplayRating();
+        }
 
 		if (rhythmRating == "Good!")
 		{
