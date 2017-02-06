@@ -105,6 +105,7 @@ public class EndBattle : MonoBehaviour {
 		round += 1;
 		Debug.Log(round);
 		UIText.text = "Round Over!";
+        this.GetComponent<SoundPlayer>().PlaySound("RoundOver");
        
 
         
@@ -113,10 +114,13 @@ public class EndBattle : MonoBehaviour {
         
         SceneManager.LoadScene(sceneToLoad);
         sceneloaded = true;
-        if (sceneToLoad == 1)
+        if (round == 2)
         {
-            Debug.Log("We got here");
+            //Debug.Log("We got here");
             this.GetComponent<SoundPlayer>().PlaySound("Round2Sound");
+        } else if (round == 3)
+        {
+            this.GetComponent<SoundPlayer>().PlaySound("Round3Sound");
         }
         
         //SceneManager.LoadScene(0);
