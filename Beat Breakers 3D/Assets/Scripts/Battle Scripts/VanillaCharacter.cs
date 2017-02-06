@@ -188,6 +188,11 @@ public class VanillaCharacter : MonoBehaviour {
         }
         else
         {
+			//Chance to to play announcer line
+			chance = (int)Random.Range (1f, 15f);
+			if (health > 200 && chance == 1) {
+				battleMaster.GetComponent<SoundPlayer> ().PlaySound ("AnyRound");
+			}
             if (formWeakness(playerForm, enemyform))
             {
                 health -= (int)(dam * 1.5);

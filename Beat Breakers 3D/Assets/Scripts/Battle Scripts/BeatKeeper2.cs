@@ -91,6 +91,11 @@ public class BeatKeeper2 : MonoBehaviour {
 
 		//if during the first 3 beats, do battle countdown and start beat blocks
 		if (countdown > 0) {
+            if (countdown == 3)
+            {
+                battleMaster.GetComponent<SoundPlayer>().PlaySound("Countdown", true);
+                //Debug.Log("play countdown sound");
+            }
 			UIText.text = countdown.ToString ();
 			foreach (GameObject block in blocks) {
 				block.GetComponent<BlockMover> ().BattleStart (4 - countdown);
@@ -168,6 +173,7 @@ public class BeatKeeper2 : MonoBehaviour {
 			this.GetComponent<CameraSwitch> ().ShowMainCamera ();
 		}
 		UIText.text = "Round " + battleMaster.GetComponent<EndBattle>().round;
+        battleMaster.GetComponent<SoundPlayer>().PlaySound("Round" + battleMaster.GetComponent<EndBattle>().round, true);
 		yield return new WaitForSeconds(1f);
 		battleStarted = true;
 		battleSong.Play();
