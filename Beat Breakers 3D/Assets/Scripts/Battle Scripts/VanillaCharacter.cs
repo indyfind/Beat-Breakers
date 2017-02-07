@@ -5,217 +5,209 @@ using System.Collections;
 
 public class VanillaCharacter : MonoBehaviour {
 
-	//InControl input device
-	private InputDevice device;
-
-    public int health = 1000;
-    public int meter;
-    public string character;
-    public string rhythmRating;
-    public GameObject grid;
-    public GameObject enemy;
-    public string playerForm;
+	//world stuff
 	private GameObject battleMaster;
-    public bool tripped = false;
-    public bool justTripped = false;
-	public GameObject orb;
-    public ParticleSystem blood;
-    public ParticleSystem rhythmParticlePerfect;
-    public ParticleSystem rhythmParticleGreat;
-    public ParticleSystem rhythmParticleGood;
+	public GameObject grid;
+	public GameObject enemy;
 
-	public GameObject ring1;
-	public GameObject ring2;
-	public GameObject ring3;
-	public GameObject ring4;
+	//player info
+	public int player;
+	public string character;
+	public int health = 1000;
+	public int meter = 25;
+	private int meleeMeterCost;
+	private int rangedMeterCost;
 
-    public int player;
-    private bool blocking;
-    private int blockMeter;
-    private int blockTimer;
-    public int formTimer;
-    public GameObject blockVisual;
-    
+	//player state
+	public bool tripped = false;
+	public bool justTripped = false;
+	public string currentAction;
+	public string rhythmRating;
+	private bool blocking;
+	private int blockMeter;
+	private int blockTimer;
+	public string playerForm;
+	public int formTimer;
 
+	//UI & visuals
 	public Image healthSlider;
 	public Image chargeSlider;
-    public GameObject blockMeter1;
-    public GameObject blockMeter2;
-    public GameObject blockMeter3;
-    public GameObject blockMeter4;
-    //public Slider meterSlider;
-	//public bool actionTaken = false;
-	private Vector3 scale;
-    public Text rhythmRatingUI;
-    public string currentAction;
-    public Transform meterRadialSlider;
-    private int currentcombo;
+	public GameObject blockVisual;
+	public GameObject blockMeter1;
+	public GameObject blockMeter2;
+	public GameObject blockMeter3;
+	public GameObject blockMeter4;
+	public ParticleSystem blood;
+	public GameObject orb;
 
+	//InControl input device
+	private InputDevice device;
+    
+	//stat trackers
+	private int currentcombo;
 	private bool roundOver = false;
 
-    //public AudioSource getHitSound;
-    //public Text meterCharges;
+	void Awake()
+	{
+		
+	}
+
     // Use this for initialization
     void Start () {
-        playerForm = "none";
-        formTimer = 0;
+		
+		//set input device
 		if (player == 1) {
 			device = InputManager.Devices[0];
 		} else if (player == 2) {
 			device = InputManager.Devices[1];
 		}
+
+		//find battleMaster (because its a do not destroy object)
 		battleMaster = GameObject.FindGameObjectWithTag ("BattleMaster");
+
+		//set move costs
+		if (character == "Eva") {
+			meleeMeterCost = GetComponent<SixStep>().meterCost;
+			rangedMeterCost = GetComponent<HeadSlide>().meterCost;
+		} else if (character == "Naz") {
+			meleeMeterCost = GetComponent<Shimmy>().meterCost;
+			rangedMeterCost = GetComponent<AcidTrance>().meterCost;
+		}
+
+		//set form
+        playerForm = "none";
+        formTimer = 0;
+
+		//set blocking
         blockMeter = 4;
         blockTimer = 0;
         blocking = false;
-        meter = 25;
-       // battleMaster.GetComponent<BattleStats>().ResetStats();
-		//scale = gameObject.GetComponent<Transform>().localScale;
 	}
-    void Awake()
-    {
-       // battleMaster.GetComponent<BattleStats>().ResetStats();
-    }
-	
+		
 	// Update is called once per frame
 	void Update () {
-        //update HUD to reflect current health
-        //meter = 100; //GOD MODE
+
+		//meter = 100; //GOD MODE
+
+        //update HUD to reflect current health/meter/block
 		healthSlider.fillAmount = health/1000f;
         if (meter > 100) {
             meter = 100;
         }
-		/*
-		if (meter >= 25) {
-			ring1.SetActive(true);
+		chargeSlider.fillAmount = (float)meter / 100f;
+		if (blockMeter >= 1) {
+			blockMeter1.SetActive(true);
 		} else {
-			ring1.SetActive(false);
+			blockMeter1.SetActive(false);
 		}
-		if (meter >= 50) {
-			ring2.SetActive(true);
+		if (blockMeter >= 2)
+		{
+			blockMeter2.SetActive(true);
 		} else {
-			ring2.SetActive(false);
+			blockMeter2.SetActive(false);
 		}
-		if (meter >= 75) {
-			ring3.SetActive(true);
+		if (blockMeter >= 3)
+		{
+			blockMeter3.SetActive(true);
 		} else {
-			ring3.SetActive(false);
+			blockMeter3.SetActive(false);
 		}
-		if (meter >= 100) {
-			ring4.SetActive(true);
+		if (blockMeter >= 4)
+		{
+			blockMeter4.SetActive(true);
 		} else {
-			ring4.SetActive(false);
+			blockMeter4.SetActive(false);
 		}
-		*/
-        //meterSlider.value = meter;
+
+		//check for death
 		if (health <= 0 && !roundOver) {
             battleMaster.GetComponent<EndBattle>().fadingsound = true; ;
             battleMaster.GetComponent<EndBattle>().playerLoses(player);
 			roundOver = true;
 			this.gameObject.SetActive (false);
-
 		}
-        chargeSlider.fillAmount = (float)meter / 100f;
-        //meterCharges.text = (meter / 25).ToString();
-        if (blockMeter >= 1)
-        {
-            blockMeter1.SetActive(true);
-        } else
-        {
-            blockMeter1.SetActive(false);
-        }
-        if (blockMeter >= 2)
-        {
-            blockMeter2.SetActive(true);
-        }
-        else
-        {
-            blockMeter2.SetActive(false);
-        }
-        if (blockMeter >= 3)
-        {
-            blockMeter3.SetActive(true);
-        }
-        else
-        {
-            blockMeter3.SetActive(false);
-        }
-        if (blockMeter >= 4)
-        {
-            blockMeter4.SetActive(true);
-        }
-        else
-        {
-            blockMeter4.SetActive(false);
-        }
     }
 
+	//Checks if player can move based on current effects (tripped, already moved, etc.)
+	public bool canMove()
+	{
+		return !tripped;
+	}
+
+	//Take damage & handle forms, etc.
 	public void TakeDamage(int dam, bool DOT = false, int knockbackDistance = 0)
     {
+		//gain meter for getting hit
+		meter += 2;
+
+		//set enemyform
         string enemyform = enemy.GetComponent<VanillaCharacter>().playerForm;
-        if (DOT)
-        {
+        if (DOT) {
             enemyform = "flare";
-        }
-        else if (enemyform == "flare" && !blocking)
-        {
+        } else if (enemyform == "flare" && !blocking) {
             this.GetComponent<Flare>().StartFlareAttack();
-        }
-        else if (enemyform == "flow" && !(justTripped) && !blocking)
-        {
+        } else if (enemyform == "flow" && !(justTripped) && !blocking) {
             this.GetComponent<Flow>().TripPlayer();
-        }
-        if (enemyform == "foundation")
-        {
+        } else if (enemyform == "foundation") {
 			knockbackDistance += 1;
         }
+
+		//if not blocking, get knocked back
 		if (!blocking) {
 			this.GetComponent<Knockback>().GetKnockedBack(knockbackDistance);
 		}
-		//Debug.Log("player " + player + " had this much health  " + health );
+
+		Debug.Log("player " + player + " had this much health  " + health );
         //Debug.Log("player " + player + " " + playerForm);
+
+		//chance to play get hit sound
 		int chance = (int)Random.Range(1f, 3f);
         if (chance == 1 && !blocking)
         {
             //getHitSound.Play();
             this.GetComponent<SoundMaster>().PlaySound("getHitSound");
         }
+
+		//if blocking, take no damage
         if (blocking)
         {
+			//unless you have form weakness, then take some
             if (formWeakness(playerForm, enemyform)) {
                 health -= (dam / 4);
             }
         }
-        else
+ 		else  //if not, take full damage
         {
+			if (formWeakness(playerForm, enemyform)) // if weaker, take more damage
+            {
+                health -= (int)(dam * 1.5);
+            }
+			else if (formStrength(playerForm, enemyform)) // if stronger, take less damage
+            {
+                health -= (int)(dam * .75);
+            }
+			else // else, take normal damage
+            {
+                health -= dam;
+            }
+
+			//give opponent meter
+            enemy.GetComponent<VanillaCharacter>().meter += 3;
+
+			//play bleed animation
+            blood.Play();
+
 			//Chance to to play announcer line
 			chance = (int)Random.Range (1f, 15f);
 			if (health > 200 && chance == 1) {
 				battleMaster.GetComponent<SoundPlayer> ().PlaySound ("AnyRound");
 			}
-            if (formWeakness(playerForm, enemyform))
-            {
-                health -= (int)(dam * 1.5);
-            }
-            else if (formStrength(playerForm, enemyform))
-            {
-                health -= (int)(dam * .75);
-            }
-            else if (string.Equals(playerForm, "none") && !string.Equals(enemyform, "none")){
-                health -= (int)(dam * 1.5);
-            }
-            else
-            {
-                health -= dam;
-            }
-            enemy.GetComponent<VanillaCharacter>().meter += 3;
-            blood.Play();
-        }
-		meter += 2;
-        //Debug.Log("player "+ player + " Has " + health + " health remaining");
+		}
+
+        Debug.Log("player "+ player + " Has " + health + " health remaining");
     }
 
-
+	//returns true if you are in weaker form
     private bool formWeakness(string playerf, string enemyf)
     {
         if (string.Equals(playerf, "flow") && string.Equals(enemyf, "foundation"))
@@ -230,6 +222,10 @@ public class VanillaCharacter : MonoBehaviour {
         {
             return true;
         }
+		else if (string.Equals(playerf, "none") && !string.Equals(enemyf, "none"))
+		{
+			return true;
+		}
         else
         {
             return false;
@@ -237,6 +233,7 @@ public class VanillaCharacter : MonoBehaviour {
 
     }
 
+	//returns true if you are in stronger form
     private bool formStrength(string playerf, string enemyf)
     {
         if (string.Equals(playerf, "flow") && string.Equals(enemyf, "flare"))
@@ -255,16 +252,16 @@ public class VanillaCharacter : MonoBehaviour {
         {
             return false;
         }
-
     }
 
+	//keeps timer for how long form lasts
     public void checkFormTimer()
     {
         if (!(string.Equals(playerForm, "none")))
         {
             if (formTimer >= 12)
             {
-                Debug.Log("Form Has Been Reset");
+                //Debug.Log("Form Has Been Reset");
 				orb.GetComponent<MeshRenderer>().material.color = Color.white;
                 playerForm = "none";
                 formTimer = 0;
@@ -275,7 +272,7 @@ public class VanillaCharacter : MonoBehaviour {
             }
         }
     }
-
+		
     public void block()
     {
             blocking = true;
@@ -283,6 +280,7 @@ public class VanillaCharacter : MonoBehaviour {
             blockVisual.SetActive(true);
         
     }
+
     public void resetblocking()
     {
         blockVisual.SetActive(false);
@@ -298,7 +296,6 @@ public class VanillaCharacter : MonoBehaviour {
         }
     }
   
-
 	public void ReadInput(string rating){
 		//Movement
 		if ((device.DPad.WasPressed || device.LeftStick.WasPressed)) { //  && onb
@@ -357,15 +354,15 @@ public class VanillaCharacter : MonoBehaviour {
             currentAction = "block";
             rhythmRating = rating;
         }
-		//Six Step
-		if ((device.LeftBumper.WasPressed || device.LeftTrigger.WasPressed) && (meter >= this.GetComponent<SixStep>().meterCost)) // && onb && !onCoolDown
+		//Melee attack
+		if ((device.LeftBumper.WasPressed || device.LeftTrigger.WasPressed) && (meter >= meleeMeterCost)) // && onb && !onCoolDown
 		{
-			currentAction = "sixStep";
+			currentAction = "melee";
 			rhythmRating = rating;
 		}
-		//Head Slide
-		if ((device.RightBumper.WasPressed || device.RightTrigger.WasPressed) && (meter >= this.GetComponent<HeadSlide>().meterCost)) { // && !onCoolDown
-			currentAction = "headSlide";
+		//Ranged attack
+			if ((device.RightBumper.WasPressed || device.RightTrigger.WasPressed) && (meter >= rangedMeterCost)) { // && !onCoolDown
+			currentAction = "ranged";
 			rhythmRating = rating;
 		}
 		//Basic Attack
@@ -404,6 +401,7 @@ public class VanillaCharacter : MonoBehaviour {
 
 	public void DoRhythmRating()
 	{
+		//update combos
 		if (currentAction == "")
 		{
 			rhythmRating = "";
@@ -418,16 +416,20 @@ public class VanillaCharacter : MonoBehaviour {
             currentcombo = 0;
         }
 
-        //display rhythm rating
-        //rhythmRatingUI.text = rhythmRating;
-        if (health > 0)
-        {
-            this.GetComponent<RhythmRating>().DisplayRating();
-        }
-
+		//display rhythm rating
+		if (health > 0)
+		{
+			this.GetComponent<RhythmRating>().DisplayRating();
+		}
+			
+		//Track stats and increase meter
 		if (rhythmRating == "Good!")
 		{
-			rhythmParticleGood.Play();
+			//add meter
+			meter += 1;
+
+			//track stats
+			currentcombo = 0;
             if (player == 1)
             {
                 battleMaster.GetComponent<BattleStats>().GoodP1 += 1;
@@ -444,16 +446,13 @@ public class VanillaCharacter : MonoBehaviour {
                     battleMaster.GetComponent<BattleStats>().MaxComboP2 = currentcombo;
                 }
             }
-            currentcombo = 0;
-
-            rhythmParticleGood.Play();
-			meter += 1;
 		}
-
 		if (rhythmRating == "Great!")
 		{
-			rhythmParticleGreat.Play();
+			//add meter
 			meter += 2;
+
+			//track stats
             currentcombo += 1;
             if (player == 1)
             {
@@ -474,8 +473,10 @@ public class VanillaCharacter : MonoBehaviour {
         }
 		if (rhythmRating == "Perfect!")
 		{
-			rhythmParticlePerfect.Play();
+			//add meter
 			meter += 4;
+
+			//track stats
             currentcombo += 1;
             if(player == 1)
             {
@@ -494,23 +495,7 @@ public class VanillaCharacter : MonoBehaviour {
                 }
             }
         }
-		if (!roundOver){
-			//StartCoroutine(rhythmRatingDisplayOff());
-		}
-		
 	}
 
-	//Checks if player can move based on current effects (tripped, already moved, etc.)
-	public bool canMove()
-	{
-        return !tripped;
-	}
-
-    IEnumerator rhythmRatingDisplayOff()
-    {
-        yield return new WaitForSeconds(.2f);
-        rhythmRatingUI.text = "";
-	}
-		
 }
 
