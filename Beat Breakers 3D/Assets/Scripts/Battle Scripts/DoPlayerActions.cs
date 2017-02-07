@@ -11,9 +11,13 @@ public class DoPlayerActions : MonoBehaviour {
 	public GameObject model2;
 	private Animator animator2;
 	private bool gameStarted = false;
+	private string char1;
+	private string char2;
 	// Use this for initialization
 	void Start () {
 		battleMaster = GameObject.FindGameObjectWithTag ("BattleMaster");
+		char1 = player1.GetComponent<VanillaCharacter>().character;
+		char2 = player2.GetComponent<VanillaCharacter>().character;
 		animator1 = model1.GetComponent<Animator>();
 		animator2 = model2.GetComponent<Animator>();
 	}
@@ -165,9 +169,13 @@ public class DoPlayerActions : MonoBehaviour {
         {
             switch (player1action)
             {
-				case "headSlide":
-					animator1.SetTrigger("headSlideAnim");
-					player1.GetComponent<HeadSlide>().Attack();
+				case "ranged":
+					animator1.SetTrigger("rangedAnim");
+					if (char1 == "Eva") {
+						player1.GetComponent<HeadSlide>().Attack();
+					} else if (char1 == "Naz") {
+						player1.GetComponent<AcidTrance>().Attack();
+					}
 					battleMaster.GetComponent<BattleStats>().HeadSlideP1 += 1;
 					break;
                 default:
@@ -178,9 +186,13 @@ public class DoPlayerActions : MonoBehaviour {
         {
             switch (player2action)
             {
-				case "headSlide":
-					animator2.SetTrigger("headSlideAnim");
-					player2.GetComponent<HeadSlide>().Attack();
+				case "ranged":
+					animator2.SetTrigger("rangedAnim");
+					if (char2 == "Eva") {
+						player2.GetComponent<HeadSlide>().Attack();
+					} else if (char2 == "Naz") {
+						player2.GetComponent<AcidTrance>().Attack();
+					}
 					battleMaster.GetComponent<BattleStats>().HeadSlideP2 += 1;
 					break;	
                 default:
@@ -191,16 +203,20 @@ public class DoPlayerActions : MonoBehaviour {
         {
             switch (player1action)
             {
-                case "sixStep":
-                    animator1.SetTrigger("sixStepAnim");
-                    player1.GetComponent<SixStep>().Attack();
+                case "melee":
+                    animator1.SetTrigger("meleeAnim");
+					if (char1 == "Eva") {
+						player1.GetComponent<SixStep>().Attack();
+					} else if (char1 == "Naz") {
+						player1.GetComponent<Shimmy>().Attack();
+					}
                     battleMaster.GetComponent<BattleStats>().SixStepP1 += 1;
                     break;
-                case "popNLock":
-                    animator1.SetTrigger("popNLockAnim");
-                    player1.GetComponent<PopNLock>().Attack();
-                    battleMaster.GetComponent<BattleStats>().PopLockP1 += 1;
-                    break;
+//                case "popNLock":
+//                    animator1.SetTrigger("popNLockAnim");
+//                    player1.GetComponent<PopNLock>().Attack();
+//                    battleMaster.GetComponent<BattleStats>().PopLockP1 += 1;
+//                    break;
                 case "basicAttackLeft":
                     animator1.SetTrigger("basicAttackAnim");
                     player1.GetComponent<BasicAttack>().Attack("left");
@@ -225,16 +241,20 @@ public class DoPlayerActions : MonoBehaviour {
         {
             switch (player2action)
             {
-                case "sixStep":
-                    animator2.SetTrigger("sixStepAnim");
-                    player2.GetComponent<SixStep>().Attack();
+                case "melee":
+                    animator2.SetTrigger("meleeAnim");
+					if (char2 == "Eva") {
+						player2.GetComponent<SixStep>().Attack();
+					} else if (char2 == "Naz") {
+						player2.GetComponent<Shimmy>().Attack();
+					}
                     battleMaster.GetComponent<BattleStats>().SixStepP2 += 1;
                     break;
-                case "popNLock":
-                    animator2.SetTrigger("popNLockAnim");
-                    player2.GetComponent<PopNLock>().Attack();
-                    battleMaster.GetComponent<BattleStats>().PopLockP2 += 1;
-                    break;
+//                case "popNLock":
+//                    animator2.SetTrigger("popNLockAnim");
+//                    player2.GetComponent<PopNLock>().Attack();
+//                    battleMaster.GetComponent<BattleStats>().PopLockP2 += 1;
+//                    break;
                 case "basicAttackLeft":
                     animator2.SetTrigger("basicAttackAnim");
                     player2.GetComponent<BasicAttack>().Attack("left");
