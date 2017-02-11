@@ -30,9 +30,14 @@ public class BeatKeeper2 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		battleMaster = GameObject.FindGameObjectWithTag ("BattleMaster");
+
+        //find scene objects
+        player1 = GameObject.FindGameObjectWithTag("Player1");
+        player2 = GameObject.FindGameObjectWithTag("Player2");
+        battleMaster = GameObject.FindGameObjectWithTag ("BattleMaster");
 		battleSong = GetComponent<AudioSource>();
 		UIText = GameObject.FindGameObjectWithTag ("MainText").GetComponent<Text>();
+
 		char1script = player1.GetComponent<VanillaCharacter>();
 		char2script = player2.GetComponent<VanillaCharacter>();
 		timerText = timer.GetComponent<Text>();

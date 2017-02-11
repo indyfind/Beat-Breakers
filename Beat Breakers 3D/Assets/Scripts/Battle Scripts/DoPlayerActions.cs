@@ -6,18 +6,29 @@ public class DoPlayerActions : MonoBehaviour {
 	public GameObject player1;
 	public GameObject player2;
 	public GameObject model1;
+    public GameObject model2;
     public GameObject battleMaster;
 	private Animator animator1;
-	public GameObject model2;
 	private Animator animator2;
 	private bool gameStarted = false;
 	private string char1;
 	private string char2;
+
 	// Use this for initialization
 	void Start () {
+
+        //find scene objects
+        player1 = GameObject.FindGameObjectWithTag("Player1");
+        player2 = GameObject.FindGameObjectWithTag("Player2");
 		battleMaster = GameObject.FindGameObjectWithTag ("BattleMaster");
+
+        //see which characters are chosen
 		char1 = player1.GetComponent<VanillaCharacter>().character;
 		char2 = player2.GetComponent<VanillaCharacter>().character;
+
+        //find model
+        model1 = player1.GetComponent<VanillaCharacter>().model;
+        model2 = player2.GetComponent<VanillaCharacter>().model;
 		animator1 = model1.GetComponent<Animator>();
 		animator2 = model2.GetComponent<Animator>();
 	}

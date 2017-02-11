@@ -29,14 +29,15 @@ public class VanillaCharacter : MonoBehaviour {
 	public string playerForm;
 	public int formTimer;
 
-	//UI & visuals
-	public Image healthSlider;
-	public Image chargeSlider;
+    //UI & visuals
+    public GameObject model;
+	private Image healthSlider;
+	private Image chargeSlider;
 	public GameObject blockVisual;
-	public GameObject blockMeter1;
-	public GameObject blockMeter2;
-	public GameObject blockMeter3;
-	public GameObject blockMeter4;
+	private GameObject blockMeter1;
+	private GameObject blockMeter2;
+	private GameObject blockMeter3;
+	private GameObject blockMeter4;
 	public ParticleSystem blood;
 	public GameObject orb;
 
@@ -49,24 +50,84 @@ public class VanillaCharacter : MonoBehaviour {
 
 	void Awake()
 	{
-		
-	}
+        //set player number and tag based on world location
+        if (this.transform.position.x == -3f)
+        {
+            player = 1;
+            this.tag = "Player1";
+        }
+        else if (this.transform.position.x == 3f)
+        {
+            player = 2;
+            this.tag = "Player2";
+        }
+
+        //set things based on player 1 or player 2
+        if (player == 1)
+        {
+
+            //set input device
+            device = InputManager.Devices[0];
+
+            //find scene objects
+            //enemy = GameObject.FindGameObjectWithTag("Player2");
+            healthSlider = GameObject.FindGameObjectWithTag("p1Health").GetComponent<Image>();
+            chargeSlider = GameObject.FindGameObjectWithTag("p1Meter").GetComponent<Image>();
+            blockMeter1 = GameObject.FindGameObjectWithTag("p1BlockMeter1");
+            blockMeter2 = GameObject.FindGameObjectWithTag("p1BlockMeter2");
+            blockMeter3 = GameObject.FindGameObjectWithTag("p1BlockMeter3");
+            blockMeter4 = GameObject.FindGameObjectWithTag("p1BlockMeter4");
+
+            //set starting position
+            GetComponent<CharacterMover>().startingxPosition = 0;
+            GetComponent<CharacterMover>().startingyPosition = 3;
+
+            //set model tag
+            //model.tag = "p1Model";
+
+        }
+        else if (player == 2)
+        {
+
+            //set input device
+            device = InputManager.Devices[1];
+
+            //find scene objects
+            //enemy = GameObject.FindGameObjectWithTag("Player1");
+            healthSlider = GameObject.FindGameObjectWithTag("p2Health").GetComponent<Image>();
+            chargeSlider = GameObject.FindGameObjectWithTag("p2Meter").GetComponent<Image>();
+            blockMeter1 = GameObject.FindGameObjectWithTag("p2BlockMeter1");
+            blockMeter2 = GameObject.FindGameObjectWithTag("p2BlockMeter2");
+            blockMeter3 = GameObject.FindGameObjectWithTag("p2BlockMeter3");
+            blockMeter4 = GameObject.FindGameObjectWithTag("p2BlockMeter4");
+
+            //set starting position
+            GetComponent<CharacterMover>().startingxPosition = 6;
+            GetComponent<CharacterMover>().startingyPosition = 3;
+
+            //set model tag
+            //model.tag = "p2Model";
+
+        }
+    }
 
     // Use this for initialization
     void Start () {
-		
-		//set input device
-		if (player == 1) {
-			device = InputManager.Devices[0];
-		} else if (player == 2) {
-			device = InputManager.Devices[1];
-		}
 
-		//find battleMaster (because its a do not destroy object)
-		battleMaster = GameObject.FindGameObjectWithTag ("BattleMaster");
+        grid = GameObject.FindGameObjectWithTag("TheGrid");
+        battleMaster = GameObject.FindGameObjectWithTag("BattleMaster");
 
-		//set move costs
-		if (character == "Eva") {
+        //find enemy
+        if (player == 1)
+        {
+            enemy = GameObject.FindGameObjectWithTag("Player2");
+        } else if (player == 2)
+        {
+            enemy = GameObject.FindGameObjectWithTag("Player1");
+        }
+
+        //set move costs
+        if (character == "Eva") {
 			meleeMeterCost = GetComponent<SixStep>().meterCost;
 			rangedMeterCost = GetComponent<HeadSlide>().meterCost;
 		} else if (character == "Naz") {
@@ -165,7 +226,7 @@ public class VanillaCharacter : MonoBehaviour {
         if (chance == 1 && !blocking)
         {
             //getHitSound.Play();
-            this.GetComponent<SoundMaster>().PlaySound("getHitSound");
+            this.GetComponent<CharacterSound>().PlaySound("getHit");
         }
 
 		//if blocking, take no damage

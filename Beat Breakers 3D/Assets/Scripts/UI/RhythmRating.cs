@@ -3,15 +3,31 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class RhythmRating : MonoBehaviour {
-	public Text rhythmRating1;
-	public Text rhythmRating2;
-	public Text rhythmRating3;
-	public Transform startMarker;
-	public Transform endMarker;
+    private int player;
+	private Text rhythmRating1;
+	private Text rhythmRating2;
+	private Text rhythmRating3;
+	private Transform startMarker;
+	private Transform endMarker;
 	private int counter = 1;
 
 	void Start() {
-		
+        player = this.GetComponent<VanillaCharacter>().player;
+        if (player == 1)
+        {
+            rhythmRating1 = GameObject.FindGameObjectWithTag("p1RhythmRating1").GetComponent<Text>();
+            rhythmRating2 = GameObject.FindGameObjectWithTag("p1RhythmRating2").GetComponent<Text>();
+            rhythmRating3 = GameObject.FindGameObjectWithTag("p1RhythmRating3").GetComponent<Text>();
+            startMarker = GameObject.FindGameObjectWithTag("p1StartMarker").transform;
+            endMarker = GameObject.FindGameObjectWithTag("p1EndMarker").transform;
+        } else if (player == 2)
+        {
+            rhythmRating1 = GameObject.FindGameObjectWithTag("p2RhythmRating1").GetComponent<Text>();
+            rhythmRating2 = GameObject.FindGameObjectWithTag("p2RhythmRating2").GetComponent<Text>();
+            rhythmRating3 = GameObject.FindGameObjectWithTag("p2RhythmRating3").GetComponent<Text>();
+            startMarker = GameObject.FindGameObjectWithTag("p2StartMarker").transform;
+            endMarker = GameObject.FindGameObjectWithTag("p2EndMarker").transform;
+        }
 	}
 
 	void Update() {
