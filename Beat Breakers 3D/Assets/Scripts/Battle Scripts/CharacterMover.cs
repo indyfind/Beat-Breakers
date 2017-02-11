@@ -12,14 +12,18 @@ public class CharacterMover : MonoBehaviour {
     //private float moverange = 1;
 	public GameObject playerModel;
 	public ParticleSystem fallOffParticle;
-	public GameObject grid;
-	public GameObject enemy;
+	private GameObject grid;
+	private GameObject enemy;
     private bool pushed;
 	private bool fellOff = false;
 	private int fallOffDamage = 200;
 
     // Use this for initialization
     void Start () {
+        //take scene objects from VanillaCharacter
+        grid = this.GetComponent<VanillaCharacter>().grid;
+        enemy = this.GetComponent<VanillaCharacter>().enemy;
+
         xposition = startingxPosition;
         yposition = startingyPosition;
 		destinationx = startingxPosition;

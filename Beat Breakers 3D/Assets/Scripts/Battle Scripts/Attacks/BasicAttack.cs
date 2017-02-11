@@ -6,10 +6,10 @@ using InControl;
 public class BasicAttack : MonoBehaviour
 {
     private int damage;
-    public GameObject grid;
-    public GameObject enemy;
+    private GameObject grid;
+    private GameObject enemy;
     public GameObject attackHitbox;
-    public int player;
+    private int player;
 
     //InControl device
     private InputDevice device;
@@ -17,6 +17,12 @@ public class BasicAttack : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        player = this.GetComponent<VanillaCharacter>().player;
+
+        //take scene objects from VanillaCharacter
+        grid = this.GetComponent<VanillaCharacter>().grid;
+        enemy = this.GetComponent<VanillaCharacter>().enemy;
+
         damage = 50;
         if (player == 1) {
             device = InputManager.Devices[0];
@@ -28,7 +34,7 @@ public class BasicAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool onb = grid.GetComponent<BeatKeeper2>().checkifonbeat();
+        //bool onb = grid.GetComponent<BeatKeeper2>().checkifonbeat();
     }
 
     public void Attack(string direction)

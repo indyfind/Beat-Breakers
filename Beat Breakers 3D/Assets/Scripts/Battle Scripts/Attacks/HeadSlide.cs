@@ -5,19 +5,19 @@ using InControl;
 
 public class HeadSlide : MonoBehaviour
 {
-	public GameObject grid;
-	public GameObject enemy;
+	private GameObject grid;
+	private GameObject enemy;
 	public GameObject attackHitbox;
     public GameObject playermodel;
-    public GameObject enemymodel;
+    //public GameObject enemymodel;
     public ParticleSystem playerFallOffParticle;
-    public ParticleSystem enemyFallOffParticle;
+    //public ParticleSystem enemyFallOffParticle;
 	//private int cooldown;
 	private int damage = 100;
     private int fallOffDamage = 200;
 	//public KeyCode key;
 	//private bool onCoolDown = false;
-	public int player;
+	private int player;
     private bool enemyfell = false;
 	private bool playerfell = false;
     //public string attacktype { get; set; }
@@ -30,14 +30,18 @@ public class HeadSlide : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		
-	}
+        player = this.GetComponent<VanillaCharacter>().player;
+
+        //take scene objects from VanillaCharacter
+        grid = this.GetComponent<VanillaCharacter>().grid;
+        enemy = this.GetComponent<VanillaCharacter>().enemy;
+    }
 	
 	// Update is called once per frame
 	void Update()
 	{
-		bool onb = grid.GetComponent<BeatKeeper2>().checkifonbeat();
-		bool canMove = GetComponent<VanillaCharacter> ().canMove ();
+		//bool onb = grid.GetComponent<BeatKeeper2>().checkifonbeat();
+		//bool canMove = GetComponent<VanillaCharacter> ().canMove ();
 	}
 	
 	void Slide (string dir)
@@ -140,7 +144,7 @@ public class HeadSlide : MonoBehaviour
 	
 	public void Attack()
 	{
-        this.GetComponent<SoundMaster>().PlaySound("headSlideSound");
+        this.GetComponent<CharacterSound>().PlaySound("ranged");
 		string direction;
         //subtract meter cost
         this.GetComponent<VanillaCharacter>().meter -= meterCost;

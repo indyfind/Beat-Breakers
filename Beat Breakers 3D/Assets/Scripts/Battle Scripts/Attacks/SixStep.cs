@@ -5,30 +5,32 @@ using InControl;
 
 public class SixStep : MonoBehaviour
 {
-	private int damage;
+	private int damage = 100;
 	public int meterCost = 25;
 
-    public GameObject grid;
-    public GameObject enemy;
+    private GameObject grid;
+    private GameObject enemy;
 	public GameObject attackHitbox;
 
     // Use this for initialization
     void Start()
     {
-        damage = 100;
+        //take scene objects from VanillaCharacter
+        grid = this.GetComponent<VanillaCharacter>().grid;
+        enemy = this.GetComponent<VanillaCharacter>().enemy;
     }
 
     // Update is called once per frame
     void Update()
     {
-        bool onb = grid.GetComponent<BeatKeeper2>().checkifonbeat();
-		bool canMove = GetComponent<VanillaCharacter> ().canMove ();
+        //bool onb = grid.GetComponent<BeatKeeper2>().checkifonbeat();
+		//bool canMove = GetComponent<VanillaCharacter> ().canMove ();
     }
 
     public void Attack()
     {
 		//play sound effect
-        this.GetComponent<SoundMaster>().PlaySound("sixStepSound");
+        this.GetComponent<CharacterSound>().PlaySound("melee");
 
         // subtract meter cost
         this.GetComponent<VanillaCharacter>().meter -= meterCost;

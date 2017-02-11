@@ -3,12 +3,13 @@ using System.Collections;
 
 public class Knockback : MonoBehaviour {
 
-    public GameObject enemy;
+    private GameObject enemy;
 
 	// Use this for initialization
 	void Start () {
-	    
-	}
+        //take scene objects from VanillaCharacter
+        enemy = this.GetComponent<VanillaCharacter>().enemy;
+    }
 	
 	// Update is called once per frame
 	void Update () {
