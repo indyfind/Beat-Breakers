@@ -71,25 +71,28 @@ public class DoPlayerActions : MonoBehaviour {
                     break;
                 case "flare":
                     player1.GetComponent<VanillaCharacter>().playerForm = "flare";
+					player1.GetComponent<CharacterSound>().PlaySound("FormSwitch");
                     player1.GetComponent<VanillaCharacter>().formTimer = 0;
 					player1.GetComponent<VanillaCharacter>().meter -= 25;
 					player1.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.red;
                     //player1.GetComponent<Flare>().StartFlareAttack();
-                    Debug.Log("flare form happened for player 1");
+                    //Debug.Log("flare form happened for player 1");
                     break;
                 case "flow":
                     player1.GetComponent<VanillaCharacter>().playerForm = "flow";
+					player1.GetComponent<CharacterSound>().PlaySound("FormSwitch");
                     player1.GetComponent<VanillaCharacter>().formTimer = 0;
 					player1.GetComponent<VanillaCharacter>().meter -= 25;
 					player1.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.blue;
-                    Debug.Log("flow form happened for player 1");
+                    //Debug.Log("flow form happened for player 1");
                     break;
                 case "foundation":
                     player1.GetComponent<VanillaCharacter>().playerForm = "foundation";
+					player1.GetComponent<CharacterSound>().PlaySound("FormSwitch");
                     player1.GetComponent<VanillaCharacter>().formTimer = 0;
 					player1.GetComponent<VanillaCharacter>().meter -= 25;
 					player1.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.green;
-                    Debug.Log("foundation form happened for player 1");
+                    //Debug.Log("foundation form happened for player 1");
                     break;
                 default:
                     break;
@@ -104,7 +107,8 @@ public class DoPlayerActions : MonoBehaviour {
                     break;
                 case "flare":
                     player2.GetComponent<VanillaCharacter>().playerForm = "flare";
-                    Debug.Log("flare form happened for player 2");
+					player2.GetComponent<CharacterSound>().PlaySound("FormSwitch");
+                    //Debug.Log("flare form happened for player 2");
                     player2.GetComponent<VanillaCharacter>().formTimer = 0;
 					player2.GetComponent<VanillaCharacter>().meter -= 25;
 					player2.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.red;
@@ -112,17 +116,19 @@ public class DoPlayerActions : MonoBehaviour {
                     break;
                 case "flow":
                     player2.GetComponent<VanillaCharacter>().playerForm = "flow";
+					player2.GetComponent<CharacterSound>().PlaySound("FormSwitch");
                     player2.GetComponent<VanillaCharacter>().formTimer = 0;
-                    Debug.Log("flow happened for player 2");
+                    //Debug.Log("flow happened for player 2");
 					player2.GetComponent<VanillaCharacter>().meter -= 25;
 					player2.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.blue;
                     break;
                 case "foundation":
                     player2.GetComponent<VanillaCharacter>().playerForm = "foundation";
+					player2.GetComponent<CharacterSound>().PlaySound("FormSwitch");
                     player2.GetComponent<VanillaCharacter>().formTimer = 0;
 					player2.GetComponent<VanillaCharacter>().meter -= 25;
 					player2.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.green;
-                    Debug.Log("Foundation happened for player 2");
+                    //Debug.Log("Foundation happened for player 2");
                     break;
                 default:
                     break;

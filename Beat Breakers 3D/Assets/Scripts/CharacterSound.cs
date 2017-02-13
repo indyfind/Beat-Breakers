@@ -9,6 +9,14 @@ public class CharacterSound : MonoBehaviour {
     private AudioClip getHitSound;
     private AudioClip meleeSound;
     private AudioClip rangedSound;
+	private AudioClip Bump;
+	private AudioClip Burn;
+	private AudioClip Stun;
+	private AudioClip FormSwitch;
+	private AudioClip Block;
+	private AudioClip Fall;
+	private AudioClip NotEnoughMeter;
+
     private AudioSource audioplayer;
 
     void Awake()
@@ -32,6 +40,14 @@ public class CharacterSound : MonoBehaviour {
             meleeSound = Resources.Load<AudioClip>("Sound/SFX/Nazyilan/SFX_Nazyilan_Melee");
             rangedSound = Resources.Load<AudioClip>("Sound/SFX/Nazyilan/SFX_Nazyilan_Ranged");
         }
+		Bump = Resources.Load<AudioClip>("Sound/SFX/Form Switching/SFX_Bump");
+		Burn = Resources.Load<AudioClip>("Sound/SFX/Form Switching/SFX_Burn");
+		Stun = Resources.Load<AudioClip>("Sound/SFX/Form Switching/SFX_Stun");
+		FormSwitch = Resources.Load<AudioClip>("Sound/SFX/Form Switching/SFX_Form_Switch");
+		Block = Resources.Load<AudioClip>("Sound/SFX/All Characters/SFX_Block");
+		Fall = Resources.Load<AudioClip>("Sound/SFX/All Characters/SFX_Fall");
+		NotEnoughMeter = Resources.Load<AudioClip>("Sound/SFX/All Characters/SFX_No_Energy");
+
     }
 	
 	// Update is called once per frame
@@ -40,9 +56,9 @@ public class CharacterSound : MonoBehaviour {
 	}
 
 
-    public void PlaySound(string sound, bool forcePlay=false)
+    public void PlaySound(string sound, bool forcePlay=true)
     {
-        if (true)//!audioplayer.isPlaying || forcePlay)
+        if (!audioplayer.isPlaying || forcePlay)
         {
             switch (sound)
             {
@@ -62,6 +78,34 @@ public class CharacterSound : MonoBehaviour {
                     audioplayer.clip = getHitSound;
                     audioplayer.Play();
                     break;
+				case "Bump":
+					audioplayer.clip = Bump;
+					audioplayer.Play ();
+					break;
+				case "Burn":
+					audioplayer.clip = Burn;
+					audioplayer.Play ();
+					break;
+				case "Stun":
+					audioplayer.clip = Stun;
+					audioplayer.Play ();
+					break;
+				case "FormSwitch":
+					audioplayer.clip = FormSwitch;
+					audioplayer.Play ();
+					break;
+				case "Block":
+					audioplayer.clip = Block;
+					audioplayer.Play ();
+					break;
+				case "Fall":
+					audioplayer.clip = Fall;
+					audioplayer.Play ();
+					break;
+				case "NotEnoughMeter":
+					audioplayer.clip = NotEnoughMeter;
+					audioplayer.Play ();
+					break;
                 default:
                     break;
             }

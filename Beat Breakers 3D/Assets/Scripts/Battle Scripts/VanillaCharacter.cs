@@ -205,17 +205,22 @@ public class VanillaCharacter : MonoBehaviour {
         string enemyform = enemy.GetComponent<VanillaCharacter>().playerForm;
         if (DOT) {
             enemyform = "flare";
+			this.GetComponent<CharacterSound> ().PlaySound ("Burn");
         } else if (enemyform == "flare" && !blocking) {
             this.GetComponent<Flare>().StartFlareAttack();
+			this.GetComponent<CharacterSound> ().PlaySound ("Burn");
         } else if (enemyform == "flow" && !(justTripped) && !blocking) {
             this.GetComponent<Flow>().TripPlayer();
+			this.GetComponent<CharacterSound> ().PlaySound ("Stun");
         } else if (enemyform == "foundation") {
 			knockbackDistance += 1;
+			this.GetComponent<CharacterSound> ().PlaySound ("Bump");
         }
 
 		//if not blocking, get knocked back
 		if (!blocking) {
 			this.GetComponent<Knockback>().GetKnockedBack(knockbackDistance);
+
 		}
 
 		Debug.Log("player " + player + " had this much health  " + health );
@@ -226,7 +231,7 @@ public class VanillaCharacter : MonoBehaviour {
         if (chance == 1 && !blocking)
         {
             //getHitSound.Play();
-            this.GetComponent<CharacterSound>().PlaySound("getHit");
+            //this.GetComponent<CharacterSound>().PlaySound("getHit");
         }
 
 		//if blocking, take no damage
@@ -394,20 +399,32 @@ public class VanillaCharacter : MonoBehaviour {
 			}
 		}
 		//Forms
-		if (device.Action3.WasPressed && meter >= 25) // && onb // (Input.GetButtonDown(leftButton)) 
+		if (device.Action3.WasPressed) // && meter >= 25) // && onb // (Input.GetButtonDown(leftButton)) 
 		{
-			currentAction = "flow";
-			rhythmRating = rating;
+			if (meter >= 25) {
+				currentAction = "flow";
+				rhythmRating = rating;
+			} else {
+				this.GetComponent<CharacterSound>().PlaySound("NotEnoughMeter");
+			}
 		}
-		if (device.Action2.WasPressed && meter >= 25) // && onb
+		if (device.Action2.WasPressed) // && meter >= 25) // && onb
 		{
-			currentAction = "flare";
-			rhythmRating = rating;
+			if (meter >= 25) {
+				currentAction = "flare";
+				rhythmRating = rating;
+			} else {
+				this.GetComponent<CharacterSound>().PlaySound("NotEnoughMeter");
+			}
 		}
-		if (device.Action4.WasPressed && meter >= 25) // && onb
+		if (device.Action4.WasPressed) // && meter >= 25) // && onb
 		{
-			currentAction = "foundation";
-			rhythmRating = rating;
+			if (meter >= 25) {
+				currentAction = "foundation";
+				rhythmRating = rating;
+			} else {
+				this.GetComponent<CharacterSound>().PlaySound("NotEnoughMeter");
+			}
 		}
 		//Blocking
 		if ((device.Action1.WasPressed || device.Action1.IsPressed) && blockMeter >= 1) // && onb
@@ -416,15 +433,24 @@ public class VanillaCharacter : MonoBehaviour {
             rhythmRating = rating;
         }
 		//Melee attack
-		if ((device.LeftBumper.WasPressed || device.LeftTrigger.WasPressed) && (meter >= meleeMeterCost)) // && onb && !onCoolDown
+		if ((device.LeftBumper.WasPressed || device.LeftTrigger.WasPressed)) // && (meter >= meleeMeterCost)) // && onb && !onCoolDown
 		{
-			currentAction = "melee";
-			rhythmRating = rating;
+			if (meter >= meleeMeterCost) {
+				currentAction = "melee";
+				rhythmRating = rating;
+			} else {
+				this.GetComponent<CharacterSound>().PlaySound("NotEnoughMeter");
+			}
 		}
 		//Ranged attack
-			if ((device.RightBumper.WasPressed || device.RightTrigger.WasPressed) && (meter >= rangedMeterCost)) { // && !onCoolDown
-			currentAction = "ranged";
-			rhythmRating = rating;
+		if ((device.RightBumper.WasPressed || device.RightTrigger.WasPressed)) // && (meter >= rangedMeterCost)) { // && !onCoolDown
+		{
+			if (meter >= rangedMeterCost) {
+				currentAction = "ranged";
+				rhythmRating = rating;
+			} else {
+				this.GetComponent<CharacterSound>().PlaySound("NotEnoughMeter");
+			}
 		}
 		//Basic Attack
 		if (device.RightStick.WasPressed) //&& !onCoolDown

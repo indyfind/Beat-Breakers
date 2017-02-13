@@ -11,6 +11,7 @@ public class SoundPlayer : MonoBehaviour
     public AudioClip[] AnnouncerRound2;
     public AudioClip[] AnnouncerRound3;
 	public AudioClip[] AnyRound;
+
     private AudioSource audioplayer;
     // Use this for initialization
     void Start()
@@ -23,7 +24,9 @@ public class SoundPlayer : MonoBehaviour
         AnnouncerRound2 = Resources.LoadAll<AudioClip>("Sound/AnnouncerVoiceLines/Round2");
         AnnouncerRound3 = Resources.LoadAll<AudioClip>("Sound/AnnouncerVoiceLines/Round3");
 		AnyRound = Resources.LoadAll<AudioClip>("Sound/AnnouncerVoiceLines/AnyRound");
+
 		audioplayer = this.GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
