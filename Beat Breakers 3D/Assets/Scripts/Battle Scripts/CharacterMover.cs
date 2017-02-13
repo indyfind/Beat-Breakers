@@ -206,6 +206,7 @@ public class CharacterMover : MonoBehaviour {
 	IEnumerator FallOff()
 	{
 		fallOffParticle.Play();
+		this.GetComponent<CharacterSound>().PlaySound("Fall");
 		playerModel.SetActive(false);
 		yield return new WaitForSeconds(1f);
 		playerModel.SetActive(true);
