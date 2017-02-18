@@ -1,0 +1,252 @@
+fileFormatVersion: 2
+guid: 48a6ae62ca4545540aa6c79671fc99b9
+timeCreated: 1487372378
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: body_fin_bottom
+    100002: body_Fin_Mid
+    100004: body_fin_top
+    100006: head3
+    100008: //RootNode
+    100010: redbead_LEFT_bottom
+    100012: redbead_left_top
+    100014: redbeadRIGHT_botton
+    100016: redbeadRIGHT_top
+    100018: skirt_bottom
+    100020: skirt_middle
+    100022: skirt_top
+    100024: tail_five
+    100026: tail_Four
+    100028: tail_One
+    100030: tail_six
+    100032: tail_three
+    100034: taill_two
+    100036: yellowbead_Right_bottom
+    100038: yellowbeadLEFT_bottom
+    100040: yellowbeadLEFT_top
+    100042: yellowRIGHT_top
+    400000: body_fin_bottom
+    400002: body_Fin_Mid
+    400004: body_fin_top
+    400006: head3
+    400008: //RootNode
+    400010: redbead_LEFT_bottom
+    400012: redbead_left_top
+    400014: redbeadRIGHT_botton
+    400016: redbeadRIGHT_top
+    400018: skirt_bottom
+    400020: skirt_middle
+    400022: skirt_top
+    400024: tail_five
+    400026: tail_Four
+    400028: tail_One
+    400030: tail_six
+    400032: tail_three
+    400034: taill_two
+    400036: yellowbead_Right_bottom
+    400038: yellowbeadLEFT_bottom
+    400040: yellowbeadLEFT_top
+    400042: yellowRIGHT_top
+    2300000: body_fin_bottom
+    2300002: body_Fin_Mid
+    2300004: body_fin_top
+    2300006: head3
+    2300008: redbead_LEFT_bottom
+    2300010: redbead_left_top
+    2300012: redbeadRIGHT_botton
+    2300014: redbeadRIGHT_top
+    2300016: skirt_bottom
+    2300018: skirt_middle
+    2300020: skirt_top
+    2300022: tail_five
+    2300024: tail_Four
+    2300026: tail_One
+    2300028: tail_six
+    2300030: tail_three
+    2300032: taill_two
+    2300034: yellowbead_Right_bottom
+    2300036: yellowbeadLEFT_bottom
+    2300038: yellowbeadLEFT_top
+    2300040: yellowRIGHT_top
+    3300000: body_fin_bottom
+    3300002: body_Fin_Mid
+    3300004: body_fin_top
+    3300006: head3
+    3300008: redbead_LEFT_bottom
+    3300010: redbead_left_top
+    3300012: redbeadRIGHT_botton
+    3300014: redbeadRIGHT_top
+    3300016: skirt_bottom
+    3300018: skirt_middle
+    3300020: skirt_top
+    3300022: tail_five
+    3300024: tail_Four
+    3300026: tail_One
+    3300028: tail_six
+    3300030: tail_three
+    3300032: taill_two
+    3300034: yellowbead_Right_bottom
+    3300036: yellowbeadLEFT_bottom
+    3300038: yellowbeadLEFT_top
+    3300040: yellowRIGHT_top
+    4300000: body_Fin_Mid
+    4300002: body_fin_bottom
+    4300004: body_fin_top
+    4300006: skirt_top
+    4300008: skirt_middle
+    4300010: tail_One
+    4300012: tail_Four
+    4300014: tail_five
+    4300016: skirt_bottom
+    4300018: head3
+    4300020: yellowbead_Right_bottom
+    4300022: redbead_left_top
+    4300024: taill_two
+    4300026: tail_three
+    4300028: tail_six
+    4300030: redbead_LEFT_bottom
+    4300032: redbeadRIGHT_top
+    4300034: redbeadRIGHT_botton
+    4300036: yellowRIGHT_top
+    4300038: yellowbeadLEFT_top
+    4300040: yellowbeadLEFT_bottom
+    7400000: NazMove
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: NazMove
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 13
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body_fin_bottom
+        weight: 1
+      - path: body_Fin_Mid
+        weight: 1
+      - path: body_fin_top
+        weight: 1
+      - path: head3
+        weight: 1
+      - path: redbead_LEFT_bottom
+        weight: 1
+      - path: redbead_left_top
+        weight: 1
+      - path: redbeadRIGHT_botton
+        weight: 1
+      - path: redbeadRIGHT_top
+        weight: 1
+      - path: skirt_bottom
+        weight: 1
+      - path: skirt_middle
+        weight: 1
+      - path: skirt_top
+        weight: 1
+      - path: tail_five
+        weight: 1
+      - path: tail_Four
+        weight: 1
+      - path: tail_One
+        weight: 1
+      - path: tail_six
+        weight: 1
+      - path: tail_three
+        weight: 1
+      - path: taill_two
+        weight: 1
+      - path: yellowbead_Right_bottom
+        weight: 1
+      - path: yellowbeadLEFT_bottom
+        weight: 1
+      - path: yellowbeadLEFT_top
+        weight: 1
+      - path: yellowRIGHT_top
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
