@@ -15,7 +15,7 @@ public class CharacterLoader : MonoBehaviour {
     private Vector3 left = new Vector3(0f, 180f, 0f);
 
     //character choices
-    private string p1char = "Eva";
+    private string p1char = "Naz";
     private string p2char = "Eva";
 
     //final character prefabs
