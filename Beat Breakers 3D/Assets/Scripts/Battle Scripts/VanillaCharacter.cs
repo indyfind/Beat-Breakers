@@ -43,6 +43,7 @@ public class VanillaCharacter : MonoBehaviour {
 
 	//InControl input device
 	private InputDevice device;
+    private GameObject inputMaster;
     
 	//stat trackers
 	private int currentcombo;
@@ -50,6 +51,9 @@ public class VanillaCharacter : MonoBehaviour {
 
 	void Awake()
 	{
+        //find input master
+        inputMaster = GameObject.FindGameObjectWithTag("InputMaster");
+
         //set player number and tag based on world location
         if (this.transform.position.x == -3f)
         {
@@ -67,7 +71,7 @@ public class VanillaCharacter : MonoBehaviour {
         {
 
             //set input device
-            device = InputManager.Devices[0];
+            device = inputMaster.GetComponent<InputMaster>().player1Controller;
 
             //find scene objects
             //enemy = GameObject.FindGameObjectWithTag("Player2");
@@ -88,9 +92,8 @@ public class VanillaCharacter : MonoBehaviour {
         }
         else if (player == 2)
         {
-
             //set input device
-            device = InputManager.Devices[1];
+            device = inputMaster.GetComponent<InputMaster>().player2Controller;
 
             //find scene objects
             //enemy = GameObject.FindGameObjectWithTag("Player1");
