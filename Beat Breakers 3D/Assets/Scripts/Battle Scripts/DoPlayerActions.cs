@@ -193,7 +193,7 @@ public class DoPlayerActions : MonoBehaviour {
 					} else if (char1 == "Naz") {
 						player1.GetComponent<AcidTrance>().Attack();
 					}
-					battleMaster.GetComponent<BattleStats>().HeadSlideP1 += 1;
+					battleMaster.GetComponent<BattleStats>().RangedAttackP1 += 1;
 					break;
                 default:
                     break;
@@ -210,7 +210,7 @@ public class DoPlayerActions : MonoBehaviour {
 					} else if (char2 == "Naz") {
 						player2.GetComponent<AcidTrance>().Attack();
 					}
-					battleMaster.GetComponent<BattleStats>().HeadSlideP2 += 1;
+					battleMaster.GetComponent<BattleStats>().RangedAttackP2 += 1;
 					break;	
                 default:
                     break;
@@ -227,7 +227,7 @@ public class DoPlayerActions : MonoBehaviour {
 					} else if (char1 == "Naz") {
 						player1.GetComponent<Shimmy>().Attack();
 					}
-                    battleMaster.GetComponent<BattleStats>().SixStepP1 += 1;
+					battleMaster.GetComponent<BattleStats>().MeleeAttackP1 += 1;
                     break;
 //                case "popNLock":
 //                    animator1.SetTrigger("popNLockAnim");
@@ -265,7 +265,7 @@ public class DoPlayerActions : MonoBehaviour {
 					} else if (char2 == "Naz") {
 						player2.GetComponent<Shimmy>().Attack();
 					}
-                    battleMaster.GetComponent<BattleStats>().SixStepP2 += 1;
+					battleMaster.GetComponent<BattleStats>().MeleeAttackP2 += 1;
                     break;
 //                case "popNLock":
 //                    animator2.SetTrigger("popNLockAnim");

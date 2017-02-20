@@ -80,41 +80,32 @@ public class StatWriter : MonoBehaviour {
     {
         if (player == "p1")
         {
-            int popandlock = statMaster.GetComponent<BattleStats>().PopLockP1;
-            int headslide = statMaster.GetComponent<BattleStats>().HeadSlideP1;
-            int sixstep = statMaster.GetComponent<BattleStats>().SixStepP1;
-            Debug.Log(popandlock);
-            Debug.Log(headslide);
-            Debug.Log(sixstep);
-            string fav = "GlowString Swipes";
-            if (headslide >= popandlock)
+			int rangedAttackP1 = statMaster.GetComponent<BattleStats>().RangedAttackP1;
+			int meleeAttackP1 = statMaster.GetComponent<BattleStats>().MeleeAttackP1;
+			string fav;
+			if (rangedAttackP1 >= meleeAttackP1)
             {
                 Debug.Log("First if fired");
-                fav = "JumpStyle Slam";
-            }
-            if (sixstep >= popandlock && sixstep >= headslide)
-            {
-                Debug.Log("Second if Fired");
-                fav = "Circle Shufflin' ";
-            }
+                fav = "Ranged Attack";
+			} else {
+				fav = "Melee Attack";
+			}
             FavoriteAttackP1UI.text = fav;
         }
-        if (player == "p2")
-        {
-            int popandlock = statMaster.GetComponent<BattleStats>().PopLockP2;
-            int headslide = statMaster.GetComponent<BattleStats>().HeadSlideP2;
-            int sixstep = statMaster.GetComponent<BattleStats>().SixStepP2;
-            string fav = "GlowString Swipes";
-            if (headslide >= popandlock)
-            {
-                fav = "JumpStyle Slam";
-            }
-            if (sixstep >= popandlock && sixstep >= popandlock)
-            {
-                fav = "Circle Shufflin' ";
-            }
-            FavoriteAttackP2UI.text = fav;
-        }
+		if (player == "p2")
+		{
+			int rangedAttackP2 = statMaster.GetComponent<BattleStats>().RangedAttackP2;
+			int meleeAttackP2 = statMaster.GetComponent<BattleStats>().MeleeAttackP2;
+			string fav;
+			if (rangedAttackP2 >= meleeAttackP2)
+			{
+				Debug.Log("First if fired");
+				fav = "Ranged Attack";
+			} else {
+				fav = "Melee Attack";
+			}
+			FavoriteAttackP1UI.text = fav;
+		}
     }
 
     IEnumerator FirstClick()
