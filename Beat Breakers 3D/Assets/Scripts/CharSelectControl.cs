@@ -34,11 +34,14 @@ public class CharSelectControl: MonoBehaviour {
     private GameObject charPicks;
 
     public Text charText;
+    private GameObject menuSong;
+    public GameObject soundPlayer;
 
     // Use this for initialization
     void Start () {
 
         charPicks = GameObject.FindGameObjectWithTag("CharPicks");
+        menuSong = GameObject.FindGameObjectWithTag("MenuSong");
 
         //assign controllers
         inputMaster = GameObject.FindGameObjectWithTag("InputMaster");
@@ -50,39 +53,46 @@ public class CharSelectControl: MonoBehaviour {
         //start idle animations
         EvaModel.GetComponent<Animator>().SetBool("gameStart", true);
         NazModel.GetComponent<Animator>().SetBool("gameStart", true);
+
+        soundPlayer.GetComponent<SoundPlayer>().PlaySound("ChooseYourCharacter");
     }
 
     // Update is called once per frame
     void Update()
     {
         //display char name
-        if (rotation % 360 == 0f)
+        float temp = rotation;
+        while (temp < 0f)
+        {
+            temp += 360f;
+        }
+        if (temp % 360 == 0f)
         {
             charText.text = "Eva";
-        } else if (rotation%360 == 45f)
+        } else if (temp % 360 == 45f)
         {
             charText.text = "Naz";
-        } else if (rotation % 360 == 90f)
+        } else if (temp % 360 == 90f)
         {
             charText.text = "?";
         }
-        else if (rotation % 360 == 135f)
+        else if (temp % 360 == 135f)
         {
             charText.text = "?";
         }
-        else if (rotation % 360 == 180f)
+        else if (temp % 360 == 180f)
         {
             charText.text = "?";
         }
-        else if (rotation % 360 == 225f)
+        else if (temp % 360 == 225f)
         {
             charText.text = "?";
         }
-        else if (rotation % 360 == 270f)
+        else if (temp % 360 == 270f)
         {
             charText.text = "?";
         }
-        else if (rotation % 360 == 315f)
+        else if (temp % 360 == 315f)
         {
             charText.text = "?";
         }
@@ -138,6 +148,7 @@ public class CharSelectControl: MonoBehaviour {
                     p1picked = true;
                     p1coin.SetActive(false);
                     p2coin.SetActive(true);
+                    soundPlayer.GetComponent<SoundPlayer>().PlaySound("Eva", true);
                 }
                 else if (rotation % 360f == 45f)
                 {
@@ -145,6 +156,7 @@ public class CharSelectControl: MonoBehaviour {
                     p1picked = true;
                     p1coin.SetActive(false);
                     p2coin.SetActive(true);
+                    soundPlayer.GetComponent<SoundPlayer>().PlaySound("Naz", true);
                 }
             }
         } else if (!p2picked)
@@ -174,16 +186,19 @@ public class CharSelectControl: MonoBehaviour {
                 {
                     p2char = "Eva";
                     p2picked = true;
+                    soundPlayer.GetComponent<SoundPlayer>().PlaySound("Eva", true);
                 } else if (rotation % 360f == 45f)
                 {
                     p2char = "Naz";
                     p2picked = true;
+                    soundPlayer.GetComponent<SoundPlayer>().PlaySound("Naz", true);
                 }
             }
         } else if (p1picked && p2picked)
         {
             charPicks.GetComponent<CharPicks>().p1char = p1char;
             charPicks.GetComponent<CharPicks>().p2char = p2char;
+            Destroy(menuSong);
             SceneManager.LoadScene(1);
         }
 	}

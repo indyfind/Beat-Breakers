@@ -3,6 +3,7 @@ using System.Collections;
 
 public class SoundPlayer : MonoBehaviour
 {
+    //battle
     public AudioClip Countdown;
     public AudioClip Round1;
     public AudioClip Round2;
@@ -11,6 +12,11 @@ public class SoundPlayer : MonoBehaviour
     public AudioClip[] AnnouncerRound2;
     public AudioClip[] AnnouncerRound3;
 	public AudioClip[] AnyRound;
+
+    //menus
+    public AudioClip ChooseYourDancer;
+    public AudioClip Naz;
+    public AudioClip Eva;
 
     private AudioSource audioplayer;
     // Use this for initialization
@@ -24,8 +30,10 @@ public class SoundPlayer : MonoBehaviour
         AnnouncerRound2 = Resources.LoadAll<AudioClip>("Sound/AnnouncerVoiceLines/Round2");
         AnnouncerRound3 = Resources.LoadAll<AudioClip>("Sound/AnnouncerVoiceLines/Round3");
 		AnyRound = Resources.LoadAll<AudioClip>("Sound/AnnouncerVoiceLines/AnyRound");
-
-		audioplayer = this.GetComponent<AudioSource>();
+        Eva = Resources.Load<AudioClip>("Sound/AnnouncerVoiceLines/UILines/EVA");
+        Naz = Resources.Load<AudioClip>("Sound/AnnouncerVoiceLines/UILines/NAZ");
+        ChooseYourDancer = Resources.Load<AudioClip>("Sound/AnnouncerVoiceLines/UILines/ChooseYourDancer");
+        audioplayer = this.GetComponent<AudioSource>();
 
     }
 
@@ -71,7 +79,19 @@ public class SoundPlayer : MonoBehaviour
 				audioplayer.clip = AnyRound [Random.Range (0, AnyRound.Length - 1)];
 				audioplayer.Play ();
 				break;
-			default:
+            case "ChooseYourCharacter":
+                audioplayer.clip = ChooseYourDancer;
+                audioplayer.Play();
+                break;
+            case "Eva":
+                audioplayer.clip = Eva;
+                audioplayer.Play();
+                break;
+            case "Naz":
+                audioplayer.clip = Naz;
+                audioplayer.Play();
+                break;
+            default:
 				break;
 			}
 		}

@@ -294,7 +294,19 @@ public class DoPlayerActions : MonoBehaviour {
         }
 
 	}
-	IEnumerator backToIdleAnimation()
+
+    public void pausecharacteranimations()
+    {
+        animator1.speed = 0;
+        animator2.speed = 0;
+    }
+
+    public void unpausecharacteranimations()
+    {
+        animator1.speed = 1;
+        animator2.speed = 1;
+    }
+    IEnumerator backToIdleAnimation()
 	{
 		yield return new WaitForSeconds(.5f);
 		animator1.SetBool("idleAnim", true);

@@ -2,6 +2,7 @@
 using System.Collections;
 using SonicBloom.Koreo;
 using UnityEngine.UI;
+using InControl;
 
 public class BeatKeeper2 : MonoBehaviour {
 	public GameObject player1;
@@ -27,9 +28,15 @@ public class BeatKeeper2 : MonoBehaviour {
 	private Text UIText;
 	public GameObject timer;
 	private Text timerText;
+    public bool ismusicplaying = false;
+    private GameObject inputMaster;
+    private InputDevice player2device;
+    private InputDevice player1device;
+    public GameObject pausebutton1, pausebutton2, pausebutton3;
+    //private GameObject menuSong;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
         //find scene objects
         player1 = GameObject.FindGameObjectWithTag("Player1");
@@ -37,26 +44,31 @@ public class BeatKeeper2 : MonoBehaviour {
         battleMaster = GameObject.FindGameObjectWithTag ("BattleMaster");
 		battleSong = GetComponent<AudioSource>();
 		UIText = GameObject.FindGameObjectWithTag ("MainText").GetComponent<Text>();
+        //menuSong = GameObject.FindGameObjectWithTag("MenuSong");
 
 		char1script = player1.GetComponent<VanillaCharacter>();
 		char2script = player2.GetComponent<VanillaCharacter>();
 		timerText = timer.GetComponent<Text>();
-		//set character scripts based on which character it is
-//		switch (player1.tag){
-//		case "Eva":
-//			char1script = player1.GetComponent<VanillaCharacter>();
-//			break;
-//		default:
-//			break;
-//		}
-//		switch (player2.tag){
-//		case "Eva":
-//			char1script = player1.GetComponent<VanillaCharacter>();
-//			break;
-//		default:
-//			break;
-//		}
-		blocks = GameObject.FindGameObjectsWithTag("BeatBlocks");
+
+        inputMaster = GameObject.FindGameObjectWithTag("InputMaster");
+        player1device = inputMaster.GetComponent<InputMaster>().player1Controller;
+        player2device = inputMaster.GetComponent<InputMaster>().player2Controller;
+        //set character scripts based on which character it is
+        //		switch (player1.tag){
+        //		case "Eva":
+        //			char1script = player1.GetComponent<VanillaCharacter>();
+        //			break;
+        //		default:
+        //			break;
+        //		}
+        //		switch (player2.tag){
+        //		case "Eva":
+        //			char1script = player1.GetComponent<VanillaCharacter>();
+        //			break;
+        //		default:
+        //			break;
+        //		}
+        blocks = GameObject.FindGameObjectsWithTag("BeatBlocks");
 		evenSpaces = GameObject.FindGameObjectsWithTag ("GridSpace2");
 		oddSpaces = GameObject.FindGameObjectsWithTag ("GridSpace1");
 		//gridColor1 = new Color (154f/255f, 149f/255f, 135f/255f,  1f); //new Color (0f, .6f, .6f, 1f); // new Color (0f, .90f, .90f, 1f);
@@ -82,8 +94,28 @@ public class BeatKeeper2 : MonoBehaviour {
 		//start battle
 		StartCoroutine(startgame());
 	}
-	//when beat actually happens
-	void OnBeat (KoreographyEvent evt) {
+
+    void Update()
+    {
+        if ((player1device.Command.WasPressed || player2device.Command.WasPressed) && (ismusicplaying))
+        { // && !onCoolDown
+
+            pausebutton1.SetActive(true);
+            pausebutton2.SetActive(true);
+            pausebutton3.SetActive(true);
+            ismusicplaying = false;
+            this.GetComponent<AudioSource>().Pause();
+            foreach (GameObject block in blocks)
+            {
+                block.GetComponent<BlockMover>().blockstopped();
+            }
+            this.GetComponent<DoPlayerActions>().pausecharacteranimations();
+        }
+    }
+
+
+    //when beat actually happens
+    void OnBeat (KoreographyEvent evt) {
 		//if battle started, do both player's actions
 		if (countdown < 0)
 		{
@@ -167,7 +199,19 @@ public class BeatKeeper2 : MonoBehaviour {
 		char2script.ReadInput("Perfect!");
 	}
 
-	IEnumerator startgame()
+    //unpauses the game
+    public void ResumeGame()
+    {
+        this.GetComponent<AudioSource>().UnPause();
+        ismusicplaying = true;
+        foreach (GameObject block in blocks)
+        {
+            block.GetComponent<BlockMover>().blockrestarted();
+        }
+        this.GetComponent<DoPlayerActions>().unpausecharacteranimations();
+    }
+
+    IEnumerator startgame()
 	{
 		if (battleMaster.GetComponent<EndBattle> ().round == 1) {
 			yield return new WaitForSeconds (1.5f);
@@ -176,12 +220,14 @@ public class BeatKeeper2 : MonoBehaviour {
 			this.GetComponent<CameraSwitch> ().ShowPlayer2Camera ();
 			yield return new WaitForSeconds (1f);
 			this.GetComponent<CameraSwitch> ().ShowMainCamera ();
-		}
+            //Destroy(menuSong);
+        }
 		UIText.text = "Round " + battleMaster.GetComponent<EndBattle>().round;
         battleMaster.GetComponent<SoundPlayer>().PlaySound("Round" + battleMaster.GetComponent<EndBattle>().round, true);
 		yield return new WaitForSeconds(1f);
 		battleStarted = true;
 		battleSong.Play();
+        ismusicplaying = true;
 	}
 
 	public bool checkifonbeat(){

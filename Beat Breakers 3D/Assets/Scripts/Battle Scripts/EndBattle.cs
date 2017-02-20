@@ -29,7 +29,7 @@ public class EndBattle : MonoBehaviour {
 		
         if (fadingsound)
         {
-            Debug.Log("fading out");
+            //Debug.Log("fading out");
             fadeOut();
         }
         if (sceneloaded)
