@@ -15,8 +15,9 @@ public class CharacterLoader : MonoBehaviour {
     private Vector3 left = new Vector3(0f, 180f, 0f);
 
     //character choices
-    private string p1char = "Naz";
-    private string p2char = "Eva";
+    private GameObject charPicks;
+    public string p1char;
+    public string p2char;
 
     //final character prefabs
     private GameObject p1object;
@@ -24,6 +25,10 @@ public class CharacterLoader : MonoBehaviour {
 
     void Awake ()
     {
+        charPicks = GameObject.FindGameObjectWithTag("CharPicks");
+        p1char = charPicks.GetComponent<CharPicks>().p1char;
+        p2char = charPicks.GetComponent<CharPicks>().p2char;
+
         eva = Resources.Load("CharacterPrefabs/Eva") as GameObject;
         evaAlt = Resources.Load("CharacterPrefabs/EvaAlt") as GameObject;
         naz = Resources.Load("CharacterPrefabs/Naz") as GameObject;

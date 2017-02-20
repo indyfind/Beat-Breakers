@@ -34,6 +34,9 @@ public class VanillaCharacter : MonoBehaviour {
 	private Image healthSlider;
 	private Image chargeSlider;
 	public GameObject blockVisual;
+	public GameObject flareVisual;
+	public GameObject flowVisual;
+	public GameObject foundationVisual;
 	private GameObject blockMeter1;
 	private GameObject blockMeter2;
 	private GameObject blockMeter3;
@@ -43,6 +46,7 @@ public class VanillaCharacter : MonoBehaviour {
 
 	//InControl input device
 	private InputDevice device;
+    private GameObject inputMaster;
     
 	//stat trackers
 	private int currentcombo;
@@ -50,6 +54,9 @@ public class VanillaCharacter : MonoBehaviour {
 
 	void Awake()
 	{
+        //find input master
+        inputMaster = GameObject.FindGameObjectWithTag("InputMaster");
+
         //set player number and tag based on world location
         if (this.transform.position.x == -3f)
         {
@@ -67,7 +74,7 @@ public class VanillaCharacter : MonoBehaviour {
         {
 
             //set input device
-            device = InputManager.Devices[0];
+            device = inputMaster.GetComponent<InputMaster>().player1Controller;
 
             //find scene objects
             //enemy = GameObject.FindGameObjectWithTag("Player2");
@@ -88,9 +95,8 @@ public class VanillaCharacter : MonoBehaviour {
         }
         else if (player == 2)
         {
-
             //set input device
-            device = InputManager.Devices[1];
+            device = inputMaster.GetComponent<InputMaster>().player2Controller;
 
             //find scene objects
             //enemy = GameObject.FindGameObjectWithTag("Player1");
@@ -182,7 +188,7 @@ public class VanillaCharacter : MonoBehaviour {
 
 		//check for death
 		if (health <= 0 && !roundOver) {
-            battleMaster.GetComponent<EndBattle>().fadingsound = true; ;
+            battleMaster.GetComponent<EndBattle>().fadingsound = true;
             battleMaster.GetComponent<EndBattle>().playerLoses(player);
 			roundOver = true;
 			this.gameObject.SetActive (false);
@@ -328,7 +334,9 @@ public class VanillaCharacter : MonoBehaviour {
             if (formTimer >= 12)
             {
                 //Debug.Log("Form Has Been Reset");
-				orb.GetComponent<MeshRenderer>().material.color = Color.white;
+				flareVisual.SetActive(false);
+				flowVisual.SetActive(false);
+				foundationVisual.SetActive(false);
                 playerForm = "none";
                 formTimer = 0;
             }

@@ -74,7 +74,9 @@ public class DoPlayerActions : MonoBehaviour {
 					player1.GetComponent<CharacterSound>().PlaySound("FormSwitch");
                     player1.GetComponent<VanillaCharacter>().formTimer = 0;
 					player1.GetComponent<VanillaCharacter>().meter -= 25;
-					player1.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.red;
+					player1.GetComponent<VanillaCharacter>().flareVisual.SetActive(true);
+					player1.GetComponent<VanillaCharacter>().flowVisual.SetActive(false);
+					player1.GetComponent<VanillaCharacter>().foundationVisual.SetActive(false);
                     //player1.GetComponent<Flare>().StartFlareAttack();
                     //Debug.Log("flare form happened for player 1");
                     break;
@@ -83,7 +85,9 @@ public class DoPlayerActions : MonoBehaviour {
 					player1.GetComponent<CharacterSound>().PlaySound("FormSwitch");
                     player1.GetComponent<VanillaCharacter>().formTimer = 0;
 					player1.GetComponent<VanillaCharacter>().meter -= 25;
-					player1.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.blue;
+					player1.GetComponent<VanillaCharacter>().flowVisual.SetActive(true);
+					player1.GetComponent<VanillaCharacter>().flareVisual.SetActive(false);
+					player1.GetComponent<VanillaCharacter>().foundationVisual.SetActive(false);
                     //Debug.Log("flow form happened for player 1");
                     break;
                 case "foundation":
@@ -91,7 +95,9 @@ public class DoPlayerActions : MonoBehaviour {
 					player1.GetComponent<CharacterSound>().PlaySound("FormSwitch");
                     player1.GetComponent<VanillaCharacter>().formTimer = 0;
 					player1.GetComponent<VanillaCharacter>().meter -= 25;
-					player1.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.green;
+					player1.GetComponent<VanillaCharacter>().foundationVisual.SetActive(true);
+					player1.GetComponent<VanillaCharacter>().flareVisual.SetActive(false);
+					player1.GetComponent<VanillaCharacter>().flowVisual.SetActive(false);
                     //Debug.Log("foundation form happened for player 1");
                     break;
                 default:
@@ -111,7 +117,9 @@ public class DoPlayerActions : MonoBehaviour {
                     //Debug.Log("flare form happened for player 2");
                     player2.GetComponent<VanillaCharacter>().formTimer = 0;
 					player2.GetComponent<VanillaCharacter>().meter -= 25;
-					player2.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.red;
+					player2.GetComponent<VanillaCharacter>().flareVisual.SetActive(true);
+					player2.GetComponent<VanillaCharacter>().flowVisual.SetActive(false);
+					player2.GetComponent<VanillaCharacter>().foundationVisual.SetActive(false);
                     //player1.GetComponent<Flare>().StartFlareAttack();
                     break;
                 case "flow":
@@ -120,14 +128,18 @@ public class DoPlayerActions : MonoBehaviour {
                     player2.GetComponent<VanillaCharacter>().formTimer = 0;
                     //Debug.Log("flow happened for player 2");
 					player2.GetComponent<VanillaCharacter>().meter -= 25;
-					player2.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.blue;
+					player2.GetComponent<VanillaCharacter>().flowVisual.SetActive(true);
+					player2.GetComponent<VanillaCharacter>().flareVisual.SetActive(false);
+					player2.GetComponent<VanillaCharacter>().foundationVisual.SetActive(false);
                     break;
                 case "foundation":
                     player2.GetComponent<VanillaCharacter>().playerForm = "foundation";
 					player2.GetComponent<CharacterSound>().PlaySound("FormSwitch");
                     player2.GetComponent<VanillaCharacter>().formTimer = 0;
 					player2.GetComponent<VanillaCharacter>().meter -= 25;
-					player2.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.green;
+					player2.GetComponent<VanillaCharacter>().foundationVisual.SetActive(true);
+					player2.GetComponent<VanillaCharacter>().flareVisual.SetActive(false);
+					player2.GetComponent<VanillaCharacter>().flowVisual.SetActive(false);
                     //Debug.Log("Foundation happened for player 2");
                     break;
                 default:
@@ -193,7 +205,7 @@ public class DoPlayerActions : MonoBehaviour {
 					} else if (char1 == "Naz") {
 						player1.GetComponent<AcidTrance>().Attack();
 					}
-					battleMaster.GetComponent<BattleStats>().HeadSlideP1 += 1;
+					battleMaster.GetComponent<BattleStats>().RangedAttackP1 += 1;
 					break;
                 default:
                     break;
@@ -210,7 +222,7 @@ public class DoPlayerActions : MonoBehaviour {
 					} else if (char2 == "Naz") {
 						player2.GetComponent<AcidTrance>().Attack();
 					}
-					battleMaster.GetComponent<BattleStats>().HeadSlideP2 += 1;
+					battleMaster.GetComponent<BattleStats>().RangedAttackP2 += 1;
 					break;	
                 default:
                     break;
@@ -227,7 +239,7 @@ public class DoPlayerActions : MonoBehaviour {
 					} else if (char1 == "Naz") {
 						player1.GetComponent<Shimmy>().Attack();
 					}
-                    battleMaster.GetComponent<BattleStats>().SixStepP1 += 1;
+					battleMaster.GetComponent<BattleStats>().MeleeAttackP1 += 1;
                     break;
 //                case "popNLock":
 //                    animator1.SetTrigger("popNLockAnim");
@@ -265,7 +277,7 @@ public class DoPlayerActions : MonoBehaviour {
 					} else if (char2 == "Naz") {
 						player2.GetComponent<Shimmy>().Attack();
 					}
-                    battleMaster.GetComponent<BattleStats>().SixStepP2 += 1;
+					battleMaster.GetComponent<BattleStats>().MeleeAttackP2 += 1;
                     break;
 //                case "popNLock":
 //                    animator2.SetTrigger("popNLockAnim");
@@ -294,7 +306,19 @@ public class DoPlayerActions : MonoBehaviour {
         }
 
 	}
-	IEnumerator backToIdleAnimation()
+
+    public void pausecharacteranimations()
+    {
+        animator1.speed = 0;
+        animator2.speed = 0;
+    }
+
+    public void unpausecharacteranimations()
+    {
+        animator1.speed = 1;
+        animator2.speed = 1;
+    }
+    IEnumerator backToIdleAnimation()
 	{
 		yield return new WaitForSeconds(.5f);
 		animator1.SetBool("idleAnim", true);

@@ -14,7 +14,7 @@ public class EndBattle : MonoBehaviour {
     public bool fadingsound;
     private GameObject sound;
     bool sceneloaded;
-   
+	public bool tieHappened = false;
 
     // Use this for initialization
     void Awake() {
@@ -29,7 +29,7 @@ public class EndBattle : MonoBehaviour {
 		
         if (fadingsound)
         {
-            Debug.Log("fading out");
+            //Debug.Log("fading out");
             fadeOut();
         }
         if (sceneloaded)
@@ -73,13 +73,15 @@ public class EndBattle : MonoBehaviour {
 		}
     }
     
- 
     public void Tie()
     {
+		tieHappened = true;
 		UIText = GameObject.FindGameObjectWithTag ("MainText").GetComponent<Text>();
-		UIText.text = "Draw!";
-        StartCoroutine(End(1));
+		UIText.text = "Tie!";
+		this.GetComponent<SoundPlayer>().PlaySound("Tie", true);
+        StartCoroutine(End(1, true));
     }
+
     public void fadeOut()
     {
         if (audiovolume > 0)
@@ -99,25 +101,28 @@ public class EndBattle : MonoBehaviour {
         }
 
     }
-    IEnumerator End(int sceneToLoad)
+	IEnumerator End(int sceneToLoad, bool tie=false)
     {
 		UIText = GameObject.FindGameObjectWithTag ("MainText").GetComponent<Text>();
-		round += 1;
-		Debug.Log(round);
-		UIText.text = "Round Over!";
-        this.GetComponent<SoundPlayer>().PlaySound("RoundOver");
-		yield return new WaitForSeconds (2f);
-		if (sceneToLoad == 2) {
-
-		} else {
-			if (round == 2) {
-				this.GetComponent<SoundPlayer> ().PlaySound ("Round2Sound");
-			} else if (round == 3) {
-				this.GetComponent<SoundPlayer> ().PlaySound ("Round3Sound");
-			}
+		if (!tie) {
+			round += 1;
+			UIText.text = "Round Over!";
+			this.GetComponent<SoundPlayer>().PlaySound("RoundOver");
 		}
-        
+		Debug.Log(round);
+
+		yield return new WaitForSeconds (2f);
+
+		if (round == 1) {
+			this.GetComponent<SoundPlayer> ().PlaySound ("Round1Sound");
+		} else if (round == 2) {
+			this.GetComponent<SoundPlayer> ().PlaySound ("Round2Sound");
+		} else if (round == 3) {
+			this.GetComponent<SoundPlayer> ().PlaySound ("Round3Sound");
+		}
+
         yield return new WaitForSeconds(5f);
+
         SceneManager.LoadScene(sceneToLoad);
         sceneloaded = true;
         //SceneManager.LoadScene(0);
