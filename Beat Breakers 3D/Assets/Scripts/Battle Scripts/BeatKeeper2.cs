@@ -28,11 +28,14 @@ public class BeatKeeper2 : MonoBehaviour {
 	private Text UIText;
 	public GameObject timer;
 	private Text timerText;
+	public GameObject spotlights;
     public bool ismusicplaying = false;
     private GameObject inputMaster;
     private InputDevice player2device;
     private InputDevice player1device;
     public GameObject pausebutton1, pausebutton2, pausebutton3;
+	private bool battleOver = false;
+
     //private GameObject menuSong;
 
     // Use this for initialization
@@ -111,6 +114,18 @@ public class BeatKeeper2 : MonoBehaviour {
             }
             this.GetComponent<DoPlayerActions>().pausecharacteranimations();
         }
+
+		if (beatsLeft <= 0 && !battleOver) {
+			battleOver = true;
+			if (char1script.health > char2script.health) {
+				battleMaster.GetComponent<EndBattle>().playerLoses(2);
+			}
+			else if (char2script.health > char1script.health) {
+				battleMaster.GetComponent<EndBattle>().playerLoses(1);
+			} else {
+				battleMaster.GetComponent<EndBattle>().Tie();
+			}
+		}
     }
 
 
@@ -213,13 +228,15 @@ public class BeatKeeper2 : MonoBehaviour {
 
     IEnumerator startgame()
 	{
-		if (battleMaster.GetComponent<EndBattle> ().round == 1) {
+		if (battleMaster.GetComponent<EndBattle> ().round == 1 && battleMaster.GetComponent<EndBattle>().tieHappened == false) {
 			yield return new WaitForSeconds (1.5f);
+			spotlights.SetActive(true);
 			this.GetComponent<CameraSwitch> ().ShowPlayer1Camera ();
 			yield return new WaitForSeconds (1f);
 			this.GetComponent<CameraSwitch> ().ShowPlayer2Camera ();
 			yield return new WaitForSeconds (1f);
 			this.GetComponent<CameraSwitch> ().ShowMainCamera ();
+			spotlights.SetActive(false);
             //Destroy(menuSong);
         }
 		UIText.text = "Round " + battleMaster.GetComponent<EndBattle>().round;

@@ -9,6 +9,7 @@ public class SoundPlayer : MonoBehaviour
     public AudioClip Round2;
     public AudioClip Round3;
     public AudioClip[] RoundOver;
+	public AudioClip Tie;
     public AudioClip[] AnnouncerRound2;
     public AudioClip[] AnnouncerRound3;
 	public AudioClip[] AnyRound;
@@ -17,6 +18,7 @@ public class SoundPlayer : MonoBehaviour
     public AudioClip ChooseYourDancer;
     public AudioClip Naz;
     public AudioClip Eva;
+	public AudioClip No;
 
     private AudioSource audioplayer;
     // Use this for initialization
@@ -27,12 +29,14 @@ public class SoundPlayer : MonoBehaviour
         Round2 = Resources.Load<AudioClip>("Sound/AnnouncerVoiceLines/UILines/Round2");
         Round3 = Resources.Load<AudioClip>("Sound/AnnouncerVoiceLines/UILines/FinalRound");
         RoundOver = Resources.LoadAll<AudioClip>("Sound/AnnouncerVoiceLines/UILines/RoundOver");
+		Tie = Resources.Load<AudioClip>("Sound/AnnouncerVoiceLines/UILines/TIE");
         AnnouncerRound2 = Resources.LoadAll<AudioClip>("Sound/AnnouncerVoiceLines/Round2");
         AnnouncerRound3 = Resources.LoadAll<AudioClip>("Sound/AnnouncerVoiceLines/Round3");
 		AnyRound = Resources.LoadAll<AudioClip>("Sound/AnnouncerVoiceLines/AnyRound");
         Eva = Resources.Load<AudioClip>("Sound/AnnouncerVoiceLines/UILines/EVA");
         Naz = Resources.Load<AudioClip>("Sound/AnnouncerVoiceLines/UILines/NAZ");
         ChooseYourDancer = Resources.Load<AudioClip>("Sound/AnnouncerVoiceLines/UILines/ChooseYourDancer");
+		No = Resources.Load<AudioClip>("Sound/SFX/All Characters/SFX_No_Energy");
         audioplayer = this.GetComponent<AudioSource>();
 
     }
@@ -67,6 +71,10 @@ public class SoundPlayer : MonoBehaviour
 				audioplayer.clip = RoundOver [Random.Range (0, RoundOver.Length - 1)];
 				audioplayer.Play ();
 				break;
+			case "Tie":
+				audioplayer.clip = Tie;
+				audioplayer.Play ();
+				break;
 			case "Round2Sound":
 				audioplayer.clip = AnnouncerRound2 [Random.Range (0, AnnouncerRound2.Length - 1)];
 				audioplayer.Play ();
@@ -91,6 +99,10 @@ public class SoundPlayer : MonoBehaviour
                 audioplayer.clip = Naz;
                 audioplayer.Play();
                 break;
+			case "No":
+				audioplayer.clip = No;
+				audioplayer.Play();
+				break;
             default:
 				break;
 			}

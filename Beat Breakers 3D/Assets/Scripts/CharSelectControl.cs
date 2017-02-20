@@ -66,33 +66,33 @@ public class CharSelectControl: MonoBehaviour {
         {
             temp += 360f;
         }
-        if (temp % 360 == 0f)
+        if (temp % 360f == 0f)
         {
             charText.text = "Eva";
-        } else if (temp % 360 == 45f)
+        } else if (temp % 360f == 45f)
         {
             charText.text = "Naz";
-        } else if (temp % 360 == 90f)
+        } else if (temp % 360f == 90f)
         {
             charText.text = "?";
         }
-        else if (temp % 360 == 135f)
+        else if (temp % 360f == 135f)
         {
             charText.text = "?";
         }
-        else if (temp % 360 == 180f)
+        else if (temp % 360f == 180f)
         {
             charText.text = "?";
         }
-        else if (temp % 360 == 225f)
+        else if (temp % 360f == 225f)
         {
             charText.text = "?";
         }
-        else if (temp % 360 == 270f)
+        else if (temp % 360f == 270f)
         {
             charText.text = "?";
         }
-        else if (temp % 360 == 315f)
+        else if (temp % 360f == 315f)
         {
             charText.text = "?";
         }
@@ -157,7 +157,9 @@ public class CharSelectControl: MonoBehaviour {
                     p1coin.SetActive(false);
                     p2coin.SetActive(true);
                     soundPlayer.GetComponent<SoundPlayer>().PlaySound("Naz", true);
-                }
+				} else {
+					soundPlayer.GetComponent<SoundPlayer>().PlaySound("No");
+				}
             }
         } else if (!p2picked)
         {
@@ -192,7 +194,9 @@ public class CharSelectControl: MonoBehaviour {
                     p2char = "Naz";
                     p2picked = true;
                     soundPlayer.GetComponent<SoundPlayer>().PlaySound("Naz", true);
-                }
+				} else {
+					soundPlayer.GetComponent<SoundPlayer>().PlaySound("No", true);
+				}
             }
         } else if (p1picked && p2picked)
         {

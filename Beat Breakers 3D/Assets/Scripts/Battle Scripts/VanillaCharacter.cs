@@ -34,6 +34,9 @@ public class VanillaCharacter : MonoBehaviour {
 	private Image healthSlider;
 	private Image chargeSlider;
 	public GameObject blockVisual;
+	public GameObject flareVisual;
+	public GameObject flowVisual;
+	public GameObject foundationVisual;
 	private GameObject blockMeter1;
 	private GameObject blockMeter2;
 	private GameObject blockMeter3;
@@ -185,7 +188,7 @@ public class VanillaCharacter : MonoBehaviour {
 
 		//check for death
 		if (health <= 0 && !roundOver) {
-            battleMaster.GetComponent<EndBattle>().fadingsound = true; ;
+            battleMaster.GetComponent<EndBattle>().fadingsound = true;
             battleMaster.GetComponent<EndBattle>().playerLoses(player);
 			roundOver = true;
 			this.gameObject.SetActive (false);
@@ -331,7 +334,9 @@ public class VanillaCharacter : MonoBehaviour {
             if (formTimer >= 12)
             {
                 //Debug.Log("Form Has Been Reset");
-				orb.GetComponent<MeshRenderer>().material.color = Color.white;
+				flareVisual.SetActive(false);
+				flowVisual.SetActive(false);
+				foundationVisual.SetActive(false);
                 playerForm = "none";
                 formTimer = 0;
             }

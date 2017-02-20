@@ -74,7 +74,9 @@ public class DoPlayerActions : MonoBehaviour {
 					player1.GetComponent<CharacterSound>().PlaySound("FormSwitch");
                     player1.GetComponent<VanillaCharacter>().formTimer = 0;
 					player1.GetComponent<VanillaCharacter>().meter -= 25;
-					player1.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.red;
+					player1.GetComponent<VanillaCharacter>().flareVisual.SetActive(true);
+					player1.GetComponent<VanillaCharacter>().flowVisual.SetActive(false);
+					player1.GetComponent<VanillaCharacter>().foundationVisual.SetActive(false);
                     //player1.GetComponent<Flare>().StartFlareAttack();
                     //Debug.Log("flare form happened for player 1");
                     break;
@@ -83,7 +85,9 @@ public class DoPlayerActions : MonoBehaviour {
 					player1.GetComponent<CharacterSound>().PlaySound("FormSwitch");
                     player1.GetComponent<VanillaCharacter>().formTimer = 0;
 					player1.GetComponent<VanillaCharacter>().meter -= 25;
-					player1.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.blue;
+					player1.GetComponent<VanillaCharacter>().flowVisual.SetActive(true);
+					player1.GetComponent<VanillaCharacter>().flareVisual.SetActive(false);
+					player1.GetComponent<VanillaCharacter>().foundationVisual.SetActive(false);
                     //Debug.Log("flow form happened for player 1");
                     break;
                 case "foundation":
@@ -91,7 +95,9 @@ public class DoPlayerActions : MonoBehaviour {
 					player1.GetComponent<CharacterSound>().PlaySound("FormSwitch");
                     player1.GetComponent<VanillaCharacter>().formTimer = 0;
 					player1.GetComponent<VanillaCharacter>().meter -= 25;
-					player1.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.green;
+					player1.GetComponent<VanillaCharacter>().foundationVisual.SetActive(true);
+					player1.GetComponent<VanillaCharacter>().flareVisual.SetActive(false);
+					player1.GetComponent<VanillaCharacter>().flowVisual.SetActive(false);
                     //Debug.Log("foundation form happened for player 1");
                     break;
                 default:
@@ -111,7 +117,9 @@ public class DoPlayerActions : MonoBehaviour {
                     //Debug.Log("flare form happened for player 2");
                     player2.GetComponent<VanillaCharacter>().formTimer = 0;
 					player2.GetComponent<VanillaCharacter>().meter -= 25;
-					player2.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.red;
+					player2.GetComponent<VanillaCharacter>().flareVisual.SetActive(true);
+					player2.GetComponent<VanillaCharacter>().flowVisual.SetActive(false);
+					player2.GetComponent<VanillaCharacter>().foundationVisual.SetActive(false);
                     //player1.GetComponent<Flare>().StartFlareAttack();
                     break;
                 case "flow":
@@ -120,14 +128,18 @@ public class DoPlayerActions : MonoBehaviour {
                     player2.GetComponent<VanillaCharacter>().formTimer = 0;
                     //Debug.Log("flow happened for player 2");
 					player2.GetComponent<VanillaCharacter>().meter -= 25;
-					player2.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.blue;
+					player2.GetComponent<VanillaCharacter>().flowVisual.SetActive(true);
+					player2.GetComponent<VanillaCharacter>().flareVisual.SetActive(false);
+					player2.GetComponent<VanillaCharacter>().foundationVisual.SetActive(false);
                     break;
                 case "foundation":
                     player2.GetComponent<VanillaCharacter>().playerForm = "foundation";
 					player2.GetComponent<CharacterSound>().PlaySound("FormSwitch");
                     player2.GetComponent<VanillaCharacter>().formTimer = 0;
 					player2.GetComponent<VanillaCharacter>().meter -= 25;
-					player2.GetComponent<VanillaCharacter>().orb.GetComponent<MeshRenderer>().material.color = Color.green;
+					player2.GetComponent<VanillaCharacter>().foundationVisual.SetActive(true);
+					player2.GetComponent<VanillaCharacter>().flareVisual.SetActive(false);
+					player2.GetComponent<VanillaCharacter>().flowVisual.SetActive(false);
                     //Debug.Log("Foundation happened for player 2");
                     break;
                 default:
