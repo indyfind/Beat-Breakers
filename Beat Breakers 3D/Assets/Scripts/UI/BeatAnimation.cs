@@ -7,7 +7,7 @@ public class BeatAnimation : MonoBehaviour {
     private Vector3 originalScale;
 	private Vector3 newScale;
     private AudioSource audio;
-    private float bpm = 140f;
+    //private float bpm = 140f;
     private float loopTime;
     // Use this for initialization
     void Start () {

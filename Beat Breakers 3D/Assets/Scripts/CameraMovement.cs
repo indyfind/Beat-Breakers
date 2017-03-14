@@ -3,28 +3,31 @@ using System.Collections;
 
 public class CameraMovement : MonoBehaviour {
 	private GameObject battleMaster;
+	private Vector3 targetPosition = new Vector3 (0f, 6.63f, -3.61f);
+	private Vector3 targetRotation = new Vector3 (59.985f, 0f, 0f);
+	public float smoothTime;
+	private Vector3 velocity = Vector3.zero;
+	private Vector3 velocity2 = Vector3.zero;
 
 	// Use this for initialization
 	void Start () {
 		battleMaster = GameObject.FindGameObjectWithTag ("BattleMaster");
 		if (battleMaster.GetComponent<EndBattle> ().round != 1) {
-			transform.position = target;
-			transform.localEulerAngles = new Vector3 (59.985f, 0f, 0f);
+			//Debug.Log(true);
+			transform.position = targetPosition;
+			transform.localEulerAngles = targetRotation;
 		}
 	}
-	//private float rotationAmount = 59.985f;
-	private Vector3 rotateTo = new Vector3 (0f, .5f, 0f);
-	private Vector3 target = new Vector3 (0f, 6.63f, -3.61f);
-	private float speed = 6.0f;
+
 	void Update () {
 		if (battleMaster.GetComponent<EndBattle> ().round == 1) {
-			float step = speed * Time.deltaTime;
+			
+			//move to target
+			transform.position = Vector3.SmoothDamp (transform.position, targetPosition, ref velocity, smoothTime);
 
-			transform.position = Vector3.MoveTowards (transform.position, target, step);
-
-			Vector3 targetDir = rotateTo - transform.position;
-			Vector3 newDir = Vector3.RotateTowards (transform.forward, targetDir, step, 0f);
-			transform.rotation = Quaternion.LookRotation (newDir);
+			//rotate to target
+			Vector3 newDir = Vector3.SmoothDamp (transform.localEulerAngles, targetRotation, ref velocity2, smoothTime);
+			transform.rotation = Quaternion.Euler (newDir);
 		}
 	}
 }
