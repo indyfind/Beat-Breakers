@@ -563,8 +563,7 @@ public class VanillaCharacter : MonoBehaviour {
 		if (rhythmRating == "Good!")
 		{
 			//add meter
-			meter -= 5;
-			//meter += 1
+			meter += 1;
 
 			//track stats
 			currentcombo = 0;

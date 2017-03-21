@@ -105,7 +105,7 @@ public class CharacterMover : MonoBehaviour {
 
 		if (fellOff) {
 			this.GetComponent<VanillaCharacter>().health -= fallOffDamage;
-			this.GetComponent<VanillaCharacter>().meter -= 50;
+			//this.GetComponent<VanillaCharacter>().meter -= 50;
 			StartCoroutine(FallOff());
 		}
     }

@@ -7,6 +7,7 @@ public class AcidTrance : MonoBehaviour
 	public int damage = 100;
 	private int meterCost = 25;
 	private int tempDamage;
+	private int knockback;
 
     private GameObject grid;
     private GameObject enemy;
@@ -36,10 +37,12 @@ public class AcidTrance : MonoBehaviour
 
 		if (GetComponent<VanillaCharacter>().meter >= meterCost) {
 			tempDamage = damage;
+			knockback = 1;
 			// subtract meter cost
         	this.GetComponent<VanillaCharacter>().meter -= meterCost;
 		} else {
 			tempDamage = 25;
+			knockback = 0;
 		}
 
         //get character positions
@@ -68,13 +71,13 @@ public class AcidTrance : MonoBehaviour
         	{
 				if (enemypos.x >= currentpos.x - 1 && enemypos.x <= currentpos.x + 1)
             	{
-					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, 1);
+					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, knockback);
 				} else if (enemypos.x == currentpos.x - 2 || enemypos.x == currentpos.x + 2) {
 					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(tempDamage * 0.8f));
 				}
 			} else if (enemypos.y == currentpos.y - 3) {
 				if (enemypos.x == currentpos.x) {
-					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, 1);
+					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, knockback);
 				} else if (enemypos.x == currentpos.x - 1 || enemypos.x == currentpos.x + 1) {
 					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(tempDamage * 0.8f));
 				}
@@ -88,13 +91,13 @@ public class AcidTrance : MonoBehaviour
 			{
 				if (enemypos.x >= currentpos.x - 1 && enemypos.x <= currentpos.x + 1)
 				{
-					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, 1);
+					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, knockback);
 				} else if (enemypos.x == currentpos.x - 2 || enemypos.x == currentpos.x + 2) {
 					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(tempDamage * 0.8f));
 				}
 			} else if (enemypos.y == currentpos.y + 3) {
 				if (enemypos.x == currentpos.x) {
-					enemy.GetComponent<VanillaCharacter>().TakeDamage(damage, false, 1);
+					enemy.GetComponent<VanillaCharacter>().TakeDamage(damage, false, knockback);
 				} else if (enemypos.x == currentpos.x - 1 || enemypos.x == currentpos.x + 1) {
 					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(tempDamage * 0.8f));
 				}
@@ -108,13 +111,13 @@ public class AcidTrance : MonoBehaviour
 			{
 				if (enemypos.y >= currentpos.y - 1 && enemypos.y <= currentpos.y + 1)
 				{
-					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, 1);
+					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, knockback);
 				} else if (enemypos.y == currentpos.y - 2 || enemypos.y == currentpos.y + 2) {
 					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(tempDamage * 0.8f));
 				}
 			} else if (enemypos.x == currentpos.x + 3) {
 				if (enemypos.y == currentpos.y) {
-					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, 1);
+					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, knockback);
 				} else if (enemypos.y == currentpos.y - 1 || enemypos.y == currentpos.y + 1) {
 					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(tempDamage * 0.8f));
 				}
@@ -128,13 +131,13 @@ public class AcidTrance : MonoBehaviour
 			{
 				if (enemypos.y >= currentpos.y - 1 && enemypos.y <= currentpos.y + 1)
 				{
-					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, 1);
+					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, knockback);
 				} else if (enemypos.y == currentpos.y - 2 || enemypos.y == currentpos.y + 2) {
 					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(tempDamage * 0.8f));
 				}
 			} else if (enemypos.x == currentpos.x - 3) {
 				if (enemypos.y == currentpos.y) {
-					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, 1);
+					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, knockback);
 				} else if (enemypos.y == currentpos.y - 1 || enemypos.y == currentpos.y + 1) {
 					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(tempDamage * 0.8f));
 				}

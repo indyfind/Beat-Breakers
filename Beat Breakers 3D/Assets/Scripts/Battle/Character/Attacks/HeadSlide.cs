@@ -8,6 +8,7 @@ public class HeadSlide : MonoBehaviour
 	public int damage = 100;
 	private int meterCost = 25;
 	private int tempDamage;
+	private int knockback;
 
 	private GameObject grid;
 	private GameObject enemy;
@@ -36,8 +37,10 @@ public class HeadSlide : MonoBehaviour
 			//subtract meter cost
 			this.GetComponent<VanillaCharacter>().meter -= meterCost;
 			tempDamage = damage;
+			knockback = 1;
 		} else {
 			tempDamage = 25;
+			knockback = 0;
 		}
 
 		//show hitbox
@@ -157,7 +160,7 @@ public class HeadSlide : MonoBehaviour
 
 		if (hit)
 		{
-			enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, 1); //, false, 1);
+			enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, knockback); //, false, 1);
 			//enemy.GetComponent<CharacterMover>().setposition((int)enemyDest.x, (int)enemyDest.y);
 		}
 	} 
