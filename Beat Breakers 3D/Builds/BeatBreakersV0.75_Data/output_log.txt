@@ -1,0 +1,116 @@
+Initialize engine version: 5.5.1f1 (88d00a7498cd)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: AMD Radeon R9 200 / HD 7900 Series (ID=0x6798)
+    Vendor:   ATI
+    VRAM:     3051 MB
+    Driver:   15.201.1151.1010
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\SonicBloom.Koreo.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\SonicBloom.Koreo.dll into Unity Child Domain
+- Completed reload, in  0.028 seconds
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.918556 ms
+[InControl] Joystick 3: "vJoy - Virtual Joystick"
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 184c -> priority: 1 
+  Thread -> id: 54d08 -> priority: 1 
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.654527 ms
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1179.
+Total: 0.569111 ms (FindLiveObjects: 0.057275 ms CreateObjectMapping: 0.043701 ms MarkObjects: 0.453898 ms  DeleteObjects: 0.011918 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.127627 ms
+
+Unloading 68 unused Assets to reduce memory usage. Loaded Objects now: 2807.
+Total: 6.146664 ms (FindLiveObjects: 0.146664 ms CreateObjectMapping: 0.082436 ms MarkObjects: 1.529879 ms  DeleteObjects: 4.387022 ms)
+
+Initialize engine version: 5.5.1f1 (88d00a7498cd)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: AMD Radeon R9 200 / HD 7900 Series (ID=0x6798)
+    Vendor:   ATI
+    VRAM:     3051 MB
+    Driver:   15.201.1151.1010
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\SonicBloom.Koreo.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\SonicBloom.Koreo.dll into Unity Child Domain
+- Completed reload, in  0.026 seconds
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.75_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.061413 ms
+[InControl] Joystick 3: "vJoy - Virtual Joystick"
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 5da8 -> priority: 1 
+  Thread -> id: 66a8 -> priority: 1 
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.821718 ms
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1179.
+Total: 0.563151 ms (FindLiveObjects: 0.058599 ms CreateObjectMapping: 0.030458 ms MarkObjects: 0.461512 ms  DeleteObjects: 0.011256 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.704188 ms
+
+Unloading 68 unused Assets to reduce memory usage. Loaded Objects now: 2764.
+Total: 6.402913 ms (FindLiveObjects: 0.161893 ms CreateObjectMapping: 0.087402 ms MarkObjects: 1.684158 ms  DeleteObjects: 4.468796 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.493461 ms
+
+Unloading 913 unused Assets to reduce memory usage. Loaded Objects now: 866.
+Total: 8.048336 ms (FindLiveObjects: 0.229432 ms CreateObjectMapping: 0.134745 ms MarkObjects: 0.920377 ms  DeleteObjects: 6.762456 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.466810 ms
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 1226.
+Total: 0.561827 ms (FindLiveObjects: 0.074159 ms CreateObjectMapping: 0.068862 ms MarkObjects: 0.408210 ms  DeleteObjects: 0.009601 ms)
+

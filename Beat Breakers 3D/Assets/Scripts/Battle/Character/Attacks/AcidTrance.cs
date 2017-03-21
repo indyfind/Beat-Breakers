@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public class AcidTrance : MonoBehaviour
 {
 	public int damage = 100;
-	public int meterCost = 0;
+	private int meterCost = 25;
+	private int tempDamage;
 
     private GameObject grid;
     private GameObject enemy;
@@ -33,8 +34,13 @@ public class AcidTrance : MonoBehaviour
 		//play sound effect
         this.GetComponent<CharacterSound>().PlaySound("ranged");
 
-        // subtract meter cost
-        this.GetComponent<VanillaCharacter>().meter -= meterCost;
+		if (GetComponent<VanillaCharacter>().meter >= meterCost) {
+			tempDamage = damage;
+			// subtract meter cost
+        	this.GetComponent<VanillaCharacter>().meter -= meterCost;
+		} else {
+			tempDamage = 25;
+		}
 
         //get character positions
         Vector2 currentpos = GetComponent<CharacterMover>().getposition();
@@ -62,19 +68,19 @@ public class AcidTrance : MonoBehaviour
         	{
 				if (enemypos.x >= currentpos.x - 1 && enemypos.x <= currentpos.x + 1)
             	{
-					enemy.GetComponent<VanillaCharacter>().TakeDamage(damage, false, 1);
+					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, 1);
 				} else if (enemypos.x == currentpos.x - 2 || enemypos.x == currentpos.x + 2) {
-					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(damage * 0.8f));
+					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(tempDamage * 0.8f));
 				}
 			} else if (enemypos.y == currentpos.y - 3) {
 				if (enemypos.x == currentpos.x) {
-					enemy.GetComponent<VanillaCharacter>().TakeDamage(damage, false, 1);
+					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, 1);
 				} else if (enemypos.x == currentpos.x - 1 || enemypos.x == currentpos.x + 1) {
-					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(damage * 0.8f));
+					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(tempDamage * 0.8f));
 				}
 			} else if (enemypos.y == currentpos.y - 2) {
 				if (enemypos.x == currentpos.x) {
-					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(damage * 0.8f));
+					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(tempDamage * 0.8f));
 				}
 			}
 		} else if (direction == "down") {
@@ -82,19 +88,19 @@ public class AcidTrance : MonoBehaviour
 			{
 				if (enemypos.x >= currentpos.x - 1 && enemypos.x <= currentpos.x + 1)
 				{
-					enemy.GetComponent<VanillaCharacter>().TakeDamage(damage, false, 1);
+					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, 1);
 				} else if (enemypos.x == currentpos.x - 2 || enemypos.x == currentpos.x + 2) {
-					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(damage * 0.8f));
+					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(tempDamage * 0.8f));
 				}
 			} else if (enemypos.y == currentpos.y + 3) {
 				if (enemypos.x == currentpos.x) {
 					enemy.GetComponent<VanillaCharacter>().TakeDamage(damage, false, 1);
 				} else if (enemypos.x == currentpos.x - 1 || enemypos.x == currentpos.x + 1) {
-					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(damage * 0.8f));
+					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(tempDamage * 0.8f));
 				}
 			} else if (enemypos.y == currentpos.y + 2) {
 				if (enemypos.x == currentpos.x) {
-					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(damage * 0.8f));
+					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(tempDamage * 0.8f));
 				}
 			}
 		} else if (direction == "right") {
@@ -102,19 +108,19 @@ public class AcidTrance : MonoBehaviour
 			{
 				if (enemypos.y >= currentpos.y - 1 && enemypos.y <= currentpos.y + 1)
 				{
-					enemy.GetComponent<VanillaCharacter>().TakeDamage(damage, false, 1);
+					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, 1);
 				} else if (enemypos.y == currentpos.y - 2 || enemypos.y == currentpos.y + 2) {
-					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(damage * 0.8f));
+					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(tempDamage * 0.8f));
 				}
 			} else if (enemypos.x == currentpos.x + 3) {
 				if (enemypos.y == currentpos.y) {
-					enemy.GetComponent<VanillaCharacter>().TakeDamage(damage, false, 1);
+					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, 1);
 				} else if (enemypos.y == currentpos.y - 1 || enemypos.y == currentpos.y + 1) {
-					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(damage * 0.8f));
+					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(tempDamage * 0.8f));
 				}
 			} else if (enemypos.x == currentpos.x + 2) {
 				if (enemypos.y == currentpos.y) {
-					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(damage * 0.8f));
+					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(tempDamage * 0.8f));
 				}
 			}
 		} else if (direction == "left") {
@@ -122,19 +128,19 @@ public class AcidTrance : MonoBehaviour
 			{
 				if (enemypos.y >= currentpos.y - 1 && enemypos.y <= currentpos.y + 1)
 				{
-					enemy.GetComponent<VanillaCharacter>().TakeDamage(damage, false, 1);
+					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, 1);
 				} else if (enemypos.y == currentpos.y - 2 || enemypos.y == currentpos.y + 2) {
-					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(damage * 0.8f));
+					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(tempDamage * 0.8f));
 				}
 			} else if (enemypos.x == currentpos.x - 3) {
 				if (enemypos.y == currentpos.y) {
-					enemy.GetComponent<VanillaCharacter>().TakeDamage(damage, false, 1);
+					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, 1);
 				} else if (enemypos.y == currentpos.y - 1 || enemypos.y == currentpos.y + 1) {
-					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(damage * 0.8f));
+					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(tempDamage * 0.8f));
 				}
 			} else if (enemypos.x == currentpos.x - 2) {
 				if (enemypos.y == currentpos.y) {
-					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(damage * 0.8f));
+					enemy.GetComponent<VanillaCharacter>().TakeDamage((int)(tempDamage * 0.8f));
 				}
 			}
 		}

@@ -138,11 +138,11 @@ public class VanillaCharacter : MonoBehaviour {
 
         //set move costs
         if (character == "Eva") {
-			meleeMeterCost = GetComponent<SixStep>().meterCost;
-			rangedMeterCost = GetComponent<HeadSlide>().meterCost;
+			//meleeMeterCost = GetComponent<SixStep>().meterCost;
+			//rangedMeterCost = GetComponent<HeadSlide>().meterCost;
 		} else if (character == "Naz") {
-			meleeMeterCost = GetComponent<Shimmy>().meterCost;
-			rangedMeterCost = GetComponent<AcidTrance>().meterCost;
+			//meleeMeterCost = GetComponent<Shimmy>().meterCost;
+			//rangedMeterCost = GetComponent<AcidTrance>().meterCost;
 		}
 
 		//set form
@@ -176,8 +176,8 @@ public class VanillaCharacter : MonoBehaviour {
 
         //update HUD to reflect current health/meter/round wins
 		healthSlider.fillAmount = health/1000f;
-        if (meter > 100) {
-            meter = 100;
+        if (meter > 115) {
+            meter = 115;
 		} else if (meter < 0) {
 			meter = 0;
 		}
@@ -483,7 +483,7 @@ public class VanillaCharacter : MonoBehaviour {
 		//Melee attack
 		if ((device.LeftBumper.WasPressed)) // || device.LeftTrigger.WasPressed)) // && (meter >= meleeMeterCost)) // && onb && !onCoolDown
 		{
-			if (meter >= meleeMeterCost) {
+			if (true) { //meter >= meleeMeterCost) {
 				currentAction = "melee";
 				rhythmRating = rating;
 			} else {
@@ -494,7 +494,7 @@ public class VanillaCharacter : MonoBehaviour {
 		//Ranged attack
 		if ((device.RightBumper.WasPressed)) // || device.RightTrigger.WasPressed)) // && (meter >= rangedMeterCost)) { // && !onCoolDown
 		{
-			if (meter >= rangedMeterCost) {
+			if (true) { //meter >= rangedMeterCost) {
 				currentAction = "ranged";
 				rhythmRating = rating;
 			} else {

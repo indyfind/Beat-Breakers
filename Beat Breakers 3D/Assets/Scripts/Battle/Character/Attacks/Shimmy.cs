@@ -6,7 +6,8 @@ using InControl;
 public class Shimmy : MonoBehaviour
 {
 	public int damage = 100;
-	public int meterCost = 0;
+	private int meterCost = 25;
+	private int tempDamage;
 
     private GameObject grid;
     private GameObject enemy;
@@ -34,8 +35,13 @@ public class Shimmy : MonoBehaviour
 		//play sound effect
         this.GetComponent<CharacterSound>().PlaySound("melee");
 
-        // subtract meter cost
-        this.GetComponent<VanillaCharacter>().meter -= meterCost;
+		if (GetComponent<VanillaCharacter>().meter >= meterCost) {
+			tempDamage = damage;
+			// subtract meter cost
+        	this.GetComponent<VanillaCharacter>().meter -= meterCost;
+		} else {
+			tempDamage = 25;
+		}
 
         //get character positions
         Vector2 currentpos = GetComponent<CharacterMover>().getposition();
@@ -63,7 +69,7 @@ public class Shimmy : MonoBehaviour
         	{
             	if (enemypos.y >= currentpos.y - 2 && enemypos.y <= currentpos.y)
             	{
-               		enemy.GetComponent<VanillaCharacter>().TakeDamage(damage);
+					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage);
             	}
         	}
 		} else if (direction == "down") {
@@ -71,7 +77,7 @@ public class Shimmy : MonoBehaviour
 			{
 				if (enemypos.y <= currentpos.y + 2 && enemypos.y >= currentpos.y)
 				{
-					enemy.GetComponent<VanillaCharacter>().TakeDamage(damage);
+					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage);
 				}
 			}
 		} else if (direction == "right") {
@@ -79,7 +85,7 @@ public class Shimmy : MonoBehaviour
 			{
 				if (enemypos.x <= currentpos.x + 2 && enemypos.x >= currentpos.x)
 				{
-					enemy.GetComponent<VanillaCharacter>().TakeDamage(damage);
+					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage);
 				}
 			}
 		} else if (direction == "left") {
@@ -87,7 +93,7 @@ public class Shimmy : MonoBehaviour
 			{
 				if (enemypos.x >= currentpos.x - 2 && enemypos.x <= currentpos.x)
 				{
-					enemy.GetComponent<VanillaCharacter>().TakeDamage(damage);
+					enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage);
 				}
 			}
 		}
