@@ -6,7 +6,8 @@ using InControl;
 public class HeadSlide : MonoBehaviour
 {
 	public int damage = 100;
-	public int meterCost = 0;
+	private int meterCost = 25;
+	private int tempDamage;
 
 	private GameObject grid;
 	private GameObject enemy;
@@ -31,8 +32,13 @@ public class HeadSlide : MonoBehaviour
 		//play sound
 		this.GetComponent<CharacterSound>().PlaySound("ranged");
 
-		//subtract meter cost
-		this.GetComponent<VanillaCharacter>().meter -= meterCost;
+		if (GetComponent<VanillaCharacter>().meter >= meterCost) {
+			//subtract meter cost
+			this.GetComponent<VanillaCharacter>().meter -= meterCost;
+			tempDamage = damage;
+		} else {
+			tempDamage = 25;
+		}
 
 		//show hitbox
 		attackHitbox.SetActive(true);
@@ -151,7 +157,7 @@ public class HeadSlide : MonoBehaviour
 
 		if (hit)
 		{
-			enemy.GetComponent<VanillaCharacter>().TakeDamage(damage, false, 1); //, false, 1);
+			enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage, false, 1); //, false, 1);
 			//enemy.GetComponent<CharacterMover>().setposition((int)enemyDest.x, (int)enemyDest.y);
 		}
 	} 

@@ -6,7 +6,8 @@ using InControl;
 public class SixStep : MonoBehaviour
 {
 	public int damage = 100;
-	public int meterCost = 0;
+	private int meterCost = 25;
+	private int tempDamage;
 
     private GameObject grid;
     private GameObject enemy;
@@ -32,8 +33,13 @@ public class SixStep : MonoBehaviour
 		//play sound effect
         this.GetComponent<CharacterSound>().PlaySound("melee");
 
-        // subtract meter cost
-        this.GetComponent<VanillaCharacter>().meter -= meterCost;
+		if (GetComponent<VanillaCharacter>().meter >= meterCost) {
+			tempDamage = damage;
+			// subtract meter cost
+        	this.GetComponent<VanillaCharacter>().meter -= meterCost;
+		} else {
+			tempDamage = 25;
+		}
 
         //get character positions
         Vector2 currentpos = GetComponent<CharacterMover>().getposition();
@@ -48,7 +54,7 @@ public class SixStep : MonoBehaviour
 
             if (enemypos.y == currentpos.y || enemypos.y == currentpos.y + 1 || enemypos.y == currentpos.y - 1)
             {
-                enemy.GetComponent<VanillaCharacter>().TakeDamage(damage);
+				enemy.GetComponent<VanillaCharacter>().TakeDamage(tempDamage);
             }
 
         }
