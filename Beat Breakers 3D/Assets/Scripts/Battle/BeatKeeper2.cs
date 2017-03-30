@@ -70,7 +70,7 @@ public class BeatKeeper2 : MonoBehaviour {
 		//set grid colors
 		foreach (GameObject space in evenSpaces)
 		{
-			space.GetComponent<MeshRenderer> ().material.color = gridColor2;
+			space.GetComponent<MeshRenderer>().material.color = gridColor2;
 		}
 		foreach (GameObject space in oddSpaces)
 		{
