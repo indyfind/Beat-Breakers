@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Lantern
+  m_Shader: {fileID: 4800000, guid: 817eb535dd3fc45ae8672e288192b963, type: 3}
+  m_ShaderKeywords: _EMISSION
+  m_LightmapFlags: 1
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _Cube
+      second:
+        m_Texture: {fileID: 8900000, guid: 18875fff773234f45a9102aaaccee8f6, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _GridTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 12fd284d485644bc4b26ee32ec9efd78, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 8ef3fa65c854a424fa7bb2df6b63cbe5, type: 3}
+        m_Scale: {x: 100, y: 100}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _CellSize
+      second: 12.1
+    - first:
+        name: _EmissionGain
+      second: 0.1
+    - first:
+        name: _LineWidth
+      second: 0.082
+    - first:
+        name: _ParcelSize
+      second: 1
+    - first:
+        name: _Specular
+      second: 1
+    - first:
+        name: _UseSpecular
+      second: 0
+    m_Colors:
+    - first:
+        name: _EmissionColor
+      second: {r: 0.9108761, g: 0.92549026, b: 0.6606086, a: 1}
+    - first:
+        name: _LineColor
+      second: {r: 0.17030708, g: 0.9264706, b: 0.8013124, a: 1}
+    - first:
+        name: _MainColor
+      second: {r: 0.31196758, g: 0.049956758, b: 0.61764705, a: 1}
+    - first:
+        name: _ShadowColor
+      second: {r: 0, g: 0, b: 0, a: 1}

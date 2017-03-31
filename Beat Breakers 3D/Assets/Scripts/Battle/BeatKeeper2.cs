@@ -13,6 +13,7 @@ public class BeatKeeper2 : MonoBehaviour {
 	private bool onBeat;
 	private bool beatHappened;
 	public GameObject gridModel;
+	public GameObject hud;
 	private GameObject battleMaster;
 	private GameObject[] blocks;
 	private GameObject[] evenSpaces;
@@ -70,7 +71,7 @@ public class BeatKeeper2 : MonoBehaviour {
 		//set grid colors
 		foreach (GameObject space in evenSpaces)
 		{
-			space.GetComponent<MeshRenderer> ().material.color = gridColor2;
+			space.GetComponent<MeshRenderer>().material.color = gridColor2;
 		}
 		foreach (GameObject space in oddSpaces)
 		{
@@ -147,6 +148,7 @@ public class BeatKeeper2 : MonoBehaviour {
             {
                 battleMaster.GetComponent<SoundPlayer>().PlaySound("Countdown", true);
                 //Debug.Log("play countdown sound");
+				hud.GetComponent<Canvas>().enabled = true;
             }
 			UIText.text = countdown.ToString ();
 			foreach (GameObject block in blocks) {

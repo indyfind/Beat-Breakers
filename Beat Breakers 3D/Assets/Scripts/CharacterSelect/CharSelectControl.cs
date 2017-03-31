@@ -203,8 +203,13 @@ public class CharSelectControl: MonoBehaviour {
             charPicks.GetComponent<CharPicks>().p1char = p1char;
             charPicks.GetComponent<CharPicks>().p2char = p2char;
             Destroy(menuSong);
-            SceneManager.LoadScene(1);
+			StartCoroutine(LoadBattle());
         }
+	}
+
+	IEnumerator LoadBattle(){
+		yield return new WaitForSeconds(1);
+		SceneManager.LoadScene(1);
 	}
 
     /*

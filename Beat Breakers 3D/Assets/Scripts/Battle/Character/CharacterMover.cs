@@ -221,5 +221,6 @@ public class CharacterMover : MonoBehaviour {
 		playerModel.SetActive(false);
 		yield return new WaitForSeconds(1f);
 		playerModel.SetActive(true);
+		playerModel.GetComponent<Animator>().SetBool("gameStart", true);
 	}
 }
