@@ -23,36 +23,60 @@ Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.76
 Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.76_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
 Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.76_Data\Managed\SonicBloom.Koreo.dll (this message is harmless)
 Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.76_Data\Managed\SonicBloom.Koreo.dll into Unity Child Domain
-- Completed reload, in  0.153 seconds
+- Completed reload, in  0.062 seconds
 Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.76_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.76_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.212382 ms
+UnloadTime: 1.234234 ms
 [InControl] Joystick 3: "vJoy - Virtual Joystick"
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: cf584 -> priority: 1 
-  Thread -> id: cf474 -> priority: 1 
+  Thread -> id: 30014 -> priority: 1 
+  Thread -> id: 2fee4 -> priority: 1 
 Unloading 8 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.014732 ms
+UnloadTime: 3.595106 ms
 
 Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 1262.
-Total: 1.083595 ms (FindLiveObjects: 0.057275 ms CreateObjectMapping: 0.044363 ms MarkObjects: 0.808475 ms  DeleteObjects: 0.017546 ms)
+Total: 0.838935 ms (FindLiveObjects: 0.086409 ms CreateObjectMapping: 0.067869 ms MarkObjects: 0.655852 ms  DeleteObjects: 0.027810 ms)
 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.092865 ms
+UnloadTime: 0.790598 ms
 
-Unloading 76 unused Assets to reduce memory usage. Loaded Objects now: 2957.
-Total: 7.289521 ms (FindLiveObjects: 0.148650 ms CreateObjectMapping: 0.093693 ms MarkObjects: 1.920874 ms  DeleteObjects: 5.124979 ms)
+Unloading 76 unused Assets to reduce memory usage. Loaded Objects now: 3060.
+Total: 8.375448 ms (FindLiveObjects: 0.302930 ms CreateObjectMapping: 0.093362 ms MarkObjects: 1.902999 ms  DeleteObjects: 6.075163 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at CharacterMover+<FallOff>c__Iterator2.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Can not play a disabled audio source
+ 
+(Filename:  Line: 437)
+
+Can not play a disabled audio source
+ 
+(Filename:  Line: 437)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.992555 ms
+
+Unloading 65 unused Assets to reduce memory usage. Loaded Objects now: 3099.
+Total: 3.710650 ms (FindLiveObjects: 0.211223 ms CreateObjectMapping: 0.131766 ms MarkObjects: 2.419139 ms  DeleteObjects: 0.944547 ms)
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.089389 ms
+UnloadTime: 1.676877 ms
 
-Unloading 943 unused Assets to reduce memory usage. Loaded Objects now: 939.
-Total: 4.881973 ms (FindLiveObjects: 0.091706 ms CreateObjectMapping: 0.062241 ms MarkObjects: 0.462175 ms  DeleteObjects: 4.264194 ms)
+Unloading 957 unused Assets to reduce memory usage. Loaded Objects now: 942.
+Total: 5.449106 ms (FindLiveObjects: 0.205926 ms CreateObjectMapping: 0.063896 ms MarkObjects: 0.462838 ms  DeleteObjects: 4.715452 ms)
 
