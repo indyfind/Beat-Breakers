@@ -74,7 +74,7 @@ public class CharSelectControl: MonoBehaviour {
             charText.text = "Naz";
         } else if (temp % 360f == 90f)
         {
-            charText.text = "?";
+            charText.text = "Cosmic S";
         }
         else if (temp % 360f == 135f)
         {
@@ -157,6 +157,14 @@ public class CharSelectControl: MonoBehaviour {
                     p1coin.SetActive(false);
                     p2coin.SetActive(true);
                     soundPlayer.GetComponent<SoundPlayer>().PlaySound("Naz", true);
+				}
+				else if (rotation % 360f == 90f)
+				{
+					p1char = "CosmicS";
+					p1picked = true;
+					p1coin.SetActive(false);
+					p2coin.SetActive(true);
+					//soundPlayer.GetComponent<SoundPlayer>().PlaySound("Naz", true);
 				} else {
 					soundPlayer.GetComponent<SoundPlayer>().PlaySound("No");
 				}
@@ -194,6 +202,12 @@ public class CharSelectControl: MonoBehaviour {
                     p2char = "Naz";
                     p2picked = true;
                     soundPlayer.GetComponent<SoundPlayer>().PlaySound("Naz", true);
+				}
+				else if (rotation % 360f == 90f)
+				{
+					p2char = "CosmicS";
+					p2picked = true;
+					//soundPlayer.GetComponent<SoundPlayer>().PlaySound("Naz", true);
 				} else {
 					soundPlayer.GetComponent<SoundPlayer>().PlaySound("No", true);
 				}

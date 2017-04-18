@@ -238,6 +238,8 @@ public class DoPlayerActions : MonoBehaviour {
 						player1.GetComponent<SixStep>().Attack();
 					} else if (char1 == "Naz") {
 						player1.GetComponent<Shimmy>().Attack();
+					} else if (char1 == "CosmicS") {
+						player1.GetComponent<Xshape>().Attack();
 					}
 					battleMaster.GetComponent<BattleStats>().MeleeAttackP1 += 1;
                     break;
@@ -276,6 +278,8 @@ public class DoPlayerActions : MonoBehaviour {
 						player2.GetComponent<SixStep>().Attack();
 					} else if (char2 == "Naz") {
 						player2.GetComponent<Shimmy>().Attack();
+					} else if (char1 == "CosmicS") {
+						player1.GetComponent<Xshape>().Attack();
 					}
 					battleMaster.GetComponent<BattleStats>().MeleeAttackP2 += 1;
                     break;
