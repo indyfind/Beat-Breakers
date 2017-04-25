@@ -114,7 +114,71 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 13
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: B_Boy_head:Mesh
+        weight: 1
+      - path: B_Boy_Hood:Mesh
+        weight: 1
+      - path: B_Boy_Jacket:Mesh
+        weight: 1
+      - path: B_Boy_JacketTie:Mesh
+        weight: 1
+      - path: B_Boy_leftBicep:Mesh
+        weight: 1
+      - path: B_Boy_LeftCalf:Mesh
+        weight: 1
+      - path: B_Boy_LeftFoot:Mesh
+        weight: 1
+      - path: B_Boy_leftForearm:Mesh
+        weight: 1
+      - path: B_Boy_LeftThigh:Mesh
+        weight: 1
+      - path: B_Boy_neck:Mesh
+        weight: 1
+      - path: B_Boy_rightBicep:Mesh
+        weight: 1
+      - path: B_Boy_RightCalf:Mesh
+        weight: 1
+      - path: B_Boy_RightFoot:Mesh
+        weight: 1
+      - path: B_Boy_rightForearm:Mesh
+        weight: 1
+      - path: B_Boy_RightThigh:Mesh
+        weight: 1
+      - path: B_Boy_torso:Mesh
+        weight: 1
+      - path: B_Boy_Waist:Mesh
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

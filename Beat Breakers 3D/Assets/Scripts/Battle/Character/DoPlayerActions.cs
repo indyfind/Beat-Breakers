@@ -278,8 +278,8 @@ public class DoPlayerActions : MonoBehaviour {
 						player2.GetComponent<SixStep>().Attack();
 					} else if (char2 == "Naz") {
 						player2.GetComponent<Shimmy>().Attack();
-					} else if (char1 == "CosmicS") {
-						player1.GetComponent<Xshape>().Attack();
+					} else if (char2 == "CosmicS") {
+						player2.GetComponent<Xshape>().Attack();
 					}
 					battleMaster.GetComponent<BattleStats>().MeleeAttackP2 += 1;
                     break;
