@@ -10,6 +10,7 @@ public class CharSelectControl: MonoBehaviour {
 
     public GameObject EvaModel;
     public GameObject NazModel;
+	public GameObject CosmicModel;
 
     private Quaternion targetRotation;
     private float rotation = 0f;
@@ -53,6 +54,7 @@ public class CharSelectControl: MonoBehaviour {
         //start idle animations
         EvaModel.GetComponent<Animator>().SetBool("gameStart", true);
         NazModel.GetComponent<Animator>().SetBool("gameStart", true);
+		CosmicModel.GetComponent<Animator>().SetBool("gameStart", true);
 
         soundPlayer.GetComponent<SoundPlayer>().PlaySound("ChooseYourCharacter");
     }
