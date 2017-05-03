@@ -204,6 +204,8 @@ public class DoPlayerActions : MonoBehaviour {
 						player1.GetComponent<HeadSlide>().Attack();
 					} else if (char1 == "Naz") {
 						player1.GetComponent<AcidTrance>().Attack();
+					} else if (char1 == "CosmicS") {
+						player1.GetComponent<ATR>().Attack();
 					}
 					battleMaster.GetComponent<BattleStats>().RangedAttackP1 += 1;
 					break;
@@ -221,6 +223,8 @@ public class DoPlayerActions : MonoBehaviour {
 						player2.GetComponent<HeadSlide>().Attack();
 					} else if (char2 == "Naz") {
 						player2.GetComponent<AcidTrance>().Attack();
+					} else if (char2 == "CosmicS") {
+						player2.GetComponent<ATR>().Attack();
 					}
 					battleMaster.GetComponent<BattleStats>().RangedAttackP2 += 1;
 					break;	

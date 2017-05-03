@@ -18,6 +18,7 @@ public class BeatKeeper2 : MonoBehaviour {
 	private GameObject[] blocks;
 	private GameObject[] evenSpaces;
 	private GameObject[] oddSpaces;
+	private GameObject[] projectiles;
 	private Color gridColor1;
 	private Color gridColor2;
 	private Color gridColor3;
@@ -139,6 +140,13 @@ public class BeatKeeper2 : MonoBehaviour {
 			}
 			if (char2script.health <= 100) {
 				p2HPBar.GetComponent<ColorPulse>().Pulse();
+			}
+			//find & move projectiles
+			projectiles = GameObject.FindGameObjectsWithTag ("Projectile");
+			foreach (GameObject projectile in projectiles)
+			{
+				//Debug.Log("move projectile");
+				projectile.GetComponent<Projectile>().MoveProjectile();
 			}
 		}
 
