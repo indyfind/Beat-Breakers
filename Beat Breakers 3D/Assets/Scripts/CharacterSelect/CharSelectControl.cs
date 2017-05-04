@@ -12,6 +12,8 @@ public class CharSelectControl: MonoBehaviour {
     public GameObject NazModel;
 	public GameObject CosmicModel;
 	public GameObject JameleonModel;
+	public PlayerKeyboardActions player1KeyboardActions;
+	public PlayerKeyboardActions player2KeyboardActions;
 
     private Quaternion targetRotation;
     private float rotation = 0f;
@@ -26,6 +28,7 @@ public class CharSelectControl: MonoBehaviour {
 
     private bool p1picked = false;
     private bool p2picked = false;
+	private bool controllerIsSet = false;
 
     public string p1char = "";
     public string p2char = "";
@@ -47,8 +50,6 @@ public class CharSelectControl: MonoBehaviour {
 
         //assign controllers
         inputMaster = GameObject.FindGameObjectWithTag("InputMaster");
-        device1 = inputMaster.GetComponent<InputMaster>().player1Controller;
-        device2 = inputMaster.GetComponent<InputMaster>().player2Controller;
 
         //startTime = Time.time;
 
@@ -64,6 +65,14 @@ public class CharSelectControl: MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+		if (inputMaster.GetComponent<InputMaster>().controllersSet && !controllerIsSet) {
+			SetControllers();
+		}
+
+		
+
+		
+
         //display char name
         float temp = rotation;
         while (temp < 0f)
@@ -103,29 +112,10 @@ public class CharSelectControl: MonoBehaviour {
 
         //rotate wheel
         wheel.transform.rotation = Quaternion.Lerp(wheel.transform.rotation, targetRotation, Time.deltaTime * speed);
-
-        //t = (Time.time - startTime) / 5f;
-        /*
-        t = Time.deltaTime * 10f;
-
-        if (wheel.transform.rotation != targetRotation)
-        {
-            wheel.transform.eulerAngles = new Vector3(0f, Mathf.SmoothStep(wheel.transform.eulerAngles.y, rotation, t), 0f);
-            //wheel.transform.rotation = Quaternion.Euler(new Vector3(0f, Mathf.SmoothStep(wheel.transform.rotation.eulerAngles.y, 360f, t), 0f
-        } else
-        { 
-            if (rotation == 360f)
-            {
-                rotation = 0f;
-                wheel.transform.eulerAngles = new Vector3(0f, rotation, 0f);
-            }
-        }
-        Debug.Log("rotation" + rotation);
-        Debug.Log("y" + wheel.transform.eulerAngles.y);
-        */
+		if (controllerIsSet) {
         if (!p1picked)
         {
-            if (device1.LeftStickLeft.WasPressed || device1.DPadLeft.WasPressed)
+			if (device1.LeftStickLeft.WasPressed || device1.DPadLeft.WasPressed || player1KeyboardActions.Left.WasPressed)
             {
                 //wheel.transform.Rotate(new Vector3(0f, -45f, 0f));
                 rotation = (rotation - 45f);
@@ -138,13 +128,13 @@ public class CharSelectControl: MonoBehaviour {
                 */
                 targetRotation = Quaternion.Euler(new Vector3(0f, rotation, 0f));
             }
-            else if (device1.LeftStickRight.WasPressed || device1.DPadRight.WasPressed)
+            else if (device1.LeftStickRight.WasPressed || device1.DPadRight.WasPressed || player1KeyboardActions.Right.WasPressed)
             {
                 //wheel.transform.Rotate(new Vector3(0f, 45f, 0f
                 rotation = (rotation + 45f);
                 targetRotation = Quaternion.Euler(new Vector3(0f, rotation, 0f));
             }
-            if (device1.Action1.WasPressed)
+            if (device1.Action1.WasPressed || player1KeyboardActions.Select.WasPressed)
             {
                 if (rotation%360f == 0f)
                 {
@@ -181,7 +171,7 @@ public class CharSelectControl: MonoBehaviour {
             }
         } else if (!p2picked)
         {
-            if (device2.LeftStickLeft.WasPressed || device2.DPadLeft.WasPressed)
+            if (device2.LeftStickLeft.WasPressed || device2.DPadLeft.WasPressed || player2KeyboardActions.Left.WasPressed)
             {
                 //wheel.transform.Rotate(new Vector3(0f, -45f, 0f));
                 rotation = (rotation - 45f);
@@ -194,13 +184,13 @@ public class CharSelectControl: MonoBehaviour {
                 */
                 targetRotation = Quaternion.Euler(new Vector3(0f, rotation, 0f));
             }
-            else if (device2.LeftStickRight.WasPressed || device2.DPadRight.WasPressed)
+			else if (device2.LeftStickRight.WasPressed || device2.DPadRight.WasPressed || player2KeyboardActions.Right.WasPressed)
             {
                 //wheel.transform.Rotate(new Vector3(0f, 45f, 0f
                 rotation = (rotation + 45f);
                 targetRotation = Quaternion.Euler(new Vector3(0f, rotation, 0f));
             }
-            if (device2.Action1.WasPressed)
+            if (device2.Action1.WasPressed || player2KeyboardActions.Select.WasPressed)
             {
                 if (rotation % 360f == 0f)
                 {
@@ -235,6 +225,35 @@ public class CharSelectControl: MonoBehaviour {
             Destroy(menuSong);
 			StartCoroutine(LoadBattle());
         }
+
+	}
+	}
+
+	private void SetControllers(){
+		
+		if (inputMaster.GetComponent<InputMaster>().player1keyboard)
+		{
+			device1 = new InputDevice();
+			player1KeyboardActions = inputMaster.GetComponent<InputMaster>().getP1Actions();
+		}
+		else
+		{
+			player1KeyboardActions = new PlayerKeyboardActions();
+			device1 = inputMaster.GetComponent<InputMaster>().player1Controller;
+		}
+		if (inputMaster.GetComponent<InputMaster>().player2keyboard)
+		{
+			device2 = new InputDevice();
+			player2KeyboardActions = inputMaster.GetComponent<InputMaster>().getP2Actions();
+		}
+		else
+		{
+			device2 = inputMaster.GetComponent<InputMaster>().player2Controller;
+			player2KeyboardActions = new PlayerKeyboardActions();
+		}
+
+
+		controllerIsSet = true;
 	}
 
 	IEnumerator LoadBattle(){
