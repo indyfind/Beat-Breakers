@@ -206,6 +206,8 @@ public class DoPlayerActions : MonoBehaviour {
 						player1.GetComponent<AcidTrance>().Attack();
 					} else if (char1 == "CosmicS") {
 						player1.GetComponent<ATR>().Attack();
+					} else if (char1 == "Jameleon") {
+						player1.GetComponent<TonguePull>().Attack();
 					}
 					battleMaster.GetComponent<BattleStats>().RangedAttackP1 += 1;
 					break;
@@ -225,6 +227,8 @@ public class DoPlayerActions : MonoBehaviour {
 						player2.GetComponent<AcidTrance>().Attack();
 					} else if (char2 == "CosmicS") {
 						player2.GetComponent<ATR>().Attack();
+					} else if (char2 == "Jameleon") {
+						player2.GetComponent<TonguePull>().Attack();
 					}
 					battleMaster.GetComponent<BattleStats>().RangedAttackP2 += 1;
 					break;	
@@ -244,6 +248,8 @@ public class DoPlayerActions : MonoBehaviour {
 						player1.GetComponent<Shimmy>().Attack();
 					} else if (char1 == "CosmicS") {
 						player1.GetComponent<Xshape>().Attack();
+					} else if (char1 == "Jameleon") {
+						player1.GetComponent<Jamelee>().Attack();
 					}
 					battleMaster.GetComponent<BattleStats>().MeleeAttackP1 += 1;
                     break;
@@ -284,6 +290,8 @@ public class DoPlayerActions : MonoBehaviour {
 						player2.GetComponent<Shimmy>().Attack();
 					} else if (char2 == "CosmicS") {
 						player2.GetComponent<Xshape>().Attack();
+					} else if (char2 == "Jameleon") {
+						player2.GetComponent<Jamelee>().Attack();
 					}
 					battleMaster.GetComponent<BattleStats>().MeleeAttackP2 += 1;
                     break;

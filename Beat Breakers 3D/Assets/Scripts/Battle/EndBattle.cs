@@ -109,7 +109,7 @@ public class EndBattle : MonoBehaviour {
 			UIText.text = "Round Over!";
 			this.GetComponent<SoundPlayer>().PlaySound("RoundOver");
 		}
-		Debug.Log(round);
+		//Debug.Log(round);
 
 		yield return new WaitForSeconds (2f);
 

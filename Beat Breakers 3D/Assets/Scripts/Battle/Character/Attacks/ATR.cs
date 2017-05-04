@@ -55,8 +55,8 @@ public class ATR : MonoBehaviour
 	{
 		int xpos = (int)GetComponent<CharacterMover>().getposition().x;
 		int ypos = (int)GetComponent<CharacterMover>().getposition().y;
-		Debug.Log(xpos);
-		Debug.Log(ypos);
+		//Debug.Log(xpos);
+		//Debug.Log(ypos);
 
 		if (xpos-1 >= 0) {
 		GameObject projectileLeft = Instantiate(projectilePrefab, 

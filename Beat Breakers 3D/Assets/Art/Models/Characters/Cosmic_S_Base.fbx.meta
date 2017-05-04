@@ -1,0 +1,163 @@
+fileFormatVersion: 2
+guid: f4df45def50fa30419eda6aeedbb2baa
+timeCreated: 1493841003
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: B_Boy_head:Mesh
+    100002: B_Boy_Hood:Mesh
+    100004: B_Boy_Jacket:Mesh
+    100006: B_Boy_JacketTie:Mesh
+    100008: B_Boy_leftBicep:Mesh
+    100010: B_Boy_LeftCalf:Mesh
+    100012: B_Boy_LeftFoot:Mesh
+    100014: B_Boy_leftForearm:Mesh
+    100016: B_Boy_LeftThigh:Mesh
+    100018: B_Boy_neck:Mesh
+    100020: B_Boy_rightBicep:Mesh
+    100022: B_Boy_RightCalf:Mesh
+    100024: B_Boy_RightFoot:Mesh
+    100026: B_Boy_rightForearm:Mesh
+    100028: B_Boy_RightThigh:Mesh
+    100030: B_Boy_torso:Mesh
+    100032: B_Boy_Waist:Mesh
+    100034: //RootNode
+    400000: B_Boy_head:Mesh
+    400002: B_Boy_Hood:Mesh
+    400004: B_Boy_Jacket:Mesh
+    400006: B_Boy_JacketTie:Mesh
+    400008: B_Boy_leftBicep:Mesh
+    400010: B_Boy_LeftCalf:Mesh
+    400012: B_Boy_LeftFoot:Mesh
+    400014: B_Boy_leftForearm:Mesh
+    400016: B_Boy_LeftThigh:Mesh
+    400018: B_Boy_neck:Mesh
+    400020: B_Boy_rightBicep:Mesh
+    400022: B_Boy_RightCalf:Mesh
+    400024: B_Boy_RightFoot:Mesh
+    400026: B_Boy_rightForearm:Mesh
+    400028: B_Boy_RightThigh:Mesh
+    400030: B_Boy_torso:Mesh
+    400032: B_Boy_Waist:Mesh
+    400034: //RootNode
+    2300000: B_Boy_head:Mesh
+    2300002: B_Boy_Hood:Mesh
+    2300004: B_Boy_Jacket:Mesh
+    2300006: B_Boy_JacketTie:Mesh
+    2300008: B_Boy_leftBicep:Mesh
+    2300010: B_Boy_LeftCalf:Mesh
+    2300012: B_Boy_LeftFoot:Mesh
+    2300014: B_Boy_leftForearm:Mesh
+    2300016: B_Boy_LeftThigh:Mesh
+    2300018: B_Boy_neck:Mesh
+    2300020: B_Boy_rightBicep:Mesh
+    2300022: B_Boy_RightCalf:Mesh
+    2300024: B_Boy_RightFoot:Mesh
+    2300026: B_Boy_rightForearm:Mesh
+    2300028: B_Boy_RightThigh:Mesh
+    2300030: B_Boy_torso:Mesh
+    2300032: B_Boy_Waist:Mesh
+    3300000: B_Boy_head:Mesh
+    3300002: B_Boy_Hood:Mesh
+    3300004: B_Boy_Jacket:Mesh
+    3300006: B_Boy_JacketTie:Mesh
+    3300008: B_Boy_leftBicep:Mesh
+    3300010: B_Boy_LeftCalf:Mesh
+    3300012: B_Boy_LeftFoot:Mesh
+    3300014: B_Boy_leftForearm:Mesh
+    3300016: B_Boy_LeftThigh:Mesh
+    3300018: B_Boy_neck:Mesh
+    3300020: B_Boy_rightBicep:Mesh
+    3300022: B_Boy_RightCalf:Mesh
+    3300024: B_Boy_RightFoot:Mesh
+    3300026: B_Boy_rightForearm:Mesh
+    3300028: B_Boy_RightThigh:Mesh
+    3300030: B_Boy_torso:Mesh
+    3300032: B_Boy_Waist:Mesh
+    4300000: B_Boy_head:Mesh
+    4300002: B_Boy_Hood:Mesh
+    4300004: B_Boy_Jacket:Mesh
+    4300006: B_Boy_JacketTie:Mesh
+    4300008: B_Boy_leftBicep:Mesh
+    4300010: B_Boy_LeftCalf:Mesh
+    4300012: B_Boy_LeftFoot:Mesh
+    4300014: B_Boy_leftForearm:Mesh
+    4300016: B_Boy_LeftThigh:Mesh
+    4300018: B_Boy_neck:Mesh
+    4300020: B_Boy_rightBicep:Mesh
+    4300022: B_Boy_RightCalf:Mesh
+    4300024: B_Boy_RightFoot:Mesh
+    4300026: B_Boy_rightForearm:Mesh
+    4300028: B_Boy_RightThigh:Mesh
+    4300030: B_Boy_torso:Mesh
+    4300032: B_Boy_Waist:Mesh
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

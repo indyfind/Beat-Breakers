@@ -1,0 +1,319 @@
+fileFormatVersion: 2
+guid: 1d0d0977ab27a1940970b1114c43489b
+timeCreated: 1493841450
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Back_Tong
+    100002: Back_Tong1
+    100004: Back_Tong2
+    100006: Back_Tong3
+    100008: Back_Tong4
+    100010: Front_Tong
+    100012: Head
+    100014: //RootNode
+    100016: Left_arm_bottom
+    100018: Left_Arm_Top
+    100020: Left_Foot
+    100022: Left_Hand
+    100024: Left_Low_Leg
+    100026: left_mini_hand_bottom
+    100028: left_mini_hand_top
+    100030: Mouth
+    100032: Neck
+    100034: Right_Arm_Bottom
+    100036: Right_Arm_Top
+    100038: Right_Foot
+    100040: Right_Hand
+    100042: Right_Low_Leg
+    100044: Right_mini_hand_bottom
+    100046: Right_Mini_hand_top
+    100048: Tail_Bottom
+    100050: Tail_End
+    100052: Tail_middle
+    100054: Top_Left_Leg
+    100056: Top_Right_Leg
+    100058: Torso
+    100060: Waist
+    400000: Back_Tong
+    400002: Back_Tong1
+    400004: Back_Tong2
+    400006: Back_Tong3
+    400008: Back_Tong4
+    400010: Front_Tong
+    400012: Head
+    400014: //RootNode
+    400016: Left_arm_bottom
+    400018: Left_Arm_Top
+    400020: Left_Foot
+    400022: Left_Hand
+    400024: Left_Low_Leg
+    400026: left_mini_hand_bottom
+    400028: left_mini_hand_top
+    400030: Mouth
+    400032: Neck
+    400034: Right_Arm_Bottom
+    400036: Right_Arm_Top
+    400038: Right_Foot
+    400040: Right_Hand
+    400042: Right_Low_Leg
+    400044: Right_mini_hand_bottom
+    400046: Right_Mini_hand_top
+    400048: Tail_Bottom
+    400050: Tail_End
+    400052: Tail_middle
+    400054: Top_Left_Leg
+    400056: Top_Right_Leg
+    400058: Torso
+    400060: Waist
+    2300000: Back_Tong
+    2300002: Back_Tong1
+    2300004: Back_Tong2
+    2300006: Back_Tong3
+    2300008: Back_Tong4
+    2300010: Front_Tong
+    2300012: Head
+    2300014: Left_arm_bottom
+    2300016: Left_Arm_Top
+    2300018: Left_Foot
+    2300020: Left_Hand
+    2300022: Left_Low_Leg
+    2300024: left_mini_hand_bottom
+    2300026: left_mini_hand_top
+    2300028: Mouth
+    2300030: Neck
+    2300032: Right_Arm_Bottom
+    2300034: Right_Arm_Top
+    2300036: Right_Foot
+    2300038: Right_Hand
+    2300040: Right_Low_Leg
+    2300042: Right_mini_hand_bottom
+    2300044: Right_Mini_hand_top
+    2300046: Tail_Bottom
+    2300048: Tail_End
+    2300050: Tail_middle
+    2300052: Top_Left_Leg
+    2300054: Top_Right_Leg
+    2300056: Torso
+    2300058: Waist
+    3300000: Back_Tong
+    3300002: Back_Tong1
+    3300004: Back_Tong2
+    3300006: Back_Tong3
+    3300008: Back_Tong4
+    3300010: Front_Tong
+    3300012: Head
+    3300014: Left_arm_bottom
+    3300016: Left_Arm_Top
+    3300018: Left_Foot
+    3300020: Left_Hand
+    3300022: Left_Low_Leg
+    3300024: left_mini_hand_bottom
+    3300026: left_mini_hand_top
+    3300028: Mouth
+    3300030: Neck
+    3300032: Right_Arm_Bottom
+    3300034: Right_Arm_Top
+    3300036: Right_Foot
+    3300038: Right_Hand
+    3300040: Right_Low_Leg
+    3300042: Right_mini_hand_bottom
+    3300044: Right_Mini_hand_top
+    3300046: Tail_Bottom
+    3300048: Tail_End
+    3300050: Tail_middle
+    3300052: Top_Left_Leg
+    3300054: Top_Right_Leg
+    3300056: Torso
+    3300058: Waist
+    4300000: Head
+    4300002: Mouth
+    4300004: Right_mini_hand_bottom
+    4300006: left_mini_hand_bottom
+    4300008: Right_Mini_hand_top
+    4300010: left_mini_hand_top
+    4300012: Torso
+    4300014: Neck
+    4300016: Left_Arm_Top
+    4300018: Right_Arm_Top
+    4300020: Left_arm_bottom
+    4300022: Right_Arm_Bottom
+    4300024: Left_Hand
+    4300026: Right_Hand
+    4300028: Waist
+    4300030: Tail_Bottom
+    4300032: Tail_middle
+    4300034: Tail_End
+    4300036: Top_Left_Leg
+    4300038: Top_Right_Leg
+    4300040: Left_Low_Leg
+    4300042: Right_Low_Leg
+    4300044: Left_Foot
+    4300046: Right_Foot
+    4300048: Front_Tong
+    4300050: Back_Tong
+    4300052: Back_Tong1
+    4300054: Back_Tong2
+    4300056: Back_Tong3
+    4300058: Back_Tong4
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 13
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Back_Tong
+        weight: 1
+      - path: Back_Tong1
+        weight: 1
+      - path: Back_Tong2
+        weight: 1
+      - path: Back_Tong3
+        weight: 1
+      - path: Back_Tong4
+        weight: 1
+      - path: Front_Tong
+        weight: 1
+      - path: Head
+        weight: 1
+      - path: Left_arm_bottom
+        weight: 1
+      - path: Left_Arm_Top
+        weight: 1
+      - path: Left_Foot
+        weight: 1
+      - path: Left_Hand
+        weight: 1
+      - path: Left_Low_Leg
+        weight: 1
+      - path: left_mini_hand_bottom
+        weight: 1
+      - path: left_mini_hand_top
+        weight: 1
+      - path: Mouth
+        weight: 1
+      - path: Neck
+        weight: 1
+      - path: Right_Arm_Bottom
+        weight: 1
+      - path: Right_Arm_Top
+        weight: 1
+      - path: Right_Foot
+        weight: 1
+      - path: Right_Hand
+        weight: 1
+      - path: Right_Low_Leg
+        weight: 1
+      - path: Right_mini_hand_bottom
+        weight: 1
+      - path: Right_Mini_hand_top
+        weight: 1
+      - path: Tail_Bottom
+        weight: 1
+      - path: Tail_End
+        weight: 1
+      - path: Tail_middle
+        weight: 1
+      - path: Top_Left_Leg
+        weight: 1
+      - path: Top_Right_Leg
+        weight: 1
+      - path: Torso
+        weight: 1
+      - path: Waist
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -85,7 +85,7 @@ public class StatWriter : MonoBehaviour {
 			string fav;
 			if (rangedAttackP1 >= meleeAttackP1)
             {
-                Debug.Log("First if fired");
+                //Debug.Log("First if fired");
                 fav = "Ranged Attack";
 			} else {
 				fav = "Melee Attack";
@@ -99,7 +99,7 @@ public class StatWriter : MonoBehaviour {
 			string fav;
 			if (rangedAttackP2 >= meleeAttackP2)
 			{
-				Debug.Log("First if fired");
+				//Debug.Log("First if fired");
 				fav = "Ranged Attack";
 			} else {
 				fav = "Melee Attack";
