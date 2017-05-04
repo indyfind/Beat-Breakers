@@ -42,7 +42,7 @@ public class Projectile : MonoBehaviour {
 	}
 
 	public void MoveProjectile() {
-		Debug.Log("projectile moved");
+		//Debug.Log("projectile moved");
 		if (lifespan <= 0) {
 			Destroy(this.gameObject);
 		} else {

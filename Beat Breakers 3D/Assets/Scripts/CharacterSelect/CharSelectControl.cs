@@ -11,6 +11,7 @@ public class CharSelectControl: MonoBehaviour {
     public GameObject EvaModel;
     public GameObject NazModel;
 	public GameObject CosmicModel;
+	public GameObject JameleonModel;
 
     private Quaternion targetRotation;
     private float rotation = 0f;
@@ -55,6 +56,7 @@ public class CharSelectControl: MonoBehaviour {
         EvaModel.GetComponent<Animator>().SetBool("gameStart", true);
         NazModel.GetComponent<Animator>().SetBool("gameStart", true);
 		CosmicModel.GetComponent<Animator>().SetBool("gameStart", true);
+		JameleonModel.GetComponent<Animator>().SetBool("gameStart", true);
 
         soundPlayer.GetComponent<SoundPlayer>().PlaySound("ChooseYourCharacter");
     }
@@ -80,7 +82,7 @@ public class CharSelectControl: MonoBehaviour {
         }
         else if (temp % 360f == 135f)
         {
-            charText.text = "?";
+            charText.text = "Jameleon";
         }
         else if (temp % 360f == 180f)
         {
@@ -167,6 +169,12 @@ public class CharSelectControl: MonoBehaviour {
 					p1coin.SetActive(false);
 					p2coin.SetActive(true);
 					//soundPlayer.GetComponent<SoundPlayer>().PlaySound("Naz", true);
+				} else if (rotation % 360f == 135f)
+				{
+					p1char = "Jameleon";
+					p1picked = true;
+					p1coin.SetActive(false);
+					p2coin.SetActive(true);
 				} else {
 					soundPlayer.GetComponent<SoundPlayer>().PlaySound("No");
 				}
@@ -210,6 +218,12 @@ public class CharSelectControl: MonoBehaviour {
 					p2char = "CosmicS";
 					p2picked = true;
 					//soundPlayer.GetComponent<SoundPlayer>().PlaySound("Naz", true);
+				} 
+				else if (rotation % 360f == 135f)
+				{
+					p2char = "Jameleon";
+					p2picked = true;
+					//play sound
 				} else {
 					soundPlayer.GetComponent<SoundPlayer>().PlaySound("No", true);
 				}

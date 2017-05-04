@@ -8,6 +8,7 @@ public class CharacterLoader : MonoBehaviour {
     private GameObject evaAlt;
     private GameObject naz;
 	private GameObject cosmic;
+	private GameObject jam;
 
     //positions/rotations
     private Vector3 startP1 = new Vector3(-3f, 1f, 0f);
@@ -34,6 +35,7 @@ public class CharacterLoader : MonoBehaviour {
         evaAlt = Resources.Load("CharacterPrefabs/EvaAlt") as GameObject;
         naz = Resources.Load("CharacterPrefabs/Naz") as GameObject;
 		cosmic = Resources.Load("CharacterPrefabs/CosmicS") as GameObject;
+		jam = Resources.Load("CharacterPrefabs/Jameleon") as GameObject;
 
         //check player 1 character choice
         if (p1char == "Eva")
@@ -51,7 +53,11 @@ public class CharacterLoader : MonoBehaviour {
 		else if (p1char == "CosmicS")
 		{
 			p1object = cosmic;
+		} else if (p1char == "Jameleon")
+		{
+			p1object = jam;
 		}
+
 
         //check player 2 character choice
         if (p2char == "Eva")
@@ -69,6 +75,9 @@ public class CharacterLoader : MonoBehaviour {
 		else if (p2char == "CosmicS")
 		{
 			p2object = cosmic;
+		} else if (p2char == "Jameleon")
+		{
+			p2object = jam;
 		}
 
         //load character prefabs
