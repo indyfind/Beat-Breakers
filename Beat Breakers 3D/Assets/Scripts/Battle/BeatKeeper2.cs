@@ -39,6 +39,8 @@ public class BeatKeeper2 : MonoBehaviour {
     private GameObject inputMaster;
 	private InputDevice player1device;
     private InputDevice player2device;
+	public PlayerKeyboardActions player1KeyboardActions;
+	public PlayerKeyboardActions player2KeyboardActions;
     public GameObject pausebutton1, pausebutton2, pausebutton3;
 	private bool battleOver = false;
 
@@ -59,9 +61,27 @@ public class BeatKeeper2 : MonoBehaviour {
 		char2script = player2.GetComponent<VanillaCharacter>();
 		timerText = timer.GetComponent<Text>();
 
-        inputMaster = GameObject.FindGameObjectWithTag("InputMaster");
-        player1device = inputMaster.GetComponent<InputMaster>().player1Controller;
-        player2device = inputMaster.GetComponent<InputMaster>().player2Controller;
+		inputMaster = GameObject.FindGameObjectWithTag("InputMaster");
+		if (inputMaster.GetComponent<InputMaster>().player1keyboard)
+		{
+			player1device = new InputDevice();
+			player1KeyboardActions = inputMaster.GetComponent<InputMaster>().getP1Actions();
+		}
+		else
+		{
+			player1KeyboardActions = new PlayerKeyboardActions();
+			player1device = inputMaster.GetComponent<InputMaster>().player1Controller;
+		}
+		if (inputMaster.GetComponent<InputMaster>().player2keyboard)
+		{
+			player2device = new InputDevice();
+			player2KeyboardActions = inputMaster.GetComponent<InputMaster>().getP2Actions();
+		}
+		else
+		{
+			player2KeyboardActions = new PlayerKeyboardActions();
+			player2device = inputMaster.GetComponent<InputMaster>().player2Controller;
+		}
         blocks = GameObject.FindGameObjectsWithTag("BeatBlocks");
 		evenSpaces = GameObject.FindGameObjectsWithTag ("GridSpace2");
 		oddSpaces = GameObject.FindGameObjectsWithTag ("GridSpace1");
@@ -91,8 +111,9 @@ public class BeatKeeper2 : MonoBehaviour {
 
     void Update()
     {
-        if ((player1device.Command.WasPressed || player2device.Command.WasPressed) && (ismusicplaying))
+		if ((player1device.Command.WasPressed || player2device.Command.WasPressed || player1KeyboardActions.Select.WasPressed || player2KeyboardActions.Select.WasPressed) && (ismusicplaying))
         {
+			//Debug.Log("game paused");
             pausebutton1.SetActive(true);
             pausebutton2.SetActive(true);
             pausebutton3.SetActive(true);
@@ -228,12 +249,13 @@ public class BeatKeeper2 : MonoBehaviour {
     public void ResumeGame()
     {
         this.GetComponent<AudioSource>().UnPause();
-        ismusicplaying = true;
+		StartCoroutine(musicPlayingTrue());
         foreach (GameObject block in blocks)
         {
             block.GetComponent<BlockMover>().blockrestarted();
         }
         this.GetComponent<DoPlayerActions>().unpausecharacteranimations();
+		//Debug.Log("game resumed");
     }
 
     IEnumerator startgame()
@@ -263,4 +285,8 @@ public class BeatKeeper2 : MonoBehaviour {
 		return true;
 	}
 
+	IEnumerator musicPlayingTrue(){
+		yield return new WaitForSeconds(0.1f);
+		ismusicplaying = true;
+	}
 }

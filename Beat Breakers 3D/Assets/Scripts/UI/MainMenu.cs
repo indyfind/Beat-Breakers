@@ -10,7 +10,6 @@ public class MainMenu : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		EventSystem.current.SetSelectedGameObject(menu1, new BaseEventData(EventSystem.current));
-
 	}
 
 	// Update is called once per frame
@@ -84,7 +83,5 @@ public class MainMenu : MonoBehaviour {
 
 
 	}
-
-
 
 }

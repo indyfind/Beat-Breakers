@@ -13,13 +13,16 @@ public class InputMaster : MonoBehaviour
 	private InputDevice device;
 	public AudioSource clicksound;
 	public float playernum;
-	public GameObject menu1, menu2, menu3;
+	//public GameObject menu1, menu2, menu3;
 	public GameObject controllerText;
-	public GameObject TitleScreen;
+	//public GameObject TitleScreen;
 	public bool player1keyboard, player2keyboard;
+	public bool controllersSet;
 	// Use this for initialization
 	void Start()
 	{
+		controllersSet = false;
+
 		player1KeyboardActions = new PlayerKeyboardActions();
 		player2KeyboardActions = new PlayerKeyboardActions();
 		player1keyboard = false;
@@ -37,7 +40,7 @@ public class InputMaster : MonoBehaviour
 			//menu1.SetActive(false);
 			//menu2.SetActive(false);
 			//menu3.SetActive(false);
-			TitleScreen.GetComponent<Image>().color = Color.gray;
+			//TitleScreen.GetComponent<Image>().color = Color.gray;
 			controllerText.GetComponent<Text>().text = "Player 1 \r\n Press Any Button";
 			StartCoroutine(assigncontrollers());
 		}
@@ -89,7 +92,20 @@ public class InputMaster : MonoBehaviour
 			tempdevice = InputManager.ActiveDevice;
 			if (this.GetComponent<InputMaster>().notassignedtoplayer(tempdevice, playernum))
 			{
-				if (Input.anyKey)
+				if (tempdevice.AnyButton)
+				{
+					this.GetComponent<InputMaster>().SetPlayerController(tempdevice, playernum);
+					controllerText.GetComponent<Text>().color = Color.green;
+					clicksound.Play();
+					yield return new WaitForSeconds(.3f);
+					controllerText.GetComponent<Text>().text = "";
+					controllerText.GetComponent<Text>().color = Color.white;
+					yield return new WaitForSeconds(.05f);
+					controllerText.GetComponent<Text>().text = "Player 2 \r\n Press Any Button or key";
+					playernum = 2;
+					player1HasNoController = false;
+				}
+				else if (Input.anyKey)
 				{
 					player1KeyboardActions.Down.AddDefaultBinding(Key.S);
 					player1KeyboardActions.Left.AddDefaultBinding(Key.A);
@@ -110,19 +126,7 @@ public class InputMaster : MonoBehaviour
 					player1HasNoController = false;
 					player1keyboard = true;
 				}
-				if (tempdevice.AnyButton)
-				{
-					this.GetComponent<InputMaster>().SetPlayerController(tempdevice, playernum);
-					controllerText.GetComponent<Text>().color = Color.green;
-					clicksound.Play();
-					yield return new WaitForSeconds(.3f);
-					controllerText.GetComponent<Text>().text = "";
-					controllerText.GetComponent<Text>().color = Color.white;
-					yield return new WaitForSeconds(.05f);
-					controllerText.GetComponent<Text>().text = "Player 2 \r\n Press Any Button or key";
-					playernum = 2;
-					player1HasNoController = false;
-				}
+
 			}
 			yield return new WaitForSeconds(.05f);
 		}
@@ -132,7 +136,20 @@ public class InputMaster : MonoBehaviour
 			tempdevice = InputManager.ActiveDevice;
 			if (this.GetComponent<InputMaster>().notassignedtoplayer(tempdevice, playernum))
 			{
-				if (Input.anyKey)
+				if (tempdevice.AnyButton)
+				{
+					this.GetComponent<InputMaster>().SetPlayerController(tempdevice, playernum);
+					controllerText.GetComponent<Text>().color = Color.green;
+					clicksound.Play();
+					player2HasNoController = false;
+					yield return new WaitForSeconds(.3f);
+					// menu1.SetActive(true);
+					// menu2.SetActive(true);
+					// menu3.SetActive(true);
+					//TitleScreen.GetComponent<Image>().color = Color.white;
+					controllerText.GetComponent<Text>().text = "";
+				}
+				else if (Input.anyKey)
 				{
 					player2KeyboardActions.Down.AddDefaultBinding(Key.DownArrow);
 					player2KeyboardActions.Left.AddDefaultBinding(Key.LeftArrow);
@@ -148,26 +165,15 @@ public class InputMaster : MonoBehaviour
 					//menu1.SetActive(true);
 					//menu2.SetActive(true);
 					//menu3.SetActive(true);
-
+					//TitleScreen.GetComponent<Image>().color = Color.white;
 					controllerText.GetComponent<Text>().text = "";
 					player2keyboard = true;
 				}
-				if (tempdevice.AnyButton)
-				{
-					this.GetComponent<InputMaster>().SetPlayerController(tempdevice, playernum);
-					controllerText.GetComponent<Text>().color = Color.green;
-					clicksound.Play();
-					player2HasNoController = false;
-					yield return new WaitForSeconds(.3f);
-					// menu1.SetActive(true);
-					// menu2.SetActive(true);
-					// menu3.SetActive(true);
-					TitleScreen.GetComponent<Image>().color = Color.white;
-					controllerText.GetComponent<Text>().text = "";
-				}
+
 			}
 			yield return new WaitForSeconds(.05f);
 		}
+		controllersSet = true;
 	}
 	public PlayerKeyboardActions getP1Actions()
 	{

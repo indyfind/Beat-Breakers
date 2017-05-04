@@ -9,6 +9,8 @@ public class VanillaCharacter : MonoBehaviour {
 	private GameObject battleMaster;
 	public GameObject grid;
 	public GameObject enemy;
+	public PlayerKeyboardActions currentPlayerActions;
+	private bool keyboardControls;
 
 	//player info
 	public int player;
@@ -58,6 +60,8 @@ public class VanillaCharacter : MonoBehaviour {
 	{
         //find input master
         inputMaster = GameObject.FindGameObjectWithTag("InputMaster");
+		keyboardControls = false;
+
 
         //set player number and tag based on world location
         if (this.transform.position.x == -3f)
@@ -75,8 +79,18 @@ public class VanillaCharacter : MonoBehaviour {
         if (player == 1)
         {
 
-            //set input device
-            device = inputMaster.GetComponent<InputMaster>().player1Controller;
+			if (inputMaster.GetComponent<InputMaster>().player1keyboard){
+				currentPlayerActions = inputMaster.GetComponent<InputMaster>().getP1Actions();
+				keyboardControls = true;
+				device = new InputDevice();
+
+			}
+			//set input device
+			else
+			{
+				device = inputMaster.GetComponent<InputMaster>().player1Controller;
+				currentPlayerActions = new PlayerKeyboardActions();
+			}
 
             //find scene objects
             //enemy = GameObject.FindGameObjectWithTag("Player2");
@@ -97,8 +111,18 @@ public class VanillaCharacter : MonoBehaviour {
         }
         else if (player == 2)
         {
-            //set input device
-            device = inputMaster.GetComponent<InputMaster>().player2Controller;
+			if (inputMaster.GetComponent<InputMaster>().player2keyboard){
+				currentPlayerActions = inputMaster.GetComponent<InputMaster>().getP2Actions();
+				keyboardControls = true;
+				device = new InputDevice();
+
+			}
+			//set input device
+			else
+			{
+				device = inputMaster.GetComponent<InputMaster>().player2Controller;
+				currentPlayerActions = new PlayerKeyboardActions();
+			}
 
             //find scene objects
             //enemy = GameObject.FindGameObjectWithTag("Player1");
@@ -405,34 +429,34 @@ public class VanillaCharacter : MonoBehaviour {
 	public void ReadInput(string rating){
 		
 		//Movement
-		if ((device.DPad.WasPressed || device.LeftStick.WasPressed)) { //  && onb
+		if ((device.DPad.WasPressed || device.LeftStick.WasPressed || keyboardControls)) { //  && onb
 			//if using left stick: is y value greater than x?
-			if (Mathf.Abs(device.LeftStickY.Value) >= Mathf.Abs(device.LeftStickX.Value))
+			if ((Mathf.Abs(device.LeftStickY.Value) >= Mathf.Abs(device.LeftStickX.Value)) || keyboardControls)
 			{
 				//move up
-				if ((device.DPadUp.WasPressed || device.LeftStickUp.WasPressed) && this.GetComponent<CharacterMover>().yposition > 0)
+				if ((device.DPadUp.WasPressed || device.LeftStickUp.WasPressed || currentPlayerActions.Up) && this.GetComponent<CharacterMover>().yposition > 0)
 				{
 					this.GetComponent<VanillaCharacter>().currentAction = "moveUp";
 					rhythmRating = rating;
 				}
 				//move down
-				else if ((device.DPadDown.WasPressed || device.LeftStickDown.WasPressed) && this.GetComponent<CharacterMover>().yposition < 6)
+				else if ((device.DPadDown.WasPressed || device.LeftStickDown.WasPressed || currentPlayerActions.Down) && this.GetComponent<CharacterMover>().yposition < 6)
 				{
 					this.GetComponent<VanillaCharacter>().currentAction = "moveDown";
 					rhythmRating = rating;
 				}
 			}
 			//if using left stick: is x value greater than y?
-			if (Mathf.Abs(device.LeftStickY.Value) <= Mathf.Abs(device.LeftStickX.Value))
+			if ((Mathf.Abs(device.LeftStickY.Value) <= Mathf.Abs(device.LeftStickX.Value))|| keyboardControls)
 			{
 				//move right
-				if ((device.DPadRight.WasPressed || device.LeftStickRight.WasPressed) && this.GetComponent<CharacterMover>().xposition < 6)
+				if ((device.DPadRight.WasPressed || device.LeftStickRight.WasPressed || currentPlayerActions.Right) && this.GetComponent<CharacterMover>().xposition < 6)
 				{
 					this.GetComponent<VanillaCharacter>().currentAction = "moveRight";
 					rhythmRating = rating;
 				}
 				//move left
-				else if ((device.DPadLeft.WasPressed || device.LeftStickLeft.WasPressed) && this.GetComponent<CharacterMover>().xposition > 0)
+				else if ((device.DPadLeft.WasPressed || device.LeftStickLeft.WasPressed || currentPlayerActions.Left) && this.GetComponent<CharacterMover>().xposition > 0)
 				{
 					this.GetComponent<VanillaCharacter>().currentAction = "moveLeft";
 					rhythmRating = rating;
@@ -481,7 +505,7 @@ public class VanillaCharacter : MonoBehaviour {
         */
 
 		//Melee attack
-		if ((device.LeftBumper.WasPressed)) // || device.LeftTrigger.WasPressed)) // && (meter >= meleeMeterCost)) // && onb && !onCoolDown
+		if ((device.LeftBumper.WasPressed) || currentPlayerActions.ShortAtk) // || device.LeftTrigger.WasPressed)) // && (meter >= meleeMeterCost)) // && onb && !onCoolDown
 		{
 			if (true) { //meter >= meleeMeterCost) {
 				currentAction = "melee";
@@ -492,7 +516,7 @@ public class VanillaCharacter : MonoBehaviour {
 		}
 
 		//Ranged attack
-		if ((device.RightBumper.WasPressed)) // || device.RightTrigger.WasPressed)) // && (meter >= rangedMeterCost)) { // && !onCoolDown
+		if ((device.RightBumper.WasPressed) || currentPlayerActions.LongAtk) // || device.RightTrigger.WasPressed)) // && (meter >= rangedMeterCost)) { // && !onCoolDown
 		{
 			if (true) { //meter >= rangedMeterCost) {
 				currentAction = "ranged";
@@ -532,6 +556,29 @@ public class VanillaCharacter : MonoBehaviour {
 					currentAction = "basicAttackDown";
 					rhythmRating = rating;
 				}
+			}
+		}
+		else if (currentPlayerActions.BasicAttack)
+		{
+			if (this.transform.localEulerAngles.y == 270)
+			{
+				currentAction = "basicAttackUp";
+				rhythmRating = rating;
+			}
+			else if (this.transform.localEulerAngles.y == 90)
+			{
+				currentAction = "basicAttackDown";
+				rhythmRating = rating;
+			}
+			else if (this.transform.localEulerAngles.y == 0)
+			{
+				currentAction = "basicAttackRight";
+				rhythmRating = rating;
+			}
+			else
+			{ //(this.transform.localEulerAngles.y == 180) {
+				currentAction = "basicAttackLeft";
+				rhythmRating = rating;
 			}
 		}
 	}
