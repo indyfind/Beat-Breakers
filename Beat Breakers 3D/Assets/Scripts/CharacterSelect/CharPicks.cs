@@ -4,6 +4,7 @@ using System.Collections;
 public class CharPicks : MonoBehaviour {
     public string p1char;
     public string p2char;
+	public string song;
     
     // Use this for initialization
 	void Start () {

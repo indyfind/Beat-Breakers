@@ -101,7 +101,7 @@ public class InputMaster : MonoBehaviour
 					controllerText.GetComponent<Text>().text = "";
 					controllerText.GetComponent<Text>().color = Color.white;
 					yield return new WaitForSeconds(.05f);
-					controllerText.GetComponent<Text>().text = "Player 2 \r\n Press Any Button or key";
+					controllerText.GetComponent<Text>().text = "Player 2 \r\n Press Any Button";
 					playernum = 2;
 					player1HasNoController = false;
 				}

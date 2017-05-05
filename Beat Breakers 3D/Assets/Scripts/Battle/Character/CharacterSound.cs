@@ -39,9 +39,19 @@ public class CharacterSound : MonoBehaviour {
             getHitSound = Resources.Load<AudioClip>("Sound/Eva Voice Lines/EVA-Ugh");
             meleeSound = Resources.Load<AudioClip>("Sound/SFX/Nazyilan/SFX_Nazyilan_Melee");
             rangedSound = Resources.Load<AudioClip>("Sound/SFX/Nazyilan/SFX_Nazyilan_Ranged");
-        }
+		} else if (character == "CosmicS") 
+		{
+			getHitSound = Resources.Load<AudioClip>("Sound/Eva Voice Lines/EVA-Ugh");
+			meleeSound = Resources.Load<AudioClip>("Sound/SFX/Cosmic S Melee SFX");
+			rangedSound = Resources.Load<AudioClip>("Sound/SFX/Cosmic S Range SFX");
+		} else if (character == "Jameleon")
+		{
+			getHitSound = Resources.Load<AudioClip>("Sound/Eva Voice Lines/EVA-Ugh");
+			meleeSound = Resources.Load<AudioClip>("Sound/SFX/Jameleon Melee SFX");
+			rangedSound = Resources.Load<AudioClip>("Sound/SFX/Jameleon Range SFX");
+		}
 		Bump = Resources.Load<AudioClip>("Sound/SFX/Form Switching/SFX_Bump");
-		Burn = Resources.Load<AudioClip>("Sound/SFX/Form Switching/SFX_Burn");
+		Burn = Resources.Load<AudioClip>("Sound/SFX/Fire_SFX");
 		Stun = Resources.Load<AudioClip>("Sound/SFX/Form Switching/SFX_Stun");
 		FormSwitch = Resources.Load<AudioClip>("Sound/SFX/Form Switching/SFX_Form_Switch");
 		Block = Resources.Load<AudioClip>("Sound/SFX/All Characters/SFX_Block");
