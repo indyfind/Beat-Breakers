@@ -1,0 +1,1094 @@
+Initialize engine version: 5.5.1f1 (88d00a7498cd)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: AMD Radeon R9 200 / HD 7900 Series (ID=0x6798)
+    Vendor:   ATI
+    VRAM:     3051 MB
+    Driver:   15.201.1151.1010
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.77_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.77_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.77_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.77_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.77_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.77_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.77_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.77_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.77_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.77_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.77_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.77_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.77_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.77_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.77_Data\Managed\SonicBloom.Koreo.dll (this message is harmless)
+Loading E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.77_Data\Managed\SonicBloom.Koreo.dll into Unity Child Domain
+- Completed reload, in  0.157 seconds
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.77_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: E:\Beat Breakers 3D\Beat Breakers 3D\Builds\BeatBreakersV0.77_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.192189 ms
+[InControl] Joystick 3: "vJoy - Virtual Joystick"
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: a43f4 -> priority: 1 
+  Thread -> id: a44dc -> priority: 1 
+Unloading 8 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.272476 ms
+[InControl] Joystick 3: "vJoy - Virtual Joystick"
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 1608.
+Total: 0.621421 ms (FindLiveObjects: 0.055288 ms CreateObjectMapping: 0.048005 ms MarkObjects: 0.496607 ms  DeleteObjects: 0.016553 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.115049 ms
+
+Unloading 283 unused Assets to reduce memory usage. Loaded Objects now: 1148.
+Total: 7.302119 ms (FindLiveObjects: 0.066545 ms CreateObjectMapping: 0.048998 ms MarkObjects: 0.607847 ms  DeleteObjects: 6.577734 ms)
+
+pressed down
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+4
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 45.1, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed down
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 57.9, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed down
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 70.6, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed down
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 83.4, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed down
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 96.2, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed up
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 83.4, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed up
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 70.6, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed up
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 57.9, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed up
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 45.1, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed up
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+4
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 32.3, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed up
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 19.5, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed up
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+6
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 6.7, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed up
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+7
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, -5.9, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed up
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+8
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, -18.5, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed down
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+8
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, -5.7, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed down
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+7
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 7.1, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed down
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+6
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 19.8, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed down
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 32.6, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed down
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+4
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 45.4, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed down
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 58.2, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed down
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 71.0, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed down
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 83.7, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed down
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 96.5, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed up
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 83.7, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed up
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 71.0, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed up
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 58.2, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed up
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 45.4, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed up
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+4
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 32.6, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed up
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 19.8, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed up
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+6
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 7.1, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed up
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+7
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, -5.7, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed down
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+7
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, 7.1, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+pressed up
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+7
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, -5.7, 90.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.399771 ms
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 3896.
+Total: 2.875027 ms (FindLiveObjects: 0.171164 ms CreateObjectMapping: 0.110577 ms MarkObjects: 2.564813 ms  DeleteObjects: 0.027478 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Projectile+<MoveDirection>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+Projectile:MoveProjectile()
+BeatKeeper2:OnBeat(KoreographyEvent)
+SonicBloom.Koreo.EventObj:Trigger(KoreographyEvent, Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.KoreographyTrack:CheckForEvents(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreography:UpdateTrackTime(Int32, Int32, DeltaSlice)
+SonicBloom.Koreo.Koreographer:ProcessDelayQueue(Double)
+SonicBloom.Koreo.Koreographer:Update()
+ 
+(Filename:  Line: -1)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.223478 ms
+
+Unloading 88 unused Assets to reduce memory usage. Loaded Objects now: 3933.
+Total: 3.590142 ms (FindLiveObjects: 0.175799 ms CreateObjectMapping: 0.113557 ms MarkObjects: 2.623412 ms  DeleteObjects: 0.676379 ms)
+

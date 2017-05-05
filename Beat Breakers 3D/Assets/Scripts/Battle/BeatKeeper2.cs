@@ -43,12 +43,13 @@ public class BeatKeeper2 : MonoBehaviour {
 	public PlayerKeyboardActions player2KeyboardActions;
     public GameObject pausebutton1, pausebutton2, pausebutton3;
 	private bool battleOver = false;
+	private GameObject music;
 
     //private GameObject menuSong;
 
     // Use this for initialization
     void Start () {
-
+		music = GameObject.FindGameObjectWithTag("Music");
         //find scene objects
         player1 = GameObject.FindGameObjectWithTag("Player1");
         player2 = GameObject.FindGameObjectWithTag("Player2");
@@ -100,11 +101,13 @@ public class BeatKeeper2 : MonoBehaviour {
 		}
 		//set timer
 		timerText.text = beatsLeft.ToString ();
+
 		//koreographer listen for events
 		Koreographer.Instance.RegisterForEvents("beat", OnBeat);
 		Koreographer.Instance.RegisterForEvents("good", OnGoodSpan);
 		Koreographer.Instance.RegisterForEvents("great", OnGreatSpan);
 		Koreographer.Instance.RegisterForEvents("perfect", OnPerfectSpan);
+
 		//start battle
 		StartCoroutine(startgame());
 	}
@@ -119,6 +122,7 @@ public class BeatKeeper2 : MonoBehaviour {
             pausebutton3.SetActive(true);
             ismusicplaying = false;
             this.GetComponent<AudioSource>().Pause();
+			music.GetComponent<AudioSource>().Pause();
             foreach (GameObject block in blocks)
             {
                 block.GetComponent<BlockMover>().blockstopped();
@@ -249,6 +253,7 @@ public class BeatKeeper2 : MonoBehaviour {
     public void ResumeGame()
     {
         this.GetComponent<AudioSource>().UnPause();
+		music.GetComponent<AudioSource>().UnPause();
 		StartCoroutine(musicPlayingTrue());
         foreach (GameObject block in blocks)
         {
@@ -278,6 +283,7 @@ public class BeatKeeper2 : MonoBehaviour {
 		yield return new WaitForSeconds(1f);
 		battleStarted = true;
 		battleSong.Play();
+		music.GetComponent<AudioSource>().Play();
         ismusicplaying = true;
 	}
 

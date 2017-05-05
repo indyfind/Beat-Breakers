@@ -142,7 +142,7 @@ public class CharSelectControl: MonoBehaviour {
                     p1picked = true;
                     p1coin.SetActive(false);
                     p2coin.SetActive(true);
-                    soundPlayer.GetComponent<SoundPlayer>().PlaySound("Eva", true);
+                    soundPlayer.GetComponent<SoundPlayer>().PlaySound("Click", true);
                 }
                 else if (rotation % 360f == 45f)
                 {
@@ -150,7 +150,7 @@ public class CharSelectControl: MonoBehaviour {
                     p1picked = true;
                     p1coin.SetActive(false);
                     p2coin.SetActive(true);
-                    soundPlayer.GetComponent<SoundPlayer>().PlaySound("Naz", true);
+                    soundPlayer.GetComponent<SoundPlayer>().PlaySound("Click", true);
 				}
 				else if (rotation % 360f == 90f)
 				{
@@ -158,13 +158,14 @@ public class CharSelectControl: MonoBehaviour {
 					p1picked = true;
 					p1coin.SetActive(false);
 					p2coin.SetActive(true);
-					//soundPlayer.GetComponent<SoundPlayer>().PlaySound("Naz", true);
+					soundPlayer.GetComponent<SoundPlayer>().PlaySound("Click", true);
 				} else if (rotation % 360f == 135f)
 				{
 					p1char = "Jameleon";
 					p1picked = true;
 					p1coin.SetActive(false);
 					p2coin.SetActive(true);
+					soundPlayer.GetComponent<SoundPlayer>().PlaySound("Click", true);
 				} else {
 					soundPlayer.GetComponent<SoundPlayer>().PlaySound("No");
 				}
@@ -258,7 +259,7 @@ public class CharSelectControl: MonoBehaviour {
 
 	IEnumerator LoadBattle(){
 		yield return new WaitForSeconds(1);
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene(4);
 	}
 
     /*

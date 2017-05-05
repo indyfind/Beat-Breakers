@@ -19,6 +19,7 @@ public class SoundPlayer : MonoBehaviour
     public AudioClip Naz;
     public AudioClip Eva;
 	public AudioClip No;
+	public AudioClip Click;
 
     private AudioSource audioplayer;
     // Use this for initialization
@@ -37,6 +38,7 @@ public class SoundPlayer : MonoBehaviour
         Naz = Resources.Load<AudioClip>("Sound/AnnouncerVoiceLines/UILines/NAZ");
         ChooseYourDancer = Resources.Load<AudioClip>("Sound/AnnouncerVoiceLines/UILines/ChooseYourDancer");
 		No = Resources.Load<AudioClip>("Sound/SFX/All Characters/SFX_No_Energy");
+		Click = Resources.Load<AudioClip>("Sound/SFX/Click");
         audioplayer = this.GetComponent<AudioSource>();
 
     }
@@ -101,6 +103,10 @@ public class SoundPlayer : MonoBehaviour
                 break;
 			case "No":
 				audioplayer.clip = No;
+				audioplayer.Play();
+				break;
+			case "Click":
+				audioplayer.clip = Click;
 				audioplayer.Play();
 				break;
             default:
