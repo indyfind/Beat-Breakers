@@ -25,7 +25,7 @@ public class BeatKeeper2 : MonoBehaviour {
 	private int everyOtherBeat = 1;
 	public bool battleStarted = false;
 	private int countdown = 3;
-	private int beatsLeft = 332;
+	public int beatsLeft = 332;
 	private Text UIText;
 	public GameObject timer;
 	private Text timerText;
@@ -44,6 +44,7 @@ public class BeatKeeper2 : MonoBehaviour {
     public GameObject pausebutton1, pausebutton2, pausebutton3;
 	private bool battleOver = false;
 	private GameObject music;
+	private float beatTime;
 
     //private GameObject menuSong;
 
@@ -100,7 +101,7 @@ public class BeatKeeper2 : MonoBehaviour {
 			space.GetComponent<MeshRenderer> ().material.color = gridColor3;
 		}
 		//set timer
-		timerText.text = beatsLeft.ToString ();
+		//timerText.text = beatsLeft.ToString ();
 
 		//koreographer listen for events
 		Koreographer.Instance.RegisterForEvents("beat", OnBeat);
@@ -146,6 +147,7 @@ public class BeatKeeper2 : MonoBehaviour {
 
     //when beat actually happens
     void OnBeat (KoreographyEvent evt) {
+		beatTime = Time.time;
 		//if battle started, do both player's actions
 		if (countdown < 0)
 		{
@@ -235,18 +237,18 @@ public class BeatKeeper2 : MonoBehaviour {
 		}
 	}
 	void OnGoodSpan(KoreographyEvent evt) {
-		char1script.ReadInput("Good!");
-		char2script.ReadInput("Good!");
+		char1script.ReadInput("Good!", beatTime);
+		char2script.ReadInput("Good!", beatTime);
 	}
 
 	void OnGreatSpan(KoreographyEvent evt) {
-		char1script.ReadInput("Great!");
-		char2script.ReadInput("Great!");
+		char1script.ReadInput("Great!", beatTime);
+		char2script.ReadInput("Great!", beatTime);
 	}
 
 	void OnPerfectSpan(KoreographyEvent evt) {
-		char1script.ReadInput("Perfect!");
-		char2script.ReadInput("Perfect!");
+		char1script.ReadInput("Perfect!", beatTime);
+		char2script.ReadInput("Perfect!", beatTime);
 	}
 
     //unpauses the game

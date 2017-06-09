@@ -426,10 +426,11 @@ public class VanillaCharacter : MonoBehaviour {
         }
     }
   
-	public void ReadInput(string rating){
+	public void ReadInput(string rating, float beatTime){
 		
 		//Movement
 		if ((device.DPad.WasPressed || device.LeftStick.WasPressed || keyboardControls)) { //  && onb
+			Debug.Log(Time.time - beatTime);
 			//if using left stick: is y value greater than x?
 			if ((Mathf.Abs(device.LeftStickY.Value) >= Mathf.Abs(device.LeftStickX.Value)) || keyboardControls)
 			{
